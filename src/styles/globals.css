@@ -1,0 +1,199 @@
+@import "tailwindcss";
+@import "./jodit.css";
+
+@plugin "@tailwindcss/typography";
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+  preferredStrategy: 'pseudoelements';
+};
+
+@utility container {
+  margin-inline: auto;
+}
+
+@theme inline {
+  /* Colors */
+  --color-surface-tint: #a04020;
+  --color-surface-bright: #fcf9f2;
+  --color-surface-container-high: #ebe8e1;
+  --color-on-tertiary-container: #f6f2ee;
+  --color-surface-variant: #e5e2db;
+  --color-on-primary-fixed: #3a0b00;
+  --color-surface-dim: #dcdad3;
+  --color-inverse-on-surface: #f3f0e9;
+  --color-inverse-surface: #31312c;
+  --color-on-primary-container: #fff0eb;
+  --color-on-primary: #ffffff;
+  --color-secondary: #516169;
+  --color-surface-container-low: #f6f3ec;
+  --color-tertiary-fixed-dim: #cac6c2;
+  --color-error: #ba1a1a;
+  --color-background: #fcf9f2;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary-fixed: #1c1b19;
+  --color-tertiary-container: #706e6b;
+  --color-surface: #fcf9f2;
+  --color-on-tertiary: #ffffff;
+  --color-on-background: #1c1c18;
+  --color-tertiary: #585653;
+  --color-primary-container: #b5502e;
+  --color-primary: #953918;
+  --color-surface-container-highest: #e5e2db;
+  --color-on-tertiary-fixed-variant: #484644;
+  --color-on-secondary-fixed-variant: #394951;
+  --color-outline-variant: #ddc0b8;
+  --color-on-surface-variant: #56423c;
+  --color-on-secondary-container: #55656d;
+  --color-outline: #8a726b;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-primary-fixed-variant: #802a09;
+  --color-error-container: #ffdad6;
+  --color-on-surface: #1c1c18;
+  --color-primary-fixed: #ffdbd0;
+  --color-tertiary-fixed: #e6e2de;
+  --color-inverse-primary: #ffb59e;
+  --color-on-secondary-fixed: #0e1e24;
+  --color-primary-fixed-dim: #ffb59e;
+  --color-secondary-container: #d1e2ec;
+  --color-secondary-fixed: #d4e5ee;
+  --color-on-error-container: #93000a;
+  --color-secondary-fixed-dim: #b8c9d2;
+  --color-surface-container: #f1eee7;
+  --color-on-error: #ffffff;
+
+  /* Fonts */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-gradient: gradient 8s linear infinite;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+  }
+}
+
+@theme {
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+html,
+body{
+  background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%239C92AC' fill-opacity='0.03'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Jodit insight Content Unreset (Fixed for Tailwind Typography) */
+.insight-content h1,
+.insight-content h2,
+.insight-content h3,
+.insight-content h4,
+.insight-content h5,
+.insight-content h6 {
+  scroll-margin-top: 6rem !important; /* Prevents navbar overlap on anchor links */
+}
+
+.insight-content [style*="font-size"] {
+  font-size: var(--jodit-font-size, inherit) !important;
+}
+
+.insight-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1.5rem 0 !important;
+}
+
+.insight-content table td,
+.insight-content table th {
+  border: 1px solid var(--color-surface-container-highest) !important;
+  padding: 0.75rem !important;
+}
+
+.insight-content table th {
+  background-color: var(--color-surface-container) !important;
+  font-weight: 700 !important;
+  color: var(--color-on-surface) !important;
+}
+
+.insight-content p {
+  margin-bottom: 1.25rem !important;
+  line-height: 1.7 !important;
+  color: var(--color-on-surface-variant) !important;
+}
+
+.insight-content ul {
+  list-style-type: disc !important;
+  padding-left: 2rem !important;
+  margin-bottom: 1rem !important;
+  color: var(--color-on-surface-variant) !important;
+}
+
+.insight-content ol {
+  list-style-type: decimal !important;
+  padding-left: 2rem !important;
+  margin-bottom: 1rem !important;
+  color: var(--color-on-surface-variant) !important;
+}
+
+.insight-content li {
+  margin-bottom: -5px !important;
+  /* Reduced gap between bullets */
+  display: list-item !important;
+}
+
+/* Tighter gaps for nested sub-points */
+.insight-content ul ul,
+.insight-content ol ol,
+.insight-content ul ol,
+.insight-content ol ul {
+  margin-bottom: 0 !important;
+  margin-top: 0.25rem !important;
+}
+
+.insight-content a {
+  color: var(--color-primary) !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-decoration-color: var(--color-primary) !important;
+  text-underline-offset: 4px !important;
+  text-decoration-thickness: 2px !important;
+  transition: all 0.3s ease !important;
+}
+
+.insight-content a:hover {
+  color: var(--color-primary-container) !important;
+  text-decoration-color: var(--color-primary-container) !important;
+  opacity: 0.8 !important;
+}
+@keyframes fade-in-right {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-left {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Premium Accessibility Focus Rings */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-background), 0 0 15px 4px color-mix(in srgb, var(--color-primary) 50%, transparent);
+  transition: box-shadow 0.2s ease;
+}

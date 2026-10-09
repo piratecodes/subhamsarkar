@@ -1,23 +1,53 @@
 {
   "name": "subham.digital",
-  "version": "0.1.0",
+  "version": "2.5.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "yarn run partytown && next build && yarn run copy-standalone",
+    "copy-standalone": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "partytown": "partytown copylib public/~subham.digital",
+    "postinstall": "prisma skills sync || exit 0"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.10",
+    "@prisma/client": "^5.14.0",
+    "@qwik.dev/partytown": "^0.14.4",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.11.0",
+    "date-fns": "^4.4.0",
+    "framer-motion": "^13.4.4",
+    "jodit-react": "^5.5.22",
+    "jose": "^6.2.12",
+    "lucide-react": "^1.48.0",
     "next": "16.3.6",
+    "nextjs-toploader": "^3.9.17",
+    "nodemailer": "^10.0.13",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-confetti": "^6.4.0",
+    "react-datepicker": "^9.1.0",
+    "react-dom": "19.2.8",
+    "react-hot-toast": "^2.6.1",
+    "react-icons": "^5.7.0",
+    "react-image-crop": "^11.1.2",
+    "react-parallax-tilt": "^1.7.345",
+    "react-phone-number-input": "^3.4.18",
+    "recharts": "^3.10.1",
+    "tailwind-scrollbar": "^4.0.2",
+    "web-push": "^3.6.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.3.6",
+    "prisma": "^5.14.0",
     "tailwindcss": "^4"
   },
   "packageManager": "yarn@1.22.22"

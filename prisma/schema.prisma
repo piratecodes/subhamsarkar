@@ -1,0 +1,250 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               String    @id @default(uuid())
+  email            String    @unique
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  firstName        String
+  isActive         Boolean   @default(true)
+  lastLoginAt      DateTime?
+  lastName         String
+  passwordHash     String
+  profileImage     String?
+  role             Role      @default(STAFF)
+  resetToken       String?   @unique
+  resetTokenExpiry DateTime?
+  username         String    @unique
+  bio              String?   @db.Text
+  designation      String?
+  alternateEmail   String?
+  insights         Insight[]
+  sessions         Session[]
+}
+
+model Session {
+  id         String   @id @default(uuid())
+  userId     String
+  token      String   @unique
+  device     String
+  ipAddress  String?
+  lastActive DateTime @default(now())
+  isRevoked  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId], map: "Session_userId_fkey")
+}
+
+model Dossier {
+  id                    String   @id @default(cuid())
+  title                 String
+  status                String
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+  approach              String   @db.Text
+  associatedWith        String?
+  bottleneck            String   @db.Text
+  category              String
+  discipline            String
+  images                Json
+  industry              String
+  industryNiche         String?
+  isPublished           Boolean  @default(true)
+  outcome               String   @db.Text
+  pipeline              Json
+  ref                   String
+  stats                 Json
+  summary               String   @db.Text
+  technicalDetails      Json
+  topologySchematic     Json
+  thumbnail             String?
+  thumbnailAlt          String?
+  associatedWithLink    String?
+  associatedWithLogo    String?
+  associatedWithLogoAlt String?
+  eyebrow               String?
+}
+
+model Insight {
+  id                 String   @id @default(cuid())
+  title              String
+  slug               String   @unique
+  excerpt            String?  @db.Text
+  content            String   @db.LongText
+  faqs               Json?
+  coverImage         String?
+  coverImageAlt      String?
+  category           String?
+  customAuthor       String?
+  authorId           String?
+  isPublished        Boolean  @default(false)
+  seoMetaTitle       String?
+  seoMetaDescription String?  @db.Text
+  seoMetaKeywords    String?
+  seoCanonicalUrl    String?
+  seoIsNoIndex       Boolean  @default(false)
+  seoJsonLdSchema    String?  @db.Text
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  author             User?    @relation(fields: [authorId], references: [id])
+
+  @@index([authorId], map: "Insight_authorId_fkey")
+}
+
+model SiteSettings {
+  id        Int      @id @default(1)
+  whatsapp  String?
+  email     String?
+  address   String?
+  facebook  String?
+  instagram String?
+  linkedin  String?
+  github    String?
+  twitter   String?
+  updatedAt DateTime @updatedAt
+}
+
+model Lead {
+  id           String       @id @default(cuid())
+  firstName    String
+  lastName     String
+  email        String
+  phone        String?
+  timeline     LeadTimeline @default(JUST_EXPLORING)
+  comments     String?      @db.Text
+  requiresNda  Boolean      @default(false)
+  status       LeadStatus   @default(NEW)
+  adminNotes   String?      @db.Text
+  reminderDate DateTime?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model PushSubscription {
+  id               String             @id @default(cuid())
+  endpoint         String             @unique
+  p256dh           String
+  auth             String
+  createdAt        DateTime           @default(now())
+  category         SubscriberCategory @default(casual)
+  firstSeenAt      DateTime           @default(now())
+  hasSubmittedForm Boolean            @default(false)
+  lastSeenAt       DateTime           @default(now())
+  recencyState     RecencyState       @default(active)
+  score            Int                @default(0)
+  updatedAt        DateTime           @default(now()) @updatedAt
+  visitCount       Int                @default(1)
+  unsubscribedAt   DateTime?
+  
+  // Advanced Telemetry
+  countryCode      String?
+  countryName      String?
+  timezone         String?
+  isVpn            Boolean            @default(false)
+  ipHash           String?
+  
+  events           VisitorEvent[]
+  queueItems       PushNotificationQueue[]
+}
+
+model PushCampaign {
+  id                 String    @id @default(cuid())
+  title              String
+  message            String    @db.Text
+  url                String?
+  image              String?
+  requireInteraction Boolean   @default(false)
+  
+  // The targeting rules stored as JSON (categories, recency, vpn, country)
+  filters            Json      
+  
+  // Queue Management
+  status             String    @default("PENDING") // PENDING, PROCESSING, COMPLETED, FAILED
+  scheduledFor       DateTime? 
+  
+  sentCount          Int       @default(0)
+  failedCount        Int       @default(0)
+  
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  
+  queueItems         PushNotificationQueue[]
+}
+
+model PushNotificationQueue {
+  id              String           @id @default(cuid())
+  campaignId      String
+  subscriberId    String
+  status          String           @default("PENDING") // PENDING, SENT, FAILED
+  scheduledFor    DateTime
+  deliveredAt     DateTime?
+  clickedAt       DateTime?
+  errorReason     String?
+  
+  campaign        PushCampaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  subscriber      PushSubscription @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@index([campaignId])
+  @@index([subscriberId])
+  @@index([status, scheduledFor])
+}
+
+model VisitorEvent {
+  id            String            @id @default(cuid())
+  subscriberId  String?
+  eventType     VisitorEventType
+  page          String
+  scrollPercent Int?
+  sessionId     String
+  createdAt     DateTime          @default(now())
+  subscriber    PushSubscription? @relation(fields: [subscriberId], references: [id], onDelete: Cascade)
+
+  @@index([subscriberId], map: "VisitorEvent_subscriberId_fkey")
+}
+
+enum SubscriberCategory {
+  content_follower
+  warm_lead
+  casual
+  converted
+}
+
+enum RecencyState {
+  active
+  cooling
+  inactive
+}
+
+enum VisitorEventType {
+  page_view
+  scroll_depth
+  form_submit
+}
+
+enum Role {
+  SUPER_ADMIN
+  MANAGER
+  STAFF
+}
+
+enum LeadTimeline {
+  IMMEDIATE
+  ONE_TO_THREE_MONTHS
+  JUST_EXPLORING
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  IN_PROGRESS
+  DEAL_CLOSED
+  CANCELLED
+}

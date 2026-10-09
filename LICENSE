@@ -1,0 +1,33 @@
+CONFIDENTIAL AND PROPRIETARY NOTICE
+DO NOT DISTRIBUTE
+
+Copyright © 2026 Subham Sarkar. All rights reserved.
+
+1. Proprietary Rights Notice
+This repository — including but not limited to its source code, application architecture, database schemas, API routes, database migrations, configuration files, user interface designs, graphics, and associated documentation (collectively, the "Software") — constitutes the confidential, proprietary, and trade secret information of the Copyright Owner.
+
+2. Restriction on Use and Access
+Access to this Software is restricted to individuals explicitly authorized by the Copyright Owner. No person may view, copy, clone, modify, distribute, reproduce, republish, decompile, reverse-engineer, or otherwise transfer this Software, in whole or in part, by any means or format, without the Copyright Owner's prior written authorization.
+
+3. No Open-Source Licensing
+This Software is not licensed under the MIT License, Apache License, GNU GPL, or any other open-source or permissive license. No license, express or implied, is granted under this notice except as explicitly stated in writing by the Copyright Owner.
+
+4. Trademarks and Intellectual Property
+This notice grants no right or license to use any trade names, trademarks, service marks, logos, or product names of the Copyright Owner. All rights not expressly granted herein are reserved.
+
+5. Termination of Access
+Any unauthorized use of this Software immediately terminates whatever access or permission, express or implied, the violating party may have had, and may expose that party to civil and criminal liability under applicable intellectual property and computer fraud laws.
+
+6. Disclaimer of Warranty
+THIS SOFTWARE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT OWNER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+7. Governing Law
+This notice shall be governed by and construed in accordance with the laws of India, without regard to conflict of law principles. Any disputes arising under this notice shall be subject to the exclusive jurisdiction of the competent courts in Kolkata, West Bengal.
+
+8. Severability
+If any provision of this notice is held invalid or unenforceable, the remaining provisions shall continue in full force and effect.
+
+9. Third-Party Components
+This Software may incorporate open-source frameworks, libraries, and packages that remain governed by their own respective licenses. This notice applies solely to the original code, design, and content created by the Copyright Owner, and does not extend to any third-party components used within the Software.
+
+For inquiries regarding permissions, licensing, or authorization, contact: hello@subham.digital

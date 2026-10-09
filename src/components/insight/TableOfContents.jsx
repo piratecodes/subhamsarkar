@@ -1,0 +1,77 @@
+"use client";
+import React, { useEffect, useState } from 'react';
+
+export default function TableOfContents() {
+  const [headings, setHeadings] = useState([]);
+  const [activeId, setActiveId] = useState('');
+
+  useEffect(() => {
+    // Select all H2 and H3 tags inside the article content
+    const elements = Array.from(document.querySelectorAll('.insight-content h2, .insight-content h3'));
+    
+    // Assign IDs if they don't have one and extract text
+    const parsedHeadings = elements.map((elem, idx) => {
+      if (!elem.id) {
+        elem.id = elem.innerText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '') || `heading-${idx}`;
+      }
+      return {
+        id: elem.id,
+        text: elem.innerText,
+        level: Number(elem.tagName.charAt(1)) // 2 or 3
+      };
+    });
+
+    setHeadings(parsedHeadings);
+
+    // Setup Intersection Observer to highlight active TOC link
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -80% 0px' }
+    );
+
+    elements.forEach((elem) => observer.observe(elem));
+
+    return () => observer.disconnect();
+  }, []);
+
+  if (headings.length === 0) return null;
+
+  return (
+    <div className="bg-surface-container-lowest border border-surface-container-highest rounded-2xl p-6 shadow-sm">
+      <h3 className="text-[12px] font-display font-bold text-on-surface mb-4 tracking-widest uppercase">Table of Contents</h3>
+      <aside className="space-y-1 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+        {headings.map((heading) => (
+          <a
+            key={heading.id}
+            href={`#${heading.id}`}
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById(heading.id)?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className={`block text-sm py-1.5 transition-colors ${
+              heading.level === 3 ? 'ml-4' : 'font-bold'
+            } ${
+              activeId === heading.id 
+                ? 'text-primary' 
+                : 'text-secondary hover:text-primary'
+            }`}
+          >
+            {heading.text}
+          </a>
+        ))}
+      </aside>
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(var(--color-surface-container-rgb), 0.5); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(var(--color-primary-rgb), 0.3); border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(var(--color-primary-rgb), 0.5); }
+      `}</style>
+    </div>
+  );
+}

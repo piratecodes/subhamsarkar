@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# persistent media storage
+/storage
+/public/uploads
+
+# IDE & AI Agent folders
+.agents/
+.claude/
+.cursor/
+.devin/
+.vscode/
+.idea/
