@@ -5,7 +5,7 @@ import { verifyAdminSession } from '@/actions/auth';
 import { revalidatePath } from 'next/cache';
 
 webpush.setVapidDetails(
-  "mailto:contact@subham.digital",
+  "mailto:contact@subhamsarkar.dev",
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY
 );
@@ -35,7 +35,7 @@ export async function POST(request) {
       data: {
         title,
         message,
-        url: actionUrl || "https://subham.digital",
+        url: actionUrl || "https://subhamsarkar.dev",
         image: imageUrl || null,
         requireInteraction: requireInteraction === true,
         filters,

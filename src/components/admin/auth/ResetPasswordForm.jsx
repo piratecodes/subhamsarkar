@@ -121,7 +121,7 @@ export default function ResetPasswordForm({ token }) {
             
             <Image 
               src={logo} 
-              alt="Subham.Digital Logo" 
+              alt="SubhamSarkar.Dev Logo" 
               className="w-auto h-20 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.4)]" 
               priority
             />
@@ -133,7 +133,7 @@ export default function ResetPasswordForm({ token }) {
             transition={{ delay: 0.4 }}
             className="text-2xl font-display uppercase tracking-[0.25em] font-black bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto] animate-gradient"
           >
-            SUBHAM.DIGITAL
+            SUBHAMSARKAR.DEV
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
@@ -216,7 +216,7 @@ export default function ResetPasswordForm({ token }) {
           <span className="text-on-surface font-bold">Online</span>
         </div>
         <div className="text-[9px] tracking-widest text-on-surface-variant/50 uppercase font-mono">
-          SUBHAM.DIGITAL // 256-Bit SSL
+          SUBHAMSARKAR.DEV // 256-Bit SSL
         </div>
       </motion.div>
 

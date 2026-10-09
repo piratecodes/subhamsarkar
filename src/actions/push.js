@@ -7,7 +7,7 @@ import { headers } from "next/headers";
 import crypto from "crypto";
 
 webpush.setVapidDetails(
-  "mailto:contact@subham.digital",
+  "mailto:contact@subhamsarkar.dev",
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY
 );
@@ -180,7 +180,7 @@ export async function broadcastPushNotification(title, message, url, image, requ
     const payload = JSON.stringify({
       title,
       body: message,
-      url: url || "https://subham.digital",
+      url: url || "https://subhamsarkar.dev",
       image: image || null,
       requireInteraction: requireInteraction === true
     });

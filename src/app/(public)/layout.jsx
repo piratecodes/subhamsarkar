@@ -20,13 +20,13 @@ export const metadata = {
   },
   description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer building robust, scalable applications.",
   manifest: '/manifest.webmanifest',
-  metadataBase: new URL('https://subham.digital'),
+  metadataBase: new URL('https://subhamsarkar.dev'),
   alternates: {
     canonical: '/',
   },
   keywords: ["Software Architect", "Systems Engineer", "Subham Sarkar", "Portfolio"],
   openGraph: {
-    url: 'https://subham.digital',
+    url: 'https://subhamsarkar.dev',
     title: "Subham Sarkar | Software Architect",
     type: 'website',
     siteName: "Subham Sarkar Portfolio",
@@ -65,7 +65,7 @@ export const metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Subham.Digital",
+    title: "SubhamSarkar.Dev",
     startupImage: [
       { url: '/splash/splash-750x1334.png', media: '(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)' },
       { url: '/splash/splash-1179x2556.png', media: '(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3)' },
@@ -107,7 +107,7 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="h-full antialiased">
       <head>
         {/* Partytown Intigrations */}
-        <Partytown debug={false} forward={["dataLayer.push"]} lib="/~subham.digital/" />
+        <Partytown debug={false} forward={["dataLayer.push"]} lib="/~subhamsarkar.dev/" />
         {/* <!-- Google Tag Manager (noscript) --> */}
         <Script id="tag_manager_index" async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_MeasurementId_ga}`} type="text/partytown" />
         <Script id="tag_manager" strategy="afterInteractive" type="text/partytown" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTMId}');` }} />

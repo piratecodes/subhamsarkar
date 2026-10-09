@@ -197,7 +197,7 @@ export default function HeroSection() {
                   </div>
                   <div className="text-right">
                     <span className="font-display text-[8px] tracking-[0.15em] font-bold text-secondary uppercase block mb-0.5">WEBSITE</span>
-                    <Link href="https://subham.digital" className="font-display text-[9px] tracking-[0.15em] text-primary font-bold hover:text-on-surface transition-colors">SUBHAM.DIGITAL</Link>
+                    <Link href="https://subhamsarkar.dev" className="font-display text-[9px] tracking-[0.15em] text-primary font-bold hover:text-on-surface transition-colors">SUBHAMSARKAR.DEV</Link>
                   </div>
                 </div>
                 

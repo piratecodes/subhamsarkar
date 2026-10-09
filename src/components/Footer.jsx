@@ -111,7 +111,7 @@ export default function Footer({ settings }) {
                       <span className="font-display text-[8px] leading-tight tracking-[0.15em] font-bold px-1.5 py-0.5 bg-primary/20 text-primary border border-primary/30 rounded animate-[pulse_3s_ease-in-out_infinite]">ARCH</span>
                     </div>
                     <span className="font-display text-[8px] leading-3 tracking-[0.1em] font-medium text-secondary tracking-wider mt-1 uppercase">
-                      Subham.Digital // Studio Elevation
+                      SUBHAMSARKAR.DEV // Studio Elevation
                     </span>
                   </div>
                 </Link>

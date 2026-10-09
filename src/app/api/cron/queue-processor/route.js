@@ -3,7 +3,7 @@ import { prisma } from '@/lib/prisma';
 import webpush from 'web-push';
 
 webpush.setVapidDetails(
-  "mailto:contact@subham.digital",
+  "mailto:contact@subhamsarkar.dev",
   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
   process.env.VAPID_PRIVATE_KEY
 );
@@ -127,7 +127,7 @@ export async function GET(request) {
     let failed = 0;
     const campaignStats = {};
 
-    const hostUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://subham.digital";
+    const hostUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://subhamsarkar.dev";
 
     const promises = itemsToDispatch.map(async (item) => {
       if (!campaignStats[item.campaignId]) {

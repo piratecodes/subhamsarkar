@@ -29,8 +29,8 @@ export const getTransporter = () => {
 export const sendEmail = async ({ to, subject, text, html }) => {
   try {
     const transporter = getTransporter();
-    const fromName = process.env.EMAIL_FROM_NAME || "SUBHAM.DIGITAL";
-    const fromEmail = process.env.EMAIL_FROM || process.env.EMAIL_USER || "no-reply@subham.digital";
+    const fromName = process.env.EMAIL_FROM_NAME || "SUBHAMSARKAR.DEV";
+    const fromEmail = process.env.EMAIL_FROM || process.env.EMAIL_USER || "no-reply@subhamsarkar.dev";
 
     const mailOptions = {
       from: `"${fromName}" <${fromEmail}>`,
@@ -62,7 +62,7 @@ export const sendPasswordResetEmail = async (email, resetToken, hostUrl) => {
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Reset Your Password — subham.digital</title>
+<title>Reset Your Password — subhamsarkar.dev</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
@@ -88,7 +88,7 @@ export const sendPasswordResetEmail = async (email, resetToken, hostUrl) => {
 <!-- Minimal Header -->
 <div class="px-8 py-6 border-b border-[#F1EEE7] flex items-center justify-between bg-[#FCFBF9]">
 <div class="flex items-center">
-<img alt="Subham Sarkar // subham.digital" class="h-8 sm:h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ugvx2qvH3OQrIJhcsRzPkRSI5Yrkr77eiqKwXkYCLfG97UMZsNUlkEMXXPRrmZaXTBh_iUtaQALy1gNARO2qMJv3sjxhIcX_6ApZQHD6TQcFEDkaSjKjFqXkvUGIy7YRsqEjZLbF3J8GkuUMKG_Q1ApgB8yaoc2Oy0uxVr2wvMEinjnOl3lFWRp49l1awfsvs544OZLKPf0InQG_JD6_dJ7-N2iWd5a4F_t66IaXEv6RDDH7nKkUgvLXnc"/>
+<img alt="Subham Sarkar // subhamsarkar.dev" class="h-8 sm:h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Ugvx2qvH3OQrIJhcsRzPkRSI5Yrkr77eiqKwXkYCLfG97UMZsNUlkEMXXPRrmZaXTBh_iUtaQALy1gNARO2qMJv3sjxhIcX_6ApZQHD6TQcFEDkaSjKjFqXkvUGIy7YRsqEjZLbF3J8GkuUMKG_Q1ApgB8yaoc2Oy0uxVr2wvMEinjnOl3lFWRp49l1awfsvs544OZLKPf0InQG_JD6_dJ7-N2iWd5a4F_t66IaXEv6RDDH7nKkUgvLXnc"/>
 </div>
 <div class="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#F1EEE7] rounded text-xs font-mono-tech text-[#516169]">
 <span class="w-1.5 h-1.5 rounded-full bg-[#B5502E]"></span>
@@ -102,7 +102,7 @@ export const sendPasswordResetEmail = async (email, resetToken, hostUrl) => {
           Reset Your Password
         </h1>
 <p class="text-[#585653] text-[15px] leading-relaxed mb-8">
-          We received a request to reset the password for your <span class="font-medium text-[#1C1C18]">subham.digital</span> workspace account. Click the button below to choose a new password.
+          We received a request to reset the password for your <span class="font-medium text-[#1C1C18]">subhamsarkar.dev</span> workspace account. Click the button below to choose a new password.
         </p>
 <!-- Account & Validity Summary -->
 <div class="bg-[#F8F7F3] border border-[#EBE8E1] rounded-md p-4 mb-8">
@@ -146,11 +146,11 @@ export const sendPasswordResetEmail = async (email, resetToken, hostUrl) => {
 <span>Software Architect &amp; ERP/CRM Specialist</span>
 </div>
 <div>
-<a class="hover:text-[#B5502E] underline underline-offset-2" href="mailto:architect@subham.digital">architect@subham.digital</a>
+<a class="hover:text-[#B5502E] underline underline-offset-2" href="mailto:architect@subhamsarkar.dev">architect@subhamsarkar.dev</a>
 </div>
 </div>
 <div class="mt-3 pt-3 border-t border-[#EBE8E1]/80 text-[11px] text-[#8A726B]">
-          © ${new Date().getFullYear()} subham.digital. All rights reserved.
+          © ${new Date().getFullYear()} subhamsarkar.dev. All rights reserved.
         </div>
 </div>
 </div>
@@ -160,7 +160,7 @@ export const sendPasswordResetEmail = async (email, resetToken, hostUrl) => {
 
   return sendEmail({
     to: email,
-    subject: "Reset Your Password - subham.digital",
+    subject: "Reset Your Password - subhamsarkar.dev",
     text: `Reset your password by clicking here: ${resetLink}`,
     html,
   });
@@ -320,7 +320,7 @@ export const sendClientConfirmationEmail = async (contactData) => {
           <img src="https://lh3.googleusercontent.com/aida/AEtjO1Ugvx2qvH3OQrIJhcsRzPkRSI5Yrkr77eiqKwXkYCLfG97UMZsNUlkEMXXPRrmZaXTBh_iUtaQALy1gNARO2qMJv3sjxhIcX_6ApZQHD6TQcFEDkaSjKjFqXkvUGIy7YRsqEjZLbF3J8GkuUMKG_Q1ApgB8yaoc2Oy0uxVr2wvMEinjnOl3lFWRp49l1awfsvs544OZLKPf0InQG_JD6_dJ7-N2iWd5a4F_t66IaXEv6RDDH7nKkUgvLXnc" alt="Subham Sarkar" class="logo" />
           <div>
             <div style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; text-transform: uppercase;">Subham Sarkar</div>
-            <div style="font-size: 12px; color: #516169;">subham.digital // studio</div>
+            <div style="font-size: 12px; color: #516169;">subhamsarkar.dev // studio</div>
           </div>
         </div>
         <div class="badge">Inquiry Received</div>
@@ -363,10 +363,10 @@ export const sendClientConfirmationEmail = async (contactData) => {
         Subham Sarkar — Software Architect & ERP/CRM Specialist
       </p>
       <p class="footer-text">
-        Direct: <a href="mailto:subham@subham.digital" style="color: #953918; text-decoration: none;">subham@subham.digital</a> • <a href="https://subham.digital" style="color: #953918; text-decoration: none;">subham.digital</a>
+        Direct: <a href="mailto:subham@subhamsarkar.dev" style="color: #953918; text-decoration: none;">subham@subhamsarkar.dev</a> • <a href="https://subhamsarkar.dev" style="color: #953918; text-decoration: none;">subhamsarkar.dev</a>
       </p>
       <p class="footer-text" style="color: #585653; margin-top: 12px;">
-        © ${new Date().getFullYear()} subham.digital. All architectural inquiries handled under bilateral confidentiality.
+        © ${new Date().getFullYear()} subhamsarkar.dev. All architectural inquiries handled under bilateral confidentiality.
       </p>
     </div>
   </div>
@@ -376,7 +376,7 @@ export const sendClientConfirmationEmail = async (contactData) => {
 
   return sendEmail({
     to: contactData.email,
-    subject: "Inquiry Received — subham.digital",
+    subject: "Inquiry Received — subhamsarkar.dev",
     text: `Thank you for reaching out, ${contactData.firstName}. Your inquiry has been received. I will respond within 12 hours.`,
     html,
   });

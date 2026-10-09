@@ -67,7 +67,7 @@ export default function SudoLogin() {
   const [particles, setParticles] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
 
-  const scrambledTitle = useScrambleText("SUBHAM.DIGITAL", isMounted);
+  const scrambledTitle = useScrambleText("SUBHAMSARKAR.DEV", isMounted);
 
   useEffect(() => {
     setIsMounted(true);
@@ -193,7 +193,7 @@ export default function SudoLogin() {
             <figure className="relative h-28 w-36">
                 <Image 
                 src={logo} fill sizes="100vw"
-                alt="Subham.Digital Logo" draggable={false}
+                alt="SubhamSarkar.Dev Logo" draggable={false}
                 className="object-cover scale-152 relative z-10 drop-shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.4)]" 
                 priority
               />
@@ -347,7 +347,7 @@ export default function SudoLogin() {
           <span className="text-on-surface font-bold">Online</span>
         </div>
         <div className="text-[9px] tracking-widest text-on-surface-variant/50 uppercase font-mono">
-          SUBHAM.DIGITAL // 256-Bit SSL
+          SUBHAMSARKAR.DEV // 256-Bit SSL
         </div>
       </motion.div>
 

@@ -67,7 +67,7 @@ export default function ClosingCTA() {
                   Zero-Risk Engagement
                 </span>
                 <span className="font-sans text-[11px] text-secondary font-medium">
-                  subham.digital • Build with care
+                  SUBHAMSARKAR.DEV • Build with care
                 </span>
               </div>
             </div>

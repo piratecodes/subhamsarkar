@@ -73,7 +73,7 @@ export async function createInsight(data) {
     let finalImageUrl = data.coverImage || null;
     let finalSchema = data.seoJsonLdSchema;
     if (finalSchema && finalImageUrl) {
-      finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subham.digital' + finalImageUrl);
+      finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
     }
 
     const insight = await prisma.insight.create({
@@ -121,7 +121,7 @@ export async function updateInsight(id, data) {
 
     let finalSchema = data.seoJsonLdSchema;
     if (finalSchema && finalImageUrl) {
-      finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subham.digital' + finalImageUrl);
+      finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
     }
 
     const insight = await prisma.insight.update({

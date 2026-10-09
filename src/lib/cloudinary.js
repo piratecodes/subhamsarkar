@@ -9,8 +9,8 @@ cloudinary.config({
 export const getCloudinaryFolder = (type) => {
   // type can be 'insights', 'projects', 'staffs'
   const baseFolder = process.env.NODE_ENV === 'production' 
-    ? 'subham.digital' 
-    : 'subham.digital/dev';
+    ? 'subhamsarkar.dev' 
+    : 'subhamsarkar.dev/dev';
     
   return `${baseFolder}/${type}`;
 };

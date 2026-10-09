@@ -190,12 +190,12 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
           "headline": currentMetaTitle || prev.title,
           "image": imageUrl ? [imageUrl] : [],
           "author": { "@type": "Person", "name": authorName },
-          "publisher": { "@type": "Organization", "name": "Subham Digital", "logo": { "@type": "ImageObject", "url": "https://subham.digital/logo.png" } },
+          "publisher": { "@type": "Organization", "name": "Subham Digital", "logo": { "@type": "ImageObject", "url": "https://subhamsarkar.dev/logo.png" } },
           "datePublished": datePublished,
           "dateModified": dateModified,
           "description": currentMetaDesc || "",
-          "url": prev.seoCanonicalUrl || `https://subham.digital/insights/${prev.slug || ''}`,
-          "mainEntityOfPage": `https://subham.digital/insights/${prev.slug || ''}`
+          "url": prev.seoCanonicalUrl || `https://subhamsarkar.dev/insights/${prev.slug || ''}`,
+          "mainEntityOfPage": `https://subhamsarkar.dev/insights/${prev.slug || ''}`
         };
 
         const newSchemaStr = JSON.stringify(schemaObj, null, 2);
@@ -268,7 +268,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
           const strippedContent = formData.content.replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim();
           const fallbackExcerpt = strippedContent.split(' ').slice(0, 20).join(' ') + '...';
           const notificationExcerpt = formData.excerpt || fallbackExcerpt;
-          const targetUrl = `https://subham.digital/insights/${formData.slug}`;
+          const targetUrl = `https://subhamsarkar.dev/insights/${formData.slug}`;
           
           await broadcastPushNotification(`New Insight: ${formData.title}`, notificationExcerpt, targetUrl, formData.coverImage, false);
           toast.success("Broadcast sent to all subscribers!");
@@ -728,7 +728,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
 
                         <motion.div variants={itemVariants} className="group">
                           <label className="block text-sm font-bold text-on-surface mb-1">Canonical URL</label>
-                          <input type="text" value={formData.seoCanonicalUrl} onChange={e => setFormData({...formData, seoCanonicalUrl: e.target.value})} className="w-full p-4 bg-surface-container hover:bg-surface-container-high border border-outline/20 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-sm text-secondary font-mono shadow-sm hover:shadow-md" placeholder={`https://subham.digital/insights/${formData.slug || 'slug'}`} />
+                          <input type="text" value={formData.seoCanonicalUrl} onChange={e => setFormData({...formData, seoCanonicalUrl: e.target.value})} className="w-full p-4 bg-surface-container hover:bg-surface-container-high border border-outline/20 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-sm text-secondary font-mono shadow-sm hover:shadow-md" placeholder={`https://subhamsarkar.dev/insights/${formData.slug || 'slug'}`} />
                           <p className="text-[10px] font-bold uppercase tracking-widest text-secondary mt-2">Leave empty to use the default URL.</p>
                         </motion.div>
 

@@ -57,7 +57,7 @@ export default function Navbar() {
               <span className="font-display text-base md:text-xl leading-6 md:leading-8 tracking-[-0.01em] font-bold text-on-surface group-hover:text-primary transition-colors">SUBHAM SARKAR</span>
               <span className="font-display text-[10px] md:text-xs leading-3.5 md:leading-4 tracking-[0.12em] font-semibold px-1.5 py-0.5 bg-surface-container-highest/75 text-secondary rounded">ARCH</span>
             </div>
-            <span className="font-display text-[10px] md:text-[12px] leading-3.5 md:leading-4 font-medium text-secondary tracking-wider truncate max-w-50 md:max-w-none">SUBHAM.DIGITAL // STUDIO ELEVATION</span>
+            <span className="font-display text-[10px] md:text-[12px] leading-3.5 md:leading-4 font-medium text-secondary tracking-wider truncate max-w-50 md:max-w-none">SUBHAMSARKAR.DEV // STUDIO ELEVATION</span>
           </div>
           </Link>
         </div>

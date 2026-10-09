@@ -26,13 +26,13 @@ export async function generateMetadata({ params }) {
       description: blog.seoMetaDescription || blog.excerpt || "Read our latest insights.",
       keywords: blog.seoMetaKeywords || "",
       alternates: {
-        canonical: blog.seoCanonicalUrl || `https://subham.digital/insights/${blog.slug}`,
+        canonical: blog.seoCanonicalUrl || `https://subhamsarkar.dev/insights/${blog.slug}`,
       },
       robots: blog.seoIsNoIndex ? "noindex, nofollow" : "index, follow",
       openGraph: {
         title: blog.seoMetaTitle || blog.title,
         description: blog.seoMetaDescription || blog.excerpt,
-        url: `https://subham.digital/insights/${blog.slug}`,
+        url: `https://subhamsarkar.dev/insights/${blog.slug}`,
         type: 'article',
         images: blog.coverImage ? [{ url: blog.coverImage }] : [],
       },

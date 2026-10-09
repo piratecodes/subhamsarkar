@@ -167,8 +167,8 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
         if (broadcastOnPublish && formData.isPublished && !project) {
            const title = `New Project: ${formData.title}`;
            const message = `Check out our recent work for ${formData.associatedWith || "a new client"}.`;
-           const url = `https://subham.digital/work`;
-           const image = formData.thumbnail ? `https://subham.digital${formData.thumbnail}` : null;
+           const url = `https://subhamsarkar.dev/work`;
+           const image = formData.thumbnail ? `https://subhamsarkar.dev${formData.thumbnail}` : null;
            broadcastPushNotification(title, message, url, image, false).catch(console.error);
            toast.success("Broadcast initiated!");
         }

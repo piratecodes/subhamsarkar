@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 export const revalidate = 3600;
 
 export default async function sitemap() {
-  const baseUrl = 'https://subham.digital';
+  const baseUrl = 'https://subhamsarkar.dev';
 
   const insights = await prisma.insight.findMany({
     where: { isPublished: true },

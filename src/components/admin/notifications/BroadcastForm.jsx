@@ -54,13 +54,13 @@ export default function BroadcastForm({ recentInsights = [], recentDossiers = []
     if (type === "insight") {
       setTitle(`New Insight: ${data.title}`);
       setMessage(data.excerpt || `Read our latest article on ${data.title}.`);
-      setUrl(`https://subham.digital/insights/${data.slug}`);
-      if (data.coverImage) setImage(`https://subham.digital${data.coverImage}`);
+      setUrl(`https://subhamsarkar.dev/insights/${data.slug}`);
+      if (data.coverImage) setImage(`https://subhamsarkar.dev${data.coverImage}`);
     } else if (type === "dossier") {
       setTitle(`New Project: ${data.title}`);
       setMessage(`Check out our recent work for ${data.associatedWith || "a new client"}.`);
-      setUrl(`https://subham.digital/work`);
-      if (data.thumbnail) setImage(`https://subham.digital${data.thumbnail}`);
+      setUrl(`https://subhamsarkar.dev/work`);
+      if (data.thumbnail) setImage(`https://subhamsarkar.dev${data.thumbnail}`);
     }
     setIsModalOpen(false);
   }
@@ -139,7 +139,7 @@ export default function BroadcastForm({ recentInsights = [], recentDossiers = []
       return;
     }
 
-    const targetUrl = url || "https://subham.digital";
+    const targetUrl = url || "https://subhamsarkar.dev";
     
     // Call the new API instead of server action directly if we need to pass filters.
     // Wait, the backend API expects `subscriberIds`, not filters!
@@ -292,7 +292,7 @@ export default function BroadcastForm({ recentInsights = [], recentDossiers = []
               type="url" 
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              placeholder="https://subham.digital/insights/system-design"
+              placeholder="https://subhamsarkar.dev/insights/system-design"
               className="w-full bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 rounded-xl px-5 py-4 text-sm text-on-surface font-medium focus:outline-none focus:border-primary/60 focus:bg-primary/5 transition-all shadow-sm"
             />
           </motion.div>
@@ -303,7 +303,7 @@ export default function BroadcastForm({ recentInsights = [], recentDossiers = []
               type="url" 
               value={image}
               onChange={(e) => setImage(e.target.value)}
-              placeholder="https://subham.digital/uploads/insight-cover.jpg"
+              placeholder="https://subhamsarkar.dev/uploads/insight-cover.jpg"
               className="w-full bg-surface-container-lowest/50 backdrop-blur-sm border border-outline-variant/30 rounded-xl px-5 py-4 text-sm text-on-surface font-medium focus:outline-none focus:border-primary/60 focus:bg-primary/5 transition-all shadow-sm"
             />
             <p className="text-[11px] font-medium text-on-surface-variant/70 mt-2">Displays a rich media image inside the notification (mostly supported on Android/Windows).</p>

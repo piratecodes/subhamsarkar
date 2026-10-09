@@ -32,7 +32,7 @@ export default function PushPreviewCard({ title, message, image, url }) {
             <div className="flex items-center gap-2 text-on-surface-variant">
               <FaChrome className="w-3.5 h-3.5" />
               <span className="text-[10px] font-bold uppercase tracking-wider">
-                Google Chrome • subham.digital
+                Google Chrome • subhamsarkar.dev
               </span>
             </div>
             <span className="text-[10px] text-on-surface-variant/70 font-medium">now</span>
