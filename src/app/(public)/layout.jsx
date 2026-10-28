@@ -108,7 +108,7 @@ export default async function RootLayout({ children }) {
     <html lang="en" className="h-full antialiased">
       <head>
         {/* Partytown Intigrations */}
-        <Partytown debug={false} forward={["dataLayer.push"]} lib="/~subhamsarkar.dev/" />
+        <Partytown debug={false} lib="/~subhamsarkar.dev/" />
         {/* <!-- Google Tag Manager (noscript) --> */}
         {/* <Script id="tag_manager" strategy="afterInteractive" type="text/partytown" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTMId}');` }} /> */}
 
