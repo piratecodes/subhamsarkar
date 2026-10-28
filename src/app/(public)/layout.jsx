@@ -9,6 +9,7 @@ import FloatingContact from "@/components/FloatingContact";
 import PushNotificationManager from "@/components/PushNotificationManager";
 import { Toaster } from 'react-hot-toast';
 import { Partytown } from "@qwik.dev/partytown/react";
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", variable: "--font-space-grotesk" });
@@ -109,7 +110,7 @@ export default async function RootLayout({ children }) {
         {/* Partytown Intigrations */}
         <Partytown debug={false} forward={["dataLayer.push"]} lib="/~subhamsarkar.dev/" />
         {/* <!-- Google Tag Manager (noscript) --> */}
-        <Script id="tag_manager" strategy="afterInteractive" type="text/partytown" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTMId}');` }} />
+        {/* <Script id="tag_manager" strategy="afterInteractive" type="text/partytown" dangerouslySetInnerHTML={{ __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f); })(window,document,'script','dataLayer','${process.env.NEXT_PUBLIC_GTMId}');` }} /> */}
 
         {/* Browser Update */}
         <Script id="browser-update" type="text/partytown" dangerouslySetInnerHTML={{ __html: `var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2025.06 }; function $buo_f(){ var e = document.createElement("script"); e.src = "https://browser-update.org/update.min.js"; document.body.appendChild(e); }; try {document.addEventListener("DOMContentLoaded", $buo_f,false)} catch(e){window.attachEvent("onload", $buo_f)}` }} />
@@ -117,7 +118,8 @@ export default async function RootLayout({ children }) {
       <body className={`${inter.variable} ${spaceGrotesk.variable} bg-surface/95 text-on-surface font-sans text-[15px] leading-[24px] tracking-[-0.005em] font-normal antialiased selection:bg-primary-container selection:text-on-primary-container min-h-full flex flex-col`}>
         
         {/* Google Tag Manager (noscript) */}
-        <noscript><iframe loading="lazy" src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTMId}`} className='hidden invisible' height="0" width="0"></iframe></noscript>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTMId} />
+        {/* <noscript><iframe loading="lazy" src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTMId}`} className='hidden invisible' height="0" width="0"></iframe></noscript> */}
 
         
         <CustomCursor />
