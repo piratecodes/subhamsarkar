@@ -1,17 +1,21 @@
+const isProd = process.env.NODE_ENV === 'production';
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://static.cloudflareinsights.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-  img-src 'self' blob: data: https: https://www.google-analytics.com https://www.googletagmanager.com;
-  font-src 'self' https://fonts.gstatic.com;
-  connect-src 'self' https: wss: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cloudflareinsights.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://browser-update.org;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagassistant.google.com;
+  img-src 'self' blob: data: https:;
+  font-src 'self' https://fonts.gstatic.com data:;
+  connect-src 'self' https: wss: ws: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cloudflareinsights.com;
+  worker-src 'self' blob:;
+  child-src 'self' blob:;
   frame-src 'self' https://www.googletagmanager.com https://tagassistant.google.com;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'self' https://tagassistant.google.com;
-  upgrade-insecure-requests;
+  ${isProd ? 'upgrade-insecure-requests;' : ''}
 `;
+
 
 const securityHeaders = [
     {
