@@ -3,7 +3,7 @@ import PrivacyLayout from "@/components/privacy/PrivacyLayout";
 import { getSiteSettings } from "@/actions/settings";
 
 export const metadata = {
-  title: "Privacy Policy | Subham Sarkar",
+  title: "Privacy Policy",
   description: "Privacy policy and client data confidentiality standards for Subham Sarkar — Software Architect & Systems Engineer.",
   alternates: {
     canonical: "/privacy-policy",

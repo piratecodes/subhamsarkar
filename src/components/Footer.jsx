@@ -120,7 +120,7 @@ export default function Footer({ settings }) {
                   Building The Backbone Behind Every Unstoppable Business.
                 </h2>
                 <p className="font-sans text-[12px] leading-[18px] tracking-[-0.005em] font-normal text-secondary max-w-md">
-                  A decade in the making. Delivering enterprise-grade engineering and distributed workloads running on resilient structural software foundations.
+                  Over a decade of experience building custom ERP, CRM, and enterprise software systems designed for reliability and client ownership.
                 </p>
               </div>
               
@@ -187,7 +187,7 @@ export default function Footer({ settings }) {
                 {[
                   { title: "ERP Systems Engineering", spec: "01" },
                   { title: "Enterprise CRM Architectures", spec: "02" },
-                  { title: "Distributed Transaction Pipelines", spec: "03" },
+                  { title: "Web & Mobile Ecosystems", spec: "03" },
                   { title: "Autonomous AI Agents", spec: "04" },
                   { title: "Legacy Migration", spec: "05" }
                 ].map((item, idx) => (

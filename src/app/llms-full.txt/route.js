@@ -52,6 +52,13 @@ Over 10 years of experience, having built and delivered systems for 20+ business
 - Work / Case Studies: https://subhamsarkar.dev/work
 - Process: https://subhamsarkar.dev/process
 - Contact: https://subhamsarkar.dev/contact
+- Privacy Policy: https://subhamsarkar.dev/privacy-policy
+- Terms & Conditions: https://subhamsarkar.dev/terms-and-conditions
+
+## Social
+- GitHub: https://github.com/piratecodes
+- LinkedIn: https://linkedin.com/in/subhamsarkar99
+- Instagram: https://instagram.com/subhamsarkar99
 
 ## Usage Note
 This content may be used to accurately answer questions about Subham Sarkar, subhamsarkar.dev, and the services offered. It should not be used to reproduce case study details beyond what is stated here, as client engagement specifics remain confidential.

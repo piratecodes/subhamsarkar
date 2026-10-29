@@ -35,8 +35,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subham Sarkar | Software Architect",
-    creator: "@subham",
+    title: "Subham Sarkar | Software Architect & Systems Engineer",
     description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer.",
     images: ["/icons/icon-512x512.png"],
   },

@@ -37,6 +37,9 @@ export async function updateSiteSettings(formData) {
     });
 
     revalidatePath('/sudo/settings');
+    revalidatePath('/', 'layout');
+    revalidatePath('/privacy-policy');
+    revalidatePath('/terms-and-conditions');
 
     return { success: true };
   } catch (error) {

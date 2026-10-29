@@ -27,7 +27,7 @@ Subham Sarkar builds custom ERP systems, CRM platforms, web and mobile applicati
 - [About Subham Sarkar](https://subhamsarkar.dev/about): Background, working philosophy, and approach to software architecture.
 - [Our Work](https://subhamsarkar.dev/work): Case studies and real client engagements across ERP, CRM, AI, and migration projects.
 - [Process](https://subhamsarkar.dev/process): The five-phase engagement process from discovery to handover.
-- [Contact](https://subhamsarkar.dev/contact): Get in touch to discuss a project. Email: hello@subhamsarkar.dev
+- [Contact](https://subhamsarkar.dev/contact): Get in touch to discuss a project. Email: hello@subham.digital
 
 ## Location
 Kolkata, West Bengal, India. Works with clients internationally, across time zones.

@@ -566,13 +566,13 @@ export default function TermsLayout({ settings }) {
                     </div>
                   </div>
 
-                  {/* Direct Transmission Button */}
+                  {/* Direct Message Button */}
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-on-primary font-display text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shrink-0 shadow-sm"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Open Transmission Portal</span>
+                    <span>Send a Message</span>
                   </Link>
                 </div>
 

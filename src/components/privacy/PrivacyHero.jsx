@@ -38,11 +38,11 @@ export default function PrivacyHero({ settings }) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             <Lock className="w-3.5 h-3.5 ml-0.5" />
-            <span>DATA FIDUCIARY &amp; PRIVACY PROTOCOL</span>
+            <span>PRIVACY &amp; DATA PROTECTION</span>
           </div>
 
           <span className="font-mono text-[11px] font-semibold text-secondary/80 bg-surface-container/60 px-3 py-1.5 rounded-full border border-surface-container-highest/60">
-            DOC.ID: PRIVACY-2026-V1.0
+            LAST UPDATED: OCTOBER 2026
           </span>
         </div>
 

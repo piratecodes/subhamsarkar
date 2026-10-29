@@ -176,7 +176,7 @@ export default function PrivacyLayout({ settings }) {
                   href="/contact"
                   className="w-full py-2.5 px-4 rounded-xl bg-surface-container hover:bg-primary text-on-surface hover:text-on-primary font-display text-[11px] font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 group shadow-sm"
                 >
-                  <span>Transmit Query</span>
+                  <span>Contact Subham</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -204,7 +204,7 @@ export default function PrivacyLayout({ settings }) {
               </div>
               <div className="font-sans text-sm sm:text-[15px] leading-relaxed text-secondary space-y-3.5">
                 <p>
-                  The Website is operated by <strong className="text-on-surface">Subham Sarkar</strong>, a software architect and ERP/CRM developer based in Kolkata, West Bengal, India. For the purposes of applicable data protection law, I am the party that decides how your personal information is used (the &ldquo;Data Fiduciary&rdquo; under India&apos;s Digital Personal Data Protection Act, 2023, and the &ldquo;controller&rdquo; under laws such as the GDPR).
+                  The Website is operated by <strong className="text-on-surface">Subham Sarkar</strong>, a software architect and ERP/CRM developer based in {contactAddress}. For the purposes of applicable data protection law, I am the party that decides how your personal information is used (the &ldquo;Data Fiduciary&rdquo; under India&apos;s Digital Personal Data Protection Act, 2023, and the &ldquo;controller&rdquo; under laws such as the GDPR).
                 </p>
                 <div className="p-4 rounded-xl bg-surface-container/60 border border-surface-container-highest/60 text-xs sm:text-sm text-on-surface">
                   This policy applies to the Website only. It does not cover information shared with me later under a signed project agreement or NDA. That information is governed by that agreement.
@@ -293,7 +293,7 @@ export default function PrivacyLayout({ settings }) {
                   The Website uses a random session identifier stored in your browser (in a cookie or local storage) so that visits to the pages listed in Section 2(c) can be grouped together. It contains no personal details on its own.
                 </p>
                 <p>
-                  We also utilize Google Analytics and Cloudflare Web Analytics to measure aggregated traffic trends and site performance without personally identifying individual visitors.
+                  I also use Google Analytics and Cloudflare Web Analytics to measure aggregated traffic trends and site performance without personally identifying individual visitors.
                 </p>
                 <div className="p-4 rounded-xl bg-surface-container/60 border border-surface-container-highest/60 text-xs sm:text-sm text-on-surface">
                   You can clear or block cookies and local storage in your browser settings at any time. Blocking them will not stop you from reading the Website or using the contact form.
@@ -429,6 +429,10 @@ export default function PrivacyLayout({ settings }) {
                 <ul className="space-y-2.5 pl-2">
                   <li className="flex items-start gap-3">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2"></span>
+                    <span><strong className="text-on-surface">Analytics and telemetry:</strong> Google Analytics (Google LLC) and Cloudflare Web Analytics (Cloudflare, Inc.) for aggregated, anonymized traffic measurement and site reliability analysis.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2"></span>
                     <span><strong className="text-on-surface">Hosting and infrastructure:</strong> Cloudflare edge routing, DDoS mitigation, and enterprise VPS server providers.</span>
                   </li>
                   <li className="flex items-start gap-3">
@@ -517,8 +521,8 @@ export default function PrivacyLayout({ settings }) {
                   </table>
                 </div>
 
-                <p className="text-xs sm:text-sm text-secondary">
-                  After these periods, I delete or anonymise the information.
+                <p className="text-xs sm:text-sm text-secondary leading-relaxed">
+                  Data is retained only as long as necessary for the operational purposes stated above. Contact enquiries and telemetry records are reviewed periodically and purged either upon verified request under Section 10 or during scheduled database maintenance routines.
                 </p>
               </div>
             </article>
@@ -683,13 +687,13 @@ export default function PrivacyLayout({ settings }) {
                     </div>
                   </div>
 
-                  {/* Direct Transmission Button */}
+                  {/* Direct Message Button */}
                   <Link
                     href="/contact"
                     className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-on-primary font-display text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shrink-0 shadow-sm"
                   >
                     <Send className="w-3.5 h-3.5" />
-                    <span>Open Transmission Portal</span>
+                    <span>Send a Message</span>
                   </Link>
                 </div>
 

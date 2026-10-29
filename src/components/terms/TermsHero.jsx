@@ -38,11 +38,11 @@ export default function TermsHero({ settings }) {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             <Scale className="w-3.5 h-3.5 ml-0.5" />
-            <span>LEGAL &amp; OPERATIONAL SPECIFICATION</span>
+            <span>TERMS &amp; CONDITIONS</span>
           </div>
 
           <span className="font-mono text-[11px] font-semibold text-secondary/80 bg-surface-container/60 px-3 py-1.5 rounded-full border border-surface-container-highest/60">
-            DOC.ID: TOS-2026-V1.0
+            LAST UPDATED: OCTOBER 2026
           </span>
         </div>
 
@@ -80,7 +80,7 @@ export default function TermsHero({ settings }) {
         <div className="w-full max-w-5xl p-6 sm:p-7 rounded-2xl bg-surface-container-lowest/90 border border-surface-container-highest/80 backdrop-blur-xl shadow-sm text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-linear-to-r from-primary/5 via-transparent to-primary/5 pointer-events-none"></div>
           <p className="font-sans text-sm sm:text-[15px] leading-relaxed text-secondary relative z-10">
-            These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of <strong className="text-on-surface">subhamsarkar.dev</strong> (the &ldquo;Website&rdquo;), operated by <strong className="text-on-surface">Subham Sarkar</strong> (&ldquo;I&rdquo;, &ldquo;me&rdquo;, &ldquo;my&rdquo;), a software architect and ERP/CRM developer based in Kolkata, West Bengal, India. By using the Website you agree to these Terms. If you do not agree, please do not use it.
+            These Terms and Conditions (the &ldquo;Terms&rdquo;) govern your use of <strong className="text-on-surface">subhamsarkar.dev</strong> (the &ldquo;Website&rdquo;), operated by <strong className="text-on-surface">Subham Sarkar</strong> (&ldquo;I&rdquo;, &ldquo;me&rdquo;, &ldquo;my&rdquo;), a software architect and ERP/CRM developer based in {contactAddress}. By using the Website you agree to these Terms. If you do not agree, please do not use it.
           </p>
         </div>
 
