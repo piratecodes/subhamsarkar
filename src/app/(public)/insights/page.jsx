@@ -5,6 +5,12 @@ import { prisma } from "@/lib/prisma";
 export const metadata = {
   title: "Industry Insights | Subham Sarkar",
   description: "Expert articles on ERP systems, CRM strategy, and software architecture for growing businesses.",
+  alternates: {
+    canonical: "/insights",
+  },
+  openGraph: {
+    url: "https://subhamsarkar.dev/insights",
+  },
 };
 export const revalidate = 300;
 

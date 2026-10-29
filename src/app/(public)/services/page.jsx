@@ -6,8 +6,14 @@ import FAQ from "@/components/services/FAQ";
 import ServicesCTA from "@/components/services/ServicesCTA";
 
 export const metadata = {
-  title: "Services",
-  description: "Technical consulting and engineering services.",
+  title: "Services | Subham Sarkar",
+  description: "Technical consulting, system design, and software architecture services by Subham Sarkar.",
+  alternates: {
+    canonical: "/services",
+  },
+  openGraph: {
+    url: "https://subhamsarkar.dev/services",
+  },
 };
 
 

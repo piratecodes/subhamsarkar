@@ -18,7 +18,7 @@ export default function robots() {
         'Googlebot-Video'
       ],
       allow: '/',
-      disallow: ['/sudo/', '/sudo', '/api/'],
+      disallow: ['/sudo/', '/sudo', '/api/', '/cdn-cgi/', '/~partytown/', '/~subhamsarkar.dev/'],
     },
     sitemap: 'https://subhamsarkar.dev/sitemap.xml',
   }

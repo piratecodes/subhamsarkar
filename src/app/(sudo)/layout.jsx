@@ -21,6 +21,10 @@ export const metadata = {
     default: "Secure Sudo Terminal | Level 4 Administrative Access",
   },
   description: "Level 4 Administrative Access for Subham Sarkar.",
+  robots: {
+    index: false,
+    follow: false,
+  },
   manifest: '/manifest.webmanifest',
   icons: {
     icon: [

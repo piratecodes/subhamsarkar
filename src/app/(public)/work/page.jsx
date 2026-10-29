@@ -5,8 +5,14 @@ import WorkCTA from "@/components/work/WorkCTA";
 import { prisma } from "@/lib/prisma";
 
 export const metadata = {
-  title: "Work",
-  description: "Selected software engineering projects.",
+  title: "Work | Subham Sarkar",
+  description: "Selected software engineering, distributed systems, and architectural projects by Subham Sarkar.",
+  alternates: {
+    canonical: "/work",
+  },
+  openGraph: {
+    url: "https://subhamsarkar.dev/work",
+  },
 };
 
 export const revalidate = 3600;

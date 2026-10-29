@@ -8,8 +8,14 @@ import ClosingCTA from "@/components/landing/ClosingCTA";
 import { prisma } from "@/lib/prisma";
 
 export const metadata = {
-  title: "Home | Subham Sarkar | Software Architect & Systems Engineer",
-  description: "Portfolio of Subham Sarkar, Software Architect.",
+  title: "Subham Sarkar | Software Architect & Systems Engineer",
+  description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer building robust, scalable applications.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: "https://subhamsarkar.dev",
+  },
 };
 
 

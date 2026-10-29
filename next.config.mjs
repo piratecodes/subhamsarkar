@@ -65,6 +65,15 @@ const nextConfig = {
           },
       ]
   },
+  async redirects() {
+      return [
+          {
+              source: '/sitemap',
+              destination: '/sitemap.xml',
+              permanent: true,
+          },
+      ];
+  },
   reactStrictMode: true,
   images: {
     remotePatterns: [

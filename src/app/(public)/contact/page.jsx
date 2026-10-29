@@ -14,6 +14,12 @@ import { getSiteSettings } from "@/actions/settings";
 export const metadata = {
   title: "Contact | Subham Sarkar — Software Architect",
   description: "Initiate a direct architectural transmission with Subham Sarkar.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    url: "https://subhamsarkar.dev/contact",
+  },
 };
 
 import PageTracker from "@/components/PageTracker";

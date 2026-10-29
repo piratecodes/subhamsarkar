@@ -5,8 +5,14 @@ import ProcessFAQ from "@/components/process/ProcessFAQ";
 import ProcessCTA from "@/components/process/ProcessCTA";
 
 export const metadata = {
-  title: "Process",
-  description: "Software engineering and architecture process.",
+  title: "Process | Subham Sarkar",
+  description: "End-to-end software engineering and system architecture delivery methodology.",
+  alternates: {
+    canonical: "/process",
+  },
+  openGraph: {
+    url: "https://subhamsarkar.dev/process",
+  },
 };
 
 

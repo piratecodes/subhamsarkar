@@ -22,9 +22,6 @@ export const metadata = {
   description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer building robust, scalable applications.",
   manifest: '/manifest.webmanifest',
   metadataBase: new URL('https://subhamsarkar.dev'),
-  alternates: {
-    canonical: '/',
-  },
   keywords: ["Software Architect", "Systems Engineer", "Subham Sarkar", "Portfolio"],
   openGraph: {
     url: 'https://subhamsarkar.dev',

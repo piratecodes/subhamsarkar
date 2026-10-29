@@ -243,7 +243,7 @@ export default function Footer({ settings }) {
             <span className="text-surface-container-highest">|</span>
             <Link href="/terms" className="text-secondary hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-right hover:after:origin-left">TERMS & CONDITIONS</Link>
             <span className="text-surface-container-highest">|</span>
-            <Link href="/sitemap" className="text-secondary hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-right hover:after:origin-left">SITEMAP</Link>
+            <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-primary transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-right hover:after:origin-left">SITEMAP</a>
           </div>
         </div>
 
