@@ -323,7 +323,7 @@ export default function TermsLayout({ settings }) {
                 </p>
                 <p>
                   Any information you share with me is handled as described in my{" "}
-                  <Link href="/privacy" className="text-primary hover:underline font-semibold">
+                  <Link href="/privacy-policy" className="text-primary hover:underline font-semibold">
                     Privacy Policy
                   </Link>
                   . If you want an NDA signed before sharing details, please say so, and we can do that before going further. Until an NDA is in place, please do not share trade secrets, credentials or other highly sensitive information through the contact form.
@@ -373,7 +373,7 @@ export default function TermsLayout({ settings }) {
                 </p>
                 <p>
                   You can stop notifications at any time through your browser&apos;s site settings, or by contacting me. Details are in the{" "}
-                  <Link href="/privacy" className="text-primary hover:underline font-semibold">
+                  <Link href="/privacy-policy" className="text-primary hover:underline font-semibold">
                     Privacy Policy
                   </Link>
                   .

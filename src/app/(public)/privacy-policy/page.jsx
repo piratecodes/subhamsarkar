@@ -6,10 +6,10 @@ export const metadata = {
   title: "Privacy Policy | Subham Sarkar",
   description: "Privacy policy and client data confidentiality standards for Subham Sarkar — Software Architect & Systems Engineer.",
   alternates: {
-    canonical: "/privacy",
+    canonical: "/privacy-policy",
   },
   openGraph: {
-    url: "https://subhamsarkar.dev/privacy",
+    url: "https://subhamsarkar.dev/privacy-policy",
   },
 };
 

@@ -6,10 +6,10 @@ export const metadata = {
   title: "Terms and Conditions | Subham Sarkar",
   description: "Terms and conditions governing the use of subhamsarkar.dev, operated by Subham Sarkar, Software Architect.",
   alternates: {
-    canonical: "/terms",
+    canonical: "/terms-and-conditions",
   },
   openGraph: {
-    url: "https://subhamsarkar.dev/terms",
+    url: "https://subhamsarkar.dev/terms-and-conditions",
   },
 };
 
