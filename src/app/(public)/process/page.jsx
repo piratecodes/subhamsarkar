@@ -3,6 +3,9 @@ import ProcessWorkflow from "@/components/process/ProcessWorkflow";
 import PostHandover from "@/components/process/PostHandover";
 import ProcessFAQ from "@/components/process/ProcessFAQ";
 import ProcessCTA from "@/components/process/ProcessCTA";
+import { getSiteSettings } from "@/actions/settings";
+import { getProcessPageSchema } from "@/lib/schema";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
   title: "Process | Subham Sarkar",
@@ -15,10 +18,13 @@ export const metadata = {
   },
 };
 
+export default async function ProcessPage() {
+  const settings = await getSiteSettings();
+  const schema = getProcessPageSchema(settings);
 
-export default function ProcessPage() {
   return (
     <main className="bg-transparent">
+      <JsonLd data={schema} />
       <HeroSection />
       <ProcessWorkflow />
       <PostHandover />

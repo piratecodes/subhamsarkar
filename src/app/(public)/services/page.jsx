@@ -4,6 +4,10 @@ import TopologyDiagram from "@/components/services/TopologyDiagram";
 import EngagementModels from "@/components/services/EngagementModels";
 import FAQ from "@/components/services/FAQ";
 import ServicesCTA from "@/components/services/ServicesCTA";
+import PageTracker from "@/components/PageTracker";
+import { getSiteSettings } from "@/actions/settings";
+import { getServicesPageSchema } from "@/lib/schema";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
   title: "Services | Subham Sarkar",
@@ -16,12 +20,13 @@ export const metadata = {
   },
 };
 
+export default async function ServicesPage() {
+  const settings = await getSiteSettings();
+  const schema = getServicesPageSchema(settings);
 
-import PageTracker from "@/components/PageTracker";
-
-export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={schema} />
       <PageTracker pageType="services" />
       <HeroSection />
       <ServiceCards />

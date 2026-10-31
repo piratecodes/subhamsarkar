@@ -96,7 +96,7 @@ export default function SudoSidebar({ user }) {
                 transition={{ delay: 0.3 }}
                 className="font-display font-black tracking-widest text-on-surface uppercase text-[11px] leading-tight"
               >
-                Subham<span className="text-primary">.Digital</span>
+                Subham<span className="text-primary">Sarkar.dev</span>
               </motion.h1>
               <motion.span 
                 initial={{ opacity: 0 }}
@@ -104,7 +104,7 @@ export default function SudoSidebar({ user }) {
                 transition={{ delay: 0.5 }}
                 className="text-[8px] tracking-[0.3em] font-black text-on-surface-variant/70 uppercase mt-0.5"
               >
-                System Elevate
+                Studio Elevation
               </motion.span>
             </div>
           </motion.div>

@@ -6,6 +6,9 @@ import TrustStrip from "@/components/landing/TrustStrip";
 import FeaturedWork from "@/components/landing/FeaturedWork";
 import ClosingCTA from "@/components/landing/ClosingCTA";
 import { prisma } from "@/lib/prisma";
+import { getSiteSettings } from "@/actions/settings";
+import { getHomePageSchema } from "@/lib/schema";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
   title: "Subham Sarkar | Software Architect & Systems Engineer",
@@ -18,18 +21,23 @@ export const metadata = {
   },
 };
 
-
 export const revalidate = 3600;
 
 export default async function Home() {
-  const featuredDossiers = await prisma.dossier.findMany({
-    where: { isPublished: true },
-    orderBy: { createdAt: "desc" },
-    take: 3
-  });
+  const [settings, featuredDossiers] = await Promise.all([
+    getSiteSettings(),
+    prisma.dossier.findMany({
+      where: { isPublished: true },
+      orderBy: { createdAt: "desc" },
+      take: 3
+    })
+  ]);
+
+  const schema = getHomePageSchema(settings, featuredDossiers);
 
   return (
     <>
+      <JsonLd data={schema} />
       <HeroSection />
       <ClientMarquee />
       <DisciplineStrip />

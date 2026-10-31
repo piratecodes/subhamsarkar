@@ -4,12 +4,10 @@ import TransmissionPipeline from "@/components/contact/TransmissionPipeline";
 import StudioElevation from "@/components/contact/StudioElevation";
 import PreTransmissionFAQ from "@/components/contact/PreTransmissionFAQ";
 import ConfidentialityPledge from "@/components/contact/ConfidentialityPledge";
-
-// ==========================================
-// SERVER ACTIONS IMPORTS
-// Fetching the global settings (emails, links) for the contact form
-// ==========================================
 import { getSiteSettings } from "@/actions/settings";
+import PageTracker from "@/components/PageTracker";
+import { getContactPageSchema } from "@/lib/schema";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
   title: "Contact | Subham Sarkar — Software Architect",
@@ -22,13 +20,13 @@ export const metadata = {
   },
 };
 
-import PageTracker from "@/components/PageTracker";
-
 export default async function ContactPage() {
   const settings = await getSiteSettings();
+  const schema = getContactPageSchema(settings);
 
   return (
     <>
+      <JsonLd data={schema} />
       <PageTracker pageType="contact" />
       <HeroSection />
       <TransmissionPortal settings={settings} />

@@ -4,6 +4,9 @@ import Philosophy from "@/components/about/Philosophy";
 import TargetAudience from "@/components/about/TargetAudience";
 import PersonalNote from "@/components/about/PersonalNote";
 import AboutCTA from "@/components/about/AboutCTA";
+import { getSiteSettings } from "@/actions/settings";
+import { getAboutPageSchema } from "@/lib/schema";
+import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
   title: "About | Subham Sarkar",
@@ -16,10 +19,13 @@ export const metadata = {
   },
 };
 
+export default async function AboutPage() {
+  const settings = await getSiteSettings();
+  const schema = getAboutPageSchema(settings);
 
-export default function AboutPage() {
   return (
     <>
+      <JsonLd data={schema} />
       <HeroSection />
       <CoreTraits />
       <Philosophy />

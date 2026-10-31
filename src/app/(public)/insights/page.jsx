@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
 import InsightClientGrid from '@/components/insight/InsightClientGrid';
 import { prisma } from "@/lib/prisma";
+import JsonLd from "@/components/seo/JsonLd";
+import { getInsightsPageSchema } from "@/lib/schema";
+import { getSiteSettings } from "@/actions/settings";
 
 export const metadata = {
   title: "Industry Insights | Subham Sarkar",
@@ -17,13 +20,20 @@ export const revalidate = 300;
 export default async function InsightsPage() {
   let insights = [];
   let categories = [];
+  let settings = null;
 
   try {
-    insights = await prisma.insight.findMany({
-      where: { isPublished: true },
-      include: { author: true },
-      orderBy: { createdAt: 'desc' }
-    });
+    const [fetchedInsights, fetchedSettings] = await Promise.all([
+      prisma.insight.findMany({
+        where: { isPublished: true },
+        include: { author: true },
+        orderBy: { createdAt: 'desc' }
+      }),
+      getSiteSettings().catch(() => null)
+    ]);
+
+    insights = fetchedInsights;
+    settings = fetchedSettings;
 
     // Extract unique categories
     categories = [...new Set(insights.map(i => i.category))].filter(Boolean);
@@ -31,8 +41,12 @@ export default async function InsightsPage() {
     console.error("Failed to fetch insights", err);
   }
 
+  const schema = getInsightsPageSchema(settings, insights);
+
   return (
     <main className="min-h-screen py-8 relative">
+      <JsonLd data={schema} />
+
       {/* AMBIENT BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Blurred Orbs */}
@@ -43,7 +57,7 @@ export default async function InsightsPage() {
         <div className="absolute inset-0 bg-[linear-gradient(var(--color-surface-container-highest)_1px,transparent_1px),linear-gradient(90deg,var(--color-surface-container-highest)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_0%,#000_60%,transparent_100%)] opacity-30" />
       </div>
 
-      <div className="pt-10 pb-16 px-4 sm:px-6 lg:px-8 relative flex flex-col lg:flex-row items-center justify-between gap-12 container mx-auto">
+      <div className="pt-10 pb-16 px-4 sm:px-6 lg:px-8 relative flex flex-col lg:flex-row items-center justify-between gap-12 container">
         {/* LEFT: Text Content */}
         <div className="relative z-10 w-full lg:w-1/2 flex flex-col items-start space-y-6">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-surface-container/60 border border-surface-container-highest backdrop-blur-xl shadow-sm hover:border-primary/40 transition-colors cursor-default animate-[fade-in-right_0.5s_ease-out]">

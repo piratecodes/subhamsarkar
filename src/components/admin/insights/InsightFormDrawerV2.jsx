@@ -190,7 +190,12 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
           "headline": currentMetaTitle || prev.title,
           "image": imageUrl ? [imageUrl] : [],
           "author": { "@type": "Person", "name": authorName },
-          "publisher": { "@type": "Organization", "name": "Subham Digital", "logo": { "@type": "ImageObject", "url": "https://subhamsarkar.dev/logo.png" } },
+          "publisher": {
+            "@type": "Person",
+            "name": "Subham Sarkar",
+            "url": "https://subhamsarkar.dev",
+            "image": "https://subhamsarkar.dev/icons/icon-512x512.png"
+          },
           "datePublished": datePublished,
           "dateModified": dateModified,
           "description": currentMetaDesc || "",
