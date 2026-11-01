@@ -84,7 +84,7 @@ export default function PreTransmissionFAQ() {
                   </DisclosureButton>
                   
                   {/* Expandable Body */}
-                  <DisclosurePanel className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 relative z-10 transition-all duration-500 ease-in-out origin-top">
+                  <DisclosurePanel unmount={false} className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 relative z-10 transition-all duration-500 ease-in-out origin-top">
                     <div className="pl-0 sm:pl-[4rem] font-sans text-[15px] leading-relaxed text-secondary/90 border-t border-surface-container-highest/50 pt-4 mt-2">
                       {faq.answer}
                     </div>

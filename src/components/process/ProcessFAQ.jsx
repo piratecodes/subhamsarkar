@@ -76,6 +76,7 @@ export default function ProcessFAQ() {
                       </DisclosureButton>
                       
                       <Transition
+                        unmount={false}
                         enter="transition duration-300 ease-out"
                         enterFrom="transform scale-[0.98] opacity-0 -translate-y-4"
                         enterTo="transform scale-100 opacity-100 translate-y-0"
@@ -83,8 +84,8 @@ export default function ProcessFAQ() {
                         leaveFrom="transform scale-100 opacity-100 translate-y-0"
                         leaveTo="transform scale-[0.98] opacity-0 -translate-y-4"
                       >
-                        <DisclosurePanel className="px-6 lg:px-8 pb-8 pt-2">
-                          <div className="pl-0 sm:pl-[44px]">
+                        <DisclosurePanel unmount={false} className="px-6 lg:px-8 pb-8 pt-2">
+                          <div className="pl-0 sm:pl-11">
                             <p className="font-sans text-[15px] lg:text-[16px] leading-relaxed tracking-[-0.005em] font-medium text-secondary">
                               {faq.answer}
                             </p>

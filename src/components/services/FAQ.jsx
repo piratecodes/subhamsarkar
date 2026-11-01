@@ -79,6 +79,7 @@ export default function FAQ() {
                     </DisclosureButton>
                     
                     <Transition
+                      unmount={false}
                       enter="transition duration-300 ease-out"
                       enterFrom="transform -translate-y-2 opacity-0"
                       enterTo="transform translate-y-0 opacity-100"
@@ -86,7 +87,7 @@ export default function FAQ() {
                       leaveFrom="transform translate-y-0 opacity-100"
                       leaveTo="transform -translate-y-2 opacity-0"
                     >
-                      <DisclosurePanel className="relative z-10 px-6 lg:px-8 pb-8 font-sans text-[15px] leading-[26px] tracking-[-0.005em] font-normal text-on-surface-variant">
+                      <DisclosurePanel unmount={false} className="relative z-10 px-6 lg:px-8 pb-8 font-sans text-[15px] leading-[26px] tracking-[-0.005em] font-normal text-on-surface-variant">
                         <div className="pt-5 border-t border-outline/5 relative">
                           <div className="absolute left-0 top-0 w-12 h-[1px] bg-gradient-to-r from-primary/50 to-transparent"></div>
                           {faq.answer}
