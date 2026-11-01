@@ -2,18 +2,23 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import GlareHover from '@/components/Glarehover'
 
-export default function InsightClientGrid({ initialBlogs, categories }) {
-  const searchParams = useSearchParams();
+export default function InsightClientGrid({ initialBlogs, categories, searchParams: propSearchParams }) {
   const router = useRouter();
 
-  const initialCategory = searchParams.get('category') || '';
+  const getInitialCategory = () => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(window.location.search).get('category') || '';
+    }
+    return propSearchParams?.category || '';
+  };
+
   const [searchTerm, setSearchTerm] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [selectedCategory, setSelectedCategory] = useState(getInitialCategory);
 
   // Debounce search input
   useEffect(() => {
@@ -25,11 +30,13 @@ export default function InsightClientGrid({ initialBlogs, categories }) {
 
   // Sync state with URL
   useEffect(() => {
-    const cat = searchParams.get('category') || '';
-    if (cat !== selectedCategory) {
-      setSelectedCategory(cat);
+    if (typeof window !== 'undefined') {
+      const cat = new URLSearchParams(window.location.search).get('category') || '';
+      if (cat !== selectedCategory) {
+        setSelectedCategory(cat);
+      }
     }
-  }, [searchParams, selectedCategory]);
+  }, [selectedCategory]);
 
   const handleCategorySelect = (cat) => {
     setSelectedCategory(cat);

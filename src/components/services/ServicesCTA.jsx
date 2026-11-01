@@ -22,7 +22,7 @@ export default function ServicesCTA() {
             <div className="lg:col-span-8 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-display text-[10px] leading-4 tracking-[0.12em] uppercase tracking-widest text-primary font-bold bg-primary/10 border border-primary/20 px-2 py-1 rounded">
-                  GET STARTED — RESPONSE WITHIN 6-8 BUSINESS HOURS
+                  GET STARTED - RESPONSE WITHIN 6-8 BUSINESS HOURS
                 </span>
                 <span className="font-display text-[11px] leading-4 tracking-[0.12em] font-medium text-secondary bg-surface-container px-2 py-1 rounded">
                   SLOT AVAILABILITY: STRICTLY LIMITED
@@ -33,7 +33,7 @@ export default function ServicesCTA() {
                 Ready to engineer an unshakeable foundation?
               </h2>
               <p className="font-sans text-[18px] lg:text-[20px] leading-[30px] tracking-[-0.01em] font-normal text-on-surface-variant max-w-2xl text-balance">
-                Book a free consultation. We'll talk through what's slowing your business down, look at what you're currently working with, and tell you plainly what it would take to fix it — no jargon, no pressure.
+                Book a free consultation. We'll talk through what's slowing your business down, look at what you're currently working with, and tell you plainly what it would take to fix it - no jargon, no pressure.
               </p>
               
               <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-4">

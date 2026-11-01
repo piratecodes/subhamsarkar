@@ -8,7 +8,7 @@ export default function EngagementModels() {
       num: "ENGAGEMENT: 01",
       tag: "STARTING FRESH",
       title: "Fixed-Scope New Build",
-      desc: "A clearly defined project — from initial planning to a fully working system handed over to you — with scope, cost, and timeline agreed before work begins.",
+      desc: "A clearly defined project - from initial planning to a fully working system handed over to you - with scope, cost, and timeline agreed before work begins.",
       characteristicsTitle: "Key Characteristics",
       characteristicsTitleClasses: "text-secondary",
       characteristics: [
@@ -16,7 +16,7 @@ export default function EngagementModels() {
         "Full source code and documentation handed over",
         "Progress delivered in milestones, not all at once"
       ],
-      timeline: "TYPICAL TIMELINE: 8 TO 16 WEEKS",
+      timeline: "TIMELINE: DEFINED AFTER PROJECT REVIEW",
       linkText: "Discuss a New Build",
       linkClasses: "text-on-surface hover:text-primary"
     },
@@ -25,7 +25,7 @@ export default function EngagementModels() {
       num: "ENGAGEMENT: 02 // RECOMMENDED",
       tag: "ONGOING SUPPORT",
       title: "Ongoing Architecture Partnership",
-      desc: "Continued, direct access to senior-level support as your systems grow — regular check-ins and hands-on help whenever you need it, without hiring a full-time team.",
+      desc: "Continued, direct access to senior-level support as your systems grow - regular check-ins and hands-on help whenever you need it, without hiring a full-time team.",
       characteristicsTitle: "Key Characteristics",
       characteristicsTitleClasses: "text-primary font-bold",
       characteristics: [
@@ -42,7 +42,7 @@ export default function EngagementModels() {
       num: "ENGAGEMENT: 03",
       tag: "FIXING WHAT YOU HAVE",
       title: "Migration & Modernization",
-      desc: "Safely moving off an outdated system, or fixing performance issues in what you already have — without disrupting the business while it happens.",
+      desc: "Safely moving off an outdated system, or fixing performance issues in what you already have - without disrupting the business while it happens.",
       characteristicsTitle: "Key Characteristics",
       characteristicsTitleClasses: "text-secondary",
       characteristics: [
@@ -50,7 +50,7 @@ export default function EngagementModels() {
         "Old and new systems verified in parallel first",
         "Relief from the specific issues costing you the most"
       ],
-      timeline: "TYPICAL TIMELINE: 4 TO 12 WEEKS",
+      timeline: "TIMELINE: DEFINED AFTER PROJECT REVIEW",
       linkText: "Assess My Current System",
       linkClasses: "text-on-surface hover:text-primary"
     }

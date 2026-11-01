@@ -1,6 +1,6 @@
 "use client";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
-import { useState, Fragment, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
+import { useState, Fragment, useEffect, useCallback } from "react";
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild, Disclosure, DisclosureButton, DisclosurePanel, Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/react";
 import { ArrowRight, Compass, X, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, ZoomIn, Activity, Database, Lock, Globe } from "lucide-react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -168,7 +168,7 @@ const aiCase = {
 
 const ITEMS_PER_PAGE = 5;
 
-export default function DossierGrid({ initialDossiers = [] }) {
+export default function DossierGrid({ initialDossiers = [], searchParams: propSearchParams }) {
   const casesData = initialDossiers || [];
 
   const availableCategoryIds = Array.from(new Set(casesData.map(c => c.category)));
@@ -190,12 +190,25 @@ export default function DossierGrid({ initialDossiers = [] }) {
 
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
-  const urlCategory = searchParams.get('category');
-  const urlIndustry = searchParams.get('industry');
-  const urlProjectRef = searchParams.get('project');
-  const urlView = searchParams.get('view');
+  const getParam = (key) => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(window.location.search).get(key);
+    }
+    return propSearchParams ? (typeof propSearchParams.get === 'function' ? propSearchParams.get(key) : propSearchParams[key]) : null;
+  };
+
+  const getCurrentParams = () => {
+    if (typeof window !== 'undefined') {
+      return new URLSearchParams(window.location.search);
+    }
+    return new URLSearchParams();
+  };
+
+  const urlCategory = getParam('category');
+  const urlIndustry = getParam('industry');
+  const urlProjectRef = getParam('project');
+  const urlView = getParam('view');
 
   const validCategory = activeCategories.find(c => c.id === urlCategory) || activeCategories[0];
   const validIndustry = industryOptions.find(i => i.id === urlIndustry) || industryOptions[0];
@@ -212,7 +225,6 @@ export default function DossierGrid({ initialDossiers = [] }) {
   // Auto-scroll logic
   useEffect(() => {
     if (validProjectRef) {
-      // If opening the blueprint, do it faster and instantly so it completes before scroll-lock engages
       const isBlueprint = urlView === 'blueprint';
       const delay = isBlueprint ? 10 : 300;
       const scrollBehavior = isBlueprint ? 'auto' : 'smooth';
@@ -220,14 +232,12 @@ export default function DossierGrid({ initialDossiers = [] }) {
       const timer = setTimeout(() => {
         const el = document.getElementById(`dossier-${validProjectRef}`);
         if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 120; // 120px top margin
+          const y = el.getBoundingClientRect().top + window.scrollY - 120;
           window.scrollTo({ top: y, behavior: scrollBehavior });
           
-          // Only trigger the highlight pulse if we aren't covering it with the modal.
-          // (This has the awesome side-effect of pulsing the item right after they close the modal!)
           if (!isBlueprint) {
             setHighlightedRef(validProjectRef);
-            setTimeout(() => setHighlightedRef(null), 3500); // Remove highlight after 3.5s
+            setTimeout(() => setHighlightedRef(null), 3500);
           }
         }
       }, delay);
@@ -238,7 +248,7 @@ export default function DossierGrid({ initialDossiers = [] }) {
   // Sync state to URL and clean up invalid params on mount/change
   useEffect(() => {
     let shouldUpdateUrl = false;
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getCurrentParams();
 
     if (urlCategory !== validCategory.id && urlCategory !== null) {
       if (validCategory.id === 'all') params.delete('category');
@@ -262,7 +272,6 @@ export default function DossierGrid({ initialDossiers = [] }) {
       shouldUpdateUrl = true;
     }
     
-    // If we have a view but no valid project, clean up the view
     if (urlView === 'blueprint' && !validProjectRef) {
       params.delete('view');
       shouldUpdateUrl = true;
@@ -271,7 +280,7 @@ export default function DossierGrid({ initialDossiers = [] }) {
     if (shouldUpdateUrl) {
       router.replace(`${pathname}?${params.toString()}`, { scroll: false });
     }
-  }, [urlCategory, urlIndustry, urlProjectRef, urlView, validCategory.id, validIndustry.id, validProjectRef, pathname, router, searchParams]);
+  }, [urlCategory, urlIndustry, urlProjectRef, urlView, validCategory.id, validIndustry.id, validProjectRef, pathname, router]);
 
   // Sync state to valid URL parameters (e.g. back button navigations)
   useEffect(() => { setSelectedCategory(validCategory); }, [validCategory.id]);
@@ -280,11 +289,10 @@ export default function DossierGrid({ initialDossiers = [] }) {
 
   const handleCategoryChange = (cat) => {
     setSelectedCategory(cat);
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getCurrentParams();
     if (cat.id === 'all') params.delete('category');
     else params.set('category', cat.id);
     
-    // Clear deep link state because the user is freely browsing
     params.delete('project');
     params.delete('view');
     
@@ -293,11 +301,10 @@ export default function DossierGrid({ initialDossiers = [] }) {
 
   const handleIndustryChange = (ind) => {
     setSelectedIndustry(ind);
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getCurrentParams();
     if (ind.id === 'all') params.delete('industry');
     else params.set('industry', ind.id);
 
-    // Clear deep link state because the user is freely browsing
     params.delete('project');
     params.delete('view');
 
@@ -306,7 +313,7 @@ export default function DossierGrid({ initialDossiers = [] }) {
 
   const handleOpenModal = (ref) => {
     setActiveModalId(ref);
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getCurrentParams();
     params.set('project', ref);
     params.set('view', 'blueprint');
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
@@ -314,7 +321,7 @@ export default function DossierGrid({ initialDossiers = [] }) {
 
   const handleCloseModal = () => {
     setActiveModalId(null);
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getCurrentParams();
     params.delete('view'); 
     params.delete('project');
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
@@ -323,6 +330,7 @@ export default function DossierGrid({ initialDossiers = [] }) {
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, selectedIndustry, searchQuery]);
+
 
   const activeDossiers = casesData.filter(c => {
     const matchesCategory = selectedCategory.id === "all" || c.category === selectedCategory.id;

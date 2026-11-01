@@ -23,7 +23,7 @@ export default function Philosophy() {
       num: "AXIOM 03",
       icon: Key,
       title: "You Own It, Fully",
-      desc: "Your business logic is your competitive edge — not mine. You receive complete, understandable code and documentation. You're never locked into needing me, or anyone, to keep it running.",
+      desc: "Your business logic is your competitive edge - not mine. You receive complete, understandable code and documentation. You're never locked into needing me, or anyone, to keep it running.",
       metric: "Full Ownership, On Completion"
     }
   ];

@@ -116,7 +116,7 @@ export default function HeroSection() {
               {/* Double Quoted Spotlight Text (Work Page Style - Now Bold) */}
               <p className="relative font-sans text-[16px] lg:text-[18px] leading-[1.6] tracking-[-0.01em] text-on-surface font-bold italic border-l-2 border-primary/40 pl-4 py-2 bg-gradient-to-r from-primary/5 to-transparent rounded-r-xl relative z-10 shadow-[inset_0_0_20px_rgba(var(--color-primary-rgb),0.02)]">
                 <span className="absolute -top-3 -left-2 text-4xl text-primary/30 font-serif leading-none">"</span>
-                Over the years, I built card houses hoping one day they&apos;d survive a breeze. They never did — one wrong piece and the whole thing came down. So I gave up on cards and started building architectures that don&apos;t fall, no matter how much weight you stack on them.
+                Over the years, I built card houses hoping one day they&apos;d survive a breeze. They never did - one wrong piece and the whole thing came down. So I gave up on cards and started building architectures that don&apos;t fall, no matter how much weight you stack on them.
                 <span className="absolute -bottom-4 -right-2 text-4xl text-primary/30 font-serif leading-none">"</span>
               </p>
               

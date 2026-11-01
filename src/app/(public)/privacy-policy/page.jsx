@@ -1,7 +1,7 @@
 import PrivacyHero from "@/components/privacy/PrivacyHero";
 import PrivacyLayout from "@/components/privacy/PrivacyLayout";
 import { getSiteSettings } from "@/actions/settings";
-import { getLegalPageSchema } from "@/lib/schema";
+import { getLegalPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {

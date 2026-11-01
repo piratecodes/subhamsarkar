@@ -1,7 +1,7 @@
 import TermsHero from "@/components/terms/TermsHero";
 import TermsLayout from "@/components/terms/TermsLayout";
 import { getSiteSettings } from "@/actions/settings";
-import { getLegalPageSchema } from "@/lib/schema";
+import { getLegalPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {

@@ -6,21 +6,21 @@ export default function CoreTraits() {
       num: "TRAIT-01",
       icon: Palette,
       title: "The Craftsman's Eye",
-      desc: "Every interface, every workflow, every screen a client will use is considered the way a designer considers a room — not just 'does it work,' but 'does it feel right to use, every day.'",
+      desc: "Every interface, every workflow, every screen a client will use is considered the way a designer considers a room - not just 'does it work,' but 'does it feel right to use, every day.'",
       footer: "Interfaces people actually enjoy using"
     },
     {
       num: "TRAIT-02",
       icon: ScrollText,
       title: "A Way With Words",
-      desc: "Before a line of code is written, a system has to be understood as a story — where it starts, where the friction is, how it should end. That habit of thinking in narrative, not just logic, shapes every decision made.",
+      desc: "Before a line of code is written, a system has to be understood as a story - where it starts, where the friction is, how it should end. That habit of thinking in narrative, not just logic, shapes every decision made.",
       footer: "Documentation people actually read"
     },
     {
       num: "TRAIT-03",
       icon: Handshake,
       title: "The Diplomat's Instinct",
-      desc: "Every client conversation is treated as a negotiation worth getting right — listening for what's actually being asked, not just what's said, and finding a solution both sides are genuinely glad to land on.",
+      desc: "Every client conversation is treated as a negotiation worth getting right - listening for what's actually being asked, not just what's said, and finding a solution both sides are genuinely glad to land on.",
       footer: "Fewer misunderstandings, fewer rebuilds"
     },
     {

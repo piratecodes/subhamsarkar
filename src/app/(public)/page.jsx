@@ -7,7 +7,7 @@ import FeaturedWork from "@/components/landing/FeaturedWork";
 import ClosingCTA from "@/components/landing/ClosingCTA";
 import { prisma } from "@/lib/prisma";
 import { getSiteSettings } from "@/actions/settings";
-import { getHomePageSchema } from "@/lib/schema";
+import { getHomePageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
@@ -33,7 +33,7 @@ export default async function Home() {
     })
   ]);
 
-  const schema = getHomePageSchema(settings, featuredDossiers);
+  const schema = getHomePageSchema();
 
   return (
     <>

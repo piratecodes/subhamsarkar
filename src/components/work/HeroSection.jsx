@@ -81,7 +81,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="font-sans text-[14px] lg:text-[15px] leading-[24px] lg:leading-[26px] tracking-[-0.01em] font-normal text-secondary max-w-2xl border-l-2 border-primary/40 pl-4 bg-gradient-to-r from-primary/5 to-transparent p-2 rounded-r-xl">
-              Every project shown here is real work for real businesses. Where discretion was requested, details are shared without identifying information — because protecting one client's trust matters more than impressing the next visitor. What's shown is the actual problem, the actual thinking, and the actual result.
+              Every project shown here is real work for real businesses. Where discretion was requested, details are shared without identifying information - because protecting one client's trust matters more than impressing the next visitor. What's shown is the actual problem, the actual thinking, and the actual result.
             </p>
           </div>
           
@@ -134,7 +134,7 @@ export default function HeroSection() {
             <div className="mt-3 lg:mt-4 font-display text-[32px] lg:text-[36px] leading-[1] tracking-[-0.03em] font-bold text-on-surface relative z-10 group-hover/metric:text-primary transition-colors duration-500">
               Every<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500"> One</span>
             </div>
-            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Every system delivered is still in use today — nothing abandoned.</p>
+            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Every system delivered is still in use today - nothing abandoned.</p>
           </div>
           
           <div className="group/metric bg-surface-container-lowest/50 backdrop-blur-2xl p-5 lg:p-6 rounded-2xl border border-surface-container-highest shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(var(--color-primary-rgb),0.2)] hover:border-primary/50 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative">
@@ -146,7 +146,7 @@ export default function HeroSection() {
             <div className="mt-3 lg:mt-4 font-display text-[32px] lg:text-[36px] leading-[1] tracking-[-0.03em] font-bold text-on-surface relative z-10 group-hover/metric:text-primary transition-colors duration-500">
               Real<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500"> Bottlenecks</span>
             </div>
-            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Not cosmetic fixes — the specific architectural problems that were actually slowing the business down.</p>
+            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Not cosmetic fixes - the specific architectural problems that were actually slowing the business down.</p>
           </div>
           
           <div className="group/metric bg-surface-container-lowest/50 backdrop-blur-2xl p-5 lg:p-6 rounded-2xl border border-surface-container-highest shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(var(--color-primary-rgb),0.2)] hover:border-primary/50 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative">

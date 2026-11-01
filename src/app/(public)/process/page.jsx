@@ -3,8 +3,7 @@ import ProcessWorkflow from "@/components/process/ProcessWorkflow";
 import PostHandover from "@/components/process/PostHandover";
 import ProcessFAQ from "@/components/process/ProcessFAQ";
 import ProcessCTA from "@/components/process/ProcessCTA";
-import { getSiteSettings } from "@/actions/settings";
-import { getProcessPageSchema } from "@/lib/schema";
+import { getProcessPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
@@ -18,9 +17,8 @@ export const metadata = {
   },
 };
 
-export default async function ProcessPage() {
-  const settings = await getSiteSettings();
-  const schema = getProcessPageSchema(settings);
+export default function ProcessPage() {
+  const schema = getProcessPageSchema();
 
   return (
     <main className="bg-transparent">

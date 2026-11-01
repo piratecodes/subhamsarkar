@@ -16,27 +16,31 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", variab
 
 export const metadata = {
   title: {
-    template: "%s | Subham Sarkar | Software Architect & Systems Engineer",
-    default: "Subham Sarkar | Software Architect & Systems Engineer",
+    template: "%s | Subham Sarkar",
+    default: "Subham Sarkar | Software Architect & Business developer",
   },
-  description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer building robust, scalable applications.",
+  description: "Subham Sarkar is a software developer and architect in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
+  applicationName: "Subham Sarkar",
+  authors: [{ name: "Subham Sarkar", url: "https://subhamsarkar.dev" }],
+  creator: "Subham Sarkar",
+  robots: { index: true, follow: true },
   manifest: '/manifest.webmanifest',
   metadataBase: new URL('https://subhamsarkar.dev'),
-  keywords: ["Software Architect", "Systems Engineer", "Subham Sarkar", "Portfolio"],
+  keywords: ["Software Architect", "Business developer", "Subham Sarkar", "Portfolio"],
   openGraph: {
     url: 'https://subhamsarkar.dev',
     title: "Subham Sarkar | Software Architect",
     type: 'website',
-    siteName: "Subham Sarkar Portfolio",
-    description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer.",
+    siteName: "Subham Sarkar",
+    description: "Subham Sarkar is a software developer and architect in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
     images: [
       { url: "/icons/icon-512x512.png", alt: "Subham Sarkar Logo", type: 'image/png', sizes: "512x512" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subham Sarkar | Software Architect & Systems Engineer",
-    description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer.",
+    title: "Subham Sarkar | Software Architect & Business developer",
+    description: "Portfolio of Subham Sarkar, Software Architect & Business developer.",
     images: ["/icons/icon-512x512.png"],
   },
   icons: {
@@ -96,9 +100,18 @@ export const viewport = {
 // via Prisma. We fetch site settings globally here.
 // ==========================================
 import { getSiteSettings } from "@/actions/settings";
+import { getPersonSchema, getWebSiteSchema } from "@/lib/schema/base";
+import JsonLd from "@/components/seo/JsonLd";
 
 export default async function RootLayout({ children }) {
   const settings = await getSiteSettings();
+  const globalSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      getPersonSchema(settings),
+      getWebSiteSchema(),
+    ],
+  };
   
   return (
     <html lang="en" className="h-full antialiased">
@@ -118,6 +131,7 @@ export default async function RootLayout({ children }) {
         {/* <noscript><iframe loading="lazy" src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTMId}`} className='hidden invisible' height="0" width="0"></iframe></noscript> */}
 
         
+        <JsonLd data={globalSchema} />
         <CustomCursor />
         <PushNotificationManager />
         <FloatingContact settings={settings} />

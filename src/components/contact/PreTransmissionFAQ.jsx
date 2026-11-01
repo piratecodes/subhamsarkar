@@ -1,34 +1,9 @@
 "use client";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
-import { ChevronDown, FileText, Globe, Shield, Settings2 } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { contactFaqs as faqs } from "@/data/faqs";
 
 export default function PreTransmissionFAQ() {
-  const faqs = [
-    {
-      spec: "CRITERIA",
-      icon: Settings2,
-      question: "Is there a minimum project size or budget threshold?",
-      answer: "Engagements typically start for comprehensive architecture audits, high-volume decoupling initiatives, or full-scope module builds where resilience is paramount. I typically do not take on ad-hoc frontend patching or template modifications."
-    },
-    {
-      spec: "GLOBAL COMM",
-      icon: Globe,
-      question: "Do you work with international or remote clients across different time zones?",
-      answer: "Yes. Currently supporting enterprise clients across North America, Europe, and Southeast Asia. I operate on rigorous asynchronous documentation, daily sprint journals, and predictable synchronous overlap windows for architectural checkpoints."
-    },
-    {
-      spec: "PREPARATION",
-      icon: FileText,
-      question: "What information should I include in my initial message?",
-      answer: "A concise summary of your current technology stack, the primary bottleneck or transactional load profile, expected delivery constraints, and whether you possess architectural documentation or require ground-up systems modeling."
-    },
-    {
-      spec: "GOVERNANCE",
-      icon: Shield,
-      question: "Do you sign NDAs before discussing proprietary business workflows?",
-      answer: "Yes, routinely. Bilateral mutual non-disclosure agreements are dispatched and executed within 24 hours of receiving your transmission, safeguarding all trade secrets, IP, database schema plans, and commercial algorithms prior to technical scoping."
-    }
-  ];
 
   return (
     <section className="w-full py-16">

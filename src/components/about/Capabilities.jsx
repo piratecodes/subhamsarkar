@@ -57,7 +57,7 @@ export default function Capabilities() {
             </h2>
           </div>
           <p className="font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary max-w-md">
-            Targeted solutions to intractable enterprise bottlenecks. No superficial wrapper layers — deep architectural remediation from database schema to user interaction.
+            Targeted solutions to intractable enterprise bottlenecks. No superficial wrapper layers - deep architectural remediation from database schema to user interaction.
           </p>
         </div>
         {/* 5 Bento Categorized Cards */}

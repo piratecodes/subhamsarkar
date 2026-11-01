@@ -5,8 +5,7 @@ import EngagementModels from "@/components/services/EngagementModels";
 import FAQ from "@/components/services/FAQ";
 import ServicesCTA from "@/components/services/ServicesCTA";
 import PageTracker from "@/components/PageTracker";
-import { getSiteSettings } from "@/actions/settings";
-import { getServicesPageSchema } from "@/lib/schema";
+import { getServicesPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
@@ -20,9 +19,8 @@ export const metadata = {
   },
 };
 
-export default async function ServicesPage() {
-  const settings = await getSiteSettings();
-  const schema = getServicesPageSchema(settings);
+export default function ServicesPage() {
+  const schema = getServicesPageSchema();
 
   return (
     <>

@@ -1,40 +1,9 @@
 "use client";
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from "@headlessui/react";
 import { Plus, Minus, ShieldCheck, Terminal } from "lucide-react";
+import { servicesFaqs as faqs } from "@/data/faqs";
 
 export default function FAQ() {
-  const faqs = [
-    {
-      queryNum: "QUERY 01",
-      topic: "EXISTING SYSTEMS",
-      question: "Do you work with an existing tech setup or only from scratch?",
-      answer: "Both. A large share of the work I do involves existing systems that have become slow, outdated, or difficult to maintain — not just new builds. Where possible, we improve and modernize what you already have step by step, rather than forcing a risky full rebuild."
-    },
-    {
-      queryNum: "QUERY 02",
-      topic: "CONFIDENTIALITY & OWNERSHIP",
-      question: "How do you handle confidentiality and proprietary business logic?",
-      answer: "Every engagement is covered by a confidentiality agreement before any technical details are discussed. Code is written directly into your own private repository, not mine — and business logic built for one client is never reused or shared with another."
-    },
-    {
-      queryNum: "QUERY 03",
-      topic: "TIMELINES & SCHEDULES",
-      question: "What is a typical project timeline and deployment milestone schedule?",
-      answer: "Work is broken into short, clearly defined milestones, so you always know what's being delivered and when. A focused fix or migration typically takes a few weeks; a full custom ERP/CRM build usually takes a few months, depending on scope — we'll give you a realistic estimate before anything begins."
-    },
-    {
-      queryNum: "QUERY 04",
-      topic: "SUPPORT AFTER LAUNCH",
-      question: "Do you offer post-launch maintenance and emergency support?",
-      answer: "Yes. Every build includes a stabilization period after launch to catch and fix any issues, at no extra cost. After that, ongoing support and maintenance are available if you want them — but they're never a requirement to keep your system running."
-    },
-    {
-      queryNum: "QUERY 05",
-      topic: "OWNERSHIP & INDEPENDENCE",
-      question: "Can systems be handed off fully to our internal engineering team without vendor lock-in?",
-      answer: "Yes — this is a core principle of how I build. Every solution is built using common, widely-supported technologies, not proprietary tools only I can maintain. You receive full documentation and a proper handoff, so your own team can maintain and extend the system independently, with or without me."
-    }
-  ];
 
   return (
     <section className="w-full bg-surface py-20 relative overflow-hidden">

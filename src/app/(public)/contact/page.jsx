@@ -6,7 +6,7 @@ import PreTransmissionFAQ from "@/components/contact/PreTransmissionFAQ";
 import ConfidentialityPledge from "@/components/contact/ConfidentialityPledge";
 import { getSiteSettings } from "@/actions/settings";
 import PageTracker from "@/components/PageTracker";
-import { getContactPageSchema } from "@/lib/schema";
+import { getContactPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {

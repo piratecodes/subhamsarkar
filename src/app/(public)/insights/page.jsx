@@ -1,9 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import InsightClientGrid from '@/components/insight/InsightClientGrid';
 import { prisma } from "@/lib/prisma";
 import JsonLd from "@/components/seo/JsonLd";
-import { getInsightsPageSchema } from "@/lib/schema";
-import { getSiteSettings } from "@/actions/settings";
+import { getInsightsPageSchema } from "@/lib/schema/pages";
 
 export const metadata = {
   title: "Industry Insights | Subham Sarkar",
@@ -17,31 +16,24 @@ export const metadata = {
 };
 export const revalidate = 300;
 
-export default async function InsightsPage() {
+export default async function InsightsPage(props) {
+  const searchParams = await props?.searchParams;
   let insights = [];
   let categories = [];
-  let settings = null;
 
   try {
-    const [fetchedInsights, fetchedSettings] = await Promise.all([
-      prisma.insight.findMany({
-        where: { isPublished: true },
-        include: { author: true },
-        orderBy: { createdAt: 'desc' }
-      }),
-      getSiteSettings().catch(() => null)
-    ]);
+    insights = await prisma.insight.findMany({
+      where: { isPublished: true },
+      include: { author: true },
+      orderBy: { createdAt: 'desc' }
+    });
 
-    insights = fetchedInsights;
-    settings = fetchedSettings;
-
-    // Extract unique categories
     categories = [...new Set(insights.map(i => i.category))].filter(Boolean);
   } catch (err) {
     console.error("Failed to fetch insights", err);
   }
 
-  const schema = getInsightsPageSchema(settings, insights);
+  const schema = getInsightsPageSchema(insights);
 
   return (
     <main className="min-h-screen py-8 relative">
@@ -132,9 +124,7 @@ export default async function InsightsPage() {
         </div>
       </div>
 
-      <Suspense fallback={<div className="min-h-[40vh] flex items-center justify-center"><div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div></div>}>
-        <InsightClientGrid initialBlogs={insights} categories={categories} />
-      </Suspense>
+      <InsightClientGrid initialBlogs={insights} categories={categories} searchParams={searchParams} />
     </main>
   );
 }

@@ -1,11 +1,9 @@
 import HeroSection from "@/components/work/HeroSection";
 import DossierGrid from "@/components/work/DossierGrid";
-import { Suspense } from "react";
 import WorkCTA from "@/components/work/WorkCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getSiteSettings } from "@/actions/settings";
-import { getWorkPageSchema } from "@/lib/schema";
+import { getWorkPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
@@ -21,25 +19,21 @@ export const metadata = {
 
 export const revalidate = 3600;
 
-export default async function WorkPage() {
-  const [settings, dossiers] = await Promise.all([
-    getSiteSettings(),
-    prisma.dossier.findMany({
-      where: { isPublished: true },
-      orderBy: { createdAt: "desc" }
-    })
-  ]);
+export default async function WorkPage(props) {
+  const searchParams = await props?.searchParams;
+  const dossiers = await prisma.dossier.findMany({
+    where: { isPublished: true },
+    orderBy: { createdAt: "desc" }
+  });
 
-  const schema = getWorkPageSchema(settings, dossiers);
+  const schema = getWorkPageSchema(dossiers);
 
   return (
     <>
       <JsonLd data={schema} />
       <PageTracker pageType="work" />
       <HeroSection />
-      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center text-secondary font-display uppercase tracking-widest text-[11px] animate-pulse">Initializing Data...</div>}>
-        <DossierGrid initialDossiers={dossiers} />
-      </Suspense>
+      <DossierGrid initialDossiers={dossiers} searchParams={searchParams} />
       <WorkCTA />
     </>
   );

@@ -3,39 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from "@headlessui/react";
 import { ChevronDown, ArrowRight } from "lucide-react";
-
-const faqs = [
-  {
-    num: "01",
-    question: "How involved do I need to be during the build?",
-    answer: "As much or as little as makes sense for you. At minimum, you'll be involved at the start (explaining your business) and at key checkpoints (reviewing progress and approving each phase). You won't be asked to sit through daily updates, but you'll never be left wondering what's happening either."
-  },
-  {
-    num: "02",
-    question: "What if I don't know exactly what I want yet?",
-    answer: "That's normal, and it's actually where the process starts. The first phase exists specifically to figure that out together — most clients arrive with a problem, not a finished spec, and that's enough to begin."
-  },
-  {
-    num: "03",
-    question: "What happens if requirements change partway through?",
-    answer: "They often do, and that's expected. Because work is broken into phases and milestones rather than delivered all at once, changes can be discussed and adjusted for at the next checkpoint — not treated as a crisis or a reason to start over."
-  },
-  {
-    num: "04",
-    question: "How will I know if the project is on track?",
-    answer: "You'll have visibility at every phase, not just a single update at the end. If something is taking longer than expected or a decision needs your input, you'll hear about it as it happens, not after the fact."
-  },
-  {
-    num: "05",
-    question: "Do I get documentation, or does only you understand the system?",
-    answer: "You get full documentation, always — this isn't optional or something reserved for larger clients. It's part of what makes it possible to hand the system over completely at the end."
-  },
-  {
-    num: "06",
-    question: "What if I'm not happy with the direction partway through?",
-    answer: "Because the work is milestone-based, you're never looking at a finished product for the first time at the very end. If something isn't right, it gets caught and corrected at the next checkpoint, not discovered too late to fix easily."
-  }
-];
+import { processFaqs as faqs } from "@/data/faqs";
 
 export default function ProcessFAQ() {
   const [mounted, setMounted] = useState(false);
