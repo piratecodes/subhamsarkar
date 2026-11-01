@@ -51,25 +51,37 @@
   background-color: var(--color-surface-container) !important;
   font-weight: 700 !important;
   color: var(--color-on-surface) !important;
-  text-align: center !important;
+  text-align: left;
   vertical-align: middle !important;
 }
-.jodit-wysiwyg table th[style*="text-align: left"],
-.jodit-wysiwyg table th[style*="text-align:left"],
-.jodit-wysiwyg table td[style*="text-align: left"],
-.jodit-wysiwyg table td[style*="text-align:left"] {
+.jodit-wysiwyg table th[style*="text-align: left" i],
+.jodit-wysiwyg table th[style*="text-align:left" i],
+.jodit-wysiwyg table td[style*="text-align: left" i],
+.jodit-wysiwyg table td[style*="text-align:left" i],
+.jodit-wysiwyg table th[align="left"],
+.jodit-wysiwyg table td[align="left"] {
   text-align: left !important;
 }
-.jodit-wysiwyg table th[style*="text-align: right"],
-.jodit-wysiwyg table th[style*="text-align:right"],
-.jodit-wysiwyg table td[style*="text-align: right"],
-.jodit-wysiwyg table td[style*="text-align:right"] {
+.jodit-wysiwyg table th[style*="text-align: right" i],
+.jodit-wysiwyg table th[style*="text-align:right" i],
+.jodit-wysiwyg table td[style*="text-align: right" i],
+.jodit-wysiwyg table td[style*="text-align:right" i],
+.jodit-wysiwyg table th[align="right"],
+.jodit-wysiwyg table td[align="right"] {
   text-align: right !important;
 }
-.jodit-wysiwyg table th[style*="text-align: center"],
-.jodit-wysiwyg table th[style*="text-align:center"],
-.jodit-wysiwyg table td[style*="text-align: center"],
-.jodit-wysiwyg table td[style*="text-align:center"] {
+.jodit-wysiwyg table th[style*="text-align: center" i],
+.jodit-wysiwyg table th[style*="text-align:center" i],
+.jodit-wysiwyg table td[style*="text-align: center" i],
+.jodit-wysiwyg table td[style*="text-align:center" i],
+.jodit-wysiwyg table th[align="center"],
+.jodit-wysiwyg table td[align="center"],
+.jodit-wysiwyg table th[align="middle"],
+.jodit-wysiwyg table td[align="middle"],
+.jodit-wysiwyg table th:has([style*="text-align: center" i]),
+.jodit-wysiwyg table td:has([style*="text-align: center" i]),
+.jodit-wysiwyg table th:has([style*="text-align:center" i]),
+.jodit-wysiwyg table td:has([style*="text-align:center" i]) {
   text-align: center !important;
 }
 

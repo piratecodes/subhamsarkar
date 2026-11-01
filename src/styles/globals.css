@@ -177,74 +177,104 @@ body{
   background-color: var(--color-surface-container) !important;
   font-weight: 700 !important;
   color: var(--color-on-surface) !important;
-  text-align: center !important;
+  text-align: left;
   vertical-align: middle !important;
 }
 
 /* Table Header & Cell Alignments (Supporting inline styles, align attributes, and inner tags) */
 .insight-content table th[align="center"],
 .insight-content table td[align="center"],
-.insight-content table th[style*="text-align: center"],
-.insight-content table td[style*="text-align: center"],
-.insight-content table th[style*="text-align:center"],
-.insight-content table td[style*="text-align:center"],
-.insight-content table th [style*="text-align: center"],
-.insight-content table td [style*="text-align: center"],
-.insight-content table th [style*="text-align:center"],
-.insight-content table td [style*="text-align:center"],
-.insight-content.prose table th[style*="text-align: center"],
-.insight-content.prose table th[style*="text-align:center"],
-.insight-content.prose thead th[style*="text-align: center"],
-.insight-content.prose thead th[style*="text-align:center"] {
+.insight-content table th[align="middle"],
+.insight-content table td[align="middle"],
+.insight-content table th[style*="text-align: center" i],
+.insight-content table td[style*="text-align: center" i],
+.insight-content table th[style*="text-align:center" i],
+.insight-content table td[style*="text-align:center" i],
+.insight-content table th [style*="text-align: center" i],
+.insight-content table td [style*="text-align: center" i],
+.insight-content table th [style*="text-align:center" i],
+.insight-content table td [style*="text-align:center" i],
+.insight-content table th:has([style*="text-align: center" i]),
+.insight-content table td:has([style*="text-align: center" i]),
+.insight-content table th:has([style*="text-align:center" i]),
+.insight-content table td:has([style*="text-align:center" i]),
+.insight-content table th:has([align="center"]),
+.insight-content table td:has([align="center"]),
+.insight-content table th:has([align="middle"]),
+.insight-content table td:has([align="middle"]),
+.insight-content.prose table th[style*="text-align: center" i],
+.insight-content.prose table th[style*="text-align:center" i],
+.insight-content.prose thead th[style*="text-align: center" i],
+.insight-content.prose thead th[style*="text-align:center" i],
+.insight-content.prose thead th[align="center"],
+.insight-content.prose thead th[align="middle"] {
   text-align: center !important;
 }
 
 .insight-content table th[align="right"],
 .insight-content table td[align="right"],
-.insight-content table th[style*="text-align: right"],
-.insight-content table td[style*="text-align: right"],
-.insight-content table th[style*="text-align:right"],
-.insight-content table td[style*="text-align:right"],
-.insight-content table th [style*="text-align: right"],
-.insight-content table td [style*="text-align: right"],
-.insight-content table th [style*="text-align:right"],
-.insight-content table td [style*="text-align:right"],
-.insight-content.prose table th[style*="text-align: right"],
-.insight-content.prose table th[style*="text-align:right"],
-.insight-content.prose thead th[style*="text-align: right"],
-.insight-content.prose thead th[style*="text-align:right"] {
+.insight-content table th[style*="text-align: right" i],
+.insight-content table td[style*="text-align: right" i],
+.insight-content table th[style*="text-align:right" i],
+.insight-content table td[style*="text-align:right" i],
+.insight-content table th [style*="text-align: right" i],
+.insight-content table td [style*="text-align: right" i],
+.insight-content table th [style*="text-align:right" i],
+.insight-content table td [style*="text-align:right" i],
+.insight-content table th:has([style*="text-align: right" i]),
+.insight-content table td:has([style*="text-align: right" i]),
+.insight-content table th:has([style*="text-align:right" i]),
+.insight-content table td:has([style*="text-align:right" i]),
+.insight-content table th:has([align="right"]),
+.insight-content table td:has([align="right"]),
+.insight-content.prose table th[style*="text-align: right" i],
+.insight-content.prose table th[style*="text-align:right" i],
+.insight-content.prose thead th[style*="text-align: right" i],
+.insight-content.prose thead th[style*="text-align:right" i],
+.insight-content.prose thead th[align="right"] {
   text-align: right !important;
 }
 
 .insight-content table th[align="left"],
 .insight-content table td[align="left"],
-.insight-content table th[style*="text-align: left"],
-.insight-content table td[style*="text-align: left"],
-.insight-content table th[style*="text-align:left"],
-.insight-content table td[style*="text-align:left"],
-.insight-content table th [style*="text-align: left"],
-.insight-content table td [style*="text-align: left"],
-.insight-content table th [style*="text-align:left"],
-.insight-content table td [style*="text-align:left"],
-.insight-content.prose table th[style*="text-align: left"],
-.insight-content.prose table th[style*="text-align:left"],
-.insight-content.prose thead th[style*="text-align: left"],
-.insight-content.prose thead th[style*="text-align:left"] {
+.insight-content table th[style*="text-align: left" i],
+.insight-content table td[style*="text-align: left" i],
+.insight-content table th[style*="text-align:left" i],
+.insight-content table td[style*="text-align:left" i],
+.insight-content table th [style*="text-align: left" i],
+.insight-content table td [style*="text-align: left" i],
+.insight-content table th [style*="text-align:left" i],
+.insight-content table td [style*="text-align:left" i],
+.insight-content table th:has([style*="text-align: left" i]),
+.insight-content table td:has([style*="text-align: left" i]),
+.insight-content table th:has([style*="text-align:left" i]),
+.insight-content table td:has([style*="text-align:left" i]),
+.insight-content table th:has([align="left"]),
+.insight-content table td:has([align="left"]),
+.insight-content.prose table th[style*="text-align: left" i],
+.insight-content.prose table th[style*="text-align:left" i],
+.insight-content.prose thead th[style*="text-align: left" i],
+.insight-content.prose thead th[style*="text-align:left" i],
+.insight-content.prose thead th[align="left"] {
   text-align: left !important;
 }
 
 .insight-content table th[align="justify"],
 .insight-content table td[align="justify"],
-.insight-content table th[style*="text-align: justify"],
-.insight-content table td[style*="text-align: justify"],
-.insight-content table th[style*="text-align:justify"],
-.insight-content table td[style*="text-align:justify"] {
+.insight-content table th[style*="text-align: justify" i],
+.insight-content table td[style*="text-align: justify" i],
+.insight-content table th[style*="text-align:justify" i],
+.insight-content table td[style*="text-align:justify" i] {
   text-align: justify !important;
 }
 
 .insight-content table th p,
 .insight-content table td p {
   margin-bottom: 0 !important;
+}
+
+.insight-content table th p:not([style*="text-align"]):not([align]),
+.insight-content table td p:not([style*="text-align"]):not([align]) {
   text-align: inherit;
 }
 
