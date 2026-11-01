@@ -89,6 +89,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
     coverImageAlt: '',
     category: '',
     customAuthor: '',
+    readTime: '5 Min',
     faqs: [],
     isPublished: true,
     seoMetaTitle: '',
@@ -109,6 +110,18 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
 
   useEffect(() => {
     if (insight && isOpen) {
+      let parsedFaqs = [];
+      if (Array.isArray(insight.faqs)) {
+        parsedFaqs = insight.faqs;
+      } else if (typeof insight.faqs === 'string') {
+        try {
+          const p = JSON.parse(insight.faqs);
+          parsedFaqs = Array.isArray(p) ? p : (typeof p === 'string' ? JSON.parse(p) : []);
+        } catch {
+          parsedFaqs = [];
+        }
+      }
+
       setFormData({
         title: insight.title || '',
         slug: insight.slug || '',
@@ -118,7 +131,8 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
         coverImageAlt: insight.coverImageAlt || '',
         category: insight.category || '',
         customAuthor: insight.customAuthor || '',
-        faqs: Array.isArray(insight.faqs) ? insight.faqs : [],
+        readTime: insight.readTime || '5 Min',
+        faqs: Array.isArray(parsedFaqs) ? parsedFaqs : [],
         isPublished: insight.isPublished ?? true,
         seoMetaTitle: insight.seoMetaTitle || '',
         seoMetaDescription: insight.seoMetaDescription || '',
@@ -130,7 +144,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
       setTouchedFields({
         seoMetaTitle: !!insight.seoMetaTitle,
         seoMetaDescription: !!insight.seoMetaDescription,
-        seoJsonLdSchema: !!insight.seoJsonLdSchema,
+        seoJsonLdSchema: false,
         slug: true
       });
       setEditorContent(insight.content || '');
@@ -175,8 +189,16 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
         const authorName = prev.customAuthor || "Subham";
         const currentMetaDesc = updated.seoMetaDescription !== undefined ? updated.seoMetaDescription : prev.seoMetaDescription;
         const currentMetaTitle = updated.seoMetaTitle !== undefined ? updated.seoMetaTitle : prev.seoMetaTitle;
-        const datePublished = (insight?.createdAt ? new Date(insight.createdAt) : new Date()).toISOString().split('T')[0];
-        const dateModified = new Date().toISOString().split('T')[0];
+        const formatKolkataDate = (d) => {
+          return new Intl.DateTimeFormat('en-CA', {
+            timeZone: 'Asia/Kolkata',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+          }).format(new Date(d));
+        };
+        const datePublished = formatKolkataDate(insight?.createdAt ? insight.createdAt : new Date());
+        const dateModified = formatKolkataDate(new Date());
         
         // Use a placeholder for the schema if the image is pending upload. 
         // The server action will automatically replace this placeholder with the true, final generated URL!
@@ -189,18 +211,27 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
           "@type": "Article",
           "headline": currentMetaTitle || prev.title,
           "image": imageUrl ? [imageUrl] : [],
-          "author": { "@type": "Person", "name": authorName },
+          "author": {
+            "@type": "Person",
+            "name": authorName,
+            "url": "https://subhamsarkar.dev"
+          },
           "publisher": {
             "@type": "Person",
             "name": "Subham Sarkar",
             "url": "https://subhamsarkar.dev",
-            "image": "https://subhamsarkar.dev/icons/icon-512x512.png"
+            "image": "https://subhamsarkar.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmyimage_web.2lllflx3haezf.png"
           },
           "datePublished": datePublished,
           "dateModified": dateModified,
           "description": currentMetaDesc || "",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": prev.seoCanonicalUrl || `https://subhamsarkar.dev/insights/${prev.slug || ''}`
+          },
           "url": prev.seoCanonicalUrl || `https://subhamsarkar.dev/insights/${prev.slug || ''}`,
-          "mainEntityOfPage": `https://subhamsarkar.dev/insights/${prev.slug || ''}`
+          "articleSection": prev.category || "",
+          "inLanguage": "en"
         };
 
         const newSchemaStr = JSON.stringify(schemaObj, null, 2);
@@ -212,7 +243,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
 
       return changed ? updated : prev;
     });
-  }, [formData.title, formData.content, formData.coverImage, formData.slug, formData.customAuthor, formData.seoCanonicalUrl, formData.seoMetaTitle, formData.seoMetaDescription, touchedFields, insight]);
+  }, [formData.title, formData.content, formData.coverImage, formData.slug, formData.category, formData.customAuthor, formData.seoCanonicalUrl, formData.seoMetaTitle, formData.seoMetaDescription, touchedFields, insight]);
 
     const joditConfig = useMemo(() => ({
     readonly: false,
@@ -514,7 +545,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
                             </div>
                         </motion.div>
 
-                        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-3 gap-6">
                           <div className="relative">
                             <label className="block text-sm font-bold text-on-surface mb-1">Category</label>
                             <Combobox value={formData.category} onChange={handleCategorySelect}>
@@ -563,7 +594,11 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
                           </div>
                           <div>
                             <label className="block text-sm font-bold text-on-surface mb-1">Custom Author</label>
-                            <input type="text" value={formData.customAuthor} onChange={e => setFormData({...formData, customAuthor: e.target.value})} className="w-full p-3 bg-surface-container hover:bg-surface-container-high border border-outline/20 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-sm shadow-sm hover:shadow-md" placeholder="Leave blank for Default Admin" />
+                            <input type="text" value={formData.customAuthor} onChange={e => setFormData({...formData, customAuthor: e.target.value})} className="w-full p-3 bg-surface-container hover:bg-surface-container-high border border-outline/20 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-sm shadow-sm hover:shadow-md" placeholder="Default Admin" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-bold text-on-surface mb-1">Est. Reading Time</label>
+                            <input type="text" value={formData.readTime} onChange={e => setFormData({...formData, readTime: e.target.value})} className="w-full p-3 bg-surface-container hover:bg-surface-container-high border border-outline/20 rounded-xl focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all text-sm shadow-sm hover:shadow-md" placeholder="e.g. 5 Min" />
                           </div>
                         </motion.div>
 

@@ -20,7 +20,7 @@ export function getHomePageSchema() {
     "@type": "ProfilePage",
     "@id": "/#profilepage",
     url: BASE_URL,
-    name: "Subham Sarkar | Software Architect and Business Developer",
+    name: "Subham Sarkar | Software Architect and System Engineer",
     description: "Software architect and developer portfolio building custom ERP, CRM, and distributed systems.",
     isPartOf: {
       "@id": "/#website"
@@ -42,8 +42,8 @@ export function getAboutPageSchema() {
     "@type": "AboutPage",
     "@id": "/about#webpage",
     url: `${BASE_URL}/about`,
-    name: "About | Subham Sarkar | Software Architect and Business Developer",
-    description: "Learn about Subham Sarkar, Software Architect and Business Developer building custom software systems.",
+    name: "About | Subham Sarkar | Software Architect and System Engineer",
+    description: "Learn about Subham Sarkar, Software Architect and System Engineer building custom software systems.",
     isPartOf: {
       "@id": "/#website"
     },
@@ -63,7 +63,7 @@ export function getServicesPageSchema() {
     "@type": "WebPage",
     "@id": "/services#webpage",
     url: `${BASE_URL}/services`,
-    name: "Services & Capabilities | Subham Sarkar | Software Architect and Business Developer",
+    name: "Services & Capabilities | Subham Sarkar | Software Architect and System Engineer",
     description: "Custom ERP & CRM systems, unified web and mobile applications, AI agent integration, and legacy system modernization.",
     isPartOf: {
       "@id": "/#website"
@@ -120,7 +120,7 @@ export function getWorkPageSchema(dossiers = []) {
     "@type": "CollectionPage",
     "@id": "/work#webpage",
     url: `${BASE_URL}/work`,
-    name: "Architectural Work & Case Studies | Subham Sarkar | Software Architect and Business Developer",
+    name: "Architectural Work & Case Studies | Subham Sarkar | Software Architect and System Engineer",
     description: "Enterprise engineering case studies and systems architecture portfolio.",
     isPartOf: {
       "@id": "/#website"
@@ -253,7 +253,7 @@ export function getInsightsPageSchema(insights = []) {
     "@type": "CollectionPage",
     "@id": "/insights#webpage",
     url: `${BASE_URL}/insights`,
-    name: "Industry Insights | Subham Sarkar | Software Architect and Business Developer",
+    name: "Industry Insights | Subham Sarkar | Software Architect and System Engineer",
     description: "Thoughts, blueprints, and technical deep dives into software architecture, robust custom ERPs, and resilient business systems.",
     isPartOf: {
       "@id": "/#website"

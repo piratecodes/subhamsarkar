@@ -86,6 +86,7 @@ model Insight {
   customAuthor       String?
   authorId           String?
   isPublished        Boolean  @default(false)
+  readTime           String?  @default("5 Min")
   seoMetaTitle       String?
   seoMetaDescription String?  @db.Text
   seoMetaKeywords    String?

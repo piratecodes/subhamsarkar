@@ -93,7 +93,7 @@ export default function InsightClientGrid({ initialBlogs, categories, searchPara
           <p className="text-secondary text-sm mb-4 line-clamp-3 flex-1 z-10 relative">{blog.excerpt}</p>
           <div className="flex items-center justify-between text-xs text-secondary font-medium pt-4 border-t border-surface-container-highest mt-auto z-10 relative">
             <span className="text-on-surface font-bold">{blog.customAuthor || blog.author?.name || 'Admin'}</span>
-            <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+            <span>{new Date(blog.createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'short', day: 'numeric' })}</span>
           </div>
         </div>
       </Link>
@@ -138,7 +138,7 @@ export default function InsightClientGrid({ initialBlogs, categories, searchPara
                         <div className="flex items-center text-secondary text-sm font-medium">
                           <span className="text-on-surface font-bold">{initialBlogs[0].customAuthor || initialBlogs[0].author?.name || 'Admin'}</span>
                           <span className="mx-2">•</span>
-                          <span>{new Date(initialBlogs[0].createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                          <span>{new Date(initialBlogs[0].createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'long', day: 'numeric', year: 'numeric' })}</span>
                         </div>
                       </div>
                     </GlareHover>
@@ -281,7 +281,7 @@ export default function InsightClientGrid({ initialBlogs, categories, searchPara
                   </figure>
                   <div className="flex-1 min-w-0 flex flex-col justify-center">
                     <h4 className="text-sm font-bold text-on-surface line-clamp-2 group-hover/post:text-primary group-hover/post:translate-x-1 transition-all duration-300">{blog.title}</h4>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary mt-1 block group-hover/post:translate-x-0.5 transition-transform duration-300 delay-75">{new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-secondary mt-1 block group-hover/post:translate-x-0.5 transition-transform duration-300 delay-75">{new Date(blog.createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'short', day: 'numeric', year: 'numeric' })}</span>
                   </div>
                 </Link>
               ))}

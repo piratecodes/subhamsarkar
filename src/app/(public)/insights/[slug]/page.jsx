@@ -97,6 +97,13 @@ export default async function SingleBlogPage({ params }) {
     />
   ) : null;
 
+  // Format content to wrap any tables in responsive container
+  const formattedContent = blog.content
+    ? blog.content.replace(/<table(?:\s+[^>]*)?>[\s\S]*?<\/table>/gi, (match) => {
+        return `<div class="table-responsive-wrapper">${match}</div>`;
+      })
+    : '';
+
   return (
     <main className="min-h-screen pt-2 pb-12">
       <PageTracker pageType="insight" />
@@ -147,7 +154,7 @@ export default async function SingleBlogPage({ params }) {
                 <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shadow-inner border border-surface-container-highest">
                   <svg className="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 </div>
-                {new Date(blog.createdAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                {new Date(blog.createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'long', day: 'numeric', year: 'numeric' })}
               </span>
             </div>
           </div>
@@ -167,7 +174,7 @@ export default async function SingleBlogPage({ params }) {
                 </div>
                 <div>
                   <div className="text-[9px] font-bold text-secondary uppercase tracking-widest">Est. Read</div>
-                  <div className="text-sm font-display font-bold text-on-surface">5 Min</div>
+                  <div className="text-sm font-display font-bold text-on-surface">{blog.readTime || "5 Min"}</div>
                 </div>
               </div>
             </div>
@@ -188,11 +195,11 @@ export default async function SingleBlogPage({ params }) {
         <div className="flex flex-col lg:flex-row gap-12 mt-16">
 
           {/* Main Article Content */}
-          <article className="flex-1 min-w-0 z-10">
+          <article className="flex-1 min-w-0 z-10 max-w-full">
             {/* The insight-content class is used by TableOfContents to find headings */}
             <div
               className="insight-content prose prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-on-surface prose-headings:scroll-mt-28 prose-a:text-primary hover:prose-a:opacity-80 prose-img:rounded-2xl prose-img:shadow-md prose-p:text-on-surface-variant prose-li:text-on-surface-variant prose-strong:text-on-surface marker:text-primary"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: formattedContent }}
             />
 
             {/* Dynamic FAQs */}

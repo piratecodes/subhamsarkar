@@ -16,31 +16,31 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", variab
 
 export const metadata = {
   title: {
-    template: "%s | Subham Sarkar | Software Architect & Business Developer",
-    default: "Subham Sarkar | Software Architect & Business Developer",
+    template: "%s | Subham Sarkar | Software Architect & System Engineer",
+    default: "Subham Sarkar | Software Architect & System Engineer",
   },
-  description: "Subham Sarkar is a Software Architect and Business Developer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
+  description: "Subham Sarkar is a Software Architect and System Engineer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
   applicationName: "Subham Sarkar",
   authors: [{ name: "Subham Sarkar", url: "https://subhamsarkar.dev" }],
   creator: "Subham Sarkar",
   robots: { index: true, follow: true },
   manifest: '/manifest.webmanifest',
   metadataBase: new URL('https://subhamsarkar.dev'),
-  keywords: ["Software Architect", "Business developer", "Subham Sarkar", "Portfolio"],
+  keywords: ["Software Architect", "System Engineer", "Subham Sarkar", "Portfolio"],
   openGraph: {
     url: 'https://subhamsarkar.dev',
     title: "Subham Sarkar | Software Architect",
     type: 'website',
     siteName: "Subham Sarkar",
-    description: "Subham Sarkar is a sSoftware Architect and Business Developer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
+    description: "Subham Sarkar is a sSoftware Architect and System Engineer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
     images: [
       { url: "/icons/icon-512x512.png", alt: "Subham Sarkar Logo", type: 'image/png', sizes: "512x512" },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subham Sarkar | Software Architect & Business developer",
-    description: "Portfolio of Subham Sarkar, Software Architect & Business developer.",
+    title: "Subham Sarkar | Software Architect & System Engineer",
+    description: "Portfolio of Subham Sarkar, Software Architect & System Engineer.",
     images: ["/icons/icon-512x512.png"],
   },
   icons: {

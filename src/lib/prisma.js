@@ -2,6 +2,10 @@ import { PrismaClient } from "@prisma/client";
 
 const globalForPrisma = globalThis;
 
-export const prisma = globalForPrisma.prisma || new PrismaClient();
+const hasReadTime = !!globalForPrisma.prisma?.insight?.fields?.readTime;
+
+export const prisma = (globalForPrisma.prisma && hasReadTime) 
+  ? globalForPrisma.prisma 
+  : new PrismaClient();
 
 if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;

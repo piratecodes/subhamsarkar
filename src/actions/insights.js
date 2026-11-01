@@ -65,6 +65,15 @@ export async function getInsightByCategory(categoryName) {
 
 // Removed unused processAndSaveImage since uploading is handled by Media API
 
+function getKolkataDateString(date = new Date()) {
+  return new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).format(new Date(date));
+}
+
 export async function createInsight(data) {
   const session = await verifyAdminSession();
   if (!session) return { success: false, error: "Unauthorized" };
@@ -72,33 +81,63 @@ export async function createInsight(data) {
   try {
     let finalImageUrl = data.coverImage || null;
     let finalSchema = data.seoJsonLdSchema;
-    if (finalSchema && finalImageUrl) {
-      finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
+    if (finalSchema) {
+      if (finalImageUrl) {
+        finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
+      }
+      const kolkataToday = getKolkataDateString();
+      finalSchema = finalSchema
+        .replace(/"datePublished":\s*"[^"]*"/, `"datePublished": "${kolkataToday}"`)
+        .replace(/"dateModified":\s*"[^"]*"/, `"dateModified": "${kolkataToday}"`);
+    }
+
+    let cleanFaqs = null;
+    if (data.faqs) {
+      if (Array.isArray(data.faqs)) {
+        cleanFaqs = data.faqs;
+      } else if (typeof data.faqs === 'string') {
+        try {
+          const parsed = JSON.parse(data.faqs);
+          cleanFaqs = Array.isArray(parsed) ? parsed : (typeof parsed === 'string' ? JSON.parse(parsed) : null);
+        } catch {
+          cleanFaqs = null;
+        }
+      }
+    }
+
+    const createData = {
+      title: data.title,
+      slug: data.slug,
+      excerpt: data.excerpt,
+      content: data.content,
+      faqs: cleanFaqs,
+      coverImage: finalImageUrl,
+      coverImageAlt: data.coverImageAlt || null,
+      category: data.category || null,
+      customAuthor: data.customAuthor || null,
+      authorId: session.userId,
+      isPublished: data.isPublished,
+      seoMetaTitle: data.seoMetaTitle || null,
+      seoMetaDescription: data.seoMetaDescription || null,
+      seoMetaKeywords: data.seoMetaKeywords || null,
+      seoCanonicalUrl: data.seoCanonicalUrl || null,
+      seoIsNoIndex: data.seoIsNoIndex || false,
+      seoJsonLdSchema: finalSchema || null,
+    };
+
+    if (prisma.insight?.fields?.readTime) {
+      createData.readTime = data.readTime || "5 Min";
     }
 
     const insight = await prisma.insight.create({
-      data: {
-        title: data.title,
-        slug: data.slug,
-        excerpt: data.excerpt,
-        content: data.content,
-        faqs: data.faqs ? JSON.stringify(data.faqs) : null,
-        coverImage: finalImageUrl,
-        coverImageAlt: data.coverImageAlt || null,
-        category: data.category || null,
-        customAuthor: data.customAuthor || null,
-        authorId: session.userId,
-        isPublished: data.isPublished,
-        seoMetaTitle: data.seoMetaTitle || null,
-        seoMetaDescription: data.seoMetaDescription || null,
-        seoMetaKeywords: data.seoMetaKeywords || null,
-        seoCanonicalUrl: data.seoCanonicalUrl || null,
-        seoIsNoIndex: data.seoIsNoIndex || false,
-        seoJsonLdSchema: finalSchema || null,
-      }
+      data: createData
     });
     
     revalidatePath("/sudo/insights");
+    revalidatePath("/insights");
+    if (insight.slug) {
+      revalidatePath(`/insights/${insight.slug}`);
+    }
     return { success: true, insight };
   } catch (error) {
     console.error("Failed to create insight:", error);
@@ -120,34 +159,65 @@ export async function updateInsight(id, data) {
     }
 
     let finalSchema = data.seoJsonLdSchema;
-    if (finalSchema && finalImageUrl) {
-      finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
+    if (finalSchema) {
+      if (finalImageUrl) {
+        finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
+      }
+      const kolkataToday = getKolkataDateString();
+      finalSchema = finalSchema.replace(/"dateModified":\s*"[^"]*"/, `"dateModified": "${kolkataToday}"`);
+    }
+
+    let cleanFaqs = null;
+    if (data.faqs) {
+      if (Array.isArray(data.faqs)) {
+        cleanFaqs = data.faqs;
+      } else if (typeof data.faqs === 'string') {
+        try {
+          const parsed = JSON.parse(data.faqs);
+          cleanFaqs = Array.isArray(parsed) ? parsed : (typeof parsed === 'string' ? JSON.parse(parsed) : null);
+        } catch {
+          cleanFaqs = null;
+        }
+      }
+    }
+
+    const updateData = {
+      title: data.title,
+      slug: data.slug,
+      excerpt: data.excerpt,
+      content: data.content,
+      faqs: cleanFaqs,
+      coverImage: finalImageUrl,
+      coverImageAlt: data.coverImageAlt || null,
+      category: data.category || null,
+      customAuthor: data.customAuthor || null,
+      authorId: session.userId,
+      isPublished: data.isPublished,
+      seoMetaTitle: data.seoMetaTitle || null,
+      seoMetaDescription: data.seoMetaDescription || null,
+      seoMetaKeywords: data.seoMetaKeywords || null,
+      seoCanonicalUrl: data.seoCanonicalUrl || null,
+      seoIsNoIndex: data.seoIsNoIndex || false,
+      seoJsonLdSchema: finalSchema || null,
+    };
+
+    if (prisma.insight?.fields?.readTime) {
+      updateData.readTime = data.readTime || "5 Min";
     }
 
     const insight = await prisma.insight.update({
       where: { id },
-      data: {
-        title: data.title,
-        slug: data.slug,
-        excerpt: data.excerpt,
-        content: data.content,
-        faqs: data.faqs ? JSON.stringify(data.faqs) : null,
-        coverImage: finalImageUrl,
-        coverImageAlt: data.coverImageAlt || null,
-        category: data.category || null,
-        customAuthor: data.customAuthor || null,
-        authorId: session.userId,
-        isPublished: data.isPublished,
-        seoMetaTitle: data.seoMetaTitle || null,
-        seoMetaDescription: data.seoMetaDescription || null,
-        seoMetaKeywords: data.seoMetaKeywords || null,
-        seoCanonicalUrl: data.seoCanonicalUrl || null,
-        seoIsNoIndex: data.seoIsNoIndex || false,
-        seoJsonLdSchema: finalSchema || null,
-      }
+      data: updateData
     });
     
     revalidatePath("/sudo/insights");
+    revalidatePath("/insights");
+    if (insight.slug) {
+      revalidatePath(`/insights/${insight.slug}`);
+    }
+    if (oldInsight && oldInsight.slug && oldInsight.slug !== insight.slug) {
+      revalidatePath(`/insights/${oldInsight.slug}`);
+    }
     return { success: true, insight };
   } catch (error) {
     console.error("Failed to update insight:", error);
@@ -171,6 +241,10 @@ export async function deleteInsight(id) {
     }
 
     revalidatePath("/sudo/insights");
+    revalidatePath("/insights");
+    if (insight?.slug) {
+      revalidatePath(`/insights/${insight.slug}`);
+    }
     return { success: true };
   } catch (error) {
     console.error("Failed to delete insight:", error);
