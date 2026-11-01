@@ -37,14 +37,40 @@
   width: 100% !important;
   border-collapse: collapse !important;
   margin: 1.5rem 0 !important;
+  background-color: transparent !important;
 }
 .jodit-wysiwyg table td, .jodit-wysiwyg table th, .jodit-dialog__content table td, .jodit-dialog__content table th, .jodit-dialog__panel table td, .jodit-dialog__panel table th {
-  border: 1px solid var(--color-outline) !important;
-  padding: 0.75rem !important;
+  border: 1px solid var(--color-surface-container-highest) !important;
+  padding: 0.75rem 1rem !important;
+  vertical-align: middle !important;
+}
+.jodit-wysiwyg table td, .jodit-dialog__content table td, .jodit-dialog__panel table td {
+  background-color: transparent !important;
 }
 .jodit-wysiwyg table th, .jodit-dialog__content table th, .jodit-dialog__panel table th {
   background-color: var(--color-surface-container) !important;
   font-weight: 700 !important;
+  color: var(--color-on-surface) !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+.jodit-wysiwyg table th[style*="text-align: left"],
+.jodit-wysiwyg table th[style*="text-align:left"],
+.jodit-wysiwyg table td[style*="text-align: left"],
+.jodit-wysiwyg table td[style*="text-align:left"] {
+  text-align: left !important;
+}
+.jodit-wysiwyg table th[style*="text-align: right"],
+.jodit-wysiwyg table th[style*="text-align:right"],
+.jodit-wysiwyg table td[style*="text-align: right"],
+.jodit-wysiwyg table td[style*="text-align:right"] {
+  text-align: right !important;
+}
+.jodit-wysiwyg table th[style*="text-align: center"],
+.jodit-wysiwyg table th[style*="text-align:center"],
+.jodit-wysiwyg table td[style*="text-align: center"],
+.jodit-wysiwyg table td[style*="text-align:center"] {
+  text-align: center !important;
 }
 
 .jodit-wysiwyg a, .jodit-dialog__content a, .jodit-dialog__panel a {

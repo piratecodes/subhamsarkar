@@ -121,7 +121,7 @@ body{
   margin: 1.75rem 0 !important;
   border-radius: 0.75rem;
   border: 1px solid var(--color-surface-container-highest);
-  background-color: var(--color-surface-container-lowest);
+  background-color: transparent !important;
 }
 
 .insight-content .table-responsive-wrapper::-webkit-scrollbar {
@@ -146,6 +146,7 @@ body{
   border-collapse: collapse !important;
   margin: 0 !important;
   table-layout: auto;
+  background-color: transparent !important;
 }
 
 /* Fallback if table is not inside a wrapper */
@@ -155,30 +156,32 @@ body{
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin: 1.75rem 0 !important;
+  background-color: transparent !important;
 }
 
 .insight-content table td,
 .insight-content table th {
   border: 1px solid var(--color-surface-container-highest) !important;
   padding: 0.75rem 1rem !important;
+  vertical-align: middle !important;
 }
 
-.insight-content table th {
+.insight-content table td {
+  background-color: transparent !important;
+}
+
+.insight-content table th,
+.insight-content.prose table th,
+.insight-content table thead th,
+.insight-content.prose thead th {
   background-color: var(--color-surface-container) !important;
   font-weight: 700 !important;
   color: var(--color-on-surface) !important;
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
 /* Table Header & Cell Alignments (Supporting inline styles, align attributes, and inner tags) */
-.insight-content table th,
-.insight-content table td {
-  text-align: inherit;
-}
-
-.insight-content table thead th:not([style*="text-align"]):not([align]) {
-  text-align: left;
-}
-
 .insight-content table th[align="center"],
 .insight-content table td[align="center"],
 .insight-content table th[style*="text-align: center"],
@@ -188,7 +191,11 @@ body{
 .insight-content table th [style*="text-align: center"],
 .insight-content table td [style*="text-align: center"],
 .insight-content table th [style*="text-align:center"],
-.insight-content table td [style*="text-align:center"] {
+.insight-content table td [style*="text-align:center"],
+.insight-content.prose table th[style*="text-align: center"],
+.insight-content.prose table th[style*="text-align:center"],
+.insight-content.prose thead th[style*="text-align: center"],
+.insight-content.prose thead th[style*="text-align:center"] {
   text-align: center !important;
 }
 
@@ -201,7 +208,11 @@ body{
 .insight-content table th [style*="text-align: right"],
 .insight-content table td [style*="text-align: right"],
 .insight-content table th [style*="text-align:right"],
-.insight-content table td [style*="text-align:right"] {
+.insight-content table td [style*="text-align:right"],
+.insight-content.prose table th[style*="text-align: right"],
+.insight-content.prose table th[style*="text-align:right"],
+.insight-content.prose thead th[style*="text-align: right"],
+.insight-content.prose thead th[style*="text-align:right"] {
   text-align: right !important;
 }
 
@@ -214,7 +225,11 @@ body{
 .insight-content table th [style*="text-align: left"],
 .insight-content table td [style*="text-align: left"],
 .insight-content table th [style*="text-align:left"],
-.insight-content table td [style*="text-align:left"] {
+.insight-content table td [style*="text-align:left"],
+.insight-content.prose table th[style*="text-align: left"],
+.insight-content.prose table th[style*="text-align:left"],
+.insight-content.prose thead th[style*="text-align: left"],
+.insight-content.prose thead th[style*="text-align:left"] {
   text-align: left !important;
 }
 
