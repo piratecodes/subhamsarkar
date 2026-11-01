@@ -5,7 +5,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { getInsightsPageSchema } from "@/lib/schema/pages";
 
 export const metadata = {
-  title: "Industry Insights | Subham Sarkar",
+  title: "Industry Insights",
   description: "Expert articles on ERP systems, CRM strategy, and software architecture for growing businesses.",
   alternates: {
     canonical: "/insights",

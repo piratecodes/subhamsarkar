@@ -11,8 +11,8 @@ import { getHomePageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Subham Sarkar | Software Architect & Systems Engineer",
-  description: "Portfolio of Subham Sarkar, Software Architect & Systems Engineer building robust, scalable applications.",
+  title: "Subham Sarkar | Software Architect & Business Developer",
+  description: "Portfolio of Subham Sarkar, Software Architect & Business Developer building robust, scalable applications.",
   alternates: {
     canonical: "/",
   },

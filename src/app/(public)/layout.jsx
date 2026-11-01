@@ -16,10 +16,10 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", variab
 
 export const metadata = {
   title: {
-    template: "%s | Subham Sarkar",
-    default: "Subham Sarkar | Software Architect & Business developer",
+    template: "%s | Subham Sarkar | Software Architect & Business Developer",
+    default: "Subham Sarkar | Software Architect & Business Developer",
   },
-  description: "Subham Sarkar is a software developer and architect in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
+  description: "Subham Sarkar is a Software Architect and Business Developer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
   applicationName: "Subham Sarkar",
   authors: [{ name: "Subham Sarkar", url: "https://subhamsarkar.dev" }],
   creator: "Subham Sarkar",
@@ -32,7 +32,7 @@ export const metadata = {
     title: "Subham Sarkar | Software Architect",
     type: 'website',
     siteName: "Subham Sarkar",
-    description: "Subham Sarkar is a software developer and architect in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
+    description: "Subham Sarkar is a sSoftware Architect and Business Developer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
     images: [
       { url: "/icons/icon-512x512.png", alt: "Subham Sarkar Logo", type: 'image/png', sizes: "512x512" },
     ],

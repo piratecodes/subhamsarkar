@@ -10,7 +10,7 @@ import { getContactPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Contact | Subham Sarkar — Software Architect",
+  title: "Contact",
   description: "Initiate a direct architectural transmission with Subham Sarkar.",
   alternates: {
     canonical: "/contact",

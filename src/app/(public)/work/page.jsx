@@ -7,7 +7,7 @@ import { getWorkPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Work | Subham Sarkar",
+  title: "Work",
   description: "Selected software engineering, distributed systems, and architectural projects by Subham Sarkar.",
   alternates: {
     canonical: "/work",

@@ -9,7 +9,7 @@ import { getServicesPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Services | Subham Sarkar",
+  title: "Services",
   description: "Technical consulting, system design, and software architecture services by Subham Sarkar.",
   alternates: {
     canonical: "/services",

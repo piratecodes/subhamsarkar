@@ -8,7 +8,7 @@ import { getAboutPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "About | Subham Sarkar",
+  title: "About",
   description: "Learn about Subham Sarkar, Software Architect & Systems Engineer building scalable distributed applications.",
   alternates: {
     canonical: "/about",

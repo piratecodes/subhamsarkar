@@ -84,10 +84,10 @@ export function getPersonSchema(settings) {
     "@type": "Person",
     "@id": "/#person",
     name: "Subham Sarkar",
-    jobTitle: "Software Architect & Developer",
+    jobTitle: "Software Architect and Business Developer",
     url: BASE_URL,
     image: `${BASE_URL}/icons/icon-512x512.png`,
-    description: "Software architect and developer with over a decade of experience designing and building custom ERP, CRM, web and mobile systems that businesses run on.",
+    description: "Software Architect and Business Developer with over a decade of experience designing and building custom ERP, CRM, web and mobile systems that businesses run on.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Kolkata",
@@ -102,7 +102,8 @@ export function getPersonSchema(settings) {
       "Custom Software Development",
       "Web and Mobile App Development",
       "AI Agent Integration",
-      "Legacy System Migration"
+      "Legacy System Migration",
+      "Business Developer"
     ]
   };
 }

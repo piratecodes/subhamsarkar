@@ -7,7 +7,7 @@ import { getProcessPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Process | Subham Sarkar",
+  title: "Process",
   description: "End-to-end software engineering and system architecture delivery methodology.",
   alternates: {
     canonical: "/process",
