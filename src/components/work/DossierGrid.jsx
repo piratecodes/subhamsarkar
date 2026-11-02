@@ -796,13 +796,13 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
 
                       {/* Docked Action Bar: Inspect Deep Blueprint */}
                       <div className="absolute bottom-3 left-3 right-3 z-20">
-                        <div className="w-full bg-surface-container-lowest/90 backdrop-blur-xl border border-surface-container-highest group-hover/img:border-primary/50 px-4 py-2.5 rounded-xl shadow-xl flex items-center justify-between text-on-surface group-hover/img:text-primary transition-all duration-300">
-                          <span className="flex items-center gap-2.5 font-display text-[11px] font-bold tracking-widest uppercase">
-                            <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)] animate-pulse"></span>
-                            Inspect Deep Blueprint
+                        <div className="w-full bg-surface-container-lowest/90 backdrop-blur-xl border border-surface-container-highest group-hover/img:border-primary/50 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl shadow-xl flex items-center justify-between text-on-surface group-hover/img:text-primary transition-all duration-300">
+                          <span className="flex items-center gap-2 sm:gap-2.5 font-display text-[10px] sm:text-[11px] font-bold tracking-wider sm:tracking-widest uppercase truncate">
+                            <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)] animate-pulse shrink-0"></span>
+                            <span className="truncate">Inspect Deep Blueprint</span>
                           </span>
-                          <span className="flex items-center gap-1.5 text-primary text-[10px] font-bold font-display uppercase tracking-wider group-hover/img:translate-x-1 transition-transform">
-                            <span>Specs & Schema</span>
+                          <span className="flex items-center gap-1 sm:gap-1.5 text-primary text-[9px] sm:text-[10px] font-bold font-display uppercase tracking-wider shrink-0 group-hover/img:translate-x-1 transition-transform">
+                            <span className="hidden min-[400px]:inline">Specs & Schema</span>
                             <ArrowRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
@@ -813,14 +813,14 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
 
                 {/* Full Key Performance & Benchmark Strip */}
                 {cardStats && cardStats.length > 0 && (
-                  <div className="bg-surface-container-lowest/25 backdrop-blur-md border-t border-surface-container-highest px-6 py-3.5 flex flex-wrap items-center gap-x-6 gap-y-2 relative z-30 transition-colors group-hover/card:bg-surface-container-lowest/50">
-                    <div className="flex items-center gap-2 font-display text-[10px] font-black uppercase tracking-[0.15em] text-primary shrink-0">
+                  <div className="bg-surface-container-lowest/25 backdrop-blur-md border-t border-surface-container-highest px-4 sm:px-6 py-3 sm:py-3.5 flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 relative z-30 transition-colors group-hover/card:bg-surface-container-lowest/50">
+                    <div className="flex items-center gap-1.5 sm:gap-2 font-display text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-primary shrink-0">
                       <Activity className="w-3.5 h-3.5" />
                       <span>KEY METRICS:</span>
                     </div>
-                    <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-1.5 flex-1">
+                    <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-1 sm:gap-y-1.5 flex-1">
                       {cardStats.map((stat, sIdx) => (
-                        <div key={sIdx} className="flex items-center gap-2 font-display text-[11px] leading-4 tracking-[0.06em] uppercase">
+                        <div key={sIdx} className="flex items-center gap-1.5 sm:gap-2 font-display text-[10px] sm:text-[11px] leading-4 tracking-[0.06em] uppercase">
                           <span className="text-secondary font-medium">{stat.label}:</span>
                           <span className={`font-bold ${sIdx % 2 === 1 ? 'text-primary' : 'text-on-surface'}`}>{stat.value}</span>
                           {sIdx < cardStats.length - 1 && <span className="text-outline/30 hidden sm:inline">•</span>}
@@ -1054,24 +1054,24 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
 
                         {/* Executive Performance & Benchmark Metrics Grid */}
                         {modalStats && modalStats.length > 0 && (
-                          <div className="bg-surface-container-lowest/50 border border-surface-container-highest rounded-2xl p-6 lg:p-8 relative overflow-hidden group/metrics shadow-inner">
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-surface-container-highest pb-4 relative z-10">
-                              <span className="font-display text-[11px] leading-4 tracking-[0.15em] font-bold text-secondary uppercase tracking-widest flex items-center gap-2">
-                                <Activity className="w-3.5 h-3.5 text-primary" />
-                                VERIFIED BENCHMARKS & PERFORMANCE METRICS
+                          <div className="bg-surface-container-lowest/50 border border-surface-container-highest rounded-2xl p-4 sm:p-6 lg:p-8 relative overflow-hidden group/metrics shadow-inner">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-6 border-b border-surface-container-highest pb-3 sm:pb-4 relative z-10">
+                              <span className="font-display text-[10px] sm:text-[11px] leading-4 tracking-[0.12em] sm:tracking-[0.15em] font-bold text-secondary uppercase tracking-widest flex items-center gap-2">
+                                <Activity className="w-3.5 h-3.5 text-primary shrink-0" />
+                                <span>VERIFIED BENCHMARKS & PERFORMANCE METRICS</span>
                               </span>
-                              <span className="font-display text-[10px] leading-4 tracking-[0.12em] font-bold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-3 py-1 rounded-full w-fit">
+                              <span className="font-display text-[9px] sm:text-[10px] leading-4 tracking-[0.12em] font-bold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-2.5 sm:px-3 py-1 rounded-full w-fit shrink-0">
                                 {modalStats.length} VERIFIED METRICS
                               </span>
                             </div>
                             
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 relative z-10">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 relative z-10">
                               {modalStats.map((stat, sIdx) => (
-                                <div key={sIdx} className="bg-surface-container/60 hover:bg-surface-container border border-surface-container-highest hover:border-primary/40 rounded-xl p-4 flex flex-col justify-between transition-all duration-300 shadow-sm">
-                                  <span className="font-display text-[10px] leading-tight font-bold text-secondary uppercase tracking-wider mb-3">
+                                <div key={sIdx} className="bg-surface-container/60 hover:bg-surface-container border border-surface-container-highest hover:border-primary/40 rounded-xl p-3 sm:p-4 flex flex-col justify-between transition-all duration-300 shadow-sm">
+                                  <span className="font-display text-[9px] sm:text-[10px] leading-tight font-bold text-secondary uppercase tracking-wider mb-2 sm:mb-3">
                                     {stat.label}
                                   </span>
-                                  <span className="font-display text-[18px] sm:text-[20px] font-black text-on-surface tracking-tight group-hover/metrics:text-primary transition-colors">
+                                  <span className="font-display text-[16px] sm:text-[18px] lg:text-[20px] font-black text-on-surface tracking-tight group-hover/metrics:text-primary transition-colors">
                                     {stat.value}
                                   </span>
                                 </div>
@@ -1259,18 +1259,19 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <DialogPanel className="w-full max-w-7xl transform overflow-hidden bg-transparent text-left align-middle transition-all flex flex-col items-center relative group">
+                <DialogPanel className="w-full max-w-7xl transform overflow-hidden bg-transparent text-left align-middle transition-all flex flex-col items-center relative group p-2 sm:p-4">
                   <button 
-                    className="absolute top-0 right-0 z-10 m-4 w-12 h-12 rounded-full bg-surface-container/50 hover:bg-error/80 text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-xl opacity-0 group-hover:opacity-100" 
+                    className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-surface-container/70 hover:bg-error/90 text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-xl opacity-100 sm:opacity-0 sm:group-hover:opacity-100 cursor-pointer" 
                     onClick={() => setZoomedImage(null)}
+                    aria-label="Close Lightbox"
                   >
-                    <X className="text-[24px]" />
+                    <X className="w-5 h-5 sm:w-6 sm:h-6" />
                   </button>
                   {zoomedImage && (
                     <img 
                       src={zoomedImage} 
                       alt="Fullscreen Blueprint"
-                      className="w-full h-auto max-h-[90vh] object-contain rounded-xl shadow-[0_30px_100px_rgba(0,0,0,0.8)]"
+                      className="w-full h-auto max-h-[85vh] sm:max-h-[90vh] object-contain rounded-xl shadow-[0_30px_100px_rgba(0,0,0,0.8)]"
                     />
                   )}
                 </DialogPanel>
