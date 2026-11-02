@@ -14,6 +14,35 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+const parseStats = (raw) => {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
+  if (typeof raw === 'string') {
+    try {
+      const p = JSON.parse(raw);
+      if (Array.isArray(p)) return p;
+      if (p && typeof p === 'object') return parseStats(p);
+    } catch {
+      return [];
+    }
+  }
+  if (typeof raw === 'object') {
+    if (raw.left || raw.right) {
+      const parseItem = (str) => {
+        if (!str) return null;
+        const parts = str.split(':');
+        if (parts.length > 1) {
+          return { label: parts[0].trim(), value: parts.slice(1).join(':').trim() };
+        }
+        return { label: 'Metric', value: str.trim() };
+      };
+      return [parseItem(raw.left), parseItem(raw.right)].filter(Boolean);
+    }
+    return Object.entries(raw).map(([k, v]) => ({ label: k, value: String(v) }));
+  }
+  return [];
+};
+
 const ALL_CATEGORIES = [
   { id: "all", label: "All Portfolios" },
   { id: "erp", label: "ERP Systems" },
@@ -350,6 +379,7 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
   );
 
   const activeModalData = activeModalId ? casesData.find(c => c.ref === activeModalId) : null;
+  const modalStats = parseStats(activeModalData?.stats);
 
   return (
     <>
@@ -558,7 +588,9 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
           </div>
         ) : (
           <div className="space-y-24">
-            {paginatedDossiers.map((dossier, idx) => (
+            {paginatedDossiers.map((dossier, idx) => {
+              const cardStats = parseStats(dossier.stats);
+              return (
             <article 
               key={dossier.id} 
               id={`dossier-${dossier.ref}`}
@@ -639,10 +671,10 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                     {/* Schematic Pipeline Micro-diagram */}
                     {dossier.pipeline && dossier.pipeline.length > 0 && (
                       <div className="bg-surface-container-lowest/50 p-6 rounded-xl border border-surface-container-highest relative overflow-hidden group/pipeline hover:border-primary/30 transition-colors shadow-inner">
-                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-[100%] group-hover/pipeline:translate-x-[100%] transition-transform duration-[1500ms] ease-in-out pointer-events-none z-0"></div>
+                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover/pipeline:translate-x-full transition-transform duration-1500 ease-in-out pointer-events-none z-0"></div>
                         
                         {/* MAGIC TRICK #3: Continuous Ambient Text Sweep */}
-                        <span className="block font-display text-[10px] leading-4 tracking-[0.12em] font-bold text-transparent bg-clip-text bg-linear-to-r from-secondary via-white to-secondary animate-text-sweep uppercase tracking-widest mb-4 relative z-10">
+                        <span className="block font-display text-[10px] leading-4 tracking-[0.12em] font-bold text-transparent bg-clip-text bg-linear-to-r from-secondary via-white to-secondary uppercase tracking-widest mb-4 relative z-10">
                           ARCHITECTURAL PIPELINE
                         </span>
                         
@@ -745,24 +777,58 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                         </div>
                       )}
                       
-                      {/* Hover Zoom Inspect Overlay */}
-                      <div className="absolute inset-0 bg-surface/40 backdrop-blur-sm opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
-                         <div className="bg-surface-container-lowest px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 text-primary font-display font-bold text-[12px] tracking-widest uppercase transform translate-y-8 group-hover/img:translate-y-0 transition-all duration-500 border border-primary/30">
-                           <Maximize2 className="w-4 h-4 animate-pulse" /> Inspect Deep Blueprint
-                         </div>
-                      </div>
-
-                      {dossier.stats && Array.isArray(dossier.stats) && dossier.stats.length > 0 && (
-                        <div className="absolute bottom-4 left-4 right-4 bg-surface-container-lowest/95 backdrop-blur-xl px-5 py-3 rounded-xl flex items-center justify-between font-display text-[11px] leading-4 tracking-[0.08em] font-bold text-secondary uppercase border border-surface-container-highest shadow-xl z-20 group-hover/img:border-primary/20 transition-colors">
-                          <span>{dossier.stats[0]?.label}: {dossier.stats[0]?.value}</span>
-                          {dossier.stats[1] && (
-                            <span className="text-primary">{dossier.stats[1]?.label}: {dossier.stats[1]?.value}</span>
-                          )}
-                        </div>
+                      {/* Floating Fullscreen Zoom Option */}
+                      {(dossier.thumbnail || (dossier.images && dossier.images.length > 0)) && (
+                        <button 
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            const targetImg = dossier.thumbnail || (dossier.images && (dossier.images[0]?.url || dossier.images[0]));
+                            if (targetImg) setZoomedImage(targetImg);
+                          }}
+                          className="absolute top-3.5 right-3.5 z-20 w-9 h-9 rounded-full bg-surface-container-lowest/80 hover:bg-primary backdrop-blur-xl border border-surface-container-highest hover:border-primary text-secondary hover:text-on-primary shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 cursor-pointer"
+                          title="Zoom Fullscreen Blueprint"
+                          aria-label="View Fullscreen Image"
+                        >
+                          <ZoomIn className="w-4 h-4" />
+                        </button>
                       )}
+
+                      {/* Docked Action Bar: Inspect Deep Blueprint */}
+                      <div className="absolute bottom-3 left-3 right-3 z-20">
+                        <div className="w-full bg-surface-container-lowest/90 backdrop-blur-xl border border-surface-container-highest group-hover/img:border-primary/50 px-4 py-2.5 rounded-xl shadow-xl flex items-center justify-between text-on-surface group-hover/img:text-primary transition-all duration-300">
+                          <span className="flex items-center gap-2.5 font-display text-[11px] font-bold tracking-widest uppercase">
+                            <span className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)] animate-pulse"></span>
+                            Inspect Deep Blueprint
+                          </span>
+                          <span className="flex items-center gap-1.5 text-primary text-[10px] font-bold font-display uppercase tracking-wider group-hover/img:translate-x-1 transition-transform">
+                            <span>Specs & Schema</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                {/* Full Key Performance & Benchmark Strip */}
+                {cardStats && cardStats.length > 0 && (
+                  <div className="bg-surface-container-lowest/25 backdrop-blur-md border-t border-surface-container-highest px-6 py-3.5 flex flex-wrap items-center gap-x-6 gap-y-2 relative z-30 transition-colors group-hover/card:bg-surface-container-lowest/50">
+                    <div className="flex items-center gap-2 font-display text-[10px] font-black uppercase tracking-[0.15em] text-primary shrink-0">
+                      <Activity className="w-3.5 h-3.5" />
+                      <span>KEY METRICS:</span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-1.5 flex-1">
+                      {cardStats.map((stat, sIdx) => (
+                        <div key={sIdx} className="flex items-center gap-2 font-display text-[11px] leading-4 tracking-[0.06em] uppercase">
+                          <span className="text-secondary font-medium">{stat.label}:</span>
+                          <span className={`font-bold ${sIdx % 2 === 1 ? 'text-primary' : 'text-on-surface'}`}>{stat.value}</span>
+                          {sIdx < cardStats.length - 1 && <span className="text-outline/30 hidden sm:inline">•</span>}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Card Footer: Associated With / NDA */}
                 <div className="bg-surface-container-low/50 px-6 py-4 border-t border-surface-container-highest relative z-30 group-hover/card:bg-surface-container-low/80 transition-colors overflow-hidden">
@@ -805,7 +871,8 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                 </div>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
       )}
 
@@ -985,9 +1052,37 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                           </div>
                         </div>
 
+                        {/* Executive Performance & Benchmark Metrics Grid */}
+                        {modalStats && modalStats.length > 0 && (
+                          <div className="bg-surface-container-lowest/50 border border-surface-container-highest rounded-2xl p-6 lg:p-8 relative overflow-hidden group/metrics shadow-inner">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 border-b border-surface-container-highest pb-4 relative z-10">
+                              <span className="font-display text-[11px] leading-4 tracking-[0.15em] font-bold text-secondary uppercase tracking-widest flex items-center gap-2">
+                                <Activity className="w-3.5 h-3.5 text-primary" />
+                                VERIFIED BENCHMARKS & PERFORMANCE METRICS
+                              </span>
+                              <span className="font-display text-[10px] leading-4 tracking-[0.12em] font-bold text-primary uppercase tracking-widest bg-primary/10 border border-primary/20 px-3 py-1 rounded-full w-fit">
+                                {modalStats.length} VERIFIED METRICS
+                              </span>
+                            </div>
+                            
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 relative z-10">
+                              {modalStats.map((stat, sIdx) => (
+                                <div key={sIdx} className="bg-surface-container/60 hover:bg-surface-container border border-surface-container-highest hover:border-primary/40 rounded-xl p-4 flex flex-col justify-between transition-all duration-300 shadow-sm">
+                                  <span className="font-display text-[10px] leading-tight font-bold text-secondary uppercase tracking-wider mb-3">
+                                    {stat.label}
+                                  </span>
+                                  <span className="font-display text-[18px] sm:text-[20px] font-black text-on-surface tracking-tight group-hover/metrics:text-primary transition-colors">
+                                    {stat.value}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
                         {/* Highly Designed Topology Schematic with Terminal bg overlay */}
                         {activeModalData.topologySchematic && ((Array.isArray(activeModalData.topologySchematic) && activeModalData.topologySchematic.length > 0) || (activeModalData.topologySchematic.nodes && activeModalData.topologySchematic.nodes.length > 0)) && (
-                          <div className="bg-surface-container-lowest border border-surface-container-highest rounded-2xl p-8 lg:p-12 relative overflow-hidden group/topo shadow-inner">
+                          <div className="bg-surface-container-lowest border/50 border-surface-container-highest rounded-2xl p-8 lg:p-12 relative overflow-hidden group/topo shadow-inner">
                             {/* Tech Terminal Grid Background Overlay */}
                             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:30px_30px] opacity-60 pointer-events-none z-0"></div>
                             

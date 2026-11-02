@@ -66,38 +66,45 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                     )}
                   </Splide>
 
-                  {/* Overlays */}
-                  <div className="absolute top-5 left-5 z-10">
-                    <span className="bg-surface-container-lowest/90 backdrop-blur-md px-3.5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-surface shadow-lg border border-outline/10">
-                      {dossier.eyebrow || dossier.category || 'CASE STUDY'}
-                    </span>
-                  </div>
-                  
-                  <div className="absolute top-5 right-5 z-10">
-                    {dossier.associatedWith ? (
-                      dossier.associatedWithLink ? (
-                        <a href={dossier.associatedWithLink} target="_blank" rel="noopener noreferrer" className="bg-primary/95 backdrop-blur-md px-1.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-primary shadow-lg flex items-center gap-2 border border-primary-container hover:bg-primary transition-colors cursor-pointer">
-                          <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
-                          {dossier.associatedWith}
-                        </a>
-                      ) : (
-                        <span className="bg-primary/95 backdrop-blur-md px-1.5 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-primary shadow-lg flex items-center gap-2 border border-primary-container">
-                          <div className="w-2 h-2 rounded-full bg-white animate-pulse"></div>
-                          {dossier.associatedWith}
-                        </span>
-                      )
-                    ) : (
-                      <span className="bg-error/95 backdrop-blur-md px-3.5 py-2 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-lg border border-error/50 flex items-center gap-1.5">
-                        <ShieldAlert className="w-3.5 h-3.5" /> NDA PROTECTED
+                  {/* Overlays Container (Smart Flex-Wrap with Right Alignment) */}
+                  <div className="absolute top-4 left-4 right-4 z-10 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
+                    <div className="pointer-events-auto shrink-0 max-w-[65%]">
+                      <span className="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-surface shadow-lg border border-outline/10 inline-block truncate max-w-full">
+                        {dossier.eyebrow || dossier.category || 'CASE STUDY'}
                       </span>
-                    )}
+                    </div>
+                    
+                    <div className="pointer-events-auto ml-auto shrink-0 max-w-full">
+                      {dossier.associatedWith ? (
+                        dossier.associatedWithLink ? (
+                          <a 
+                            href={dossier.associatedWithLink} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="bg-primary/95 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-primary shadow-lg flex items-center gap-2 border border-primary-container hover:bg-primary transition-colors cursor-pointer truncate max-w-full"
+                          >
+                            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shrink-0"></div>
+                            <span className="truncate">{dossier.associatedWith}</span>
+                          </a>
+                        ) : (
+                          <span className="bg-primary/95 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-primary shadow-lg flex items-center gap-2 border border-primary-container truncate max-w-full">
+                            <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shrink-0"></div>
+                            <span className="truncate">{dossier.associatedWith}</span>
+                          </span>
+                        )
+                      ) : (
+                        <span className="bg-error/95 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-white shadow-lg border border-error/50 flex items-center gap-1.5">
+                          <ShieldAlert className="w-3.5 h-3.5" /> NDA PROTECTED
+                        </span>
+                      )}
+                    </div>
                   </div>
 
-                  {/* Floating Stats Pill (Over the Image) */}
+                  {/* Floating Stats Pill (Over the Image - Top 2 Key Stats) */}
                   {statsArray && statsArray.length > 0 && (
-                    <div className="absolute bottom-3 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 bg-surface-container-lowest/50 backdrop-blur-xl px-3.5 py-2 rounded-xl border border-surface-container-highest/50 shadow-xl">
-                      {statsArray.map((stat, sIdx) => (
-                        <span key={sIdx} className={`font-display text-[9px] font-bold uppercase tracking-widest whitespace-nowrap ${sIdx === statsArray.length - 1 ? 'text-primary' : 'text-secondary'}`}>
+                    <div className="absolute bottom-3 left-4 right-4 z-20 flex flex-wrap items-center justify-between gap-x-4 gap-y-1 bg-surface-container-lowest/50 backdrop-blur-xl px-3.5 py-1.5 rounded-xl border border-surface-container-highest/50 shadow-xl">
+                      {statsArray.slice(0, 2).map((stat, sIdx) => (
+                        <span key={sIdx} className={`font-display text-[9px] font-bold uppercase tracking-widest whitespace-nowrap ${sIdx === 1 ? 'text-primary' : 'text-secondary'}`}>
                           {stat.label}: {stat.value}
                         </span>
                       ))}
@@ -117,7 +124,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                     </p>
                   </div>
 
-                  {/* Challenge & Approach Block */}
+                  {/* Challenge, Approach & Outcome Block */}
                   <div className="mb-4 bg-surface-container/40 border border-outline/5 rounded-2xl p-3">
                     <div className="flex flex-col md:flex-row gap-4">
                       <div className="flex-1 flex flex-col gap-1.5">
@@ -139,6 +146,18 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                         </p>
                       </div>
                     </div>
+
+                    {/* The Outcome Section */}
+                    {dossier.outcome && (
+                      <div className="mt-3 pt-3 border-t border-outline/10 flex flex-col gap-1.5">
+                        <span className="text-[9px] font-black text-secondary uppercase tracking-[0.15em] flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_5px_rgba(16,185,129,0.5)]"></span> THE OUTCOME
+                        </span>
+                        <p className="text-[11px] text-on-surface font-medium leading-relaxed line-clamp-3">
+                          {dossier.outcome}
+                        </p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Execution Pipeline */}
