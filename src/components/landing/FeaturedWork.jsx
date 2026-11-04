@@ -212,7 +212,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                 {/* Action Footer Buttons */}
                 <div className="mt-auto flex border-t border-outline/10 bg-surface-container-lowest">
                   <Link 
-                    href={`/work?category=${encodeURIComponent(dossier.category)}&industry=${encodeURIComponent(dossier.industry)}&project=${dossier.ref}`} 
+                    href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}`} 
                     scroll={false}
                     className="flex-1 p-4 flex items-center justify-center border-r border-outline/10 hover:bg-surface-container group/btn1 transition-colors"
                   >
@@ -221,7 +221,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                     </span>
                   </Link>
                   <Link 
-                    href={`/work?category=${encodeURIComponent(dossier.category)}&industry=${encodeURIComponent(dossier.industry)}&project=${dossier.ref}&view=blueprint`} 
+                    href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}&view=blueprint`} 
                     scroll={false}
                     className="flex-[1.2] p-4 flex items-center justify-center gap-2 hover:bg-primary group/btn2 transition-colors"
                   >

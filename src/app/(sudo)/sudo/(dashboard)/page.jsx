@@ -58,8 +58,8 @@ export default async function DashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
         {/* Recent Activity Widget */}
-        <div className="bg-surface-container-lowest/50 backdrop-blur-2xl border border-outline/10 rounded-[2rem] p-6 lg:p-8 shadow-lg relative overflow-hidden group">
-           <div className="absolute inset-0 rounded-[2rem] border-[0.5px] border-white/5 pointer-events-none" />
+        <div className="bg-surface-container-lowest/50 backdrop-blur-2xl border border-outline/10 rounded-4xl p-6 lg:p-8 shadow-lg relative overflow-hidden group">
+           <div className="absolute inset-0 rounded-4xl border-[0.5px] border-white/5 pointer-events-none" />
            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-primary/10 transition-colors duration-700" />
            
            <h3 className="text-sm font-display font-black text-on-surface uppercase tracking-[0.2em] mb-6 relative z-10">Recent Transmissions</h3>
@@ -95,8 +95,8 @@ export default async function DashboardPage() {
         </div>
         
         {/* Quick Actions Widget */}
-        <div className="bg-surface-container-lowest/50 backdrop-blur-2xl border border-outline/10 rounded-[2rem] p-6 lg:p-8 shadow-lg relative overflow-hidden group">
-           <div className="absolute inset-0 rounded-[2rem] border-[0.5px] border-white/5 pointer-events-none" />
+        <div className="bg-surface-container-lowest/50 backdrop-blur-2xl border border-outline/10 rounded-4xl p-6 lg:p-8 shadow-lg relative overflow-hidden group">
+           <div className="absolute inset-0 rounded-4xl border-[0.5px] border-white/5 pointer-events-none" />
            <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-[80px] pointer-events-none group-hover:bg-secondary/10 transition-colors duration-700" />
            
            <h3 className="text-sm font-display font-black text-on-surface uppercase tracking-[0.2em] mb-6 relative z-10">Quick Actions</h3>

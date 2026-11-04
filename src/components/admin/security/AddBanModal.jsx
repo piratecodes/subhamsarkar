@@ -67,7 +67,7 @@ export default function AddBanModal({ isOpen, setIsOpen, onSuccess }) {
 
   return (
     <Transition show={isOpen} as={Fragment} unmount={false}>
-      <Dialog as="div" className="relative z-[100]" onClose={() => setIsOpen(false)} unmount={false}>
+      <Dialog as="div" className="relative z-100" onClose={() => setIsOpen(false)} unmount={false}>
         <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
@@ -158,7 +158,7 @@ export default function AddBanModal({ isOpen, setIsOpen, onSuccess }) {
                           unmount={false}
                           anchor={{ to: 'bottom start', gap: '8px' }}
                           transition
-                          className="w-[var(--button-width)] z-[150] max-h-72 overflow-y-auto rounded-2xl bg-surface-container-highest border border-outline/20 text-sm shadow-2xl focus:outline-none backdrop-blur-2xl p-0 transition duration-150 ease-out data-[closed]:scale-95 data-[closed]:opacity-0 scrollbar-none"
+                          className="w-(--button-width) z-150 max-h-72 overflow-y-auto rounded-2xl bg-surface-container-highest border border-outline/20 text-sm shadow-2xl focus:outline-none backdrop-blur-2xl p-0 transition duration-150 ease-out data-closed:scale-95 data-closed:opacity-0 scrollbar-none"
                         >
                           {DURATION_OPTIONS.map((opt) => (
                             <ListboxOption

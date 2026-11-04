@@ -183,7 +183,7 @@ export default function SudoSidebar({ user }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.7, type: "spring" }}
-          className="p-5 mx-4 mb-4 mt-2 rounded-[2rem] bg-surface-container-lowest/80 border border-outline/10 shrink-0 relative z-10 shadow-lg backdrop-blur-xl"
+          className="p-5 mx-4 mb-4 mt-2 rounded-4xl bg-surface-container-lowest/80 border border-outline/10 shrink-0 relative z-10 shadow-lg backdrop-blur-xl"
         >
           <div className="flex items-center gap-4 mb-5">
             <div className="relative group cursor-pointer">
@@ -218,7 +218,7 @@ export default function SudoSidebar({ user }) {
           >
             {/* Sweep Hover Effect */}
             {!pathname.includes('/settings') && (
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+              <div className="absolute inset-0 bg-linear-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
             )}
 
             <Settings size={15} className={`transition-all duration-700 ${pathname.includes('/settings') ? 'animate-spin-slow text-on-primary' : 'group-hover:rotate-180 group-hover:text-primary'}`} /> 
