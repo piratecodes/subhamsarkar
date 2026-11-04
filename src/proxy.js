@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { jwtVerify } from 'jose';
-import { getClientIp, getClientCountry, isIpBlocked, blockIp, HONEYPOT_PATHS, isSearchEngineBot } from '@/lib/security';
+import { getClientIp, getClientCountry, isIpBlocked, blockIp, HONEYPOT_PATHS, isSearchEngineBot, recordHoneypotProbe } from '@/lib/security';
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || "super_secret_key_change_me_in_production");
 
@@ -9,14 +9,14 @@ export async function proxy(request) {
   const clientIp = getClientIp(request);
   const country = getClientCountry(request);
 
-  // 1. Automated Scanner Honeypot Traps: Instant 24h quarantine for malicious bots & scanners
+  // 1. Automated Scanner Honeypot Traps: 2-Strike Protection Policy
   const isHoneypot = HONEYPOT_PATHS.some(
     (trap) => pathname === trap || pathname.startsWith(`${trap}/`) || pathname.endsWith(trap)
   );
 
   if (isHoneypot) {
     // Legitimate SEO crawlers (Googlebot, Bingbot, Applebot, etc.) never get banned.
-    // If a crawler encounters a dead link to a honeypot path, return a standard 404.
+    // Return standard 404 immediately.
     if (isSearchEngineBot(request)) {
       return new NextResponse('Not Found', {
         status: 404,
@@ -24,22 +24,42 @@ export async function proxy(request) {
       });
     }
 
-    await blockIp(clientIp, `Automated Scanner Trap Triggered: ${pathname}`, 24, country);
-    return new NextResponse('Access Denied: Vulnerability scan probe detected and quarantined.', {
-      status: 403,
+    const userAgent = request.headers.get('user-agent') || '';
+    const { shouldBan } = await recordHoneypotProbe(clientIp, pathname, country, { userAgent });
+
+    if (shouldBan) {
+      return new NextResponse('Access Denied: Vulnerability scan probe detected and quarantined.', {
+        status: 403,
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    }
+
+    // Strike 1 (accidental / curious visit): return standard 404 without banning
+    return new NextResponse('Not Found', {
+      status: 404,
       headers: { 'Content-Type': 'text/plain' }
     });
   }
 
-  // 2. Sensitive API Perimeter: Block banned IPs from accessing /api endpoints
+  // 2. Sensitive API Perimeter: Block banned IPs from accessing protected /api endpoints
   if (pathname.startsWith('/api')) {
-    const isPublicAnalytics = pathname === '/api/track' || pathname === '/api/push/track';
-    if (!isPublicAnalytics) {
+    const isPublicApi = 
+      pathname.startsWith('/api/media') || 
+      pathname === '/api/track' || 
+      pathname === '/api/push/track';
+
+    if (!isPublicApi) {
       const blockStatus = await isIpBlocked(clientIp);
       if (blockStatus.isBlocked) {
         return NextResponse.json(
           { error: 'Perimeter Access Suspended: Your IP is quarantined.' },
-          { status: 403 }
+          { 
+            status: 403,
+            headers: {
+              'X-Content-Type-Options': 'nosniff',
+              'Cache-Control': 'no-store, max-age=0'
+            }
+          }
         );
       }
     }
@@ -157,7 +177,9 @@ export async function proxy(request) {
           status: 403,
           headers: {
             'Content-Type': 'text/html; charset=utf-8',
-            'Cache-Control': 'no-store, max-age=0'
+            'Cache-Control': 'no-store, max-age=0',
+            'X-Frame-Options': 'DENY',
+            'X-Content-Type-Options': 'nosniff'
           }
         }
       );
@@ -179,20 +201,38 @@ export async function proxy(request) {
     const refreshToken = request.cookies.get('opt_refresh')?.value;
 
     let isValidSession = false;
+
+    // 1. Check primary short-lived access token (15 mins)
     if (token) {
       try {
         await jwtVerify(token, JWT_SECRET);
         isValidSession = true;
-      } catch (error) {
+      } catch {
         isValidSession = false;
       }
-    } else if (refreshToken) {
-      isValidSession = true;
+    }
+
+    // 2. Seamless Fallback: If access token is expired or missing, check long-lived refresh token (7 days)
+    if (!isValidSession && refreshToken) {
+      try {
+        const { payload } = await jwtVerify(refreshToken, JWT_SECRET);
+        if (payload?.userId) {
+          isValidSession = true;
+        }
+      } catch {
+        isValidSession = false;
+      }
     }
 
     if (!isValidSession && !isLoginPage) {
       const loginUrl = new URL('/sudo/login', request.url);
-      return NextResponse.redirect(loginUrl);
+      const response = NextResponse.redirect(loginUrl);
+      // Clean up stale cookies if tokens were invalid/expired
+      if (token || refreshToken) {
+        response.cookies.delete('opt_access');
+        response.cookies.delete('opt_refresh');
+      }
+      return response;
     }
 
     if (isValidSession && isLoginPage) {
@@ -211,11 +251,17 @@ export const config = {
     '/api/:path*',
     '/wp-login.php',
     '/wp-admin/:path*',
-    '/.env',
-    '/phpmyadmin/:path*',
+    '/wp-content/:path*',
+    '/wp-includes/:path*',
+    '/.env:path*',
     '/.git/:path*',
+    '/.aws/:path*',
+    '/phpmyadmin/:path*',
+    '/cgi-bin/:path*',
+    '/telescope/:path*',
     '/xmlrpc.php',
     '/admin.php',
-    '/shell.php'
+    '/shell.php',
+    '/config.json'
   ],
 };

@@ -8,6 +8,12 @@ if (!globalSecurity.__ipBanCache) {
 }
 const ipBanCache = globalSecurity.__ipBanCache;
 
+// Sliding window cache for tracking honeypot probe strikes (IP -> Array of timestamps)
+if (!globalSecurity.__honeypotStrikeCache) {
+  globalSecurity.__honeypotStrikeCache = new Map();
+}
+const honeypotStrikeCache = globalSecurity.__honeypotStrikeCache;
+
 // Security configuration thresholds
 export const SECURITY_CONFIG = {
   SOFT_LIMIT_ATTEMPTS: 5,            // 5 failed attempts
@@ -24,10 +30,12 @@ export const HONEYPOT_PATHS = [
   "/wp-login.php",
   "/wp-admin",
   "/wp-content",
+  "/wp-includes",
   "/xmlrpc.php",
   "/.env",
   "/phpmyadmin",
   "/.git",
+  "/.aws",
   "/admin.php",
   "/cgi-bin",
   "/shell.php",
@@ -288,6 +296,65 @@ export async function blockIp(ip, reason, durationHours = 24, country = null, me
   } catch (error) {
     console.error("[Security] Failed to persist IP block in database:", error);
   }
+}
+
+/**
+ * Evaluates honeypot probe frequency for an IP using a 2-strike sliding window.
+ * - Strike 1: Records strike within a 5-minute sliding window and returns { shouldBan: false, strikes: 1 } (shows 404)
+ * - Strike 2 (or more): Triggers a 24-hour quarantine and returns { shouldBan: true, strikes: 2 } (shows 403)
+ */
+export async function recordHoneypotProbe(ip, path, country = null, metadata = {}) {
+  if (!ip || isIpWhitelisted(ip)) {
+    return { shouldBan: false, strikes: 0 };
+  }
+
+  const now = Date.now();
+  const STRIKE_WINDOW_MS = 5 * 60 * 1000; // 5-minute sliding window
+  const STRIKE_THRESHOLD = 2; // Ban on 2nd probe within 5 minutes
+
+  const existing = honeypotStrikeCache.get(ip) || [];
+  // Prune expired strikes older than 5 minutes
+  const recentStrikes = existing.filter((ts) => (now - ts) < STRIKE_WINDOW_MS);
+  recentStrikes.push(now);
+  honeypotStrikeCache.set(ip, recentStrikes);
+
+  const strikeCount = recentStrikes.length;
+  const isThresholdMet = strikeCount >= STRIKE_THRESHOLD;
+
+  // Record audit log entry in LoginAttempt
+  try {
+    if (prisma.loginAttempt) {
+      await prisma.loginAttempt.create({
+        data: {
+          ipAddress: ip,
+          identifier: path,
+          userAgent: metadata.userAgent || null,
+          country,
+          type: isThresholdMet ? "HONEYPOT_TRAP" : "HONEYPOT_WARNING",
+          reason: isThresholdMet
+            ? `Automated Scanner Repeated Probing: ${path} (Strike ${strikeCount}/${STRIKE_THRESHOLD})`
+            : `Suspicious Probe Warning: ${path} (Strike 1/${STRIKE_THRESHOLD} - 404 Served)`,
+          success: false
+        }
+      });
+    }
+  } catch (err) {
+    console.error("[Security] Failed to log honeypot probe:", err);
+  }
+
+  if (isThresholdMet) {
+    await blockIp(
+      ip, 
+      `Automated Scanner Trap Triggered: ${path} (${strikeCount} strikes in 5m)`, 
+      24, 
+      country, 
+      { identifier: path, userAgent: metadata.userAgent }
+    );
+    honeypotStrikeCache.delete(ip);
+    return { shouldBan: true, strikes: strikeCount };
+  }
+
+  return { shouldBan: false, strikes: strikeCount };
 }
 
 /**

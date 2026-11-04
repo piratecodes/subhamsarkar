@@ -668,8 +668,8 @@ export default function SecurityHubClient({
               <div className="p-4 rounded-2xl bg-surface-container/40 border border-outline/10 flex gap-3">
                 <div className="font-mono text-amber-400 font-black">03</div>
                 <div>
-                  <h4 className="font-bold text-on-surface mb-1">Automated Scanner Honeypots</h4>
-                  <p>Requests targeting `/wp-login.php`, `/.env`, `/phpmyadmin`, or `/.git` are trapped instantly, placing the crawler IP into a 24-hour quarantine on attempt #1.</p>
+                  <h4 className="font-bold text-on-surface mb-1">Automated Scanner Honeypots (2-Strike Protection)</h4>
+                  <p>Requests targeting `/wp-login.php`, `/.env`, `/phpmyadmin`, etc. receive a standard 404 on Strike 1 (preventing accidental visitor lockouts). Repeated probes within 5 minutes trigger a 24-hour perimeter quarantine with instant email notification.</p>
                 </div>
               </div>
 
