@@ -17,20 +17,21 @@ const STORAGE_DIR = process.env.UPLOAD_DIR || path.join(/*turbopackIgnore: true*
 export async function GET(request, { params }) {
   try {
     const { slug = [] } = await params;
-    const filePath = path.join(/*turbopackIgnore: true*/ STORAGE_DIR, ...slug);
+    const resolvedStorage = path.resolve(STORAGE_DIR);
+    const resolvedPath = path.resolve(resolvedStorage, ...slug);
 
     // Security check to prevent directory traversal attacks
-    if (!filePath.startsWith(STORAGE_DIR)) {
+    if (!resolvedPath.startsWith(resolvedStorage + path.sep)) {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
     // Check if file exists
-    if (!fs.existsSync(filePath)) {
+    if (!fs.existsSync(resolvedPath)) {
       return new NextResponse('File not found', { status: 404 });
     }
 
     // Determine content type based on extension
-    const ext = path.extname(filePath).toLowerCase();
+    const ext = path.extname(resolvedPath).toLowerCase();
     let contentType = 'application/octet-stream';
     if (ext === '.jpg' || ext === '.jpeg') contentType = 'image/jpeg';
     else if (ext === '.png') contentType = 'image/png';
@@ -39,7 +40,7 @@ export async function GET(request, { params }) {
     else if (ext === '.svg') contentType = 'image/svg+xml';
     
     // Read file as buffer
-    const buffer = await fs.promises.readFile(filePath);
+    const buffer = await fs.promises.readFile(resolvedPath);
     
     // Create Response
     return new NextResponse(buffer, {

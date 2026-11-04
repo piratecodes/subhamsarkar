@@ -1,6 +1,6 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
-import { useState, Fragment, useEffect, useCallback } from "react";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useState, Fragment, useEffect, useCallback, useRef, Suspense } from "react";
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild, Disclosure, DisclosureButton, DisclosurePanel, Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/react";
 import { ArrowRight, Compass, X, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, ZoomIn, Activity, Database, Lock, Globe } from "lucide-react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -197,17 +197,17 @@ const aiCase = {
 
 const ITEMS_PER_PAGE = 5;
 
-export default function DossierGrid({ initialDossiers = [], searchParams: propSearchParams }) {
+function DossierGridContent({ initialDossiers = [], searchParams: propSearchParams }) {
   const casesData = initialDossiers || [];
 
-  const availableCategoryIds = Array.from(new Set(casesData.map(c => c.category)));
+  const availableCategoryIds = Array.from(new Set(casesData.map(c => c.category).filter(Boolean)));
   const customCategories = availableCategoryIds
-    .filter(id => !ALL_CATEGORIES.find(c => c.id === id))
+    .filter(id => !ALL_CATEGORIES.some(c => c.id.toLowerCase() === id.toLowerCase()))
     .map(id => ({ id, label: id }));
     
   const activeCategories = [
     { id: "all", label: "All Portfolios" },
-    ...ALL_CATEGORIES.filter(c => availableCategoryIds.includes(c.id)),
+    ...ALL_CATEGORIES.filter(c => availableCategoryIds.some(id => id.toLowerCase() === c.id.toLowerCase())),
     ...customCategories
   ];
 
@@ -219,28 +219,19 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
 
   const router = useRouter();
   const pathname = usePathname();
+  const searchParams = useSearchParams();
 
-  const getParam = (key) => {
-    if (typeof window !== 'undefined') {
-      return new URLSearchParams(window.location.search).get(key);
-    }
-    return propSearchParams ? (typeof propSearchParams.get === 'function' ? propSearchParams.get(key) : propSearchParams[key]) : null;
-  };
-
-  const getCurrentParams = () => {
-    if (typeof window !== 'undefined') {
-      return new URLSearchParams(window.location.search);
-    }
-    return new URLSearchParams();
-  };
+  const getParam = useCallback((key) => {
+    return searchParams?.get(key) ?? (propSearchParams ? (typeof propSearchParams.get === 'function' ? propSearchParams.get(key) : propSearchParams[key]) : null);
+  }, [searchParams, propSearchParams]);
 
   const urlCategory = getParam('category');
   const urlIndustry = getParam('industry');
   const urlProjectRef = getParam('project');
   const urlView = getParam('view');
 
-  const validCategory = activeCategories.find(c => c.id === urlCategory) || activeCategories[0];
-  const validIndustry = industryOptions.find(i => i.id === urlIndustry) || industryOptions[0];
+  const validCategory = (urlCategory && activeCategories.find(c => c.id.toLowerCase() === urlCategory.toLowerCase())) || activeCategories[0];
+  const validIndustry = (urlIndustry && industryOptions.find(i => i.id.toLowerCase() === urlIndustry.toLowerCase())) || industryOptions[0];
   const validProjectRef = urlProjectRef && casesData.some(c => c.ref === urlProjectRef) ? urlProjectRef : null;
 
   const [selectedCategory, setSelectedCategory] = useState(validCategory);
@@ -251,119 +242,105 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
   const [zoomedImage, setZoomedImage] = useState(null);
   const [highlightedRef, setHighlightedRef] = useState(null);
 
-  // Auto-scroll logic
+  const isManuallyClosedRef = useRef(false);
+  const scrolledProjectRef = useRef(null);
+
+  // Sync state when URL params change (e.g. back/forward navigation or initial load)
   useEffect(() => {
-    if (validProjectRef) {
-      const isBlueprint = urlView === 'blueprint';
-      const delay = isBlueprint ? 10 : 300;
-      const scrollBehavior = isBlueprint ? 'auto' : 'smooth';
+    setSelectedCategory(validCategory);
+  }, [validCategory.id]);
 
-      const timer = setTimeout(() => {
-        const el = document.getElementById(`dossier-${validProjectRef}`);
-        if (el) {
-          const y = el.getBoundingClientRect().top + window.scrollY - 120;
-          window.scrollTo({ top: y, behavior: scrollBehavior });
-          
-          if (!isBlueprint) {
-            setHighlightedRef(validProjectRef);
-            setTimeout(() => setHighlightedRef(null), 3500);
-          }
-        }
-      }, delay);
-      return () => clearTimeout(timer);
-    }
-  }, [validProjectRef, urlView, selectedCategory, selectedIndustry]);
-
-  // Sync state to URL and clean up invalid params on mount/change
   useEffect(() => {
-    let shouldUpdateUrl = false;
-    const params = getCurrentParams();
+    setSelectedIndustry(validIndustry);
+  }, [validIndustry.id]);
 
-    if (urlCategory !== validCategory.id && urlCategory !== null) {
-      if (validCategory.id === 'all') params.delete('category');
-      else params.set('category', validCategory.id);
-      shouldUpdateUrl = true;
+  // Modal open/close sync with URL
+  useEffect(() => {
+    if (urlView === 'blueprint' && validProjectRef) {
+      if (!isManuallyClosedRef.current) {
+        setActiveModalId(validProjectRef);
+      }
+    } else {
+      isManuallyClosedRef.current = false;
+      setActiveModalId(null);
     }
-    
-    if (urlIndustry !== validIndustry.id && urlIndustry !== null) {
-      if (validIndustry.id === 'all') params.delete('industry');
-      else params.set('industry', validIndustry.id);
-      shouldUpdateUrl = true;
-    }
-    
-    if (urlProjectRef !== validProjectRef && urlProjectRef !== null) {
-      params.delete('project');
-      shouldUpdateUrl = true;
-    }
+  }, [validProjectRef, urlView]);
 
-    if (urlView && urlView !== 'blueprint') {
-      params.delete('view');
-      shouldUpdateUrl = true;
-    }
-    
-    if (urlView === 'blueprint' && !validProjectRef) {
-      params.delete('view');
-      shouldUpdateUrl = true;
-    }
-
-    if (shouldUpdateUrl) {
-      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
-    }
-  }, [urlCategory, urlIndustry, urlProjectRef, urlView, validCategory.id, validIndustry.id, validProjectRef, pathname, router]);
-
-  // Sync state to valid URL parameters (e.g. back button navigations)
-  useEffect(() => { setSelectedCategory(validCategory); }, [validCategory.id]);
-  useEffect(() => { setSelectedIndustry(validIndustry); }, [validIndustry.id]);
-  useEffect(() => { setActiveModalId(urlView === 'blueprint' ? validProjectRef : null); }, [validProjectRef, urlView]);
+  // Handle browser back/forward buttons specifically for modal state
+  useEffect(() => {
+    const handlePopState = () => {
+      isManuallyClosedRef.current = false;
+      const params = new URLSearchParams(window.location.search);
+      const vView = params.get('view');
+      const pRef = params.get('project');
+      if (vView === 'blueprint' && pRef && casesData.some(c => c.ref === pRef)) {
+        setActiveModalId(pRef);
+      } else {
+        setActiveModalId(null);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, [casesData]);
 
   const handleCategoryChange = (cat) => {
     setSelectedCategory(cat);
-    const params = getCurrentParams();
+    const params = new URLSearchParams(window.location.search);
     if (cat.id === 'all') params.delete('category');
     else params.set('category', cat.id);
     
     params.delete('project');
     params.delete('view');
     
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    const newQuery = params.toString();
+    const newUrl = newQuery ? `${pathname}?${newQuery}` : pathname;
+    router.replace(newUrl, { scroll: false });
   };
 
   const handleIndustryChange = (ind) => {
     setSelectedIndustry(ind);
-    const params = getCurrentParams();
+    const params = new URLSearchParams(window.location.search);
     if (ind.id === 'all') params.delete('industry');
     else params.set('industry', ind.id);
 
     params.delete('project');
     params.delete('view');
 
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    const newQuery = params.toString();
+    const newUrl = newQuery ? `${pathname}?${newQuery}` : pathname;
+    router.replace(newUrl, { scroll: false });
   };
 
   const handleOpenModal = (ref) => {
+    isManuallyClosedRef.current = false;
     setActiveModalId(ref);
-    const params = getCurrentParams();
+    const params = new URLSearchParams(window.location.search);
     params.set('project', ref);
     params.set('view', 'blueprint');
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    const newUrl = `${pathname}?${params.toString()}`;
+    window.history.replaceState(null, '', newUrl);
   };
 
   const handleCloseModal = () => {
+    isManuallyClosedRef.current = true;
     setActiveModalId(null);
-    const params = getCurrentParams();
+    const params = new URLSearchParams(window.location.search);
     params.delete('view'); 
     params.delete('project');
-    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+    const newQuery = params.toString();
+    const newUrl = newQuery ? `${pathname}?${newQuery}` : pathname;
+    window.history.replaceState(null, '', newUrl);
   };
 
   useEffect(() => {
     setCurrentPage(1);
   }, [selectedCategory, selectedIndustry, searchQuery]);
 
-
   const activeDossiers = casesData.filter(c => {
-    const matchesCategory = selectedCategory.id === "all" || c.category === selectedCategory.id;
-    const matchesIndustry = selectedIndustry.id === "all" || c.industry === selectedIndustry.id;
+    const matchesCategory = selectedCategory.id === "all" || 
+      c.category.toLowerCase() === selectedCategory.id.toLowerCase();
+    const matchesIndustry = selectedIndustry.id === "all" || 
+      c.industry.toLowerCase() === selectedIndustry.id.toLowerCase();
     const matchesSearch = !searchQuery || 
       c.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
       (c.summary && c.summary.toLowerCase().includes(searchQuery.toLowerCase())) ||
@@ -371,6 +348,54 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
     
     return matchesCategory && matchesIndustry && matchesSearch;
   });
+
+  // Ensure pagination includes the target project if referenced
+  useEffect(() => {
+    if (validProjectRef) {
+      const projectIndex = activeDossiers.findIndex(c => c.ref === validProjectRef);
+      if (projectIndex !== -1) {
+        const targetPage = Math.floor(projectIndex / ITEMS_PER_PAGE) + 1;
+        if (currentPage !== targetPage) {
+          setCurrentPage(targetPage);
+        }
+      }
+    }
+  }, [validProjectRef, activeDossiers]);
+
+  // Auto-scroll logic with multi-tick retry to handle Next.js client-side route mounting
+  useEffect(() => {
+    if (!validProjectRef) {
+      scrolledProjectRef.current = null;
+      return;
+    }
+
+    if (scrolledProjectRef.current === validProjectRef) return;
+
+    const isBlueprint = urlView === 'blueprint';
+    let attempts = 0;
+    const maxAttempts = 20;
+
+    const tryScroll = () => {
+      attempts++;
+      const el = document.getElementById(`dossier-${validProjectRef}`);
+      if (el) {
+        scrolledProjectRef.current = validProjectRef;
+        const rect = el.getBoundingClientRect();
+        const absoluteTop = rect.top + window.scrollY - 100;
+        window.scrollTo({ top: absoluteTop, behavior: isBlueprint ? 'auto' : 'smooth' });
+
+        if (!isBlueprint) {
+          setHighlightedRef(validProjectRef);
+          setTimeout(() => setHighlightedRef(null), 3500);
+        }
+      } else if (attempts < maxAttempts) {
+        scrollTimer = setTimeout(tryScroll, 100);
+      }
+    };
+
+    let scrollTimer = setTimeout(tryScroll, isBlueprint ? 50 : 250);
+    return () => clearTimeout(scrollTimer);
+  }, [validProjectRef, urlView, selectedCategory.id, selectedIndustry.id, currentPage]);
 
   const totalPages = Math.ceil(activeDossiers.length / ITEMS_PER_PAGE);
   const paginatedDossiers = activeDossiers.slice(
@@ -936,10 +961,11 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
       </section>
 
       {/* Headless UI Interactive Zoom Modal */}
-      <Transition appear show={!!activeModalId} as={Fragment}>
-        <Dialog as="div" className="relative z-[100]" onClose={() => handleCloseModal()}>
+      <Transition appear show={!!activeModalId} as={Fragment} unmount={false}>
+        <Dialog as="div" className="relative z-[100]" onClose={() => handleCloseModal()} unmount={false}>
           <TransitionChild
             as={Fragment}
+            unmount={false}
             enter="ease-out duration-700"
             enterFrom="opacity-0 backdrop-blur-none"
             enterTo="opacity-100 backdrop-blur-xl"
@@ -954,6 +980,7 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
             <div className="flex min-h-full items-center justify-center p-2 sm:p-6 text-center">
               <TransitionChild
                 as={Fragment}
+                unmount={false}
                 enter="ease-[cubic-bezier(0.16,1,0.3,1)] duration-1000"
                 enterFrom="opacity-0 scale-[0.8] translate-y-24 blur-xl"
                 enterTo="opacity-100 scale-100 translate-y-0 blur-0"
@@ -1181,6 +1208,7 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                                         <ChevronDown className={`${open ? 'rotate-180 text-primary' : 'text-secondary'} h-5 w-5 transition-transform duration-300`} />
                                       </DisclosureButton>
                                       <Transition
+                                        unmount={false}
                                         enter="transition duration-200 ease-out"
                                         enterFrom="transform scale-95 opacity-0"
                                         enterTo="transform scale-100 opacity-100"
@@ -1188,7 +1216,7 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
                                         leaveFrom="transform scale-100 opacity-100"
                                         leaveTo="transform scale-95 opacity-0"
                                       >
-                                        <DisclosurePanel className="px-6 pb-6 text-[14px] leading-6 font-sans font-normal text-secondary border-t border-surface-container-highest pt-5 bg-surface-container-lowest">
+                                        <DisclosurePanel unmount={false} className="px-6 pb-6 text-[14px] leading-6 font-sans font-normal text-secondary border-t border-surface-container-highest pt-5 bg-surface-container-lowest">
                                           <p className="mb-5 text-on-surface/90 font-medium leading-relaxed">{detail.body || detail.description}</p>
                                           {detail.bullets && detail.bullets.length > 0 && (
                                             <ul className="space-y-3 list-none pl-1">
@@ -1234,10 +1262,11 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
       </Transition>
 
       {/* Fullscreen Lightbox for Zoomed Image */}
-      <Transition appear show={!!zoomedImage} as={Fragment}>
-        <Dialog as="div" className="relative z-[200]" onClose={() => setZoomedImage(null)}>
+      <Transition appear show={!!zoomedImage} as={Fragment} unmount={false}>
+        <Dialog as="div" className="relative z-[200]" onClose={() => setZoomedImage(null)} unmount={false}>
           <TransitionChild
             as={Fragment}
+            unmount={false}
             enter="ease-out duration-300"
             enterFrom="opacity-0"
             enterTo="opacity-100"
@@ -1252,6 +1281,7 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <TransitionChild
                 as={Fragment}
+                unmount={false}
                 enter="ease-out duration-300"
                 enterFrom="opacity-0 scale-95"
                 enterTo="opacity-100 scale-100"
@@ -1281,5 +1311,13 @@ export default function DossierGrid({ initialDossiers = [], searchParams: propSe
         </Dialog>
       </Transition>
     </>
+  );
+}
+
+export default function DossierGrid(props) {
+  return (
+    <Suspense fallback={null}>
+      <DossierGridContent {...props} />
+    </Suspense>
   );
 }

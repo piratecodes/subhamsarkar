@@ -381,3 +381,64 @@ export const sendClientConfirmationEmail = async (contactData) => {
     html,
   });
 };
+
+export const sendSecurityAlertEmail = async ({ ip, reason, identifier, userAgent, country, duration = "24 Hours" }) => {
+  const adminEmail = process.env.SECURITY_ALERT_EMAIL || process.env.EMAIL_USER || "contact@subhamsarkar.dev";
+
+  const html = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0b0d13; color: #e2e8f0; margin: 0; padding: 24px; }
+    .card { max-width: 540px; margin: 0 auto; background: #131722; border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+    .header { background: rgba(239, 68, 68, 0.15); border-bottom: 1px solid rgba(239, 68, 68, 0.2); padding: 24px; text-align: center; }
+    .badge { display: inline-block; background: #ef4444; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 12px; border-radius: 9999px; margin-bottom: 8px; }
+    h2 { margin: 0; color: #ffffff; font-size: 20px; font-weight: 900; }
+    .body { padding: 24px; font-size: 13px; line-height: 1.6; color: #94a3b8; }
+    .grid { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 12px; padding: 16px; margin: 16px 0; font-family: monospace; }
+    .row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 12px; }
+    .row:last-child { margin-bottom: 0; }
+    .label { color: #64748b; }
+    .val { color: #f1f5f9; font-weight: bold; }
+    .footer { text-align: center; padding: 16px; font-size: 11px; color: #475569; border-top: 1px solid rgba(255, 255, 255, 0.05); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <span class="badge">Perimeter Firewall Alert</span>
+      <h2>Threat Quarantined</h2>
+    </div>
+    <div class="body">
+      <p>An unauthorized access attempt has triggered an automated perimeter lockout on <strong>subhamsarkar.dev</strong>.</p>
+      <div class="grid">
+        <div class="row"><span class="label">Client IP:</span><span class="val">${ip}</span></div>
+        <div class="row"><span class="label">Country:</span><span class="val">${country || 'Unknown'}</span></div>
+        <div class="row"><span class="label">Target User:</span><span class="val">${identifier || 'None'}</span></div>
+        <div class="row"><span class="label">Trigger Reason:</span><span class="val">${reason}</span></div>
+        <div class="row"><span class="label">Lockout Window:</span><span class="val">${duration}</span></div>
+        <div class="row"><span class="label">Timestamp:</span><span class="val">${new Date().toUTCString()}</span></div>
+      </div>
+      <p style="font-size: 11px; color: #64748b; margin-top: 16px;">
+        To manage this ban, navigate to your admin panel at <strong>/sudo/security</strong> or run <code>npm run unban ${ip}</code> via SSH.
+      </p>
+    </div>
+    <div class="footer">
+      subhamsarkar.dev • Automated Defense Telemetry
+    </div>
+  </div>
+</body>
+</html>
+  `;
+
+  return sendEmail({
+    to: adminEmail,
+    subject: `🚨 [SECURITY ALERT] IP Quarantined: ${ip}`,
+    text: `Security Alert: IP ${ip} has been quarantined for ${duration}. Reason: ${reason}. Target: ${identifier || 'N/A'}.`,
+    html,
+  }).catch((err) => {
+    console.error("[Security Mail] Failed to dispatch security alert email:", err.message);
+  });
+};

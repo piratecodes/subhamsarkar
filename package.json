@@ -8,6 +8,7 @@
     "copy-standalone": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
     "start": "next start",
     "lint": "eslint",
+    "unban": "node scripts/unban.js",
     "partytown": "partytown copylib public/~subhamsarkar.dev",
     "postinstall": "prisma skills sync || exit 0"
   },

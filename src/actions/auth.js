@@ -7,16 +7,58 @@ import { cookies, headers } from "next/headers";
 import { revalidatePath } from "next/cache";
 import { deleteMediaFiles } from "@/actions/media";
 import { sendPasswordResetEmail } from "@/lib/mail";
+import { 
+  getClientIp, 
+  getClientCountry,
+  isIpBlocked, 
+  blockIp, 
+  unbanIp, 
+  detectMaliciousPayload, 
+  handleFailedLoginAttempt, 
+  recordSuccessfulLogin, 
+  checkPasswordResetRateLimit, 
+  checkAccountLockout,
+  SECURITY_CONFIG
+} from "@/lib/security";
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET || "super_secret_key_change_me_in_production");
 
 export async function login(formData) {
   try {
-    const identifier = formData.get("identifier"); // email or username
-    const password = formData.get("password");
+    const headerList = await headers();
+    const ip = getClientIp(headerList);
+    const country = getClientCountry(headerList);
+    const userAgent = headerList.get("user-agent") || "Web Browser";
+
+    // 1. Perimeter Gate: Check if IP is currently banned
+    const blockStatus = await isIpBlocked(ip);
+    if (blockStatus.isBlocked) {
+      const remainingMinutes = Math.max(1, Math.ceil((new Date(blockStatus.blockedUntil).getTime() - Date.now()) / (1000 * 60)));
+      return { 
+        success: false, 
+        error: `Access Suspended: Your IP is restricted for another ${remainingMinutes} minute(s). Reason: ${blockStatus.reason}` 
+      };
+    }
+
+    const identifier = formData.get("identifier")?.toString().trim();
+    const password = formData.get("password")?.toString();
 
     if (!identifier || !password) {
       return { success: false, error: "Please enter your credentials." };
+    }
+
+    // 2. Exploit Probe Detection: Instant ban on malicious injection attempts
+    const payloadCheck = detectMaliciousPayload(identifier);
+    if (payloadCheck.isMalicious) {
+      await blockIp(ip, payloadCheck.reason, 24, country, { identifier, userAgent });
+      return { success: false, error: "Access Denied: Malicious activity detected. Your IP has been banned for 24 hours." };
+    }
+
+    // 3. Distributed Botnet Protection: Check account-level lockout
+    const accountStatus = await checkAccountLockout(identifier);
+    if (accountStatus.isUnderAttack) {
+      // Artificial delay (1.5 seconds) to slow down botnets
+      await new Promise(r => setTimeout(r, 1500));
     }
 
     const user = await prisma.user.findFirst({
@@ -28,14 +70,35 @@ export async function login(formData) {
       }
     });
 
+    // 4. Timing Attack Neutralization: Always execute bcrypt.compare even if user does not exist
     if (!user) {
-      return { success: false, error: "Invalid login credentials." };
+      await bcrypt.compare(password, SECURITY_CONFIG.DUMMY_BCRYPT_HASH);
+      const attempt = await handleFailedLoginAttempt(ip, identifier, userAgent, "USER_NOT_FOUND", country);
+      if (attempt.isBlocked) {
+        return { success: false, error: `Access Suspended: Too many failed attempts. Your IP has been banned for ${attempt.duration}.` };
+      }
+      const attemptsMsg = attempt.attemptsRemaining !== undefined ? ` (${attempt.attemptsRemaining} attempt${attempt.attemptsRemaining === 1 ? '' : 's'} remaining)` : '';
+      return { success: false, error: `Invalid login credentials.${attemptsMsg}` };
+    }
+
+    if (!user.isActive) {
+      await bcrypt.compare(password, SECURITY_CONFIG.DUMMY_BCRYPT_HASH);
+      await handleFailedLoginAttempt(ip, identifier, userAgent, "ACCOUNT_INACTIVE", country);
+      return { success: false, error: "This operative account has been deactivated. Contact an administrator." };
     }
 
     const isValid = await bcrypt.compare(password, user.passwordHash);
     if (!isValid) {
-      return { success: false, error: "Invalid login credentials." };
+      const attempt = await handleFailedLoginAttempt(ip, identifier, userAgent, "INCORRECT_PASSWORD", country);
+      if (attempt.isBlocked) {
+        return { success: false, error: `Access Suspended: Too many failed attempts. Your IP has been banned for ${attempt.duration}.` };
+      }
+      const attemptsMsg = attempt.attemptsRemaining !== undefined ? ` (${attempt.attemptsRemaining} attempt${attempt.attemptsRemaining === 1 ? '' : 's'} remaining)` : '';
+      return { success: false, error: `Invalid login credentials.${attemptsMsg}` };
     }
+
+    // Login successful: record in security telemetry and clear soft cooldowns
+    await recordSuccessfulLogin(ip, user.username || user.email, userAgent, country);
 
     // Create short-lived access token (15 mins)
     const token = await new SignJWT({ userId: user.id, role: user.role })
@@ -53,8 +116,9 @@ export async function login(formData) {
     await prisma.session.create({
       data: {
         userId: user.id,
-        token: refreshToken, // Store refresh token to allow revoking devices
-        device: "Web Browser", // In real app, parse user-agent
+        token: refreshToken,
+        device: userAgent.substring(0, 255),
+        ipAddress: ip
       }
     });
 
@@ -192,6 +256,16 @@ export async function logout() {
 
 export async function resetPasswordRequest(identifier) {
   try {
+    const headerList = await headers();
+    const ip = getClientIp(headerList);
+    const country = getClientCountry(headerList);
+
+    // Rate limiting: Max 3 requests per IP and per account per hour
+    const rateLimitCheck = await checkPasswordResetRateLimit(ip, identifier, country);
+    if (!rateLimitCheck.allowed) {
+      return { success: false, error: rateLimitCheck.error };
+    }
+
     const user = await prisma.user.findFirst({ 
       where: { 
         OR: [
@@ -232,7 +306,7 @@ export async function resetPasswordRequest(identifier) {
     return {
       success: true,
       message: "If this account exists, a reset link has been dispatched to your primary and alternative email addresses.",
-      _devUrl: resetUrl // Expose this purely for testing/demo per user request
+      ...(process.env.NODE_ENV === "development" ? { _devUrl: resetUrl } : {})
     };
   } catch (error) {
     console.error("Reset Password Error:", error);
@@ -242,6 +316,9 @@ export async function resetPasswordRequest(identifier) {
 
 export async function resetPasswordWithToken(token, newPassword) {
   try {
+    const headerList = await headers();
+    const ip = getClientIp(headerList);
+
     const user = await prisma.user.findUnique({ where: { resetToken: token } });
 
     if (!user || !user.resetTokenExpiry || user.resetTokenExpiry < new Date()) {
@@ -269,6 +346,9 @@ export async function resetPasswordWithToken(token, newPassword) {
       where: { userId: user.id, isRevoked: false },
       data: { isRevoked: true }
     });
+
+    // Emergency Self-Healing: Automatically unban the user's current IP upon successful password reset!
+    await unbanIp(ip);
 
     return { success: true, message: "Password has been reset successfully. You have been logged out of all devices." };
   } catch (error) {

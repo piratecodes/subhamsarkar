@@ -10,7 +10,8 @@ import {
   Users, 
   Settings, 
   Fingerprint,
-  Radio
+  Radio,
+  ShieldCheck
 } from "lucide-react";
 import Image from "next/image";
 import navlogo from "@/assets/navlogo.png";
@@ -20,12 +21,15 @@ export default function SudoSidebar({ user }) {
   const pathname = usePathname();
   const { isOpen, setIsOpen } = useSidebar();
 
+  const isStaffOrAbove = user?.role === 'SUPER_ADMIN' || user?.role === 'MANAGER';
+
   const navItems = [
     { name: 'Command Center', path: '/sudo', icon: LayoutDashboard },
     { name: 'Projects / Dossiers', path: '/sudo/projects', icon: Briefcase },
     { name: 'Global Insights', path: '/sudo/insights', icon: FileText },
     { name: 'Transmission Leads', path: '/sudo/leads', icon: Users },
     { name: 'Teams & Operatives', path: '/sudo/teams', icon: Users },
+    ...(isStaffOrAbove ? [{ name: 'Perimeter & Security', path: '/sudo/security', icon: ShieldCheck }] : []),
     { name: 'Push Broadcast', path: '/sudo/notifications', icon: Radio },
   ];
 

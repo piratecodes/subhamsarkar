@@ -12,13 +12,14 @@ export const metadata = {
 
 
 export default async function DashboardPage() {
-  const [dossierCount, insightCount, leadCount, newLeads, allLeads, recentLeads] = await Promise.all([
+  const [dossierCount, insightCount, leadCount, newLeads, allLeads, recentLeads, activeBansCount] = await Promise.all([
     prisma.dossier.count(),
     prisma.insight.count(),
     prisma.lead.count(),
     prisma.lead.count({ where: { status: "NEW" } }),
     prisma.lead.findMany({ select: { createdAt: true }, orderBy: { createdAt: 'desc' } }),
-    prisma.lead.findMany({ take: 5, orderBy: { createdAt: 'desc' } })
+    prisma.lead.findMany({ take: 5, orderBy: { createdAt: 'desc' } }),
+    prisma.blockedIp ? prisma.blockedIp.count({ where: { blockedUntil: { gt: new Date() } } }) : 0
   ]);
 
   return (
@@ -28,14 +29,19 @@ export default async function DashboardPage() {
         description="System overview and core metrics."
         iconNode={<LayoutDashboard className="w-6 h-6 text-primary" />}
         actions={
-          <div className="px-4 py-2 rounded-xl border border-outline/10 bg-surface-container flex items-center gap-2 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse bg-emerald-500"></span>
-            <span className="text-[10px] uppercase font-black tracking-widest text-secondary">
-              System:
-            </span>
-            <span className="font-mono font-bold text-sm text-on-surface">
-              Nominal
-            </span>
+          <div className="flex items-center gap-3">
+            <Link 
+              href="/sudo/security"
+              className="px-4 py-2 rounded-xl border border-outline/10 bg-surface-container hover:bg-surface-container-high transition-colors flex items-center gap-2 shadow-sm group"
+            >
+              <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${activeBansCount > 0 ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
+              <span className="text-[10px] uppercase font-black tracking-widest text-secondary group-hover:text-primary transition-colors">
+                Perimeter:
+              </span>
+              <span className="font-mono font-bold text-sm text-on-surface">
+                {activeBansCount > 0 ? `${activeBansCount} Quarantined` : 'Nominal'}
+              </span>
+            </Link>
           </div>
         }
       />

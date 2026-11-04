@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { verifySession, verifyAdminSession } from "./auth";
 import { revalidatePath } from "next/cache";
 import { sendClientConfirmationEmail } from "@/lib/mail";
+import { headers } from "next/headers";
+import { getClientIp, detectMaliciousPayload, isIpBlocked } from "@/lib/security";
 
 export async function getLeads() {
   const session = await verifyAdminSession();
@@ -22,14 +24,50 @@ export async function getLeads() {
 
 export async function createLead(formData) {
   try {
-    const firstName = formData.get("first-name");
-    const lastName = formData.get("last-name");
-    const email = formData.get("contact-email");
+    const headerList = await headers();
+    const ip = getClientIp(headerList);
+
+    // 1. Perimeter check: Blocked IP check
+    const blockStatus = await isIpBlocked(ip);
+    if (blockStatus.isBlocked) {
+      return { success: false, error: "Access denied. Network restrictions in place." };
+    }
+
+    // 2. Honeypot Trap: Silent bot deflection
+    const honeypot = formData.get("company_fax")?.toString();
+    if (honeypot && honeypot.trim() !== "") {
+      console.warn(`[Security Alert] Spambot deflected via honeypot from IP: ${ip}`);
+      return { success: true, lead: { id: "bot-deflected" } };
+    }
+
+    // 3. Anti-Spam Rate Limiter: Max 5 lead submissions per IP per 15 minutes
+    const fifteenMinsAgo = new Date(Date.now() - 15 * 60 * 1000);
+    const recentSubmissions = await prisma.lead.count({
+      where: {
+        createdAt: { gte: fifteenMinsAgo }
+      }
+    });
+
+    if (recentSubmissions >= 5) {
+      return { success: false, error: "Too many inquiries submitted from this network. Please wait 15 minutes." };
+    }
+
+    const firstName = formData.get("first-name")?.toString().trim();
+    const lastName = formData.get("last-name")?.toString().trim();
+    const email = formData.get("contact-email")?.toString().trim();
     const phone = formData.get("contact-phone") || null;
     const rawTimeline = formData.get("timeline");
     const scope = formData.get("project-scope");
     const rawComments = formData.get("system-specs") || "";
     const requiresNda = formData.get("nda-checkbox") === "on";
+
+    // 4. Payload inspection: check for SQLi or malicious scripts
+    if (detectMaliciousPayload(firstName).isMalicious || 
+        detectMaliciousPayload(lastName).isMalicious || 
+        detectMaliciousPayload(email).isMalicious || 
+        detectMaliciousPayload(rawComments).isMalicious) {
+      return { success: false, error: "Submission rejected: Suspicious character sequence detected." };
+    }
 
     let timeline = 'JUST_EXPLORING';
     if (rawTimeline === 'immediate') timeline = 'IMMEDIATE';

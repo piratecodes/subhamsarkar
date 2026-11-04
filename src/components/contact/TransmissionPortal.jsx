@@ -221,6 +221,16 @@ export default function TransmissionPortal({ settings }) {
           </div>
 
           <form className="space-y-5 relative z-10" onSubmit={handleFormSubmit} noValidate>
+            {/* Honeypot trap: Invisible to humans, filled by automated spambots */}
+            <input 
+              type="text" 
+              name="company_fax" 
+              tabIndex={-1} 
+              autoComplete="off" 
+              aria-hidden="true"
+              className="opacity-0 pointer-events-none absolute -left-[9999px] h-0 w-0" 
+            />
+
             {/* Field 1 & 2: First & Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-1.5 relative">

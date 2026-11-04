@@ -38,6 +38,16 @@ function getNextLocalTime(timezone, targetHour) {
 
 export async function GET(request) {
   try {
+    // Security check: Protect cron endpoint if CRON_SECRET is configured
+    const cronSecret = process.env.CRON_SECRET;
+    if (cronSecret) {
+      const authHeader = request.headers.get('authorization');
+      const isAuthValid = authHeader === `Bearer ${cronSecret}`;
+      if (!isAuthValid) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      }
+    }
+
     // ============================================
     // STEP 1: GENERATE QUEUE ITEMS FOR NEW CAMPAIGNS
     // ============================================

@@ -4,6 +4,9 @@ import cloudinary, { getCloudinaryFolder, destroyCloudinaryImage } from "@/lib/c
 
 export async function uploadMedia(formData) {
   try {
+    const session = await import('./auth').then(m => m.verifyAdminSession());
+    if (!session) return { success: false, error: "Unauthorized. Admin session required." };
+
     const file = formData.get("file");
     const folder = formData.get("folder") || "media";
     if (!file || typeof file === "string") {
