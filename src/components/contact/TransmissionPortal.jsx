@@ -20,7 +20,7 @@ const CustomCountrySelect = ({ value, onChange, options, iconComponent: Icon }) 
           <div className="w-[1.5em] h-[1em] rounded-sm overflow-hidden flex items-center justify-center border border-surface-container-highest shadow-sm">
             {Icon && <Icon country={value} label={value} />}
           </div>
-          <ChevronDown className="w-[16px] h-[16px] text-secondary group-hover:text-primary transition-colors" />
+          <ChevronDown className="w-4 h-4 text-secondary group-hover:text-primary transition-colors" />
         </ListboxButton>
         <ListboxOptions anchor="bottom start" className="[--anchor-gap:10px] ml-[-5px] max-h-60 w-[280px] overflow-auto rounded-xl bg-surface-container-lowest/60 backdrop-blur-xl border border-surface-container-highest/50 p-1.5 text-base shadow-xl ring-1 ring-black/5 focus:outline-none z-50 font-sans">
           {options.map((option) => (

@@ -291,6 +291,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
     
     params.delete('project');
     params.delete('view');
+    params.delete('ref');
     
     const newQuery = params.toString();
     const newUrl = newQuery ? `${pathname}?${newQuery}` : pathname;
@@ -305,6 +306,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
 
     params.delete('project');
     params.delete('view');
+    params.delete('ref');
 
     const newQuery = params.toString();
     const newUrl = newQuery ? `${pathname}?${newQuery}` : pathname;
@@ -315,6 +317,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
     isManuallyClosedRef.current = false;
     setActiveModalId(ref);
     const params = new URLSearchParams(window.location.search);
+    params.delete('ref');
     params.set('project', ref);
     params.set('view', 'blueprint');
     const newUrl = `${pathname}?${params.toString()}`;
@@ -327,6 +330,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
     const params = new URLSearchParams(window.location.search);
     params.delete('view'); 
     params.delete('project');
+    params.delete('ref');
     const newQuery = params.toString();
     const newUrl = newQuery ? `${pathname}?${newQuery}` : pathname;
     window.history.replaceState(null, '', newUrl);
@@ -605,7 +609,12 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
               Please adjust your parameters and try again.
             </p>
             <button 
-              onClick={() => { setSelectedCategory(activeCategories[0]); setSelectedIndustry(industryOptions[0]); setSearchQuery(""); }} 
+              onClick={() => { 
+                setSelectedCategory(activeCategories[0]); 
+                setSelectedIndustry(industryOptions[0]); 
+                setSearchQuery(""); 
+                router.replace(pathname, { scroll: false }); 
+              }} 
               className="mt-6 px-8 py-3 bg-primary/10 text-primary border border-primary/20 rounded-xl font-display font-bold text-[11px] uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-all duration-300 shadow-sm hover:shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.3)]"
             >
               Reset Filters
