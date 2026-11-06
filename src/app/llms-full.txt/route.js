@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 const content = `# Subham Sarkar - Software Architect & ERP/CRM Developer
 
-> Subham Sarkar is a software architect and ERP/CRM developer based in Kolkata, India, with over a decade of experience building custom enterprise software for growing businesses worldwide.
+> Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.
 
 **Also known for:** "Building The Backbone Behind Every Unstoppable Business" - the guiding principle behind every engagement: software built to be reliable, fully owned by the client, and maintained without dependency on any single person.
 
@@ -19,23 +19,32 @@ Subham Sarkar works with businesses that have outgrown spreadsheets, off-the-she
 
 ## Core Services
 
-### Custom ERP & CRM Systems
-Bespoke enterprise resource planning and customer relationship management platforms, built either fully isolated and from scratch, or integrated with existing tools. Includes accurate financial ledgers, inventory tracking, and workflow automation tailored to the business.
+### Custom ERP Development
+URL: https://subhamsarkar.dev/services/custom-erp-development
+Custom inventory, billing, and accounting software built around exact daily operations - multi-warehouse stock tracking, direct GST and Tally synchronization, and tamper-proof financial ledgers with zero recurring per-user monthly fees.
 
-### Web & Mobile Ecosystems
-Unified web and mobile applications that stay synchronized automatically, managed through a single super-admin system. Designed to work offline-first for field staff with unreliable connectivity.
+### Custom CRM Development
+URL: https://subhamsarkar.dev/services/custom-crm-development
+Dedicated sales platforms with automated 5-second WhatsApp routing, centralized customer timelines, instant PDF quotations with volume discounts and GST calculation, and unlimited staff logins with zero monthly seat fees.
 
-### AI Agent Integration
-Private, self-hosted AI automation layered into existing business systems - document classification, customer support triage, and repetitive task automation - without sending data to third-party AI models.
+### Custom Web & Mobile Applications
+URL: https://subhamsarkar.dev/services/web-and-mobile-application-development
+Unified web portals and native iOS/Android mobile applications engineered with offline-first synchronization, keeping field staff and central operations in continuous alignment without data loss.
 
-### System Migration & Legacy Data Transfer
-Safe transition from outdated, fragile systems to modern infrastructure, using parallel verification and gradual cutover to avoid downtime or data loss.
+### AI Business Process Automation
+URL: https://subhamsarkar.dev/services/business-process-automation
+Private, self-hosted AI automation for document parsing, invoice extraction, customer support triage, and repetitive clerical operations without exposing company data to public third-party models.
 
-### Scaling & Infrastructure Optimization
-Performance triage and targeted fixes for existing systems suffering from slowdowns, bottlenecks, or rising infrastructure costs - without a full rebuild.
+### Legacy Software Modernization
+URL: https://subhamsarkar.dev/services/legacy-software-modernization
+Safe, phased legacy modernization transitioning fragile monolithic codebases, outdated databases, and bloated Excel workbooks to modern cloud architectures with zero operational downtime and 100% verified data parity.
+
+### Application Security Audit
+URL: https://subhamsarkar.dev/services/application-security-audit
+Architectural penetration testing, zero-trust role-based access control, OWASP hardening, and production-ready code pull requests to uncover vulnerabilities and block malicious bots.
 
 ## How Engagements Work
-Projects are milestone-based: clients see real, working progress before each payment, rather than paying a large sum upfront. On completion, full source code and documentation transfer to the client - there is no vendor lock-in and no dependency on the developer to keep the system running. Every engagement is covered by a confidentiality agreement before technical details are discussed. Typical first response time is 6–8 hours.
+Projects are milestone-based: clients see real, working progress before each payment, rather than paying a large sum upfront. On completion, full source code and documentation transfer to the client - there is no vendor lock-in and no dependency on the developer to keep the system running. Every engagement is covered by a confidentiality agreement before technical details are discussed. Typical first response time is < 12 hours.
 
 ## Engagement Models
 - Fixed-Scope New Build: A defined project from planning to full handover, with cost and timeline agreed upfront.
@@ -47,7 +56,13 @@ Over 10 years of experience, having built and delivered systems for 20+ business
 
 ## Links
 - Homepage: https://subhamsarkar.dev
-- Services: https://subhamsarkar.dev/services
+- Services Directory: https://subhamsarkar.dev/services
+- Custom ERP Development: https://subhamsarkar.dev/services/custom-erp-development
+- Custom CRM Development: https://subhamsarkar.dev/services/custom-crm-development
+- Web & Mobile Applications: https://subhamsarkar.dev/services/web-and-mobile-application-development
+- AI Business Process Automation: https://subhamsarkar.dev/services/business-process-automation
+- Legacy Software Modernization: https://subhamsarkar.dev/services/legacy-software-modernization
+- Application Security Audit: https://subhamsarkar.dev/services/application-security-audit
 - About: https://subhamsarkar.dev/about
 - Work / Case Studies: https://subhamsarkar.dev/work
 - Process: https://subhamsarkar.dev/process

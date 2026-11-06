@@ -206,8 +206,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
     .map(id => ({ id, label: id }));
     
   const activeCategories = [
-    { id: "all", label: "All Portfolios" },
-    ...ALL_CATEGORIES.filter(c => availableCategoryIds.some(id => id.toLowerCase() === c.id.toLowerCase())),
+    ...ALL_CATEGORIES,
     ...customCategories
   ];
 

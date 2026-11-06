@@ -1,4 +1,4 @@
-import { Lock, ShieldCheck, Database, Key, FileText, Handshake } from "lucide-react";
+import { Lock, ShieldCheck, Database, Key, FileText, Handshake, Milestone, CheckCircle2, BadgeCheck } from "lucide-react";
 
 export default function ValueProposition() {
   return (
@@ -126,23 +126,41 @@ export default function ValueProposition() {
                   You Pay As You See Progress
                 </h3>
                 <p className="font-sans text-[14px] leading-[22px] tracking-[-0.005em] font-normal text-secondary mb-6 flex-grow">
-                  Work is broken into milestones. You see real, working progress before each payment - never a large sum upfront for something you can't yet see.
+                  Work is broken into milestones. You See Progress at Every Step. Work moves in clear stages, so you always know where things stand and what comes next.
                 </p>
               </div>
               
               <div className="relative z-10 mt-auto bg-surface-container-highest/30 border border-surface-container-highest p-4 rounded-xl group-hover:bg-primary/5 transition-all duration-500">
-                <div className="flex items-center justify-between text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium mb-2">
-                  <span>PAYMENT TERMS</span>
-                  <span className="text-on-surface group-hover:text-primary transition-colors duration-300">MILESTONE-BASED</span>
+                <div className="flex items-center justify-between text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium mb-3">
+                  <span>HOW WE WORK:</span>
+                  <span className="text-on-surface group-hover:text-primary transition-colors duration-300">STAGE BY STAGE</span>
                 </div>
                 
                 {/* INNER BOX ANIMATION */}
-                <div className="w-full bg-surface-container-highest/50 h-2 rounded-full mt-3 overflow-hidden relative border border-surface-container-highest/50">
-                  {/* IDLE: Continuous sliding loader */}
-                  <div className="absolute top-0 left-0 h-full w-[30%] bg-primary/40 rounded-full animate-[loading-slide_3s_ease-in-out_infinite] group-hover:hidden"></div>
+                <div className="flex items-center justify-center gap-3 mb-3 text-primary/40 relative">
+                  <Milestone size={16} className="group-hover:text-primary transition-colors duration-300" />
                   
-                  {/* HOVER: Smooth Fill */}
-                  <div className="bg-primary h-full w-0 rounded-full group-hover:animate-smooth-fill relative z-10 shadow-[0_0_8px_rgba(220,38,38,0.5)] hidden group-hover:block"></div>
+                  <div className="flex-grow h-[3px] bg-surface-container-highest/50 relative overflow-hidden flex items-center justify-center rounded-full">
+                    {/* IDLE: Continuous stage flow */}
+                    <div className="absolute inset-0 w-full h-full bg-[linear-gradient(90deg,transparent_25%,rgba(220,38,38,0.4)_50%,transparent_75%)] animate-data-flow group-hover:hidden"></div>
+                    
+                    {/* HOVER: Smooth Fill */}
+                    <div className="absolute left-0 top-0 h-full bg-primary rounded-full hidden group-hover:block group-hover:animate-smooth-fill shadow-[0_0_8px_rgba(220,38,38,0.6)]"></div>
+                  </div>
+                  
+                  {/* Center Milestone Verification Badge */}
+                  <div className="absolute left-[50%] top-[50%] hidden group-hover:flex items-center justify-center bg-surface-container rounded-full group-hover:animate-encrypt-shield z-10 border border-primary/50 text-primary">
+                    <BadgeCheck size={16} className="p-[2px]" />
+                  </div>
+
+                  <CheckCircle2 size={16} className="group-hover:text-primary transition-colors duration-300" />
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <span>VERIFIED STAGE RELEASES</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -173,13 +191,13 @@ export default function ValueProposition() {
               </div>
               
               <div className="relative z-10 mt-auto bg-surface-container-highest/30 border border-surface-container-highest p-4 rounded-xl group-hover:bg-primary/5 transition-all duration-500">
-                <div className="flex items-center justify-between text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium mb-2">
+                <div className="flex items-center justify-between text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium mb-3">
                   <span>DELIVERABLE SPEC:</span>
                   <span className="text-on-surface group-hover:text-primary transition-colors duration-300">FULL SYSTEM, ON COMPLETION</span>
                 </div>
                 
                 {/* INNER BOX ANIMATION */}
-                <div className="flex items-center justify-center gap-4 mt-4 text-primary/40 relative">
+                <div className="flex items-center justify-center gap-3 mb-3 text-primary/40 relative">
                   <Database size={16} className="group-hover:text-primary transition-colors duration-300" />
                   <div className="flex-grow h-[3px] bg-surface-container-highest/50 relative overflow-hidden flex items-center justify-center rounded-full">
                     {/* IDLE: Continuous data stream pattern */}
@@ -196,6 +214,13 @@ export default function ValueProposition() {
                   </div>
 
                   <Key size={16} className="group-hover:text-primary transition-colors duration-300" />
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
+                    <Key className="w-3.5 h-3.5" />
+                    <span>100% CODE &amp; DATA HANDOVER</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -245,8 +270,8 @@ export default function ValueProposition() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
-                    <Lock className="text-[14px]" />
+                  <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
+                    <Lock className="w-3.5 h-3.5" />
                     <span>ZERO SHARED REPOSITORIES</span>
                   </div>
                 </div>

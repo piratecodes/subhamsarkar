@@ -10,7 +10,14 @@ import { broadcastPushNotification } from '@/actions/push';
 import toast from 'react-hot-toast';
 import ImageCropperModal from '../shared/ImageCropperModal';
 
-
+export const AVAILABLE_SERVICES = [
+  { id: "erp", label: "Custom ERP Development (SPEC: 01)" },
+  { id: "crm", label: "Custom CRM Development (SPEC: 02)" },
+  { id: "web-mobile", label: "Web & Mobile Applications (SPEC: 03)" },
+  { id: "ai-agents", label: "AI Business Process Automation (SPEC: 04)" },
+  { id: "software-modernization", label: "Legacy Software Modernization (SPEC: 05)" },
+  { id: "security-audit", label: "Application Security Audit (SPEC: 06)" }
+];
 
 export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess }) {
   const [activeTab, setActiveTab] = useState('basic');
@@ -42,6 +49,7 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
     stats: [],
     topologySchematic: [],
     technicalDetails: [],
+    assignedServices: [],
     isPublished: true
   });
 
@@ -49,6 +57,7 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
   const [catQuery, setCatQuery] = useState('');
   const [indQuery, setIndQuery] = useState('');
   const [statusQuery, setStatusQuery] = useState('');
+  const [serviceQuery, setServiceQuery] = useState('');
   const [techQueries, setTechQueries] = useState({});
 
   const [dbCategories, setDbCategories] = useState([]);
@@ -105,6 +114,7 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
         stats: Array.isArray(project.stats) ? project.stats : [],
         topologySchematic: Array.isArray(project.topologySchematic) ? project.topologySchematic : [],
         technicalDetails: Array.isArray(project.technicalDetails) ? project.technicalDetails : [],
+        assignedServices: Array.isArray(project.assignedServices) ? project.assignedServices : (typeof project.assignedServices === 'string' ? JSON.parse(project.assignedServices || '[]') : []),
         isPublished: project.isPublished ?? true
       });
     } else {
@@ -114,6 +124,7 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
         summary: '', bottleneck: '', approach: '', outcome: '',
         thumbnail: '', thumbnailAlt: '', images: [],
         pipeline: [], stats: [], topologySchematic: [], technicalDetails: [],
+        assignedServices: [],
         isPublished: true
       });
     }
@@ -121,7 +132,16 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
     setActiveTab('basic');
     setCatQuery('');
     setIndQuery('');
+    setServiceQuery('');
   }, [project, isOpen]);
+
+  const filteredServices = useMemo(() => {
+    if (!serviceQuery) return AVAILABLE_SERVICES;
+    return AVAILABLE_SERVICES.filter(s =>
+      s.label.toLowerCase().includes(serviceQuery.toLowerCase()) ||
+      s.id.toLowerCase().includes(serviceQuery.toLowerCase())
+    );
+  }, [serviceQuery]);
 
   const filteredCategories = catQuery === '' 
     ? dbCategories 
@@ -547,6 +567,122 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
                               className="w-full p-3 bg-surface-container rounded-xl border border-outline/20 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all shadow-sm font-mono text-sm" 
                             />
                           </div>
+                        </div>
+
+                        {/* Feature on Service Showcase Pages (Multi-Select Combobox) */}
+                        <div className="relative">
+                          <div className="flex items-center justify-between mb-2">
+                            <label className="block text-sm font-bold text-on-surface">
+                              Feature on Service Showcase Pages (Multi-Select)
+                            </label>
+                            <span className="text-[11px] font-medium text-secondary">
+                              Select from dropdown • Type &amp; press Enter or comma to add
+                            </span>
+                          </div>
+
+                          <Combobox
+                            value={formData.assignedServices || []}
+                            onChange={(val) => setFormData(prev => ({ ...prev, assignedServices: val }))}
+                            multiple
+                          >
+                            <div className="relative z-20">
+                              <div className="min-h-[50px] p-2.5 bg-surface-container rounded-xl border border-outline/20 focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all shadow-sm flex flex-wrap items-center gap-2">
+                                {(formData.assignedServices || []).map((serviceId) => {
+                                  const srv = AVAILABLE_SERVICES.find(s => s.id === serviceId) || { label: serviceId, id: serviceId };
+                                  return (
+                                    <span
+                                      key={serviceId}
+                                      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary/15 text-primary border border-primary/30 text-xs font-bold font-display shadow-xs"
+                                    >
+                                      <span>{srv.label}</span>
+                                      <button
+                                        type="button"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          setFormData(prev => ({
+                                            ...prev,
+                                            assignedServices: (prev.assignedServices || []).filter(s => s !== serviceId)
+                                          }));
+                                        }}
+                                        className="hover:text-error transition-colors p-0.5 rounded-full"
+                                      >
+                                        <X className="w-3.5 h-3.5" />
+                                      </button>
+                                    </span>
+                                  );
+                                })}
+
+                                <div className="flex-1 min-w-[160px] flex items-center">
+                                  <ComboboxInput
+                                    className="w-full bg-transparent p-1 text-sm text-on-surface focus:outline-none placeholder:text-secondary/60"
+                                    placeholder={(formData.assignedServices || []).length ? "Add another service..." : "Select services or type & press Enter..."}
+                                    value={serviceQuery}
+                                    onChange={(event) => setServiceQuery(event.target.value)}
+                                    onKeyDown={(e) => {
+                                      if ((e.key === 'Enter' || e.key === ',') && serviceQuery.trim()) {
+                                        e.preventDefault();
+                                        const cleanVal = serviceQuery.replace(/,/g, '').trim().toLowerCase().replace(/\s+/g, '-');
+                                        if (cleanVal && !(formData.assignedServices || []).includes(cleanVal)) {
+                                          setFormData(prev => ({
+                                            ...prev,
+                                            assignedServices: [...(prev.assignedServices || []), cleanVal]
+                                          }));
+                                        }
+                                        setServiceQuery('');
+                                      }
+                                    }}
+                                  />
+                                </div>
+
+                                <ComboboxButton className="pr-2">
+                                  <ChevronsUpDown className="w-4 h-4 text-secondary hover:text-on-surface transition-colors" />
+                                </ComboboxButton>
+                              </div>
+
+                              <Transition
+                                as={Fragment}
+                                leave="transition ease-in duration-100"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                                afterLeave={() => setServiceQuery('')}
+                              >
+                                <ComboboxOptions className="absolute mt-1 max-h-60 w-full overflow-auto rounded-xl bg-surface-container border border-outline/20 py-1 text-base shadow-2xl focus:outline-none sm:text-sm z-30">
+                                  {serviceQuery.trim() && !AVAILABLE_SERVICES.some(s => s.id === serviceQuery.trim().toLowerCase()) && (
+                                    <ComboboxOption
+                                      value={serviceQuery.trim().toLowerCase().replace(/\s+/g, '-')}
+                                      className={({ active }) => `relative cursor-pointer select-none py-2.5 pl-10 pr-4 ${active ? 'bg-primary/10 text-primary' : 'text-on-surface'}`}
+                                    >
+                                      Add custom service: "{serviceQuery.trim()}"
+                                    </ComboboxOption>
+                                  )}
+                                  {filteredServices.map((srv) => {
+                                    const isSelected = (formData.assignedServices || []).includes(srv.id);
+                                    return (
+                                      <ComboboxOption
+                                        key={srv.id}
+                                        value={srv.id}
+                                        className={({ active }) => `relative cursor-pointer select-none py-2.5 pl-10 pr-4 ${active ? 'bg-primary/10 text-primary' : 'text-on-surface'}`}
+                                      >
+                                        <div className="flex items-center justify-between">
+                                          <span className={`block truncate ${isSelected ? 'font-bold text-primary' : 'font-medium'}`}>
+                                            {srv.label}
+                                          </span>
+                                          <span className="font-mono text-[10px] text-secondary bg-surface-container-high px-2 py-0.5 rounded">
+                                            {srv.id}
+                                          </span>
+                                        </div>
+                                        {isSelected && (
+                                          <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <Check className="w-4 h-4 text-primary" />
+                                          </span>
+                                        )}
+                                      </ComboboxOption>
+                                    );
+                                  })}
+                                </ComboboxOptions>
+                              </Transition>
+                            </div>
+                          </Combobox>
                         </div>
                         
                         {/* Associated Company Details */}

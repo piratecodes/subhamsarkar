@@ -346,7 +346,7 @@ export default function TermsLayout({ settings }) {
               </div>
               <div className="font-sans text-sm sm:text-[15px] leading-relaxed text-secondary space-y-3.5">
                 <p>
-                  By sending a message you confirm that the information you give is accurate and that you are allowed to share it. I aim to reply within about 6 to 8 hours during normal working hours (09:00 to 19:00 IST). This is a target and not a guarantee, and some replies may take longer.
+                  By sending a message you confirm that the information you give is accurate and that you are allowed to share it. I aim to reply within &lt; 12 hours during normal working hours (09:00 to 19:00 IST). This is a target and not a guarantee, and some replies may take longer.
                 </p>
                 <p>
                   I will use the details you provide to reply to you and to discuss your enquiry. I will not add you to marketing lists without your consent.

@@ -11,14 +11,9 @@ import { getHomePageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Subham Sarkar | Software Architect & Business Developer",
-  description: "Portfolio of Subham Sarkar, Software Architect & Business Developer building robust, scalable applications.",
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    url: "https://subhamsarkar.dev",
-  },
+  title: { absolute: "Subham Sarkar | ERP & CRM Developer in Kolkata, India" },
+  description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
+  alternates: { canonical: "/" },
 };
 
 export const revalidate = 3600;

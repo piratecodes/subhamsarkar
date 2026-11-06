@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 
 const content = `# Subham Sarkar - Software Architect & ERP/CRM Developer
 
-> Subham Sarkar is a software architect and ERP/CRM developer based in Kolkata, West Bengal, India, specializing in custom enterprise software, unified web and mobile ecosystems, AI agent integration, and legacy system migration. Over a decade of experience building infrastructure for 20+ businesses worldwide.
+> Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.
 
 **Also known for:** "Building The Backbone Behind Every Unstoppable Business" - the guiding principle behind every engagement: software built to be reliable, fully owned by the client, and maintained without dependency on any single person.
 
-This content describes Subham Sarkar of subhamsarkar.dev specifically - a software architect and ERP/CRM developer based in Kolkata, India. Not to be confused with other individuals of the same name.
+This content describes Subham Sarkar of subhamsarkar.dev specifically - a software architect and system developer based in Kolkata, India. Not to be confused with other individuals of the same name.
 
 Also works under: enterprise software developer, full-stack developer, software consultant, digital transformation partner.
 
@@ -14,14 +14,15 @@ Fluent in English. Works with international clients across time zones.
 
 Last updated: 2026.
 
-Subham Sarkar builds custom ERP systems, CRM platforms, web and mobile applications, and AI-powered automation for growing businesses. Engagements are milestone-based, with full code ownership transferred on completion and NDA-backed confidentiality on every project. Typical first response time is 6–8 hours.
+Subham Sarkar builds custom ERP systems, CRM platforms, web and mobile applications, and AI-powered automation for growing businesses. Engagements are milestone-based, with full code ownership transferred on completion and NDA-backed confidentiality on every project. Typical first response time is < 12 hours.
 
-## Services
-- [Custom ERP & CRM Systems](https://subhamsarkar.dev/services): Bespoke enterprise resource planning and customer relationship management systems built from scratch or migrated from legacy platforms.
-- [Web & Mobile Ecosystems](https://subhamsarkar.dev/services): Unified web and mobile applications synchronized through a single admin system.
-- [AI Agent Integration](https://subhamsarkar.dev/services): Private, self-hosted AI automation for document processing, customer support, and repetitive operational tasks.
-- [System Migration & Legacy Data Transfer](https://subhamsarkar.dev/services): Safe, zero-downtime migration from outdated systems to modern infrastructure.
-- [Scaling & Infrastructure Optimization](https://subhamsarkar.dev/services): Performance optimization and bottleneck resolution for existing software systems.
+## Core Services & Disciplines
+- [Custom ERP Development](https://subhamsarkar.dev/services/custom-erp-development): Multi-warehouse inventory tracking, automated GST billing software integration, and tamper-proof financial ledgers with zero per-user seat fees.
+- [Custom CRM Development](https://subhamsarkar.dev/services/custom-crm-development): Tailored sales pipelines, automated WhatsApp lead routing, instant PDF quotation engines, and centralized customer timelines with unlimited seats.
+- [Custom Web & Mobile Applications](https://subhamsarkar.dev/services/web-and-mobile-application-development): Unified web portals and offline-first iOS/Android applications with real-time background sync.
+- [AI Business Process Automation](https://subhamsarkar.dev/services/business-process-automation): Air-gapped, self-hosted machine intelligence for automated invoice data extraction, document triage, and clerical workflow automation without data leakage.
+- [Legacy Software Modernization](https://subhamsarkar.dev/services/legacy-software-modernization): Zero-downtime modernization transitioning outdated codebases, spreadsheets, and fragile databases to scalable cloud architectures.
+- [Application Security Audit](https://subhamsarkar.dev/services/application-security-audit): Hands-on architectural penetration testing, zero-trust RBAC enforcement, API security, and code-level pull requests.
 
 ## Company
 - [About Subham Sarkar](https://subhamsarkar.dev/about): Background, working philosophy, and approach to software architecture.

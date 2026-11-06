@@ -53,7 +53,7 @@ export default function PostHandover() {
             <div className="mt-8 pt-5 border-t border-surface-container-highest/50 relative z-10">
               <div className="flex items-center justify-between">
                  <span className="font-display text-[10px] tracking-[0.15em] font-bold text-secondary uppercase">RESPONSE TIME</span>
-                 <span className="font-sans text-[13px] font-bold text-on-surface">6–8 HOURS</span>
+                 <span className="font-sans text-[13px] font-bold text-on-surface">&lt; 12 HRS</span>
               </div>
             </div>
           </div>

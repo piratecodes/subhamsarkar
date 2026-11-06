@@ -22,7 +22,7 @@ export default function HeroSection() {
               Let&apos;s Build a Backbone That Never Falls.
             </h1>
             <p className="font-sans text-[18px] leading-[28px] tracking-[-0.01em] font-normal text-secondary pt-1">
-              Whether you need a custom ERP built from scratch, help fixing what you already have, or AI layered into your existing operations &mdash; this is where that conversation starts.
+              Whether you need a custom ERP built from scratch, help fixing what you already have, or AI layered into your existing operations - this is where that conversation starts.
             </p>
           </div>
           
@@ -40,10 +40,10 @@ export default function HeroSection() {
 
             <div className="flex flex-col space-y-1 relative z-10">
               <span className="font-display text-[11px] leading-4 tracking-[0.15em] font-bold uppercase tracking-wider text-on-surface group-hover:text-primary transition-colors duration-500">
-                RESPONSE TIME: 6&ndash;8 HOURS
+                RESPONSE TIME: &lt; 12 HRS
               </span>
               <p className="font-sans text-[13.5px] leading-[22px] tracking-[-0.005em] font-normal text-secondary group-hover:text-secondary/90 transition-colors duration-500">
-                A real reply from me, directly &mdash; not an automated response, not a queue.
+                A real reply from me, directly - not an automated response, not a queue.
               </p>
             </div>
           </div>

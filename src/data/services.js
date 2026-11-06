@@ -1,99 +1,124 @@
-import { Laptop, Workflow, Brain, TrendingUp, Gauge } from "lucide-react";
+import { Database, Users, Laptop, Brain, ArrowRightLeft, ShieldCheck } from "lucide-react";
 
 export const services = [
   {
     spec: "SPEC: 01",
-    specType: "bg-secondary-container text-on-secondary-fixed",
-    title: "ALWAYS-IN-SYNC SYSTEMS",
-    subtitle: "WORKS ONLINE, OFFLINE, EVERYWHERE",
-    icon: Laptop,
-    name: "Unified Web + Mobile Systems",
-    serviceType: "Web and mobile application development",
-    desc: "One connected system for your website, app, and staff — whether they're in the office, at home, or out in the field. Everyone sees the same live information, automatically.",
-    for: "Businesses running a website, an app, and field or office staff who currently rely on separate, disconnected tools.",
+    slug: "custom-erp-development",
+    specType: "bg-primary-container text-on-primary",
+    title: "ACCURATE STOCK & ACCOUNTS",
+    subtitle: "BUILT FOR HOW YOUR BUSINESS ACTUALLY RUNS",
+    icon: Database,
+    name: "Custom ERP Development",
+    serviceType: "Custom ERP Software Engineering",
+    desc: "Custom inventory, billing, and accounting software built around your exact daily operations—eliminating messy spreadsheets and per-user monthly bills.",
+    for: "Growing businesses managing multiple godowns or stores that have outgrown Excel and want an integrated system.",
     includes: [
-      "Offline-Ready Design: Staff can keep working even without internet — everything syncs automatically the moment they're back online.",
-      "Real-Time Updates: Changes made on one device appear instantly across the whole system, with no manual refreshing.",
-      "Role-Based Access: Every team member sees only what's relevant to their role, kept secure by default."
+      "Tamper-Proof Records: Clear permanent history of every bill, payment, and adjustment with zero missing numbers.",
+      "Live Multi-Godown Stock: Stock levels update instantly across all stores and counters with zero overselling.",
+      "Direct Tally & GST Sync: Invoices and tax entries push directly to your accounting software without double typing."
     ],
-    query: '"Can this work for staff with unreliable internet in the field?"',
-    verdict: "Yes. The system is built to keep working offline, then automatically sync everything the moment a connection returns — no data lost, no manual re-entry needed.",
-    metric: "APPROACH: OFFLINE-FIRST BY DESIGN"
+    query: '"Can this integrate seamlessly with our existing accounting or GST/tax tools?"',
+    verdict: "Yes. Invoices, e-way bills, and journal entries sync directly into Tally, Zoho Books, or QuickBooks with zero duplicate data entry.",
+    metric: "APPROACH: TAILORED WORKFLOWS, NO PER-USER FEES"
   },
   {
     spec: "SPEC: 02",
-    specType: "bg-primary-container text-on-primary",
-    title: "YOUR BUSINESS, YOUR SYSTEM",
-    subtitle: "BUILT AROUND HOW YOU ACTUALLY WORK",
-    icon: Workflow,
-    name: "Custom ERP / CRM Systems",
-    serviceType: "ERP and CRM software development",
-    desc: "A system built specifically around how your business operates — not a generic template you have to bend your workflow around. Inventory, finances, and customer relationships, all in one place.",
-    for: "Businesses that have outgrown spreadsheets or off-the-shelf software that charges per seat and doesn't fit how they actually work.",
+    slug: "custom-crm-development",
+    specType: "bg-secondary-container text-on-secondary-fixed",
+    title: "FAST-TRACK SALES PIPELINES",
+    subtitle: "REPLY TO LEADS INSTANTLY & CLOSE MORE DEALS",
+    icon: Users,
+    name: "Custom CRM Development",
+    serviceType: "Custom CRM Platform Development",
+    desc: "Dedicated sales platforms with automated 5-second WhatsApp replies, centralized customer timelines, instant PDF quotes, and unlimited staff logins.",
+    for: "Sales teams losing track of customer chats across personal phones or tired of paying ₹15,000/seat every month.",
     includes: [
-      "Accurate Financial Records: A reliable, tamper-evident ledger that keeps your books consistent and easy to audit.",
-      "Smart Inventory Tracking: Prevents overselling and lost orders by keeping stock levels accurate in real time.",
-      "Automated Workflows: Repetitive tasks trigger automatically based on real business events, not manual follow-up."
+      "5-Second WhatsApp Replies: Automated greetings and catalog links sent the moment a lead inquires.",
+      "Instant PDF Quotations: Generates professional branded quotes with volume discounts and GST in 30 seconds.",
+      "Complete Client History: Every call, message, and quote revision organized in one searchable timeline."
     ],
-    query: '"Can this integrate with our existing accounting or payroll tools?"',
-    verdict: "Yes. We build dedicated connections to your existing tools, so financial and operational data flows automatically instead of being re-entered by hand.",
-    metric: "APPROACH: BUILT TO FIT, NOT FORCED"
+    query: '"Will our sales team find custom software intuitive compared to mainstream tools?"',
+    verdict: "Every screen is co-designed around your team's exact daily habits, stripping away irrelevant SaaS clutter so reps close deals faster.",
+    metric: "APPROACH: SPEED TO LEAD, UNLIMITED SEATS"
   },
   {
     spec: "SPEC: 03",
-    specType: "bg-secondary-container text-on-secondary-fixed",
-    title: "AI THAT STAYS PRIVATE",
-    subtitle: "YOUR DATA NEVER LEAVES YOUR SYSTEM",
-    icon: Brain,
-    name: "AI Agent Integration",
-    serviceType: "AI agent and workflow integration",
-    desc: "AI that quietly handles the repetitive parts of your operations — sorting documents, flagging exceptions, answering common questions — without your data ever leaving your own systems.",
-    for: "Teams spending hours a week on manual document review, data entry, or answering the same customer questions repeatedly.",
+    slug: "web-and-mobile-application-development",
+    specType: "bg-primary-container text-on-primary",
+    title: "ALWAYS-IN-SYNC APPS",
+    subtitle: "WORKS ONLINE, OFFLINE, EVERYWHERE",
+    icon: Laptop,
+    name: "Web & Mobile Applications",
+    serviceType: "Custom Web and Mobile Application Development",
+    desc: "One connected system for your website, staff apps, and customer portals—keeping information identical whether staff are in the office or in a basement with no signal.",
+    for: "Companies with field staff, drivers, or technicians who need mobile apps that keep working even without internet.",
     includes: [
-      "Private, Self-Hosted AI: Runs entirely within your own systems — never sent to, or used to train, any public AI model.",
-      "Smart Document Search: Instantly finds and understands relevant information across your existing records.",
-      "Built-In Safeguards: Automated checks catch incorrect AI actions before they happen, keeping a human in control."
+      "Works 100% Offline: Field teams can take orders and record visits without signal; uploads automatically when online.",
+      "Instant Live Updates: Changes made on one phone appear on office desktop screens in under a second.",
+      "Identical Rules: Website, Android, and iPhone apps share the same pricing and validation rules without discrepancy."
     ],
-    query: '"Will proprietary company data leak to third-party AI models?"',
-    verdict: "No. AI processing runs entirely within your own private infrastructure — your data is never sent to, or used to train, any public AI model.",
-    metric: "APPROACH: PRIVATE BY DEFAULT"
+    query: '"Can staff in areas with poor cellular reception still record transactions?"',
+    verdict: "Yes. Offline entries save directly to the phone and queue up for automatic sync the moment reception is regained.",
+    metric: "APPROACH: OFFLINE-FIRST BY DESIGN"
   },
   {
     spec: "SPEC: 04",
-    specType: "bg-primary-container text-on-primary",
-    title: "MOVE SYSTEMS WITHOUT THE RISK",
-    subtitle: "NO DOWNTIME, NO LOST DATA",
-    icon: TrendingUp,
-    name: "System Migration & Legacy Data Transfer",
-    serviceType: "Legacy software migration and data transfer",
-    desc: "Moving off an old, fragile system safely — without losing data, and without stopping your business while it happens.",
-    for: "Businesses running critical operations on outdated software that's becoming risky or difficult to maintain.",
+    slug: "business-process-automation",
+    specType: "bg-secondary-container text-on-secondary-fixed",
+    title: "PRIVATE ENTERPRISE AI",
+    subtitle: "YOUR COMPANY DATA NEVER LEAVES YOUR SERVERS",
+    icon: Brain,
+    name: "AI Business Process Automation",
+    serviceType: "Business Process Automation & AI Integration",
+    desc: "Private AI that handles repetitive paperwork—extracting tables from messy PDFs, sorting invoices, and answering questions—without your data leaking to public chatbots.",
+    for: "Teams spending hours every week manually typing invoice details, checking contracts, or sorting repetitive customer inquiries.",
     includes: [
-      "Parallel Testing: Your old and new systems run side-by-side until we confirm everything matches perfectly.",
-      "Verified Data Accuracy: Every migrated record is checked and cross-verified, so nothing is lost or altered.",
-      "Gradual, Safe Switchover: Traffic moves to the new system in controlled steps, with the ability to roll back instantly if needed."
+      "100% Private Cloud: AI models run on your own private cloud servers—data is never used to train public models.",
+      "Human Approval Gates: High-value payments and approvals require a manager's one-click confirmation before executing.",
+      "Messy Document Parsing: Reads crumpled receipts, skewed phone photos, and multi-page supplier bills accurately."
     ],
-    query: '"Will our customer-facing service experience downtime during migration?"',
-    verdict: "We aim for zero disruption. Your old and new systems run in parallel and are fully verified to match before we switch over — with the ability to roll back instantly if anything looks off.",
-    metric: "APPROACH: ZERO-DISRUPTION MIGRATION"
+    query: '"Will an AI agent take unintended actions or hallucinate business decisions?"',
+    verdict: "No. The AI is bound by strict validation rules, and any significant financial action requires explicit human confirmation.",
+    metric: "APPROACH: STRICT RULES, ZERO DATA LEAKAGE"
   },
   {
     spec: "SPEC: 05",
-    specType: "bg-secondary-container text-on-secondary-fixed",
-    title: "FASTER, WITHOUT A REBUILD",
-    subtitle: "FIX WHAT'S SLOWING YOU DOWN",
-    icon: Gauge,
-    name: "Scaling & Rebuilding Existing Infrastructure",
-    serviceType: "Infrastructure optimization and software modernization",
-    desc: "Fixing the parts of your current system that are slowing down, breaking under load, or costing more than they should — without rebuilding everything from scratch.",
-    for: "Businesses whose current software is getting slower, more expensive, or less reliable as they grow.",
+    slug: "legacy-software-modernization",
+    specType: "bg-primary-container text-on-primary",
+    title: "ZERO-DOWNTIME UPGRADES",
+    subtitle: "MODERNIZE OLD SOFTWARE SAFELY",
+    icon: ArrowRightLeft,
+    name: "Legacy Software Modernization",
+    serviceType: "Legacy Software Modernization & Cloud Architecture",
+    desc: "Safely upgrading slow, outdated software and messy databases to fast modern cloud systems without a single minute of customer downtime.",
+    for: "Businesses running critical operations on aging software where unexpected downtime or lost data would cost lakhs.",
     includes: [
-      "Targeted Fixes: We find and fix the specific issues actually causing slowdowns, instead of guessing.",
-      "Smarter Data Handling: Frequently used information loads faster, easing pressure on your systems.",
-      "Reduced Cloud Costs: Optimized systems often run on less infrastructure, lowering your hosting bills."
+      "Step-by-Step Modernization: We upgrade modules piece by piece so you get speed improvements right away.",
+      "Live Side-by-Side Testing: Old and new systems run together to verify that 100% of data matches before switching.",
+      "1-Click Instant Rollback: Switchover happens in controlled stages with an instant fallback safety net."
     ],
-    query: '"Can this be done incrementally, without rewriting the whole platform?"',
-    verdict: "Yes. We identify and fix the specific issues causing the most slowdown first, so your system improves without a risky, ground-up rebuild.",
-    metric: "APPROACH: FIX WHAT MATTERS FIRST"
+    query: '"Will our customer operations or active transactions pause during migration?"',
+    verdict: "Zero planned downtime. Old and new systems run in parallel until 100% parity is mathematically verified.",
+    metric: "APPROACH: ZERO-DOWNTIME PARALLEL MIGRATION"
+  },
+  {
+    spec: "SPEC: 06",
+    slug: "application-security-audit",
+    specType: "bg-secondary-container text-on-secondary-fixed",
+    title: "REAL-WORLD APPLICATION SECURITY",
+    subtitle: "PROTECT CUSTOMER DATA & BLOCK BOTS",
+    icon: ShieldCheck,
+    name: "Application Security Audit",
+    serviceType: "Application Security Audit & Infrastructure Hardening",
+    desc: "Thorough hands-on security inspection, direct code patches in your repository, and automated defenses to protect customer records from hackers and bots.",
+    for: "Businesses handling customer payments, sensitive private data, or preparing for enterprise client security reviews.",
+    includes: [
+      "Hands-On Penetration Audit: Testing your login, APIs, and databases like an ethical hacker to find real weaknesses.",
+      "Lock Down Customer Data: Ensures no user or competitor can view other customers' private invoices or pricing.",
+      "Smart Bot & Rate-Limit Defenses: Automatically blocks brute-force password attacks and form spam without slowing real users."
+    ],
+    query: '"Can our application pass enterprise vendor security assessments?"',
+    verdict: "Yes. We deliver direct code pull requests, configuration patches, and signed architectural attestation reports.",
+    metric: "APPROACH: DIRECT CODE FIXES, PROVEN RESILIENCE"
   }
 ];

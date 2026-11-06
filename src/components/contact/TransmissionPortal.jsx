@@ -202,7 +202,7 @@ export default function TransmissionPortal({ settings }) {
       )}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
         {/* Primary Architectural Transmission Form (Col 1-7) */}
-        <div className="lg:col-span-7 relative overflow-hidden bg-surface-container-lowest/80 backdrop-blur-xl p-6 lg:p-10 rounded-2xl border border-surface-container-highest/60 shadow-lg space-y-6 group/form hover:shadow-xl hover:border-primary/30 transition-all duration-700">
+        <div id="transmission-form" className="lg:col-span-7 scroll-mt-28 relative overflow-hidden bg-surface-container-lowest/80 backdrop-blur-xl p-6 lg:p-10 rounded-2xl border border-surface-container-highest/60 shadow-lg space-y-6 group/form hover:shadow-xl hover:border-primary/30 transition-all duration-700">
           
           {/* Ambient Form Glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-30 animate-pulse pointer-events-none"></div>
@@ -216,7 +216,7 @@ export default function TransmissionPortal({ settings }) {
               <span className="font-display text-[12px] leading-4 tracking-[0.04em] font-bold text-primary">DIRECT LINE TO THE ARCHITECT</span>
             </div>
             <span className="font-display text-[11px] leading-4 tracking-[0.12em] font-bold uppercase text-secondary bg-surface-container px-2 py-1 rounded-md">
-              RESPONSE TIME: 6–8 HOURS
+              RESPONSE TIME: &lt; 12 HRS
             </span>
           </div>
 

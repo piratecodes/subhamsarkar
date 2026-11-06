@@ -71,6 +71,7 @@ model Dossier {
   associatedWithLogo    String?
   associatedWithLogoAlt String?
   eyebrow               String?
+  assignedServices      Json?
 }
 
 model Insight {

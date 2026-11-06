@@ -15,32 +15,30 @@ const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-int
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], display: "swap", variable: "--font-space-grotesk" });
 
 export const metadata = {
+  metadataBase: new URL("https://subhamsarkar.dev"),
   title: {
-    template: "%s | Subham Sarkar | Software Architect & System Engineer",
-    default: "Subham Sarkar | Software Architect & System Engineer",
+    default: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
+    template: "%s | Subham Sarkar",
   },
-  description: "Subham Sarkar is a Software Architect and System Engineer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
+  description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
   applicationName: "Subham Sarkar",
   authors: [{ name: "Subham Sarkar", url: "https://subhamsarkar.dev" }],
   creator: "Subham Sarkar",
   robots: { index: true, follow: true },
-  manifest: '/manifest.webmanifest',
-  metadataBase: new URL('https://subhamsarkar.dev'),
-  keywords: ["Software Architect", "System Engineer", "Subham Sarkar", "Portfolio"],
+  manifest: "/manifest.webmanifest",
+  keywords: ["Subham Sarkar", "ERP developer Kolkata", "CRM developer India", "software architect India", "custom software development"],
   openGraph: {
-    url: 'https://subhamsarkar.dev',
-    title: "Subham Sarkar | Software Architect",
-    type: 'website',
+    type: "website",
     siteName: "Subham Sarkar",
-    description: "Subham Sarkar is a sSoftware Architect and System Engineer in Kolkata, India building custom ERP, CRM, web and mobile apps, and AI automation for businesses across WorldWide.",
-    images: [
-      { url: "/icons/icon-512x512.png", alt: "Subham Sarkar Logo", type: 'image/png', sizes: "512x512" },
-    ],
+    locale: "en_IN",
+    title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
+    description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "Subham Sarkar, ERP and CRM developer in Kolkata" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Subham Sarkar | Software Architect & System Engineer",
-    description: "Portfolio of Subham Sarkar, Software Architect & System Engineer.",
+    title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
+    description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
     images: ["/icons/icon-512x512.png"],
   },
   icons: {

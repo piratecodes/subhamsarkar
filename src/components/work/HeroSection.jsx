@@ -61,7 +61,7 @@ export default function HeroSection() {
           <span className="hidden md:inline">BUILT FOR RELIABILITY, MANAGED WITH CARE</span>
           <span className="text-primary bg-primary/10 px-3 py-1 rounded shadow-sm border border-primary/20 flex items-center gap-2">
             <Activity className="w-3 h-3 animate-pulse" />
-            FIRST RESPONSE: 6–8 HOURS
+            FIRST RESPONSE: &lt; 12 HRS
           </span>
         </div>
       </div>

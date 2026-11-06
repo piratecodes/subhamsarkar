@@ -62,7 +62,7 @@ export default function HeroSection() {
               <div className="relative z-10 grid grid-cols-2 gap-4">
                 <div className="p-4 bg-surface-container-low/60 rounded-xl border border-outline/5 group-hover:bg-surface-container/50 transition-colors duration-500">
                   <div className="font-display text-[11px] leading-4 tracking-[0.12em] font-semibold text-secondary uppercase mb-1">RESPONSE TIME</div>
-                  <div className="font-display text-[28px] leading-[36px] tracking-[-0.01em] font-bold text-on-surface mb-2">6-8 Hours</div>
+                  <div className="font-display text-[28px] leading-[36px] tracking-[-0.01em] font-bold text-on-surface mb-2">&lt; 12 HRS</div>
                   <div className="font-display text-[10px] leading-[14px] font-bold tracking-[0.12em] text-primary uppercase bg-primary/10 w-max px-1.5 py-0.5 rounded">DIRECT REPLY, NO QUEUE</div>
                 </div>
                 <div className="p-4 bg-surface-container-low/60 rounded-xl border border-outline/5 group-hover:bg-surface-container/50 transition-colors duration-500">

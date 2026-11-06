@@ -1,7 +1,20 @@
-import Link from "next/link";
+"use client";
+
 import { ArrowUp, BadgeCheck, ShieldCheck, Lock } from "lucide-react";
 
 export default function ConfidentialityPledge() {
+  const scrollToForm = (e) => {
+    e.preventDefault();
+    const formElement = document.getElementById("transmission-form") || document.getElementById("first-name");
+    if (formElement) {
+      formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      const firstInput = document.getElementById("first-name");
+      if (firstInput) {
+        setTimeout(() => firstInput.focus(), 600);
+      }
+    }
+  };
+
   return (
     <section className="w-full py-16 relative">
       <div className="w-full container px-4 lg:px-12 relative z-10">
@@ -10,10 +23,10 @@ export default function ConfidentialityPledge() {
         <div className="relative overflow-hidden p-6 md:p-8 bg-surface-container-lowest/80 backdrop-blur-xl rounded-[2rem] border border-surface-container-highest/60 shadow-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-8 group hover:shadow-2xl hover:border-primary/40 transition-all duration-700 ease-out hover:-translate-y-1">
           
           {/* Idle Ambient Background Glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-transparent opacity-50 animate-pulse pointer-events-none"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-primary/10 via-transparent to-transparent opacity-50 animate-pulse pointer-events-none"></div>
           
           {/* Hover Gradient Sweep */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/15 via-primary/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-primary/15 via-primary/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></div>
 
           {/* Decorative background icons (texture) */}
           <ShieldCheck className="absolute -right-10 -bottom-10 w-48 h-48 text-primary/[0.04] group-hover:text-primary/[0.08] -rotate-12 animate-pulse group-hover:scale-110 group-hover:-rotate-6 transition-all duration-700 ease-out pointer-events-none" style={{ animationDuration: '4s' }} />
@@ -51,7 +64,11 @@ export default function ConfidentialityPledge() {
           
           {/* Right Side Action */}
           <div className="flex items-center shrink-0 relative z-10 w-full md:w-auto mt-2 md:mt-0">
-            <Link href="#contact-name" className="w-full md:w-auto px-6 py-4 bg-surface-container hover:bg-primary text-on-surface hover:text-on-primary font-display text-[11px] leading-4 tracking-widest font-bold uppercase rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-sm hover:shadow-lg group/btn overflow-hidden relative">
+            <button
+              type="button"
+              onClick={scrollToForm}
+              className="w-full md:w-auto px-6 py-4 bg-surface-container hover:bg-primary text-on-surface hover:text-on-primary font-display text-[11px] leading-4 tracking-widest font-bold uppercase rounded-xl transition-all duration-300 inline-flex items-center justify-center gap-2.5 shadow-sm hover:shadow-lg group/btn overflow-hidden relative cursor-pointer"
+            >
               <span className="relative z-10 flex items-center gap-2.5">
                 <div className="relative w-4 h-4 overflow-hidden">
                   <ArrowUp className="absolute top-0 left-0 w-4 h-4 animate-bounce group-hover/btn:animate-none transition-transform duration-300 group-hover/btn:-translate-y-full" />
@@ -59,7 +76,7 @@ export default function ConfidentialityPledge() {
                 </div>
                 <span>Return to Form</span>
               </span>
-            </Link>
+            </button>
           </div>
 
         </div>

@@ -1,4 +1,5 @@
-import { CheckCircle } from "lucide-react";
+import Link from "next/link";
+import { CheckCircle, ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
 
 export default function ServiceCards() {
@@ -113,8 +114,17 @@ export default function ServiceCards() {
                     </p>
                   </div>
                   
-                  <div className="pt-6 mt-4 border-t border-surface-container-highest flex items-center justify-between font-display text-[11px] leading-4 tracking-[0.12em] font-semibold text-secondary pl-2">
+                  <div className="pt-6 mt-4 border-t border-surface-container-highest flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-display text-[11px] leading-4 tracking-[0.12em] font-semibold text-secondary pl-2">
                     <span className="group-hover:text-primary/80 transition-colors duration-500">{svc.metric}</span>
+                    {svc.slug && (
+                      <Link
+                        href={`/services/${svc.slug}`}
+                        className="inline-flex items-center gap-1.5 text-primary hover:text-on-surface transition-colors duration-300 font-bold group/link"
+                      >
+                        <span>VIEW SPECIFICATION</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

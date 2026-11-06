@@ -178,27 +178,33 @@ export default function Footer({ settings }) {
             </div>
 
             {/* Specifications */}
-            <div className="flex flex-col space-y-3">
+            <div className="flex flex-col space-y-2">
               <div className="flex items-center gap-2 font-display text-[9.5px] leading-4 tracking-[0.15em] font-bold text-primary uppercase border-b border-surface-container-highest pb-2">
                 <TerminalSquare className="w-3 h-3" />
                 <span>Core Disciplines</span>
               </div>
-              <ul className="space-y-1.5 font-sans text-[11.5px] leading-4 font-normal text-secondary">
+              <ul className="space-y-1 font-sans text-[11.5px] leading-4 font-normal text-secondary">
                 {[
-                  { title: "ERP Systems Engineering", spec: "01" },
-                  { title: "Enterprise CRM Architectures", spec: "02" },
-                  { title: "Web & Mobile Ecosystems", spec: "03" },
-                  { title: "Autonomous AI Agents", spec: "04" },
-                  { title: "Legacy Migration", spec: "05" }
+                  { title: "Custom ERP Development", spec: "01", href: "/services/custom-erp-development" },
+                  { title: "Custom CRM Development", spec: "02", href: "/services/custom-crm-development" },
+                  { title: "Web & Mobile Applications", spec: "03", href: "/services/web-and-mobile-application-development" },
+                  { title: "AI Business Process Automation", spec: "04", href: "/services/business-process-automation" },
+                  { title: "Legacy Software Modernization", spec: "05", href: "/services/legacy-software-modernization" },
+                  { title: "Application Security Audit", spec: "06", href: "/services/application-security-audit" }
                 ].map((item, idx) => (
-                  <li key={idx} className="group flex items-center justify-between p-2 rounded-lg border border-transparent hover:border-surface-container-highest hover:bg-surface-container/50 transition-all duration-300 cursor-default">
-                    <div className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover:bg-primary transition-colors shadow-[0_0_5px_rgba(var(--color-primary-rgb),0)] group-hover:shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)]"></div>
-                      <span className="group-hover:text-on-surface transition-colors">{item.title}</span>
-                    </div>
-                    <span className="font-display text-[8px] leading-3 tracking-[0.12em] font-bold text-surface-variant-highest group-hover:text-primary bg-surface-container px-1.5 py-0.5 rounded shadow-inner transition-colors">
-                      SPEC: {item.spec}
-                    </span>
+                  <li key={idx}>
+                    <Link
+                      href={item.href}
+                      className="group flex items-center justify-between px-2 py-1.5 rounded-lg border border-transparent hover:border-surface-container-highest hover:bg-surface-container/50 transition-all duration-300 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-secondary/30 group-hover:bg-primary transition-colors shadow-[0_0_5px_rgba(var(--color-primary-rgb),0)] group-hover:shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)]"></div>
+                        <span className="group-hover:text-on-surface transition-colors">{item.title}</span>
+                      </div>
+                      <span className="font-display text-[8px] leading-3 tracking-[0.12em] font-bold text-surface-variant-highest group-hover:text-primary bg-surface-container px-1.5 py-0.5 rounded shadow-inner transition-colors">
+                        SPEC: {item.spec}
+                      </span>
+                    </Link>
                   </li>
                 ))}
               </ul>

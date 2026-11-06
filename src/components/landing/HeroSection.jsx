@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { BadgeCheck, BookOpen, Compass, CircleCheck, ShieldCheck } from 'lucide-react'
+import { BadgeCheck, BookOpen, Compass, CircleCheck, MessageSquare, ShieldCheck } from 'lucide-react'
 
 import img1 from "@/assets/myimage_web.png"
 
@@ -70,10 +70,10 @@ export default function HeroSection() {
               <div className="absolute -top-4 -left-4 w-1.5 h-1.5 bg-primary rounded-full blur-[1px]" style={{ animation: 'float-up 4s ease-in infinite' }}></div>
               <div className="absolute top-8 left-1/4 w-1 h-1 bg-secondary rounded-full blur-[1px]" style={{ animation: 'float-up 5s ease-in infinite 2s' }}></div>
               
-              <span className="relative inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-highest/30 backdrop-blur-md text-primary rounded-full shadow-[0_0_20px_rgba(var(--color-primary-rgb),0.15)] group overflow-hidden border border-primary/20">
+              <span className="relative inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-highest/30 backdrop-blur-md text-primary rounded-l-4xl rounded-r-full md:rounded-full shadow-[0_0_20px_rgba(var(--color-primary-rgb),0.15)] group overflow-hidden border border-primary/20">
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full animate-data-horizontal"></span>
                 <span className="relative z-10 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)] animate-pulse"></span>
-                <span className="relative z-10 font-bold tracking-widest text-on-surface">Software Architecture & Custom ERP / CRM Development</span>
+                <span className="relative z-10 font-bold tracking-widest text-on-surface">Software Architect & Custom ERP / CRM Development · KOLKATA, INDIA</span>
               </span>
             </div>
 
@@ -106,7 +106,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,color-mix(in_srgb,var(--color-primary)_10%,transparent),transparent_50%)] z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               
               <p className="relative z-10 font-sans text-[16px] lg:text-[18px] leading-[28px] tracking-[-0.01em] font-medium text-secondary max-w-3xl text-justify">
-                As a software architect, I build the systems that businesses run on - custom ERP and CRM platforms, connected websites and apps, and the everyday infrastructure your team depends on. For over a decade, businesses have trusted me to build software that actually works, so they can spend less time managing systems and more time running their business.
+                I’m Subham Sarkar, a software developer and architect based in Kolkata. I build the systems that businesses run on - custom ERP and CRM systems, connected websites and mobile apps, and AI automation for businesses across India. For over a decade, business owners have trusted me to build software that works reliably, so they spend less time managing systems and more time running their business.
               </p>
             </div>
 
@@ -141,8 +141,8 @@ export default function HeroSection() {
                 <div className="absolute -inset-[100%] bg-[linear-gradient(transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] -rotate-45 group-hover:animate-data-horizontal z-0" style={{ animationDelay: '0.4s' }}></div>
                 <div className="relative z-10 flex flex-col">
                   <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">CONFIDENTIALITY</span>
-                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">NDA</span>
-                  <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">ON EVERY ENGAGEMENT</span>
+                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">Protected</span>
+                  <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">NDA on request</span>
                 </div>
               </div>
             </div>
@@ -219,8 +219,8 @@ export default function HeroSection() {
 
               {/* Bottom Telemetry Strip */}
               <div className="pt-3 pb-1.5 px-2 flex justify-between items-center text-secondary font-display text-[9px] leading-4 tracking-[0.1em] font-black uppercase border-t border-surface-container-highest mt-3">
-                <div className="flex space-x-1.5 items-center group-hover/frame:text-primary transition-colors duration-300"><ShieldCheck className="h-3.5 w-3.5" /> <span>100% SOVEREIGN IP HANDOVER</span></div>
-                <div className="text-right text-on-surface bg-surface-container px-2 py-0.5 rounded shadow-inner hidden sm:block">DISCRETION: STRICT AIR-GAP</div>
+                <div className="flex space-x-1.5 items-center group-hover/frame:text-primary transition-colors duration-300"><MessageSquare className="h-3.5 w-3.5" /> <span>Straight Talk, No Jargon</span></div>
+                <div className="text-right text-on-surface bg-surface-container px-2 py-0.5 rounded shadow-inner hidden sm:block">Based in: Kolkata, India</div>
               </div>
             </div>
           </div>

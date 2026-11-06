@@ -50,6 +50,7 @@ export async function createProject(formData) {
         stats: formData.stats || {},
         topologySchematic: formData.topologySchematic || {},
         technicalDetails: formData.technicalDetails || {},
+        assignedServices: formData.assignedServices || [],
         isPublished: formData.isPublished ?? true
       }
     });
@@ -95,6 +96,7 @@ export async function updateProject(id, formData) {
         stats: formData.stats,
         topologySchematic: formData.topologySchematic,
         technicalDetails: formData.technicalDetails,
+        assignedServices: formData.assignedServices || [],
         isPublished: formData.isPublished
       }
     });

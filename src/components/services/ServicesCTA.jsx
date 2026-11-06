@@ -22,7 +22,7 @@ export default function ServicesCTA() {
             <div className="lg:col-span-8 space-y-6">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-display text-[10px] leading-4 tracking-[0.12em] uppercase tracking-widest text-primary font-bold bg-primary/10 border border-primary/20 px-2 py-1 rounded">
-                  GET STARTED - RESPONSE WITHIN 6-8 BUSINESS HOURS
+                  GET STARTED - RESPONSE TIME &lt; 12 HRS
                 </span>
                 <span className="font-display text-[11px] leading-4 tracking-[0.12em] font-medium text-secondary bg-surface-container px-2 py-1 rounded">
                   SLOT AVAILABILITY: STRICTLY LIMITED
