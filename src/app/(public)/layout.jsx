@@ -18,7 +18,7 @@ export const metadata = {
   metadataBase: new URL("https://subhamsarkar.dev"),
   title: {
     default: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
-    template: "%s | Subham Sarkar",
+    template: "%s | Subham Sarkar | ERP & CRM Developer in Kolkata, India",
   },
   description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
   applicationName: "Subham Sarkar",
