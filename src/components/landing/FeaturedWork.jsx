@@ -39,7 +39,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
 
             return (
               <div key={dossier.id || i} className="bg-surface-container-low/75 rounded-[32px] overflow-hidden shadow-lg border border-outline/10 flex flex-col group hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/30 transition-all duration-500 transform hover:-translate-y-2">
-                
+
                 {/* Top Media Section (The Tablet Screen) */}
                 <div className="relative w-full">
                   <Splide
@@ -73,14 +73,14 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                         {dossier.eyebrow || dossier.category || 'CASE STUDY'}
                       </span>
                     </div>
-                    
+
                     <div className="pointer-events-auto ml-auto shrink-0 max-w-full">
                       {dossier.associatedWith ? (
                         dossier.associatedWithLink ? (
-                          <a 
-                            href={dossier.associatedWithLink} 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                          <a
+                            href={dossier.associatedWithLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="bg-primary/95 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] text-on-primary shadow-lg flex items-center gap-2 border border-primary-container hover:bg-primary transition-colors cursor-pointer truncate max-w-full"
                           >
                             <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shrink-0"></div>
@@ -114,7 +114,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
 
                 {/* Bottom Content Section */}
                 <div className="p-5 flex flex-col flex-grow bg-surface">
-                  
+
                   <div className="mb-3">
                     <h3 className="font-display text-[20px] leading-[26px] tracking-[-0.01em] font-black text-on-surface mb-1.5 line-clamp-2 group-hover:text-primary transition-colors">
                       {dossier.title}
@@ -164,7 +164,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                   {pipeline && pipeline.length > 0 && (
                     <div className="mb-4 flex flex-col gap-1.5 justify-center mt-auto w-full overflow-hidden">
                       <span className="text-[9px] font-black text-secondary uppercase tracking-[0.15em] text-center mb-0.5">EXECUTION PIPELINE</span>
-                      <div 
+                      <div
                         className="flex items-center gap-1.5 overflow-x-auto pb-1.5 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary/20 hover:scrollbar-thumb-primary/40 cursor-grab active:cursor-grabbing focus:outline-none rounded-2xl"
                         tabIndex="0"
                         role="region"
@@ -192,11 +192,10 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                       >
                         {pipeline.map((step, idx) => (
                           <div key={idx} className="flex items-center gap-1.5 shrink-0 max-w-[140px]">
-                            <div className={`flex-1 text-center py-1.5 px-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest line-clamp-2 leading-[12px] flex items-center justify-center min-h-[36px] min-w-[100px] shadow-sm border ${
-                              idx === 1 
-                                ? 'bg-primary/10 text-primary border-primary/30' 
-                                : 'bg-surface-container text-on-surface-variant border-outline/5'
-                            }`}>
+                            <div className={`flex-1 text-center py-1.5 px-1.5 rounded-xl text-[9px] font-black uppercase tracking-widest line-clamp-2 leading-[12px] flex items-center justify-center min-h-[36px] min-w-[100px] shadow-sm border ${idx === 1
+                              ? 'bg-primary/10 text-primary border-primary/30'
+                              : 'bg-surface-container text-on-surface-variant border-outline/5'
+                              }`}>
                               {typeof step === 'string' ? step : (step.text || step.bullet || step.label || "Step")}
                             </div>
                             {idx < pipeline.length - 1 && (
@@ -211,17 +210,17 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
 
                 {/* Action Footer Buttons */}
                 <div className="mt-auto flex border-t border-outline/10 bg-surface-container-lowest">
-                  <Link 
-                    href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}`} 
+                  <Link
+                    href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}`}
                     scroll={false} aria-label={`${dossier.associatedWith || "Project"} Case Study`}
                     className="flex-1 p-4 flex items-center justify-center border-r border-outline/10 hover:bg-surface-container group/btn1 transition-colors"
                   >
                     <span className="font-display text-[10px] font-black uppercase tracking-[0.15em] text-secondary group-hover/btn1:text-on-surface transition-colors">
-                      View Context
+                      View Case Study
                     </span>
                   </Link>
-                  <Link 
-                    href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}&view=blueprint`} 
+                  <Link
+                    href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}&view=blueprint`}
                     scroll={false}
                     className="flex-[1.2] p-4 flex items-center justify-center gap-2 hover:bg-primary group/btn2 transition-colors"
                   >
@@ -237,7 +236,8 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
         </div>
       </div>
 
-      <style dangerouslySetInnerHTML={{__html: `
+      <style dangerouslySetInnerHTML={{
+        __html: `
         .splide__pagination { bottom: 3.5rem !important; z-index: 10 !important; }
         .splide__pagination__page { background: rgba(255,255,255,0.4) !important; border-radius: 99px !important; width: 6px !important; height: 6px !important; margin: 0 4px !important; transition: all 0.3s ease !important; }
         .splide__pagination__page.is-active { background: var(--color-primary) !important; width: 20px !important; box-shadow: 0 0 10px rgba(var(--color-primary-rgb), 0.5) !important; }
