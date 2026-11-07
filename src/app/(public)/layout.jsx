@@ -18,7 +18,7 @@ export const metadata = {
   metadataBase: new URL("https://subhamsarkar.dev"),
   title: {
     default: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
-    template: "%s | Subham Sarkar | ERP & CRM Developer in Kolkata, India",
+    template: "%s | Subham Sarkar",
   },
   description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
   applicationName: "Subham Sarkar",
@@ -110,7 +110,7 @@ export default async function RootLayout({ children }) {
       getWebSiteSchema(),
     ],
   };
-  
+
   return (
     <html lang="en" className="h-full antialiased">
       <head>
@@ -123,18 +123,18 @@ export default async function RootLayout({ children }) {
         <Script id="browser-update" type="text/partytown" dangerouslySetInnerHTML={{ __html: `var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2025.06 }; function $buo_f(){ var e = document.createElement("script"); e.src = "https://browser-update.org/update.min.js"; document.body.appendChild(e); }; try {document.addEventListener("DOMContentLoaded", $buo_f,false)} catch(e){window.attachEvent("onload", $buo_f)}` }} />
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} bg-surface/95 text-on-surface font-sans text-[15px] leading-[24px] tracking-[-0.005em] font-normal antialiased selection:bg-primary-container selection:text-on-primary-container min-h-full flex flex-col`}>
-        
+
         {/* Google Tag Manager (noscript) */}
         <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTMId} />
         {/* <noscript><iframe loading="lazy" src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GTMId}`} className='hidden invisible' height="0" width="0"></iframe></noscript> */}
 
-        
+
         <JsonLd data={globalSchema} />
         <CustomCursor />
         <PushNotificationManager />
         <FloatingContact settings={settings} />
-        <Toaster 
-          position="top-right" 
+        <Toaster
+          position="top-right"
           toastOptions={{
             style: {
               background: 'var(--color-surface-container-lowest)',
