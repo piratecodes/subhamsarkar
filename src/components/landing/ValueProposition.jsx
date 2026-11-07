@@ -119,14 +119,14 @@ export default function ValueProposition() {
               
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-center justify-between pb-5">
-                  <span className="font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold text-primary uppercase">PAYMENT STRUCTURE</span>
-                  <span className="font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium text-secondary uppercase bg-surface-container-highest/50 px-2 py-0.5 rounded">01 // MILESTONES</span>
+                  <span className="font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold text-primary uppercase">PROGRESS</span>
+                  <span className="font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium text-secondary uppercase bg-surface-container-highest/50 px-2 py-0.5 rounded">01 // STAGE BY STAGE</span>
                 </div>
                 <h3 className="font-display text-[18px] leading-[1.3] tracking-[-0.01em] font-semibold text-on-surface pb-3 group-hover:text-primary transition-colors duration-300">
                   You See Progress at Every Step
                 </h3>
                 <p className="font-sans text-[14px] leading-[22px] tracking-[-0.005em] font-normal text-secondary mb-6 flex-grow">
-                  Work is broken into milestones. You See Progress at Every Step. Work moves in clear stages, so you always know where things stand and what comes next.
+                  Work moves in clear stages, so you always know where things stand, what comes next, and what is needed from you, with updates shared along the way and plain answers whenever you ask.
                 </p>
               </div>
               
@@ -159,7 +159,7 @@ export default function ValueProposition() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>VERIFIED REGULAR UPDATES</span>
+                    <span>REGULAR UPDATES, EVERY STAGE</span>
                   </div>
                 </div>
               </div>

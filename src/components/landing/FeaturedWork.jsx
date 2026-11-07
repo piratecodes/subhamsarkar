@@ -19,7 +19,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
               <span className="text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium">[PORTFOLIO-EXCERPTS]</span>
             </div>
             <h2 className="font-display text-[36px] leading-[44px] tracking-[-0.02em] font-medium text-on-surface mt-1">
-              Recent Enterprise Software Systems I've Built
+              Recent Custom Software Projects I've Built
             </h2>
           </div>
           <Link href="/work" className="inline-flex items-center gap-2 font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold uppercase tracking-widest text-primary hover:text-primary-container transition-colors">

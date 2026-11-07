@@ -110,7 +110,7 @@ export default function TrustStrip() {
                     {phaseData.length}
                   </span>
                   <span className="font-display text-[13px] lg:text-[14px] tracking-[0.08em] font-bold text-primary uppercase">
-                    VERIFIED PHASES
+                    CLEAR PHASES
                   </span>
                 </div>
                 <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[360px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
