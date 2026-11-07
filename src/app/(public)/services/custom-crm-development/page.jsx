@@ -33,14 +33,16 @@ export const metadata = {
       "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
     url: "https://subhamsarkar.dev/services/custom-crm-development",
     siteName: "Subham Sarkar",
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "Subham Sarkar" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Custom CRM Development & Lead Management Systems",
     description:
       "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
+    images: ["/icons/icon-512x512.png"],
   },
   robots: {
     index: true,

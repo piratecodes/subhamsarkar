@@ -60,7 +60,7 @@ export default function MigrationHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Safely replace slow, fragile software and fragmented spreadsheets without pausing daily business operations. I'm Subham Sarkar, a systems engineer specializing in zero-downtime legacy system migration and software modernization - moving decades of old database records to fast cloud infrastructure using dual-writing verification and staged cutovers with zero data loss.
+              Safely replace slow, fragile software and fragmented spreadsheets without pausing daily business operations. Engineered by Subham Sarkar, zero-downtime software modernization migrates decades of legacy database records to modern cloud infrastructure using parallel dual-writing verification and staged cutovers with zero data loss.
             </p>
 
             {/* Feature Badges with Hover Interactions */}

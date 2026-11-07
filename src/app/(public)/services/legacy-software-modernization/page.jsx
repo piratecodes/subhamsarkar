@@ -31,14 +31,16 @@ export const metadata = {
       "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
     url: "https://subhamsarkar.dev/services/legacy-software-modernization",
     siteName: "Subham Sarkar",
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "Subham Sarkar" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Legacy Software Modernization & Cloud Architecture",
     description:
       "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
+    images: ["/icons/icon-512x512.png"],
   },
   robots: {
     index: true,

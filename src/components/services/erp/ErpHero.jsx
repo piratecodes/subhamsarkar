@@ -60,7 +60,7 @@ export default function ErpHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Say goodbye to messy spreadsheets, slow billing, and high monthly software bills. I'm Subham Sarkar, an independent software architect, and I build custom ERP software with live multi-warehouse inventory management, GST billing integration, and automatic Tally sync - giving your business 100% code ownership with zero per-user licensing fees.
+              Say goodbye to messy spreadsheets, slow billing, and high monthly software bills. Built by Subham Sarkar, custom ERP software delivers live multi-warehouse inventory management, GST billing integration, and reliable accounting sync - giving your business 100% code ownership with zero per-user licensing fees.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
@@ -68,7 +68,7 @@ export default function ErpHero() {
               {[
                 { icon: IndianRupee, label: "Zero Monthly Per-User Fees (Unlimited Staff)" },
                 { icon: Layers, label: "Live Multi-Godown Stock Management Software" },
-                { icon: Receipt, label: "GST Billing & Automatic Tally Sync" }
+                { icon: Receipt, label: "GST Billing & Direct Tally Sync" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
                 return (
@@ -127,11 +127,11 @@ export default function ErpHero() {
                   <div className="w-2.5 h-2.5 rounded-full bg-secondary-container"></div>
                   <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/70"></div>
                   <span className="font-display text-[11px] leading-4 tracking-wider text-secondary font-mono ml-2">
-                    business_operations.dashboard
+                    sample_operations_dashboard.view
                   </span>
                 </div>
                 <span className="font-display text-[9.5px] leading-3 tracking-widest font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">
-                  100% BALANCED
+                  SAMPLE DASHBOARD
                 </span>
               </div>
 

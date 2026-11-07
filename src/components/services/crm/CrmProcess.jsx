@@ -4,7 +4,7 @@ export default function CrmProcess() {
   const steps = [
     {
       phase: "PHASE 01",
-      duration: "WEEKS 1-2",
+      duration: "STAGE 01",
       icon: GitCommit,
       title: "Sales Process & Ingestion Audit",
       description:
@@ -13,7 +13,7 @@ export default function CrmProcess() {
     },
     {
       phase: "PHASE 02",
-      duration: "WEEKS 3-4",
+      duration: "STAGE 02",
       icon: Calendar,
       title: "Pipeline & Messaging Engine Prototype",
       description:
@@ -22,7 +22,7 @@ export default function CrmProcess() {
     },
     {
       phase: "PHASE 03",
-      duration: "WEEKS 5-6",
+      duration: "STAGE 03",
       icon: Shield,
       title: "Quotation Engine & Customer Timeline Build",
       description:
@@ -31,12 +31,12 @@ export default function CrmProcess() {
     },
     {
       phase: "PHASE 04",
-      duration: "WEEK 7+",
+      duration: "STAGE 04",
       icon: Rocket,
       title: "Contact Migration & Production Launch",
       description:
         "We clean up, deduplicate, and import your existing contact history from legacy software or spreadsheets into the new CRM. We run hands-on training for your sales reps and provide 30 days of direct support.",
-      deliverable: "Full Git IP Transfer, Contact Migration, and 30-Day Warranty"
+      deliverable: "Full Git IP Transfer, Contact Migration, and 30-Day Post-Launch Support"
     }
   ];
 
@@ -51,10 +51,10 @@ export default function CrmProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How We Build Your CRM: Step by Step.
+            How Your Custom CRM Is Engineered &amp; Deployed
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones where progress is verified in running code.
+            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and pipeline requirements.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function CrmProcess() {
 
                 <div className="mt-6 pt-4 border-t border-surface-container-highest/60 bg-surface-container-low/40 -mx-6 -mb-6 p-5 rounded-b-2xl">
                   <span className="font-display text-[9px] leading-3 tracking-wider uppercase font-bold text-primary block mb-1">
-                    VERIFIED DELIVERABLE
+                    DELIVERABLE
                   </span>
                   <p className="font-sans text-[12px] leading-4 text-on-surface font-medium">
                     {step.deliverable}

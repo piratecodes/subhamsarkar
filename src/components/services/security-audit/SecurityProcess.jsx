@@ -4,7 +4,7 @@ export default function SecurityProcess() {
   const steps = [
     {
       phase: "PHASE 01",
-      duration: "WEEKS 1-2",
+      duration: "STAGE 01",
       icon: GitCommit,
       title: "Scope Definition & Threat Modeling",
       description:
@@ -13,7 +13,7 @@ export default function SecurityProcess() {
     },
     {
       phase: "PHASE 02",
-      duration: "WEEKS 3-4",
+      duration: "STAGE 02",
       icon: Calendar,
       title: "Hands-On Penetration & Permission Testing",
       description:
@@ -22,21 +22,21 @@ export default function SecurityProcess() {
     },
     {
       phase: "PHASE 03",
-      duration: "WEEKS 5-6",
+      duration: "STAGE 03",
       icon: Shield,
       title: "Direct Code Remediation & Edge Hardening",
       description:
-        "Instead of leaving you with a confusing PDF, I personally write and deliver direct GitHub or GitLab Pull Requests with production-ready code fixes, database rules, and automated regression tests.",
+        "Instead of leaving you with a confusing PDF, Subham Sarkar personally delivers direct GitHub or GitLab Pull Requests with production-ready code fixes, database rules, and automated regression tests.",
       deliverable: "Production-Ready Remediation Pull Requests + Security Unit Tests"
     },
     {
       phase: "PHASE 04",
-      duration: "WEEK 7+",
+      duration: "STAGE 04",
       icon: Rocket,
       title: "Re-Test Verification & Signed Attestation",
       description:
         "We re-run the full security test suite against your updated code to confirm 100% vulnerability closure, delivering a signed Security Attestation Report for your enterprise clients and investors.",
-      deliverable: "Signed Security Attestation Report + 30-Day Advisory Warranty"
+      deliverable: "Signed Security Attestation Report + 30-Day Advisory Support"
     }
   ];
 
@@ -51,10 +51,10 @@ export default function SecurityProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How We Secure Your Systems: Step by Step.
+            How Application Security Is Audited &amp; Hardened
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones where security is verified in real running code.
+            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact attack surface and codebase scale.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function SecurityProcess() {
 
                 <div className="mt-6 pt-4 border-t border-surface-container-highest/60 bg-surface-container-low/40 -mx-6 -mb-6 p-5 rounded-b-2xl">
                   <span className="font-display text-[9px] leading-3 tracking-wider uppercase font-bold text-primary block mb-1">
-                    VERIFIED DELIVERABLE
+                    DELIVERABLE
                   </span>
                   <p className="font-sans text-[12px] leading-4 text-on-surface font-medium">
                     {step.deliverable}

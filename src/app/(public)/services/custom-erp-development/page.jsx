@@ -33,14 +33,16 @@ export const metadata = {
       "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
     url: "https://subhamsarkar.dev/services/custom-erp-development",
     siteName: "Subham Sarkar",
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "Subham Sarkar" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Custom ERP Development & Inventory Software",
     description:
       "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
+    images: ["/icons/icon-512x512.png"],
   },
   robots: {
     index: true,

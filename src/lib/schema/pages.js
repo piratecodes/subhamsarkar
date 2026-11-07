@@ -504,10 +504,10 @@ export function getErpServiceSchema() {
     mainEntity: [
       {
         "@type": "Question",
-        name: "Why do companies choose custom ERP development over readymade software like SAP, NetSuite, or Odoo?",
+        name: "Why do companies choose custom ERP development over off-the-shelf software packages?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Readymade ERP platforms charge steep per-user monthly licenses (often ₹10,000 to ₹25,000+ per user every month) and force your business to change how you work just to fit generic templates. Custom ERP software development gives you 100% intellectual property ownership, zero recurring seat fees, and is built specifically around how your team actually operates - from warehouse logistics to billing."
+          text: "Commercial SaaS ERPs charge recurring per-user monthly licenses that accumulate relentlessly as your workforce grows, while forcing your operations to conform to generic templates. Custom ERP software gives you 100% intellectual property ownership, zero recurring seat fees, and is engineered around how your team actually operates - from multi-location warehouse logistics to billing."
         }
       },
       {
@@ -528,10 +528,10 @@ export function getErpServiceSchema() {
       },
       {
         "@type": "Question",
-        name: "What is the cost of custom ERP software development compared to SAP in India?",
+        name: "What is the cost structure of custom ERP software development in India?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Commercial ERPs like SAP Business One require steep implementation fees plus recurring per-user licenses that balloon as you hire. Custom ERP software engineering is a one-time fixed investment where you retain full database and code ownership, allowing you to add hundreds of staff members with zero additional licensing fees."
+          text: "Commercial enterprise ERP platforms require substantial implementation fees plus continuous per-seat licenses that increase every time you hire. Custom ERP software engineering is a milestone-based investment where you retain full database and code ownership, allowing you to add unlimited staff members with zero additional licensing fees."
         }
       },
       {

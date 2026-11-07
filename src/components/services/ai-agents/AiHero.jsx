@@ -60,7 +60,7 @@ export default function AiHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Automate repetitive office operations without risking confidential company data. I'm Subham Sarkar, and I help businesses build private, self-hosted AI agents and workflow automation systems - including document extraction pipelines and automated WhatsApp workflows that run strictly within your secure cloud with mandatory human approval.
+              Automate repetitive office operations without risking confidential company data. Engineered by Subham Sarkar, private self-hosted AI agents and workflow automation systems streamline document extraction and automated WhatsApp pipelines that run strictly within your secure cloud with mandatory human approval.
             </p>
 
             {/* Feature Badges with Hover Interactions */}

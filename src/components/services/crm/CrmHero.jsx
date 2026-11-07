@@ -60,7 +60,7 @@ export default function CrmHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Stop losing warm leads to delayed follow-ups and bloated SaaS bills. Working directly with me, Subham Sarkar, you get custom CRM software and an automated lead management system that responds to leads on WhatsApp within five seconds, tracks your entire sales pipeline, and gives your sales team unlimited logins.
+              Stop losing warm leads to delayed follow-ups and bloated SaaS bills. Built by Subham Sarkar, custom CRM software and automated lead management systems respond to inquiries on WhatsApp within five seconds, track your entire sales pipeline, and provide your team with unlimited logins.
             </p>
 
             {/* Feature Badges with Hover Interactions */}

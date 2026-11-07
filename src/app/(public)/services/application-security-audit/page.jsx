@@ -33,14 +33,16 @@ export const metadata = {
       "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar.",
     url: "https://subhamsarkar.dev/services/application-security-audit",
     siteName: "Subham Sarkar",
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "Subham Sarkar" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Application Security Audit & Infrastructure Hardening",
     description:
       "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar.",
+    images: ["/icons/icon-512x512.png"],
   },
   robots: {
     index: true,

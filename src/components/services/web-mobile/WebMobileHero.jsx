@@ -60,7 +60,7 @@ export default function WebMobileHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              High-performance web applications and native mobile apps that keep running even with zero internet reception. My name is Subham Sarkar, and I engineer unified web and mobile applications with offline-first synchronization, shared business logic, and zero recurring platform lock-in.
+              High-performance web applications and mobile apps that keep running even with zero cellular reception. Engineered by Subham Sarkar, unified web and mobile applications deliver offline-first synchronization, shared business logic, and zero recurring platform lock-in.
             </p>
 
             {/* Feature Badges with Hover Interactions */}

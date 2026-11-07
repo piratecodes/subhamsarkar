@@ -34,14 +34,16 @@ export const metadata = {
       "Tailored AI business process automation and private AI agent integration services by Subham Sarkar. Eliminate repetitive clerical tasks with air-gapped machine intelligence.",
     url: "https://subhamsarkar.dev/services/business-process-automation",
     siteName: "Subham Sarkar",
-    locale: "en_US",
+    locale: "en_IN",
     type: "website",
+    images: [{ url: "/icons/icon-512x512.png", width: 512, height: 512, alt: "Subham Sarkar" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "AI Business Process Automation & System Integration",
     description:
       "Tailored AI business process automation and private AI agent integration services by Subham Sarkar. Eliminate repetitive clerical tasks with air-gapped machine intelligence.",
+    images: ["/icons/icon-512x512.png"],
   },
   robots: {
     index: true,

@@ -15,8 +15,8 @@ export default function ErpProblem() {
       badge: "THE PER-USER PRICING TRAP",
       title: "Penalized with Hefty Bills Every Time You Hire",
       description:
-        "Popular ERP software charges ₹10,000 to ₹25,000+ per user every month. To keep costs down, businesses buy only 3 or 4 logins - forcing 20 warehouse workers and sales reps to wait in line for one person to type in their entries.",
-      impact: "Massive office bottlenecks, shared insecure passwords, and lakhs in recurring software bills."
+        "Traditional enterprise ERP software charges recurring per-user monthly license fees that balloon as your team expands. To keep costs down, businesses buy only a handful of logins - forcing warehouse staff and sales reps to wait in line for someone else to type in their transactions.",
+      impact: "Massive office bottlenecks, shared insecure passwords, and escalating recurring software licenses."
     },
     {
       icon: Workflow,

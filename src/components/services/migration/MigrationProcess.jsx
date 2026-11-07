@@ -4,7 +4,7 @@ export default function MigrationProcess() {
   const steps = [
     {
       phase: "PHASE 01",
-      duration: "WEEKS 1-2",
+      duration: "STAGE 01",
       icon: GitCommit,
       title: "Monolith & Schema Forensic Audit",
       description:
@@ -13,7 +13,7 @@ export default function MigrationProcess() {
     },
     {
       phase: "PHASE 02",
-      duration: "WEEKS 3-4",
+      duration: "STAGE 02",
       icon: Calendar,
       title: "Traffic Router & Parallel Sync Setup",
       description:
@@ -22,7 +22,7 @@ export default function MigrationProcess() {
     },
     {
       phase: "PHASE 03",
-      duration: "WEEKS 5-6",
+      duration: "STAGE 03",
       icon: Shield,
       title: "Live Shadow Testing & Output Checks",
       description:
@@ -31,12 +31,12 @@ export default function MigrationProcess() {
     },
     {
       phase: "PHASE 04",
-      duration: "WEEK 7+",
+      duration: "STAGE 04",
       icon: Rocket,
       title: "Gradual Cutover & Old System Retirement",
       description:
         "We move users in small, controlled stages (5% to 100%) during regular office hours with an instant 1-click fallback safety net, followed by retiring the old server and providing 30 days of direct support.",
-      deliverable: "Zero-Downtime Cutover, Legacy Decommissioning, and 30-Day Warranty"
+      deliverable: "Zero-Downtime Cutover, Legacy Decommissioning, and 30-Day Post-Launch Support"
     }
   ];
 
@@ -51,10 +51,10 @@ export default function MigrationProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How We Migrate Your Systems: Step by Step.
+            How Legacy Modernization Is Engineered &amp; Deployed
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones where progress is verified in running code.
+            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and database complexity.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export default function MigrationProcess() {
 
                 <div className="mt-6 pt-4 border-t border-surface-container-highest/60 bg-surface-container-low/40 -mx-6 -mb-6 p-5 rounded-b-2xl">
                   <span className="font-display text-[9px] leading-3 tracking-wider uppercase font-bold text-primary block mb-1">
-                    VERIFIED DELIVERABLE
+                    DELIVERABLE
                   </span>
                   <p className="font-sans text-[12px] leading-4 text-on-surface font-medium">
                     {step.deliverable}

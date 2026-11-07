@@ -60,7 +60,7 @@ export default function SecurityHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Protect your customer records, financial transactions, and proprietary business data. I'm Subham Sarkar, an independent software architect and security engineer. I conduct thorough hands-on application security audits and write direct code fixes into your codebase - closing API loopholes, stopping bot attacks, and securing customer data without breaking daily operations.
+              Protect your customer records, financial transactions, and proprietary business data. Subham Sarkar provides comprehensive hands-on application security audits and direct repository code remediations - closing API vulnerabilities, stopping bot attacks, and securing customer data without breaking daily operations.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
