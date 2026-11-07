@@ -7,23 +7,23 @@ export default function DisciplineStrip() {
       title: "Custom ERP Software Development",
       spec: "[SPEC-01]",
       icon: Workflow,
-      desc: "Replacing rigid readymade software with custom ERP development gives growing enterprises total operational control. Engineered for multi-warehouse inventory management, automated GST billing software integration, and immutable financial ledgers - with zero recurring per-user fees.",
-      stat: "RESILIENT LEDGERS",
+      desc: "Readymade software rarely fits the way a business actually runs. Custom ERP development brings inventory, GST billing and daily operations into one system, with no per-user licence fees.",
+      stat: "BUILT AROUND YOUR BUSINESS",
       href: "/services/custom-erp-development"
     },
     {
       title: "Custom CRM Software Development",
       spec: "[SPEC-02]",
       icon: Users,
-      desc: "Scattered WhatsApp messages and delayed follow-ups cause warm business leads to vanish. Tailored custom CRM development equips sales teams with an automated lead management system, instant WhatsApp CRM routing, and CPQ quotation engines - with unlimited seats and zero monthly fees.",
-      stat: "ZERO SEAT FEES",
+      desc: "Leads buried in WhatsApp chats and forgotten follow-ups quietly cost sales. Custom CRM development builds a lead management system that keeps every customer and follow-up in one place.",
+      stat: "NO LEAD LEFT BEHIND",
       href: "/services/custom-crm-development"
     },
     {
-      title: "Custom Web & Mobile Applications",
+      title: "Custom Web & Mobile Application Development",
       spec: "[SPEC-03]",
       icon: Laptop,
-      desc: "Field dispatches and warehouse operations should never freeze when cellular data drops. Enterprise custom web application development paired with offline-first iOS and Android mobile apps keeps client portals, inventory logs, and field force automation apps in continuous synchronization.",
+      desc: "Websites, apps and back-office tools work best as one system. Custom web application development and mobile app development keep clients, stock and field teams in sync, even when the network drops.",
       stat: "OFFLINE-FIRST SYNC",
       href: "/services/web-and-mobile-application-development"
     },
@@ -31,24 +31,24 @@ export default function DisciplineStrip() {
       title: "AI Business Process Automation",
       spec: "[SPEC-04]",
       icon: Bot,
-      desc: "Manual invoice sorting, multi-system data entry, and clerical paperwork drain productive hours and invite costly human errors. Custom AI business process automation and private AI agent integration deliver self-hosted, air-gapped machine intelligence that streamlines operations without exposing company data to public models.",
-      stat: "AIR-GAPPED AUTOMATION",
+      desc: "Sorting invoices and re-typing data across systems drains hours every week. AI business process automation and AI agent development take over the repetitive work, with company data kept private.",
+      stat: "PRIVATE BY DESIGN",
       href: "/services/business-process-automation"
     },
     {
       title: "Legacy Software Modernization",
       spec: "[SPEC-05]",
       icon: ArrowRightLeft,
-      desc: "Fragile monolithic codebases and bloated Excel workbooks trap business operations in fear of system crashes. Phased legacy software modernization and automated database migration transition mission-critical ledgers into scalable cloud architectures with zero operational downtime and 100% data parity.",
-      stat: "ZERO DOWNTIME PARITY",
+      desc: "Fragile old software and overloaded Excel workbooks keep a business afraid of crashes. Legacy software modernization moves data and operations to a modern system in careful stages, with checks at every step.",
+      stat: "CAREFUL, STEP BY STEP",
       href: "/services/legacy-software-modernization"
     },
     {
       title: "Application Security Audit",
       spec: "[SPEC-06]",
       icon: ShieldCheck,
-      desc: "Automated vulnerability scanners generate confusing warning reports without providing actionable code fixes. Architectural application security audits and API penetration testing uncover authentication bypasses, enforce zero-trust role permissions, and deliver verified production-ready code pull requests.",
-      stat: "DIRECT CODE FIXES",
+      desc: "Scanner reports full of warnings rarely fix anything. An application security audit with web application security testing finds real weak spots in apps and APIs, then turns them into clear, prioritised fixes.",
+      stat: "CLEAR FIXES, NOT JUST REPORTS",
       href: "/services/application-security-audit"
     }
   ];
@@ -95,10 +95,10 @@ export default function DisciplineStrip() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              <span className="font-display text-[10px] leading-[16px] tracking-[0.2em] font-bold text-primary uppercase">CORE DISCIPLINES</span>
+              <span className="font-display text-[10px] leading-[16px] tracking-[0.2em] font-bold text-primary uppercase">Architectural Service Disciplines</span>
             </div>
             <h2 className="font-display text-[26px] lg:text-[32px] leading-[1.2] tracking-[-0.02em] font-bold text-on-surface">
-              Architectural Service Disciplines
+              Custom ERP, CRM, Web & AI Development Services
             </h2>
           </div>
           <div className="flex items-center font-display text-[10px] leading-[16px] tracking-[0.1em] font-semibold text-secondary/70 border border-surface-container-highest px-4 py-1.5 rounded-full bg-surface-container/30 shadow-inner">

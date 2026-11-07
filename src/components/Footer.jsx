@@ -117,7 +117,7 @@ export default function Footer({ settings }) {
                 </Link>
                 
                 <h2 className="font-display text-[20px] lg:text-[24px] leading-[1.2] tracking-[-0.02em] font-bold text-on-surface mb-2 text-balance">
-                  Building The Backbone Behind Every Unstoppable Business.
+                  Planned like a blueprint. Built to carry weight. Made to stand for years.
                 </h2>
                 <p className="font-sans text-[12px] leading-[18px] tracking-[-0.005em] font-normal text-secondary max-w-md">
                   Over a decade of experience building custom ERP, CRM, and enterprise software systems designed for reliability and client ownership.

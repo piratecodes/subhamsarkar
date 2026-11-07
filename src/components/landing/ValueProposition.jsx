@@ -123,7 +123,7 @@ export default function ValueProposition() {
                   <span className="font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium text-secondary uppercase bg-surface-container-highest/50 px-2 py-0.5 rounded">01 // MILESTONES</span>
                 </div>
                 <h3 className="font-display text-[18px] leading-[1.3] tracking-[-0.01em] font-semibold text-on-surface pb-3 group-hover:text-primary transition-colors duration-300">
-                  You Pay As You See Progress
+                  You See Progress at Every Step
                 </h3>
                 <p className="font-sans text-[14px] leading-[22px] tracking-[-0.005em] font-normal text-secondary mb-6 flex-grow">
                   Work is broken into milestones. You See Progress at Every Step. Work moves in clear stages, so you always know where things stand and what comes next.
@@ -149,17 +149,17 @@ export default function ValueProposition() {
                   </div>
                   
                   {/* Center Milestone Verification Badge */}
-                  <div className="absolute left-[50%] top-[50%] hidden group-hover:flex items-center justify-center bg-surface-container rounded-full group-hover:animate-encrypt-shield z-10 border border-primary/50 text-primary">
+                  {/* <div className="absolute left-[50%] top-[50%] hidden group-hover:flex items-center justify-center bg-surface-container rounded-full group-hover:animate-encrypt-shield z-10 border border-primary/50 text-primary">
                     <BadgeCheck size={16} className="p-[2px]" />
                   </div>
-
-                  <CheckCircle2 size={16} className="group-hover:text-primary transition-colors duration-300" />
+                  */}
+                  <CheckCircle2 size={16} className="group-hover:text-primary transition-colors duration-300" /> 
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
                     <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>VERIFIED STAGE RELEASES</span>
+                    <span>VERIFIED REGULAR UPDATES</span>
                   </div>
                 </div>
               </div>
@@ -246,14 +246,14 @@ export default function ValueProposition() {
                   Confidentiality Is Standard, Not an Upsell
                 </h3>
                 <p className="font-sans text-[14px] leading-[22px] tracking-[-0.005em] font-normal text-secondary mb-6 flex-grow">
-                  Every engagement is covered by a clear confidentiality agreement before any technical details are discussed. Your business information stays protected by default.
+                  Strict confidentiality and non-disclosure clauses are standard in every engagement agreement. A standalone mutual NDA can also be executed upfront before reviewing your proprietary workflows, internal databases, or trade secrets.
                 </p>
               </div>
               
               <div className="relative z-10 mt-auto bg-surface-container-highest/30 border border-surface-container-highest p-4 rounded-xl group-hover:bg-primary/5 transition-all duration-500">
                 <div className="flex items-center justify-between text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium mb-3">
                   <span>PROTOCOL:</span>
-                  <span className="text-on-surface group-hover:text-primary transition-colors duration-300">SIGNED NDA, EVERY PROJECT</span>
+                  <span className="text-on-surface group-hover:text-primary transition-colors duration-300">SIGNED NDA, ON REQUEST</span>
                 </div>
                 
                 {/* INNER BOX ANIMATION */}
@@ -272,7 +272,7 @@ export default function ValueProposition() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
                     <Lock className="w-3.5 h-3.5" />
-                    <span>ZERO SHARED REPOSITORIES</span>
+                    <span>OUR CODE STAYS YOURS</span>
                   </div>
                 </div>
               </div>

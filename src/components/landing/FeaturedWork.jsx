@@ -15,15 +15,15 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold text-primary uppercase">
-              <span>FEATURED CASE STUDIES</span>
+              <span>Proven Infrastructure Running Behind Production Firewalls</span>
               <span className="text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium">[PORTFOLIO-EXCERPTS]</span>
             </div>
             <h2 className="font-display text-[36px] leading-[44px] tracking-[-0.02em] font-medium text-on-surface mt-1">
-              Proven Infrastructure Running Behind Production Firewalls.
+              Recent Enterprise Software Systems I've Built
             </h2>
           </div>
           <Link href="/work" className="inline-flex items-center gap-2 font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold uppercase tracking-widest text-primary hover:text-primary-container transition-colors">
-            <span>View All Work (Dossiers)</span>
+            <span>View All Projects (Dossiers)</span>
             <ArrowRight className="text-[16px]" />
           </Link>
         </div>
@@ -213,7 +213,7 @@ export default function FeaturedWork({ featuredDossiers = [] }) {
                 <div className="mt-auto flex border-t border-outline/10 bg-surface-container-lowest">
                   <Link 
                     href={`/work?ref=featured&project=${encodeURIComponent(dossier.ref)}`} 
-                    scroll={false}
+                    scroll={false} aria-label={`${dossier.associatedWith || "Project"} Case Study`}
                     className="flex-1 p-4 flex items-center justify-center border-r border-outline/10 hover:bg-surface-container group/btn1 transition-colors"
                   >
                     <span className="font-display text-[10px] font-black uppercase tracking-[0.15em] text-secondary group-hover/btn1:text-on-surface transition-colors">

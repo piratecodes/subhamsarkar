@@ -1,7 +1,7 @@
 /**
  * Page-specific Schema.org generators for subhamsarkar.dev
  * Each function returns ONLY that page's nodes.
- * Person and WebSite are referenced strictly via @id (/#person, /#website).
+ * All @id references use absolute IRIs with full naming to prevent "Unnamed item" in Google Rich Results.
  */
 
 import { BASE_URL, AREA_SERVED } from "./base";
@@ -9,65 +9,78 @@ import { services } from "@/data/services";
 import { servicesFaqs, processFaqs, contactFaqs } from "@/data/faqs";
 import { processPhases } from "@/data/processPhases";
 
+const websiteRef = {
+  "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
+  name: "Subham Sarkar",
+  url: BASE_URL
+};
+
+const personRef = {
+  "@type": "Person",
+  "@id": `${BASE_URL}/#person`,
+  name: "Subham Sarkar",
+  url: BASE_URL,
+  image: `${BASE_URL}/myimage_web.png`
+};
+
 /**
  * 1. Home (/) Schema
- * One ProfilePage, @id /#profilepage, isPartOf #website, mainEntity #person, dateModified.
- * NO FAQPage and NO case-study ItemList.
  */
 export function getHomePageSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "@id": "/#profilepage",
+    "@id": `${BASE_URL}/#profilepage`,
     url: BASE_URL,
     name: "Subham Sarkar | Software Architect and System Engineer",
     description: "Software architect and developer portfolio building custom ERP, CRM, and distributed systems.",
-    isPartOf: {
-      "@id": "/#website"
-    },
-    mainEntity: {
-      "@id": "/#person"
-    },
+    isPartOf: websiteRef,
+    mainEntity: personRef,
     dateModified: "2026-11-01"
   };
 }
 
 /**
  * 2. About (/about) Schema
- * One AboutPage, @id /about#webpage, isPartOf #website, mainEntity #person.
  */
 export function getAboutPageSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "@id": "/about#webpage",
+    "@id": `${BASE_URL}/about#webpage`,
     url: `${BASE_URL}/about`,
     name: "About | Subham Sarkar | Software Architect and System Engineer",
     description: "Learn about Subham Sarkar, Software Architect and System Engineer building custom software systems.",
-    isPartOf: {
-      "@id": "/#website"
-    },
-    mainEntity: {
-      "@id": "/#person"
-    }
+    isPartOf: websiteRef,
+    mainEntity: personRef
   };
 }
 
 /**
  * 3. Services (/services) Schema
- * WebPage @id /services#webpage, plus an ItemList of 5 Service nodes,
- * plus FAQPage with 5 visible questions from /data/faqs.js.
  */
 export function getServicesPageSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services#webpage",
+    "@id": `${BASE_URL}/services#webpage`,
     url: `${BASE_URL}/services`,
     name: "Services & Capabilities | Subham Sarkar | Software Architect and System Engineer",
     description: "Custom ERP & CRM systems, unified web and mobile applications, AI agent integration, and legacy system modernization.",
-    isPartOf: {
-      "@id": "/#website"
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services#breadcrumb`
     }
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` }
+    ]
   };
 
   const itemList = {
@@ -81,9 +94,7 @@ export function getServicesPageSchema() {
         "@type": "Service",
         name: svc.name,
         description: svc.desc,
-        provider: {
-          "@id": "/#person"
-        },
+        provider: personRef,
         areaServed: AREA_SERVED,
         serviceType: svc.serviceType,
         url: svc.slug ? `${BASE_URL}/services/${svc.slug}` : `${BASE_URL}/services`
@@ -93,6 +104,8 @@ export function getServicesPageSchema() {
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services#faq`,
+    name: "Frequently Asked Questions - Services",
     mainEntity: servicesFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -105,26 +118,34 @@ export function getServicesPageSchema() {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webPage, itemList, faqPage]
+    "@graph": [webPage, itemList, breadcrumb, faqPage]
   };
 }
 
 /**
  * 4. Work (/work) Schema
- * CollectionPage @id /work#webpage plus ItemList of published case studies from the database.
- * Each ListItem: position, url (use slug or id, never "ref"), name = title, description = summary.
- * NEVER output industryNiche, ref, client names, approach or outcome text.
  */
 export function getWorkPageSchema(dossiers = []) {
   const collectionPage = {
     "@type": "CollectionPage",
-    "@id": "/work#webpage",
+    "@id": `${BASE_URL}/work#webpage`,
     url: `${BASE_URL}/work`,
     name: "Architectural Work & Case Studies | Subham Sarkar | Software Architect and System Engineer",
     description: "Enterprise engineering case studies and systems architecture portfolio.",
-    isPartOf: {
-      "@id": "/#website"
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/work#breadcrumb`
     }
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/work#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Work", item: `${BASE_URL}/work` }
+    ]
   };
 
   const itemList = {
@@ -142,43 +163,52 @@ export function getWorkPageSchema(dossiers = []) {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [collectionPage, itemList]
+    "@graph": [collectionPage, itemList, breadcrumb]
   };
 }
 
 /**
  * 5. Process (/process) Schema
- * WebPage @id /process#webpage, plus an ItemList of the 5 phases
- * (Discovery, Planning, Building, Testing & Migration, Handover) using names and descriptions
- * from the same data the tabs use, plus FAQPage with 6 visible questions from /data/faqs.js.
- * HowTo node is deleted.
  */
 export function getProcessPageSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/process#webpage",
+    "@id": `${BASE_URL}/process#webpage`,
     url: `${BASE_URL}/process`,
-    name: "Engineering Methodology & Delivery Process | Subham Sarkar",
-    description: "The 5-phase software delivery and architecture methodology by Subham Sarkar.",
-    isPartOf: {
-      "@id": "/#website"
+    name: "Architecture & Delivery Process | Subham Sarkar",
+    description: "A battle-tested 5-phase delivery process built for high-stakes business systems.",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/process#breadcrumb`
     }
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/process#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Process", item: `${BASE_URL}/process` }
+    ]
   };
 
   const itemList = {
     "@type": "ItemList",
-    name: "5-Phase Software Architecture & Delivery Process",
+    name: "5-Phase System Engineering Process",
     numberOfItems: processPhases.length,
     itemListElement: processPhases.map((phase, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
-      name: phase.phaseName || phase.name.replace(/^0\d\s*/, ""),
+      name: `${phase.name}: ${phase.headline}`,
       description: phase.narrative
     }))
   };
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/process#faq`,
+    name: "Frequently Asked Questions - Engineering Process",
     mainEntity: processFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -191,42 +221,49 @@ export function getProcessPageSchema() {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [webPage, itemList, faqPage]
+    "@graph": [webPage, itemList, breadcrumb, faqPage]
   };
 }
 
 /**
  * 6. Contact (/contact) Schema
- * ContactPage @id /contact#webpage; mainEntity -> {"@id": "/#person"} with a contactPoint.
- * No telephone. Plus FAQPage with 4 visible questions from /data/faqs.js.
  */
 export function getContactPageSchema(settings) {
-  const emailRaw = settings?.email || "hello@subhamsarkar.dev";
-  const plainEmail = emailRaw.replace(/^mailto:/, "").trim();
-
   const contactPage = {
     "@type": "ContactPage",
-    "@id": "/contact#webpage",
+    "@id": `${BASE_URL}/contact#webpage`,
     url: `${BASE_URL}/contact`,
-    name: "Contact Subham Sarkar",
-    description: "Initiate direct architectural consultation with Subham Sarkar for custom ERP, CRM, and software systems.",
-    isPartOf: {
-      "@id": "/#website"
-    },
-    mainEntity: {
-      "@id": "/#person",
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer service",
-        email: plainEmail,
-        availableLanguage: ["English", "Bengali", "Hindi"],
-        areaServed: AREA_SERVED
-      }
+    name: "Contact Subham Sarkar | Software Architect and System Engineer",
+    description: "Start a conversation about your custom software requirements. Direct consultation with Subham Sarkar.",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/contact#breadcrumb`
     }
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/contact#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Contact", item: `${BASE_URL}/contact` }
+    ]
+  };
+
+  const contactPoint = {
+    "@type": "ContactPoint",
+    contactType: "technical consulting",
+    email: settings?.contactEmail || "hello@subhamsarkar.dev",
+    telephone: settings?.contactPhone || "+91 82404 01099",
+    availableLanguage: ["en", "hi", "bn"],
+    areaServed: AREA_SERVED
   };
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/contact#faq`,
+    name: "Frequently Asked Questions - Contact & Engagements",
     mainEntity: contactFaqs.map((faq) => ({
       "@type": "Question",
       name: faq.question,
@@ -239,91 +276,115 @@ export function getContactPageSchema(settings) {
 
   return {
     "@context": "https://schema.org",
-    "@graph": [contactPage, faqPage]
+    "@graph": [contactPage, contactPoint, breadcrumb, faqPage]
   };
 }
 
 /**
  * 7. Insights (/insights) Schema
- * CollectionPage @id /insights#webpage plus ItemList of published articles
- * with ONLY position, url and name per item.
  */
 export function getInsightsPageSchema(insights = []) {
   const collectionPage = {
     "@type": "CollectionPage",
-    "@id": "/insights#webpage",
+    "@id": `${BASE_URL}/insights#webpage`,
     url: `${BASE_URL}/insights`,
     name: "Industry Insights | Subham Sarkar | Software Architect and System Engineer",
     description: "Thoughts, blueprints, and technical deep dives into software architecture, robust custom ERPs, and resilient business systems.",
-    isPartOf: {
-      "@id": "/#website"
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/insights#breadcrumb`
     }
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/insights#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "Insights", item: `${BASE_URL}/insights` }
+    ]
   };
 
   const itemList = {
     "@type": "ItemList",
-    name: "Published Articles",
+    name: "Software Architecture Articles & Blueprints",
     numberOfItems: insights.length,
     itemListElement: insights.map((insight, idx) => ({
       "@type": "ListItem",
       position: idx + 1,
       url: `${BASE_URL}/insights/${insight.slug}`,
-      name: insight.title
+      name: insight.title,
+      description: insight.excerpt || insight.summary || ""
     }))
   };
 
   return {
     "@context": "https://schema.org",
-    "@graph": [collectionPage, itemList]
+    "@graph": [collectionPage, itemList, breadcrumb]
   };
 }
 
 /**
  * 8. Legal Pages (/privacy-policy, /terms-and-conditions) Schema
- * One WebPage each, @id <path>#webpage, with name, description, url,
- * inLanguage "en-IN", dateModified and isPartOf #website.
- * Removed the "about" field.
  */
 export function getLegalPageSchema({ title, description, path, dateModified = "2026-11-01" }) {
-  return {
-    "@context": "https://schema.org",
+  const webPage = {
     "@type": "WebPage",
-    "@id": `${path}#webpage`,
+    "@id": `${BASE_URL}${path}#webpage`,
     url: `${BASE_URL}${path}`,
     name: title,
     description: description,
     inLanguage: "en-IN",
     dateModified: dateModified,
-    isPartOf: {
-      "@id": "/#website"
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}${path}#breadcrumb`
     }
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}${path}#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: title, item: `${BASE_URL}${path}` }
+    ]
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [webPage, breadcrumb]
   };
 }
 
 /**
- * 9. Web & Mobile Service Page (/services/web-and-mobile-application-development) Schema
- * Service node + WebPage + FAQPage
+ * 9. Custom Web Application & Mobile App Development Service Page (/services/web-and-mobile-application-development) Schema
  */
 export function getWebMobileServiceSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services/web-and-mobile-application-development#webpage",
+    "@id": `${BASE_URL}/services/web-and-mobile-application-development#webpage`,
     url: `${BASE_URL}/services/web-and-mobile-application-development`,
     name: "Custom Web Application & Mobile App Development | Subham Sarkar",
     description: "Custom web application development and mobile app development services by Subham Sarkar. Offline-first mobile apps, real-time sync, and modern cloud architecture.",
-    isPartOf: {
-      "@id": "/#website"
+    inLanguage: "en-IN",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services/web-and-mobile-application-development#breadcrumb`
+    },
+    mainEntity: {
+      "@id": `${BASE_URL}/services/web-and-mobile-application-development#service`
     }
   };
 
   const service = {
     "@type": "Service",
-    "@id": "/services/web-and-mobile-application-development#service",
+    "@id": `${BASE_URL}/services/web-and-mobile-application-development#service`,
     name: "Custom Web Application & Mobile App Development",
     serviceType: "Custom Web Application & Mobile App Development Services",
-    provider: {
-      "@id": "/#person"
-    },
+    provider: personRef,
     areaServed: AREA_SERVED,
     description: "Custom web application development and mobile app development services by Subham Sarkar. Offline-first mobile apps, real-time sync, and modern cloud architecture.",
     url: `${BASE_URL}/services/web-and-mobile-application-development`
@@ -331,6 +392,8 @@ export function getWebMobileServiceSchema() {
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services/web-and-mobile-application-development#breadcrumb`,
+    name: "Breadcrumbs",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
@@ -340,6 +403,8 @@ export function getWebMobileServiceSchema() {
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services/web-and-mobile-application-development#faq`,
+    name: "Frequently Asked Questions - Web & Mobile App Development",
     mainEntity: [
       {
         "@type": "Question",
@@ -391,28 +456,31 @@ export function getWebMobileServiceSchema() {
 }
 
 /**
- * 10. ERP Systems Service Page (/services/custom-erp-development) Schema
+ * 10. Custom ERP Development & Inventory Software Service Page (/services/custom-erp-development) Schema
  */
 export function getErpServiceSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services/custom-erp-development#webpage",
+    "@id": `${BASE_URL}/services/custom-erp-development#webpage`,
     url: `${BASE_URL}/services/custom-erp-development`,
     name: "Custom ERP Development & Inventory Software | Subham Sarkar",
     description: "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
-    isPartOf: {
-      "@id": "/#website"
+    inLanguage: "en-IN",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services/custom-erp-development#breadcrumb`
+    },
+    mainEntity: {
+      "@id": `${BASE_URL}/services/custom-erp-development#service`
     }
   };
 
   const service = {
     "@type": "Service",
-    "@id": "/services/custom-erp-development#service",
+    "@id": `${BASE_URL}/services/custom-erp-development#service`,
     name: "Custom ERP Development & Inventory Software",
     serviceType: "Custom ERP Software Development & Operations Engineering",
-    provider: {
-      "@id": "/#person"
-    },
+    provider: personRef,
     areaServed: AREA_SERVED,
     description: "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
     url: `${BASE_URL}/services/custom-erp-development`
@@ -420,6 +488,8 @@ export function getErpServiceSchema() {
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services/custom-erp-development#breadcrumb`,
+    name: "Breadcrumbs",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
@@ -429,6 +499,8 @@ export function getErpServiceSchema() {
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services/custom-erp-development#faq`,
+    name: "Frequently Asked Questions - Custom ERP Development",
     mainEntity: [
       {
         "@type": "Question",
@@ -480,28 +552,31 @@ export function getErpServiceSchema() {
 }
 
 /**
- * 11. Enterprise CRM Service Page (/services/custom-crm-development) Schema
+ * 11. Custom CRM Development & Lead Management Systems Service Page (/services/custom-crm-development) Schema
  */
 export function getCrmServiceSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services/custom-crm-development#webpage",
+    "@id": `${BASE_URL}/services/custom-crm-development#webpage`,
     url: `${BASE_URL}/services/custom-crm-development`,
     name: "Custom CRM Development & Lead Management Systems | Subham Sarkar",
     description: "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
-    isPartOf: {
-      "@id": "/#website"
+    inLanguage: "en-IN",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services/custom-crm-development#breadcrumb`
+    },
+    mainEntity: {
+      "@id": `${BASE_URL}/services/custom-crm-development#service`
     }
   };
 
   const service = {
     "@type": "Service",
-    "@id": "/services/custom-crm-development#service",
+    "@id": `${BASE_URL}/services/custom-crm-development#service`,
     name: "Custom CRM Development & Lead Management Systems",
     serviceType: "Custom CRM Software Development & Lead Management Platforms",
-    provider: {
-      "@id": "/#person"
-    },
+    provider: personRef,
     areaServed: AREA_SERVED,
     description: "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
     url: `${BASE_URL}/services/custom-crm-development`
@@ -509,6 +584,8 @@ export function getCrmServiceSchema() {
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services/custom-crm-development#breadcrumb`,
+    name: "Breadcrumbs",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
@@ -518,6 +595,8 @@ export function getCrmServiceSchema() {
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services/custom-crm-development#faq`,
+    name: "Frequently Asked Questions - Custom CRM Development",
     mainEntity: [
       {
         "@type": "Question",
@@ -569,28 +648,31 @@ export function getCrmServiceSchema() {
 }
 
 /**
- * 12. Autonomous AI Agents Service Page (/services/business-process-automation) Schema
+ * 12. AI Business Process Automation & System Integration Service Page (/services/business-process-automation) Schema
  */
 export function getAiAgentsServiceSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services/business-process-automation#webpage",
+    "@id": `${BASE_URL}/services/business-process-automation#webpage`,
     url: `${BASE_URL}/services/business-process-automation`,
-    name: "AI Agent Development & Business Process Automation | Subham Sarkar",
+    name: "AI Business Process Automation & System Integration | Subham Sarkar",
     description: "Private AI agent development and business process automation services by Subham Sarkar. Self-hosted AI chatbots, document parsing, and zero data leaks.",
-    isPartOf: {
-      "@id": "/#website"
+    inLanguage: "en-IN",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services/business-process-automation#breadcrumb`
+    },
+    mainEntity: {
+      "@id": `${BASE_URL}/services/business-process-automation#service`
     }
   };
 
   const service = {
     "@type": "Service",
-    "@id": "/services/business-process-automation#service",
-    name: "AI Agent Development & Business Process Automation",
-    serviceType: "AI Agent Development & Business Process Automation Services",
-    provider: {
-      "@id": "/#person"
-    },
+    "@id": `${BASE_URL}/services/business-process-automation#service`,
+    name: "AI Business Process Automation & System Integration",
+    serviceType: "Business Process Automation & AI Integration Services",
+    provider: personRef,
     areaServed: AREA_SERVED,
     description: "Private AI agent development and business process automation services by Subham Sarkar. Self-hosted AI chatbots, document parsing, and zero data leaks.",
     url: `${BASE_URL}/services/business-process-automation`
@@ -598,15 +680,19 @@ export function getAiAgentsServiceSchema() {
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services/business-process-automation#breadcrumb`,
+    name: "Breadcrumbs",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
-      { "@type": "ListItem", position: 3, name: "AI Agent Development", item: `${BASE_URL}/services/business-process-automation` }
+      { "@type": "ListItem", position: 3, name: "AI Business Process Automation", item: `${BASE_URL}/services/business-process-automation` }
     ]
   };
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services/business-process-automation#faq`,
+    name: "Frequently Asked Questions - AI Business Process Automation",
     mainEntity: [
       {
         "@type": "Question",
@@ -663,23 +749,26 @@ export function getAiAgentsServiceSchema() {
 export function getSoftwareModernizationServiceSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services/legacy-software-modernization#webpage",
+    "@id": `${BASE_URL}/services/legacy-software-modernization#webpage`,
     url: `${BASE_URL}/services/legacy-software-modernization`,
     name: "Legacy Software Modernization & Cloud Architecture | Subham Sarkar",
     description: "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
-    isPartOf: {
-      "@id": "/#website"
+    inLanguage: "en-IN",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services/legacy-software-modernization#breadcrumb`
+    },
+    mainEntity: {
+      "@id": `${BASE_URL}/services/legacy-software-modernization#service`
     }
   };
 
   const service = {
     "@type": "Service",
-    "@id": "/services/legacy-software-modernization#service",
+    "@id": `${BASE_URL}/services/legacy-software-modernization#service`,
     name: "Legacy Software Modernization",
     serviceType: "Legacy Software Modernization & Cloud Architecture Services",
-    provider: {
-      "@id": "/#person"
-    },
+    provider: personRef,
     areaServed: AREA_SERVED,
     description: "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
     url: `${BASE_URL}/services/legacy-software-modernization`
@@ -687,15 +776,19 @@ export function getSoftwareModernizationServiceSchema() {
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services/legacy-software-modernization#breadcrumb`,
+    name: "Breadcrumbs",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
-      { "@type": "ListItem", position: 3, name: "Software Modernization", item: `${BASE_URL}/services/legacy-software-modernization` }
+      { "@type": "ListItem", position: 3, name: "Legacy Software Modernization", item: `${BASE_URL}/services/legacy-software-modernization` }
     ]
   };
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services/legacy-software-modernization#faq`,
+    name: "Frequently Asked Questions - Legacy Software Modernization",
     mainEntity: [
       {
         "@type": "Question",
@@ -746,47 +839,52 @@ export function getSoftwareModernizationServiceSchema() {
   };
 }
 
-export const getLegacyMigrationServiceSchema = getSoftwareModernizationServiceSchema;
-
 /**
- * 14. Security Audit Service Page (/services/application-security-audit) Schema
+ * 14. Application Security Audit & Hardening Service Page (/services/application-security-audit) Schema
  */
 export function getSecurityAuditServiceSchema() {
   const webPage = {
     "@type": "WebPage",
-    "@id": "/services/application-security-audit#webpage",
+    "@id": `${BASE_URL}/services/application-security-audit#webpage`,
     url: `${BASE_URL}/services/application-security-audit`,
     name: "Application Security Audit & Infrastructure Hardening | Subham Sarkar",
     description: "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar.",
-    isPartOf: {
-      "@id": "/#website"
+    inLanguage: "en-IN",
+    isPartOf: websiteRef,
+    breadcrumb: {
+      "@id": `${BASE_URL}/services/application-security-audit#breadcrumb`
+    },
+    mainEntity: {
+      "@id": `${BASE_URL}/services/application-security-audit#service`
     }
   };
 
   const service = {
     "@type": "Service",
-    "@id": "/services/application-security-audit#service",
+    "@id": `${BASE_URL}/services/application-security-audit#service`,
     name: "Application Security Audit & Hardening",
     serviceType: "Cybersecurity Architecture & Vulnerability Mitigation",
-    provider: {
-      "@id": "/#person"
-    },
+    provider: personRef,
     areaServed: AREA_SERVED,
-    description: "Delivering hands-on architectural security penetration testing, zero-trust RBAC design, rate-limiting, and code-level vulnerability remediations.",
+    description: "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar.",
     url: `${BASE_URL}/services/application-security-audit`
   };
 
   const breadcrumb = {
     "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/services/application-security-audit#breadcrumb`,
+    name: "Breadcrumbs",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
       { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/services` },
-      { "@type": "ListItem", position: 3, name: "Security Audit & Enhancements", item: `${BASE_URL}/services/application-security-audit` }
+      { "@type": "ListItem", position: 3, name: "Application Security Audit", item: `${BASE_URL}/services/application-security-audit` }
     ]
   };
 
   const faqPage = {
     "@type": "FAQPage",
+    "@id": `${BASE_URL}/services/application-security-audit#faq`,
+    name: "Frequently Asked Questions - Application Security Audit",
     mainEntity: [
       {
         "@type": "Question",
@@ -836,3 +934,5 @@ export function getSecurityAuditServiceSchema() {
     "@graph": [webPage, service, breadcrumb, faqPage]
   };
 }
+
+export const getLegacyMigrationServiceSchema = getSoftwareModernizationServiceSchema;

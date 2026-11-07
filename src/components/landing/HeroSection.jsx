@@ -118,9 +118,9 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,color-mix(in_srgb,var(--color-primary)_15%,transparent),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <div className="absolute -inset-[100%] bg-[linear-gradient(transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] -rotate-45 group-hover:animate-data-horizontal z-0"></div>
                 <div className="relative z-10 flex flex-col">
-                  <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">SYSTEM RELIABILITY</span>
-                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">99.9%</span>
-                  <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">ZERO UNPLANNED DOWNTIME</span>
+                  <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">LICENCE FEES</span>
+                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">₹0 per user</span>
+                  <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">Your team can grow freely</span>
                 </div>
               </div>
               
@@ -172,9 +172,9 @@ export default function HeroSection() {
 
             {/* Blueprint Crosshair Notation */}
             <div className="flex flex-wrap items-center gap-4 text-secondary font-display text-[9px] leading-4 tracking-[0.1em] font-bold uppercase pt-2">
-              <span className="flex items-center"><CircleCheck className="text-primary w-3.5 h-3.5 mr-1.5" /> Direct Architect Access</span>   
-              <span className="flex items-center"><CircleCheck className="text-primary-container w-3.5 h-3.5 mr-1.5" /> Lifetime Code Support</span>
-              <span className="text-on-surface flex items-center bg-surface-container px-2 py-1 rounded"><ShieldCheck className="text-primary w-3.5 h-3.5 mr-1.5" /> ZERO_MIDDLEMEN</span>
+              <span className="flex items-center"><CircleCheck className="text-primary w-3.5 h-3.5 mr-1.5" /> Always a Call Away</span>   
+              <span className="flex items-center"><CircleCheck className="text-primary-container w-3.5 h-3.5 mr-1.5" /> Built Around Your Business</span>
+              <span className="text-on-surface flex items-center bg-surface-container px-2 py-1 rounded"><ShieldCheck className="text-primary w-3.5 h-3.5 mr-1.5" /> NO MIDDLEMEN</span>
             </div>
           </div>
 
@@ -194,7 +194,7 @@ export default function HeroSection() {
                 {/* Continuous Dynamic Scanline Overlay over Image */}
                 <div className="absolute inset-0 w-full h-[200%] bg-gradient-to-b from-transparent via-primary/10 to-transparent pointer-events-none z-20 animate-scan-vertical mix-blend-overlay"></div>
 
-                <Image src={img1} alt="Subham Sarkar, Software Architect and Systems Engineer" 
+                <Image src={img1} alt="Subham Sarkar, software architect and ERP/CRM developer in Kolkata" 
                   className="w-full h-auto object-cover transform-gpu transition-transform duration-700 group-hover/frame:scale-[1.02]" loading="eager" draggable={false}/>
 
                 {/* Dimension Overlay Markers */}

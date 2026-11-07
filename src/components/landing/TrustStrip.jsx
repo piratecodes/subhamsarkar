@@ -1,3 +1,8 @@
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { services } from "@/data/services";
+import { phaseData } from "@/data/processPhases";
+
 export default function TrustStrip() {
   return (
     <section className="relative w-full py-8 overflow-hidden">
@@ -42,8 +47,8 @@ export default function TrustStrip() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-surface-container-highest/40">
             
-            {/* Metric 1: Architectural Tenure */}
-            <div className="relative flex flex-col p-8 group/metric overflow-hidden">
+            {/* Metric 1: Direct Technical Channel */}
+            <div className="relative flex flex-col justify-between p-7 lg:p-8 group/metric overflow-hidden">
               {/* Background Radar Animation */}
               <div className="absolute -bottom-8 -right-8 w-32 h-32 text-primary/5 group-hover/metric:text-primary/20 transition-colors duration-700 pointer-events-none">
                 <svg viewBox="0 0 100 100" className="w-full h-full">
@@ -57,23 +62,35 @@ export default function TrustStrip() {
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/metric:bg-primary group-hover/metric:shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)] transition-all duration-300"></div>
                   <span className="font-display text-[10px] leading-[16px] tracking-[0.15em] font-bold text-secondary group-hover/metric:text-primary transition-colors duration-300 uppercase">
-                    ARCHITECTURAL TENURE
+                    DIRECT ENGAGEMENT
                   </span>
                 </div>
-                <div className="flex items-baseline gap-2 mb-2">
+                <div className="flex items-baseline gap-2.5 mb-2.5">
                   <span className="font-display text-[48px] lg:text-[56px] leading-[1] tracking-[-0.03em] font-bold bg-clip-text text-transparent bg-gradient-to-b from-on-surface to-on-surface/60 group-hover/metric:to-on-surface transition-all duration-300">
-                    10+
+                    1
                   </span>
-                  <span className="font-display text-[14px] lg:text-[16px] tracking-[0.05em] font-semibold text-primary uppercase">Years</span>
+                  <span className="font-display text-[13px] lg:text-[14px] tracking-[0.08em] font-bold text-primary uppercase">
+                    DIRECT ARCHITECT
+                  </span>
                 </div>
-                <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[250px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
-                  Battle-tested enterprise continuity without codebase rot or unmaintainable architectural debt.
+                <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[360px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
+                  From the first call to the final handover, there’s one direct line to the person planning your system. No account managers, no messages passed along.
                 </p>
+              </div>
+
+              <div className="relative z-10 pt-5 mt-auto">
+                <Link 
+                  href="/contact" 
+                  className="inline-flex items-center gap-1.5 font-display text-[10px] leading-[16px] tracking-[0.12em] font-semibold text-secondary group-hover/metric:text-primary transition-colors uppercase"
+                >
+                  <span>Direct technical consultation</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/metric:translate-x-1" />
+                </Link>
               </div>
             </div>
 
-            {/* Metric 2: Deployed Ecosystems */}
-            <div className="relative flex flex-col p-8 group/metric overflow-hidden bg-gradient-to-b from-transparent to-surface-container-highest/10">
+            {/* Metric 2: Deterministic Delivery Framework */}
+            <div className="relative flex flex-col justify-between p-7 lg:p-8 group/metric overflow-hidden bg-gradient-to-b from-transparent to-surface-container-highest/10">
               {/* Background Data Nodes Animation */}
               <div className="absolute top-0 right-4 w-24 h-full pointer-events-none opacity-0 group-hover/metric:opacity-100 transition-opacity duration-700">
                 <div className="absolute left-1/2 top-0 bottom-0 w-px bg-surface-container-highest -translate-x-1/2"></div>
@@ -85,23 +102,35 @@ export default function TrustStrip() {
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/metric:bg-primary group-hover/metric:shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)] transition-all duration-300"></div>
                   <span className="font-display text-[10px] leading-[16px] tracking-[0.15em] font-bold text-secondary group-hover/metric:text-primary transition-colors duration-300 uppercase">
-                    DEPLOYED ECOSYSTEMS
+                    DELIVERY PIPELINE
                   </span>
                 </div>
-                <div className="flex items-baseline gap-2 mb-2">
+                <div className="flex items-baseline gap-2.5 mb-2.5">
                   <span className="font-display text-[48px] lg:text-[56px] leading-[1] tracking-[-0.03em] font-bold bg-clip-text text-transparent bg-gradient-to-b from-on-surface to-on-surface/60 group-hover/metric:to-on-surface transition-all duration-300">
-                    20+
+                    {phaseData.length}
                   </span>
-                  <span className="font-display text-[14px] lg:text-[16px] tracking-[0.05em] font-semibold text-primary uppercase">Enterprises</span>
+                  <span className="font-display text-[13px] lg:text-[14px] tracking-[0.08em] font-bold text-primary uppercase">
+                    VERIFIED PHASES
+                  </span>
                 </div>
-                <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[250px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
-                  Distributed engines running inventory logistics, international trade, and high-frequency settlement.
+                <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[360px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
+                  Every project moves through the same five stages, from understanding the problem to final handover, so nothing feels like a surprise.
                 </p>
+              </div>
+
+              <div className="relative z-10 pt-5 mt-auto">
+                <Link 
+                  href="/process" 
+                  className="inline-flex items-center gap-1.5 font-display text-[10px] leading-[16px] tracking-[0.12em] font-semibold text-secondary group-hover/metric:text-primary transition-colors uppercase"
+                >
+                  <span>Explore 5 delivery stages</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/metric:translate-x-1" />
+                </Link>
               </div>
             </div>
 
-            {/* Metric 3: Cutover Benchmark */}
-            <div className="relative flex flex-col p-8 group/metric overflow-hidden">
+            {/* Metric 3: Architectural Capabilities */}
+            <div className="relative flex flex-col justify-between p-7 lg:p-8 group/metric overflow-hidden">
               {/* Background Flash Line Animation */}
               <div className="absolute bottom-0 left-0 w-full h-1 opacity-0 group-hover/metric:opacity-100 transition-opacity duration-700 pointer-events-none">
                 <div className="w-full h-full animate-flash-line"></div>
@@ -111,18 +140,30 @@ export default function TrustStrip() {
                 <div className="flex items-center gap-2 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover/metric:bg-primary group-hover/metric:shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)] transition-all duration-300"></div>
                   <span className="font-display text-[10px] leading-[16px] tracking-[0.15em] font-bold text-secondary group-hover/metric:text-primary transition-colors duration-300 uppercase">
-                    CUTOVER BENCHMARK
+                    SYSTEM ARCHITECTURE
                   </span>
                 </div>
-                <div className="flex items-baseline gap-2 mb-2">
+                <div className="flex items-baseline gap-2.5 mb-2.5">
                   <span className="font-display text-[48px] lg:text-[56px] leading-[1] tracking-[-0.03em] font-bold bg-clip-text text-transparent bg-gradient-to-b from-on-surface to-on-surface/60 group-hover/metric:to-on-surface transition-all duration-300">
-                    100%
+                    {services.length}
                   </span>
-                  <span className="font-display text-[14px] lg:text-[16px] tracking-[0.05em] font-semibold text-primary uppercase">Zero-Loss</span>
+                  <span className="font-display text-[13px] lg:text-[14px] tracking-[0.08em] font-bold text-primary uppercase">
+                    CORE DISCIPLINES
+                  </span>
                 </div>
-                <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[250px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
-                  Zero unplanned downtime recorded across mission-critical legacy database and schema cutovers.
+                <p className="font-sans text-[13px] leading-[22px] tracking-[-0.005em] font-normal text-secondary max-w-[360px] group-hover/metric:text-on-surface/80 transition-colors duration-300">
+                  ERP, CRM, web and mobile apps, AI automation, legacy modernization and security audit. One conversation can cover whatever the business needs next.
                 </p>
+              </div>
+
+              <div className="relative z-10 pt-5 mt-auto">
+                <Link 
+                  href="/services" 
+                  className="inline-flex items-center gap-1.5 font-display text-[10px] leading-[16px] tracking-[0.12em] font-semibold text-secondary group-hover/metric:text-primary transition-colors uppercase"
+                >
+                  <span>View 6 engineering specializations</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/metric:translate-x-1" />
+                </Link>
               </div>
             </div>
 

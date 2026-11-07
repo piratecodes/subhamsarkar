@@ -29,11 +29,11 @@ export default function ClosingCTA() {
             
             <div className="flex flex-wrap items-center gap-3">
               <span className="font-display text-[10px] leading-[16px] tracking-[0.12em] font-semibold text-primary uppercase bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
-                EXECUTION PROTOCOL
+                ALWAYS WELCOME
               </span>
               <span className="text-secondary font-display text-[11px] leading-[16px] tracking-[0.04em] font-medium flex items-center gap-2 uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(var(--color-primary-rgb),0.8)]"></span>
-                STATUS: ACCEPTING Q3 ROADMAPS
+                STATUS: READY WHEN YOU ARE
               </span>
             </div>
 
@@ -45,7 +45,7 @@ export default function ClosingCTA() {
             </h2>
             
             <p className="font-sans text-[14px] lg:text-[15px] text-secondary leading-relaxed max-w-xl group-hover:text-on-surface/90 transition-colors duration-500">
-              Whether you're starting from a rough idea or you've already got a clear plan, we start the same way - a conversation. Tell us where things stand, and we'll tell you plainly what it would take, what to expect, and how we'd approach it.
+              Whether starting from a rough idea or a detailed plan, every project begins with an informal conversation. Share where your business stands, and get a plain-spoken assessment of what it takes, what to expect, and the best way forward.
             </p>
           </div>
           
@@ -64,7 +64,7 @@ export default function ClosingCTA() {
               </div>
               <div className="flex flex-col text-left">
                 <span className="font-display text-[11px] tracking-widest font-bold text-on-surface uppercase leading-tight mb-0.5">
-                  Zero-Risk Engagement
+                  Free First Consultation
                 </span>
                 <span className="font-sans text-[11px] text-secondary font-medium">
                   SUBHAMSARKAR.DEV • Build with care

@@ -82,11 +82,11 @@ export function getPersonSchema(settings) {
 
   return {
     "@type": "Person",
-    "@id": "/#person",
+    "@id": `${BASE_URL}/#person`,
     name: "Subham Sarkar",
     jobTitle: "Software Architect and System Engineer",
     url: BASE_URL,
-    image: `${BASE_URL}/icons/icon-512x512.png`,
+    image: `${BASE_URL}/myimage_web.png`,
     description: "Software Architect and System Engineer with over a decade of experience designing and building custom ERP, CRM, web and mobile systems that businesses run on.",
     address: {
       "@type": "PostalAddress",
@@ -111,12 +111,16 @@ export function getPersonSchema(settings) {
 export function getWebSiteSchema() {
   return {
     "@type": "WebSite",
-    "@id": "/#website",
+    "@id": `${BASE_URL}/#website`,
     name: "Subham Sarkar",
     alternateName: "SubhamSarkar.Dev",
     url: BASE_URL,
+    image: `${BASE_URL}/icons/icon-512x512.png`,
     publisher: {
-      "@id": "/#person"
+      "@type": "Person",
+      "@id": `${BASE_URL}/#person`,
+      name: "Subham Sarkar",
+      url: BASE_URL
     },
     inLanguage: "en-IN"
   };
