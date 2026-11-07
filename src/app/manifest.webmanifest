@@ -1,7 +1,7 @@
 {
-  "name": "Subham Sarkar - Software Architect",
+  "name": "Subham Sarkar",
   "short_name": "Subham Sarkar",
-  "description": "Portfolio of Subham Sarkar, Software Architect & Systems Engineer.",
+  "description": "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps, AI automation, legacy software modernization, and application security audits for businesses across India.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fcf9f2",
@@ -197,14 +197,14 @@
       "label": "Splash Screen"
     },
     {
-      "src": "desktop-screenshot.png",
+      "src": "/desktop-screenshot.png",
       "sizes": "1920x1080",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Homescreen"
     },
     {
-      "src": "mobile-screenshot.png",
+      "src": "/mobile-screenshot.png",
       "sizes": "386x828",
       "type": "image/png",
       "form_factor": "narrow",
@@ -212,9 +212,12 @@
     }
   ],
   "categories": [
-    "portfolio",
+    "business",
+    "productivity",
+    "software",
     "engineering",
-    "software"
+    "portfolio",
+    "developer tools"
   ],
   "protocol_handlers": [
     {
@@ -227,7 +230,9 @@
     }
   ],
   "display_override": [
-    "window-controls-overlay"
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
   ],
   "share_target": null,
   "launch_handler": {
@@ -235,10 +240,36 @@
   },
   "shortcuts": [
     {
+      "name": "Services & Disciplines",
+      "short_name": "Services",
+      "description": "Custom ERP, CRM, AI automation, and security audits",
+      "url": "/services",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
       "name": "View Work",
       "short_name": "Work",
-      "description": "Browse my latest projects and engineering work",
+      "description": "Browse production engineering case studies and dossiers",
       "url": "/work",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Delivery Process",
+      "short_name": "Process",
+      "description": "5-stage engineering delivery methodology",
+      "url": "/process",
       "icons": [
         {
           "src": "/icons/icon-192x192.png",
@@ -250,7 +281,7 @@
     {
       "name": "Read Insights",
       "short_name": "Insights",
-      "description": "Read my latest technical insights and blogs",
+      "description": "Read technical insights and architecture blueprints",
       "url": "/insights",
       "icons": [
         {
@@ -263,7 +294,7 @@
     {
       "name": "Contact Me",
       "short_name": "Contact",
-      "description": "Get in touch for projects and collaboration",
+      "description": "Get in touch for custom software and direct consultation",
       "url": "/contact",
       "icons": [
         {
