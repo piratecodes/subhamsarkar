@@ -76,7 +76,7 @@ export function buildMetadata({
     }
   }
 
-  // Resolve Images: primary custom image + guaranteed fallback
+  // Resolve Images: use custom featured image if present; otherwise fallback to default banner
   const customImageUrl = resolveImageUrl(image);
   const images = [];
 
@@ -88,16 +88,16 @@ export function buildMetadata({
       alt: imageAlt || metaTitle,
       type: customImageUrl.endsWith(".png") ? "image/png" : "image/jpeg",
     });
+  } else {
+    // Only supply the high-resolution site banner as fallback when no custom image exists
+    images.push({
+      url: DEFAULT_OG_IMAGE,
+      width: 1200,
+      height: 630,
+      alt: "Subham Sarkar - Custom ERP & CRM Developer in Kolkata",
+      type: "image/jpeg",
+    });
   }
-
-  // Always supply the high-resolution site banner as backup
-  images.push({
-    url: DEFAULT_OG_IMAGE,
-    width: 1200,
-    height: 630,
-    alt: "Subham Sarkar - Custom ERP & CRM Developer in Kolkata",
-    type: "image/jpeg",
-  });
 
   // Normalize keywords
   let normalizedKeywords = [];
