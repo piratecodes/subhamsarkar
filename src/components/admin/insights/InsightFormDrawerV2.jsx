@@ -144,7 +144,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
       setTouchedFields({
         seoMetaTitle: !!insight.seoMetaTitle,
         seoMetaDescription: !!insight.seoMetaDescription,
-        seoJsonLdSchema: false,
+        seoJsonLdSchema: !!insight.seoJsonLdSchema,
         slug: true
       });
       setEditorContent(insight.content || '');
@@ -214,7 +214,12 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
           "author": {
             "@type": "Person",
             "name": authorName,
-            "url": "https://subhamsarkar.dev"
+            "url": "https://subhamsarkar.dev",
+            "sameAs": [
+              "https://linkedin.com/in/subhamsarkar99",
+              "https://github.com/piratecodes",
+              "https://instagram.com/subhamsarkar99"
+            ]
           },
           "publisher": {
             "@type": "Person",

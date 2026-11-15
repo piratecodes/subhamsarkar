@@ -3,17 +3,14 @@ import InsightClientGrid from '@/components/insight/InsightClientGrid';
 import { prisma } from "@/lib/prisma";
 import JsonLd from "@/components/seo/JsonLd";
 import { getInsightsPageSchema } from "@/lib/schema/pages";
+import { buildMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Industry Insights",
+export const metadata = buildMetadata({
+  title: "Industry Insights | Subham Sarkar",
   description: "Expert articles on ERP systems, CRM strategy, and software architecture for growing businesses.",
-  alternates: {
-    canonical: "/insights",
-  },
-  openGraph: {
-    url: "https://subhamsarkar.dev/insights",
-  },
-};
+  canonical: "/insights",
+  keywords: ["software architecture", "custom ERP development", "CRM strategy", "enterprise systems", "tech insights"],
+});
 export const revalidate = 300;
 
 export default async function InsightsPage(props) {

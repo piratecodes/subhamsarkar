@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TableOfContents from '@/components/insight/TableOfContents';
 import InsightFaq from '@/components/insight/InsightFaq';
+import AuthorBio from '@/components/insight/AuthorBio';
 import { prisma } from "@/lib/prisma";
+import { getSiteSettings } from "@/actions/settings";
 
 import GlareHover from '@/components/Glarehover'
 import PageTracker from "@/components/PageTracker";
+import { buildMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 300;
 // 1. DYNAMIC METADATA ENGINE
@@ -21,30 +24,26 @@ export async function generateMetadata({ params }) {
     
     if (!blog) return {};
 
-    return {
+    return buildMetadata({
       title: blog.seoMetaTitle || `${blog.title} | Subham Sarkar`,
-      description: blog.seoMetaDescription || blog.excerpt || "Read our latest insights.",
+      description: blog.seoMetaDescription || blog.excerpt || "Read our latest insights on software architecture, ERP, and CRM engineering.",
+      canonical: blog.seoCanonicalUrl || `/insights/${blog.slug}`,
+      image: blog.coverImage,
+      imageAlt: blog.coverImageAlt || blog.title,
+      type: "article",
+      publishedTime: blog.createdAt ? new Date(blog.createdAt).toISOString() : undefined,
+      modifiedTime: blog.updatedAt ? new Date(blog.updatedAt).toISOString() : undefined,
+      authors: blog.customAuthor || "Subham Sarkar",
+      section: blog.category || undefined,
       keywords: blog.seoMetaKeywords || "",
-      alternates: {
-        canonical: blog.seoCanonicalUrl || `https://subhamsarkar.dev/insights/${blog.slug}`,
-      },
-      robots: blog.seoIsNoIndex ? "noindex, nofollow" : "index, follow",
-      openGraph: {
-        title: blog.seoMetaTitle || blog.title,
-        description: blog.seoMetaDescription || blog.excerpt,
-        url: `https://subhamsarkar.dev/insights/${blog.slug}`,
-        type: 'article',
-        images: blog.coverImage ? [{ url: blog.coverImage }] : [],
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: blog.seoMetaTitle || blog.title,
-        description: blog.seoMetaDescription || blog.excerpt,
-        images: blog.coverImage ? [blog.coverImage] : [],
-      }
-    };
+      noIndex: blog.seoIsNoIndex || false,
+    });
   } catch (error) {
-    return {};
+    console.error("Error generating metadata for insight:", error);
+    return buildMetadata({
+      title: "Industry Insights | Subham Sarkar",
+      canonical: `/insights/${slug}`,
+    });
   }
 }
 
@@ -56,13 +55,20 @@ export default async function SingleBlogPage({ params }) {
   let blog = null;
   let similarBlogs = [];
   let allCategories = [];
+  let settings = null;
 
   try {
-    // Fetch Single Blog
-    blog = await prisma.insight.findUnique({
-      where: { slug },
-      include: { author: true }
-    });
+    // Parallel Fetch Single Blog & Site Settings (for dynamic address/socials)
+    const [fetchedBlog, fetchedSettings] = await Promise.all([
+      prisma.insight.findUnique({
+        where: { slug },
+        include: { author: true }
+      }),
+      getSiteSettings()
+    ]);
+
+    blog = fetchedBlog;
+    settings = fetchedSettings;
 
     if (blog && blog.isPublished) {
       // Fetch All Published Blogs
@@ -140,21 +146,24 @@ export default async function SingleBlogPage({ params }) {
               {blog.title}
             </h1>
 
-            <div className="flex flex-wrap items-center justify-center gap-6 text-secondary font-medium z-10 text-xs sm:text-sm font-mono uppercase tracking-[0.1em]">
-              <span className="text-on-surface font-bold flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shadow-inner border border-surface-container-highest">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-secondary font-medium z-10 text-xs sm:text-sm font-mono tracking-[0.1em]">
+              <span className="flex items-center gap-2.5 text-on-surface">
+                <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shadow-inner border border-surface-container-highest shrink-0">
                   <svg className="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
                 </div>
-                {blog.customAuthor || blog.author?.name || 'Admin'}
+                <span>
+                  <span className="text-secondary font-normal uppercase">By:</span>{" "}
+                  <span className="font-bold uppercase tracking-wider">{blog.customAuthor || (blog.author ? `${blog.author.firstName} ${blog.author.lastName}`.trim() : 'Subham Sarkar')}</span>
+                </span>
               </span>
               
               <span className="text-surface-container-highest w-1.5 h-1.5 rounded-full bg-surface-container-highest"></span>
               
-              <span className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shadow-inner border border-surface-container-highest">
+              <span className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center shadow-inner border border-surface-container-highest shrink-0">
                   <svg className="w-4 h-4 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 </div>
-                {new Date(blog.createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'long', day: 'numeric', year: 'numeric' })}
+                <span className="uppercase">{new Date(blog.createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'long', day: 'numeric', year: 'numeric' })}</span>
               </span>
             </div>
           </div>
@@ -201,6 +210,9 @@ export default async function SingleBlogPage({ params }) {
               className="insight-content prose prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-headings:text-on-surface prose-headings:scroll-mt-28 prose-a:text-primary hover:prose-a:opacity-80 prose-img:rounded-2xl prose-img:shadow-md prose-p:text-on-surface-variant prose-li:text-on-surface-variant prose-strong:text-on-surface marker:text-primary"
               dangerouslySetInnerHTML={{ __html: formattedContent }}
             />
+
+            {/* Author Credibility Profile Card */}
+            <AuthorBio customAuthor={blog.customAuthor} author={blog.author} settings={settings} />
 
             {/* Dynamic FAQs */}
             <InsightFaq faqs={blog.faqs} />
