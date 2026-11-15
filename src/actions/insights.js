@@ -83,7 +83,10 @@ export async function createInsight(data) {
     let finalSchema = data.seoJsonLdSchema;
     if (finalSchema) {
       if (finalImageUrl) {
-        finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
+        const absoluteCoverUrl = finalImageUrl.startsWith('http')
+          ? finalImageUrl
+          : `https://subhamsarkar.dev${finalImageUrl.startsWith('/') ? finalImageUrl : '/' + finalImageUrl}`;
+        finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', absoluteCoverUrl);
       }
       const kolkataToday = getKolkataDateString();
       finalSchema = finalSchema
@@ -153,15 +156,26 @@ export async function updateInsight(id, data) {
     const oldInsight = await prisma.insight.findUnique({ where: { id }});
     let finalImageUrl = data.coverImage || (oldInsight ? oldInsight.coverImage : null);
     
-    // If a new image was provided, delete the old one
+    // If a new image was provided, delete the old one only if no other insight is referencing it
     if (oldInsight && oldInsight.coverImage && finalImageUrl !== oldInsight.coverImage) {
-      await deleteMediaFiles([oldInsight.coverImage]);
+      const isReferencedElsewhere = await prisma.insight.findFirst({
+        where: {
+          id: { not: id },
+          coverImage: oldInsight.coverImage
+        }
+      });
+      if (!isReferencedElsewhere) {
+        await deleteMediaFiles([oldInsight.coverImage]);
+      }
     }
 
     let finalSchema = data.seoJsonLdSchema;
     if (finalSchema) {
       if (finalImageUrl) {
-        finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', 'https://subhamsarkar.dev' + finalImageUrl);
+        const absoluteCoverUrl = finalImageUrl.startsWith('http')
+          ? finalImageUrl
+          : `https://subhamsarkar.dev${finalImageUrl.startsWith('/') ? finalImageUrl : '/' + finalImageUrl}`;
+        finalSchema = finalSchema.replace('__IMAGE_URL_PLACEHOLDER__', absoluteCoverUrl);
       }
       const kolkataToday = getKolkataDateString();
       finalSchema = finalSchema.replace(/"dateModified":\s*"[^"]*"/, `"dateModified": "${kolkataToday}"`);

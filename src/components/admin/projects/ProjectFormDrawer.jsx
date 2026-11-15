@@ -73,6 +73,7 @@ export default function ProjectFormDrawer({ isOpen, onClose, project, onSuccess 
       }
     }
     if (isOpen) {
+      setSessionUploads([]);
       loadDynamicFields();
     }
   }, [isOpen]);

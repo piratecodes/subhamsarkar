@@ -109,6 +109,10 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
   });
 
   useEffect(() => {
+    if (isOpen) {
+      setSessionUploads([]);
+    }
+
     if (insight && isOpen) {
       let parsedFaqs = [];
       if (Array.isArray(insight.faqs)) {
@@ -315,11 +319,13 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
           toast.success("Broadcast sent to all subscribers!");
         }
 
-        // Cleanup any uploaded images that were discarded during editing
-        const discardedUploads = sessionUploads.filter(url => url !== formData.coverImage);
+        // Cleanup any uploaded images that were discarded during editing in this session
+        const originalCoverImage = insight?.coverImage;
+        const discardedUploads = sessionUploads.filter(url => url !== formData.coverImage && url !== originalCoverImage);
         if (discardedUploads.length > 0) {
           deleteMediaFiles(discardedUploads).catch(console.error);
         }
+        setSessionUploads([]);
 
         onClose(true);
       } else {
@@ -333,10 +339,13 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
   };
 
   const handleDrawerClose = () => {
-    // If user cancels, clean up all session uploads
-    if (sessionUploads.length > 0) {
-      deleteMediaFiles(sessionUploads).catch(console.error);
+    // If user cancels, clean up newly uploaded images from THIS session only
+    const originalCoverImage = insight?.coverImage;
+    const uploadsToClean = sessionUploads.filter(url => url !== originalCoverImage);
+    if (uploadsToClean.length > 0) {
+      deleteMediaFiles(uploadsToClean).catch(console.error);
     }
+    setSessionUploads([]);
     onClose(false);
   };
 
