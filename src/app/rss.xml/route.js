@@ -12,6 +12,27 @@ function escapeXml(unsafe) {
     .replace(/'/g, "&apos;");
 }
 
+function formatRfc822Ist(dateInput) {
+  const d = new Date(dateInput);
+  const formatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Kolkata",
+    weekday: "short",
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  });
+
+  const parts = formatter.formatToParts(d);
+  const partMap = {};
+  parts.forEach(p => { partMap[p.type] = p.value; });
+
+  return `${partMap.weekday}, ${partMap.day} ${partMap.month} ${partMap.year} ${partMap.hour}:${partMap.minute}:${partMap.second} +0530`;
+}
+
 export async function GET() {
   const baseUrl = "https://subhamsarkar.dev";
 
@@ -30,7 +51,7 @@ export async function GET() {
     const itemsXml = insights
       .map((post) => {
         const postUrl = `${baseUrl}/insights/${post.slug}`;
-        const pubDate = new Date(post.createdAt).toUTCString();
+        const pubDate = formatRfc822Ist(post.createdAt);
         const description = post.excerpt || post.seoMetaDescription || "";
         const authorName = post.customAuthor || 
           (post.author ? `${post.author.firstName} ${post.author.lastName}`.trim() : "Subham Sarkar");
@@ -76,7 +97,7 @@ export async function GET() {
     <link>${baseUrl}/insights</link>
     <description>Practical engineering guides on custom ERP, CRM, full-stack web and mobile apps, and application security for growing businesses in India by Subham Sarkar.</description>
     <language>en-in</language>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <lastBuildDate>${formatRfc822Ist(new Date())}</lastBuildDate>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
 ${itemsXml}
   </channel>
