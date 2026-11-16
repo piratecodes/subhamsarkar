@@ -138,6 +138,7 @@ export async function createInsight(data) {
     
     revalidatePath("/sudo/insights");
     revalidatePath("/insights");
+    revalidatePath("/rss.xml");
     if (insight.slug) {
       revalidatePath(`/insights/${insight.slug}`);
     }
@@ -226,6 +227,7 @@ export async function updateInsight(id, data) {
     
     revalidatePath("/sudo/insights");
     revalidatePath("/insights");
+    revalidatePath("/rss.xml");
     if (insight.slug) {
       revalidatePath(`/insights/${insight.slug}`);
     }
@@ -256,6 +258,7 @@ export async function deleteInsight(id) {
 
     revalidatePath("/sudo/insights");
     revalidatePath("/insights");
+    revalidatePath("/rss.xml");
     if (insight?.slug) {
       revalidatePath(`/insights/${insight.slug}`);
     }

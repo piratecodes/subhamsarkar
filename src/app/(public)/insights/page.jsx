@@ -7,9 +7,17 @@ import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
   title: "Industry Insights | Subham Sarkar",
-  description: "Expert articles on ERP systems, CRM strategy, and software architecture for growing businesses.",
+  description: "Practical engineering guides on custom ERP, CRM, full-stack web and mobile apps, and application security for growing businesses in India by Subham Sarkar.",
   canonical: "/insights",
-  keywords: ["software architecture", "custom ERP development", "CRM strategy", "enterprise systems", "tech insights"],
+  keywords: [
+    "custom ERP development",
+    "CRM engineering",
+    "full-stack web development",
+    "mobile app development",
+    "application security audit",
+    "ERP developer Kolkata",
+    "software architect India"
+  ],
 });
 export const revalidate = 300;
 

@@ -20,6 +20,9 @@ export default function robots() {
       allow: '/',
       disallow: ['/sudo/', '/sudo', '/api/', '/cdn-cgi/', '/~subhamsarkar.dev/'],
     },
-    sitemap: 'https://subhamsarkar.dev/sitemap.xml',
+    sitemap: [
+      'https://subhamsarkar.dev/sitemap.xml',
+      'https://subhamsarkar.dev/rss.xml',
+    ],
   }
 }

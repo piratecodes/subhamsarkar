@@ -289,7 +289,7 @@ export function getInsightsPageSchema(insights = []) {
     "@id": `${BASE_URL}/insights#webpage`,
     url: `${BASE_URL}/insights`,
     name: "Industry Insights | Subham Sarkar | Software Architect and ERP & CRM Developer",
-    description: "Thoughts, blueprints, and technical deep dives into software architecture, robust custom ERPs, and resilient business systems.",
+    description: "Practical engineering guides on custom ERP, CRM, full-stack web and mobile apps, and application security for growing businesses in India by Subham Sarkar.",
     isPartOf: websiteRef,
     breadcrumb: {
       "@id": `${BASE_URL}/insights#breadcrumb`
