@@ -126,18 +126,22 @@ export default function InsightClientGrid({ initialBlogs, categories, searchPara
                           width={0} height={0} sizes="100vw" style={{ width: '100%', height: 'auto' }} priority className="object-contain hover:scale-[1.02] transition-transform duration-700 ease-out"
                         />
                       </figure>
-                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                      <div className="absolute bottom-0 left-0 p-6 md:p-10 w-full md:w-3/4">
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent pointer-events-none" />
+                      <div className="absolute bottom-0 left-0 p-4 sm:p-6 md:p-8 lg:p-10 w-full md:w-4/5 lg:w-3/4">
                         {initialBlogs[0].category && (
-                          <span className="inline-block bg-primary/20 border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded shadow-md mb-4">
+                          <span className="inline-block bg-primary/20 border border-primary/30 text-primary text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 sm:px-3 sm:py-1 rounded shadow-md mb-1.5 sm:mb-2 md:mb-4">
                             {initialBlogs[0].category}
                           </span>
                         )}
-                        <h3 className="text-3xl md:text-4xl font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors drop-shadow-md">{initialBlogs[0].title}</h3>
-                        <p className="text-on-surface-variant text-base md:text-lg mb-4 line-clamp-2 drop-shadow-sm">{initialBlogs[0].excerpt}</p>
-                        <div className="flex items-center text-secondary text-sm font-medium">
+                        <h3 className="text-base sm:text-xl md:text-3xl lg:text-3xl font-bold text-on-surface mb-1.5 sm:mb-2 md:mb-4 leading-snug md:leading-tight group-hover:text-primary transition-colors drop-shadow-md line-clamp-2 md:line-clamp-none">
+                          {initialBlogs[0].title}
+                        </h3>
+                        <p className="hidden md:block text-on-surface-variant text-sm md:text-base lg:text-lg mb-4 line-clamp-2 drop-shadow-sm">
+                          {initialBlogs[0].excerpt}
+                        </p>
+                        <div className="flex items-center text-secondary text-[11px] sm:text-xs md:text-sm font-medium">
                           <span className="text-on-surface font-bold">{initialBlogs[0].customAuthor || initialBlogs[0].author?.name || 'Admin'}</span>
-                          <span className="mx-2">•</span>
+                          <span className="mx-1.5 md:mx-2">•</span>
                           <span>{new Date(initialBlogs[0].createdAt).toLocaleDateString('en-US', { timeZone: 'Asia/Kolkata', month: 'long', day: 'numeric', year: 'numeric' })}</span>
                         </div>
                       </div>
@@ -277,7 +281,7 @@ export default function InsightClientGrid({ initialBlogs, categories, searchPara
                 <Link href={`/insights/${blog.slug}`} key={blog.id} className="group/post flex items-start gap-4 hover:bg-surface-container p-2 -mx-2 rounded-xl transition-all duration-300 relative overflow-hidden">
                   <figure className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 border border-surface-container-highest">
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover/post:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
-                    <Image src={blog.coverImage || '/default-placeholder.png'} alt={blog.title} fill className="object-cover group-hover/post:scale-110 transition-transform duration-700 ease-out" />
+                    <Image src={blog.coverImage || '/default-placeholder.png'} alt={blog.title} fill sizes="(max-width: 768px) 100vw, 64px" className="object-cover group-hover/post:scale-110 transition-transform duration-700 ease-out" />
                   </figure>
                   <div className="flex-1 min-w-0 flex flex-col justify-center">
                     <h4 className="text-sm font-bold text-on-surface line-clamp-2 group-hover/post:text-primary group-hover/post:translate-x-1 transition-all duration-300">{blog.title}</h4>

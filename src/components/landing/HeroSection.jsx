@@ -71,9 +71,9 @@ export default function HeroSection() {
               <div className="absolute top-8 left-1/4 w-1 h-1 bg-secondary rounded-full blur-[1px]" style={{ animation: 'float-up 5s ease-in infinite 2s' }}></div>
               
               <span className="relative inline-flex items-center gap-2 px-3 py-1.5 bg-surface-container-highest/30 backdrop-blur-md text-primary rounded-l-4xl rounded-r-full md:rounded-full shadow-[0_0_20px_rgba(var(--color-primary-rgb),0.15)] group overflow-hidden border border-primary/20">
-                <span className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/20 to-transparent -translate-x-full animate-data-horizontal"></span>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-primary/20 to-transparent -translate-x-full animate-data-horizontal"></span>
                 <span className="relative z-10 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_var(--color-primary)] animate-pulse"></span>
-                <span className="relative z-10 font-bold tracking-widest text-on-surface">Software Architect & Custom ERP / CRM Development · KOLKATA, INDIA</span>
+                <span className="relative z-10 font-bold tracking-widest text-on-surface">SOFTWARE ARCHITECT & FULL-STACK DEVELOPER · ERP / CRM · KOLKATA, INDIA</span>
               </span>
             </div>
 
@@ -83,8 +83,8 @@ export default function HeroSection() {
               <span className="relative inline-block text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-primary),var(--color-secondary),var(--color-primary))] bg-[length:200%_auto] animate-gradient-x drop-shadow-md">
                 Every Unstoppable Business
                 {/* Glowing animated underline */}
-                <span className="absolute -bottom-1 left-0 w-full h-[4px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-60 rounded-full blur-[2px] animate-pulse"></span>
-                <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white to-transparent opacity-80"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-[4px] bg-linear-to-r from-transparent via-primary to-transparent opacity-60 rounded-full blur-[2px] animate-pulse"></span>
+                <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-linear-to-r from-transparent via-white to-transparent opacity-80"></span>
               </span>
             </h1>
 
@@ -98,15 +98,15 @@ export default function HeroSection() {
             {/* Narrative Copy with Traveling Border */}
             <div className="relative p-5 lg:p-6 rounded-2xl overflow-hidden group">
               {/* Traveling Glowing Border Line */}
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary to-transparent -translate-x-full animate-data-horizontal opacity-70"></div>
-              <div className="absolute bottom-0 right-0 w-full h-[1px] bg-gradient-to-l from-transparent via-secondary to-transparent translate-x-full animate-data-horizontal opacity-70" style={{ animationDelay: '3s' }}></div>
-              <div className="absolute left-0 top-0 w-[1px] h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent -translate-y-full animate-data-horizontal opacity-50" style={{ animationDuration: '4s' }}></div>
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-linear-to-r from-transparent via-primary to-transparent -translate-x-full animate-data-horizontal opacity-70"></div>
+              <div className="absolute bottom-0 right-0 w-full h-[1px] bg-linear-to-l from-transparent via-secondary to-transparent translate-x-full animate-data-horizontal opacity-70" style={{ animationDelay: '3s' }}></div>
+              <div className="absolute left-0 top-0 w-[1px] h-full bg-linear-to-b from-transparent via-primary/50 to-transparent -translate-y-full animate-data-horizontal opacity-50" style={{ animationDuration: '4s' }}></div>
               
               <div className="absolute inset-0 bg-surface-container-lowest/40 backdrop-blur-lg rounded-2xl border border-surface-container/40 z-0"></div>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,color-mix(in_srgb,var(--color-primary)_10%,transparent),transparent_50%)] z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               
               <p className="relative z-10 font-sans text-[16px] lg:text-[18px] leading-[28px] tracking-[-0.01em] font-medium text-secondary max-w-3xl text-justify">
-                I’m Subham Sarkar, a software developer and architect based in Kolkata. I build the systems that businesses run on - custom ERP and CRM systems, connected websites and mobile apps, and AI automation for businesses across India. For over a decade, business owners have trusted me to build software that works reliably, so they spend less time managing systems and more time running their business.
+                I’m Subham Sarkar, a software architect and full-stack developer based in Kolkata. I build the systems that businesses run on - custom ERP and CRM systems, connected websites and mobile applications, and AI automation for businesses across India. For over a decade, business owners have trusted me to build software that works reliably, so they spend less time managing systems and more time running their business.
               </p>
             </div>
 
@@ -119,7 +119,7 @@ export default function HeroSection() {
                 <div className="absolute -inset-[100%] bg-[linear-gradient(transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] -rotate-45 group-hover:animate-data-horizontal z-0"></div>
                 <div className="relative z-10 flex flex-col">
                   <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">LICENCE FEES</span>
-                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">₹0 per user</span>
+                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">₹0 per user</span>
                   <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">Your team can grow freely</span>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function HeroSection() {
                 <div className="absolute -inset-[100%] bg-[linear-gradient(transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] -rotate-45 group-hover:animate-data-horizontal z-0" style={{ animationDelay: '0.2s' }}></div>
                 <div className="relative z-10 flex flex-col">
                   <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">RESPONSE TIME</span>
-                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">&lt; 12 HRS</span>
+                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">&lt; 12 HRS</span>
                   <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">DIRECT, NO DELAYS</span>
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function HeroSection() {
                 <div className="absolute -inset-[100%] bg-[linear-gradient(transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] -rotate-45 group-hover:animate-data-horizontal z-0" style={{ animationDelay: '0.4s' }}></div>
                 <div className="relative z-10 flex flex-col">
                   <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">CONFIDENTIALITY</span>
-                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">Protected</span>
+                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">Protected</span>
                   <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">NDA on request</span>
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function HeroSection() {
                 {/* Animated multi-color inner glow that activates on hover */}
                 <div className="absolute inset-0 bg-[linear-gradient(45deg,var(--color-primary),var(--color-secondary),var(--color-primary))] opacity-0 group-hover:opacity-100 bg-[length:200%_200%] group-hover:animate-gradient-x transition-opacity duration-300 z-0"></div>
                 {/* Quick bright sweep effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-data-horizontal z-0"></div>
+                <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-data-horizontal z-0"></div>
                 <Compass className="text-[18px] relative z-10 group-hover:rotate-45 transition-transform duration-500" />
                 <span className="relative z-10">Initiate Free Consultation</span>
               </Link>
@@ -179,7 +179,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column: Lead Architectural Elevation / Portrait */}
-          <div className="lg:col-span-5 relative mt-10 lg:mt-0 group/frame mx-auto w-full max-w-[460px]">
+          <div className="lg:col-span-5 relative mt-10 lg:mt-0 group/frame mx-auto w-full max-w-115">
             
             {/* Continuous Spinning Glow Border behind Image */}
             <div className="absolute -inset-4 bg-[conic-gradient(from_0deg,transparent_0_180deg,var(--color-primary)_360deg)] opacity-20 group-hover/frame:opacity-40 rounded-2xl animate-rotate-slow blur-2xl transition-opacity duration-1000 pointer-events-none z-0"></div>
@@ -192,9 +192,9 @@ export default function HeroSection() {
               <div className="relative overflow-hidden rounded-[16px] bg-transparent shadow-inner group-hover/frame:shadow-[inset_0_0_50px_rgba(var(--color-primary-rgb),0.1)] transition-all duration-700 aspect-auto">
                 
                 {/* Continuous Dynamic Scanline Overlay over Image */}
-                <div className="absolute inset-0 w-full h-[200%] bg-gradient-to-b from-transparent via-primary/10 to-transparent pointer-events-none z-20 animate-scan-vertical mix-blend-overlay"></div>
+                <div className="absolute inset-0 w-full h-[200%] bg-linear-to-b from-transparent via-primary/10 to-transparent pointer-events-none z-20 animate-scan-vertical mix-blend-overlay"></div>
 
-                <Image src={img1} alt="Subham Sarkar, software architect and ERP/CRM developer in Kolkata" 
+                <Image src={img1} alt="Subham Sarkar, software architect and full-stack developer in Kolkata, India" 
                   className="w-full h-auto object-cover transform-gpu transition-transform duration-700 group-hover/frame:scale-[1.02]" loading="eager" draggable={false}/>
 
                 {/* Dimension Overlay Markers */}
@@ -209,7 +209,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* Subtle Ambient Studio Lighting Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-secondary/10 mix-blend-overlay pointer-events-none z-10 opacity-50 group-hover/frame:opacity-100 transition-opacity duration-700"></div>
+                <div className="absolute inset-0 bg-linear-to-tr from-primary/5 via-transparent to-secondary/10 mix-blend-overlay pointer-events-none z-10 opacity-50 group-hover/frame:opacity-100 transition-opacity duration-700"></div>
 
                 {/* Premium Glass Glare Sweep on Hover */}
                 <div className="absolute inset-0 overflow-hidden rounded-[16px] pointer-events-none z-20">

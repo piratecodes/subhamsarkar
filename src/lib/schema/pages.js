@@ -33,8 +33,8 @@ export function getHomePageSchema() {
     "@type": "ProfilePage",
     "@id": `${BASE_URL}/#profilepage`,
     url: BASE_URL,
-    name: "Subham Sarkar | Software Architect and System Engineer",
-    description: "Software architect and developer portfolio building custom ERP, CRM, and distributed systems.",
+    name: "Subham Sarkar | Software Architect and ERP & CRM Developer",
+    description: "Software architect and full stack developer portfolio building custom ERP, CRM, and distributed systems.",
     isPartOf: websiteRef,
     mainEntity: personRef,
     dateModified: "2026-11-01"
@@ -50,8 +50,8 @@ export function getAboutPageSchema() {
     "@type": "AboutPage",
     "@id": `${BASE_URL}/about#webpage`,
     url: `${BASE_URL}/about`,
-    name: "About | Subham Sarkar | Software Architect and System Engineer",
-    description: "Learn about Subham Sarkar, Software Architect and System Engineer building custom software systems.",
+    name: "About | Subham Sarkar | Software Architect and ERP & CRM Developer",
+    description: "Learn about Subham Sarkar, Software Architect and Full Stack Developer building custom software systems.",
     isPartOf: websiteRef,
     mainEntity: personRef
   };
@@ -65,7 +65,7 @@ export function getServicesPageSchema() {
     "@type": "WebPage",
     "@id": `${BASE_URL}/services#webpage`,
     url: `${BASE_URL}/services`,
-    name: "Services & Capabilities | Subham Sarkar | Software Architect and System Engineer",
+    name: "Services & Capabilities | Subham Sarkar | Software Architect and ERP & CRM Developer",
     description: "Custom ERP & CRM systems, unified web and mobile applications, AI agent integration, and legacy system modernization.",
     isPartOf: websiteRef,
     breadcrumb: {
@@ -130,7 +130,7 @@ export function getWorkPageSchema(dossiers = []) {
     "@type": "CollectionPage",
     "@id": `${BASE_URL}/work#webpage`,
     url: `${BASE_URL}/work`,
-    name: "Architectural Work & Case Studies | Subham Sarkar | Software Architect and System Engineer",
+    name: "Architectural Work & Case Studies | Subham Sarkar | Software Architect and ERP & CRM Developer",
     description: "Enterprise engineering case studies and systems architecture portfolio.",
     isPartOf: websiteRef,
     breadcrumb: {
@@ -233,7 +233,7 @@ export function getContactPageSchema(settings) {
     "@type": "ContactPage",
     "@id": `${BASE_URL}/contact#webpage`,
     url: `${BASE_URL}/contact`,
-    name: "Contact Subham Sarkar | Software Architect and System Engineer",
+    name: "Contact Subham Sarkar | Software Architect and ERP & CRM Developer",
     description: "Start a conversation about your custom software requirements. Direct consultation with Subham Sarkar.",
     isPartOf: websiteRef,
     breadcrumb: {
@@ -288,7 +288,7 @@ export function getInsightsPageSchema(insights = []) {
     "@type": "CollectionPage",
     "@id": `${BASE_URL}/insights#webpage`,
     url: `${BASE_URL}/insights`,
-    name: "Industry Insights | Subham Sarkar | Software Architect and System Engineer",
+    name: "Industry Insights | Subham Sarkar | Software Architect and ERP & CRM Developer",
     description: "Thoughts, blueprints, and technical deep dives into software architecture, robust custom ERPs, and resilient business systems.",
     isPartOf: websiteRef,
     breadcrumb: {
