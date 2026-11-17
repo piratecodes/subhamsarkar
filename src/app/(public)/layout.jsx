@@ -41,9 +41,6 @@ export const metadata = {
   manifest: "/manifest.webmanifest",
   alternates: {
     canonical: "https://subhamsarkar.dev",
-    types: {
-      "application/rss+xml": "https://subhamsarkar.dev/rss.xml",
-    },
   },
   keywords: ["Subham Sarkar", "ERP developer Kolkata", "CRM developer India", "software architect India", "custom software development"],
   openGraph: {
