@@ -133,6 +133,13 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className="h-full antialiased">
       <head>
+        {/* RSS 2.0 & mRSS Feed Auto-Discovery */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Subham Sarkar - RSS Feed"
+          href="https://subhamsarkar.dev/rss.xml"
+        />
         {/* Partytown Intigrations */}
         <Partytown debug={false} lib="/~subhamsarkar.dev/" />
         {/* <!-- Google Tag Manager (noscript) --> */}
