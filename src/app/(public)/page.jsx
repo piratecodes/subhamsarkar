@@ -14,6 +14,28 @@ export const metadata = {
   title: { absolute: "Subham Sarkar | ERP & CRM Developer in Kolkata, India" },
   description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
+    description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
+    siteName: "Subham Sarkar",
+    url: "https://subhamsarkar.dev",
+    type: "website",
+    images: [
+      {
+        url: "/myimage_web.png",
+        width: 1024,
+        height: 1287,
+        alt: "Subham Sarkar - Software Architect & Full-Stack Developer",
+        type: "image/png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
+    description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
+    images: ["/myimage_web.png"],
+  },
 };
 
 export const revalidate = 3600;

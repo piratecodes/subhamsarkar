@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="flex-1 flex justify-start">
           <Link href="/" className="flex items-center gap-3 md:gap-6">
           <div className="relative h-10 w-auto md:h-14 md:w-auto shrink-0">
-            <Image src={logo} alt="brand logo" className="w-full h-full object-contain" loading="lazy" draggable={false}/>
+            <Image src={logo} alt="Subham Sarkar Logo" className="w-full h-full object-contain" loading="lazy" draggable={false}/>
           </div>
           <div className="flex flex-col group">
             <div className="flex items-center gap-1.5">
@@ -111,7 +111,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between border-b border-surface-container-highest pb-4">
             <div className="flex items-center gap-3">
               <div className="relative h-10 w-auto shrink-0">
-                <Image src={logo} alt="brand logo" className="w-full h-full object-contain" />
+                <Image src={logo} alt="Subham Sarkar Logo" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-base font-bold text-on-surface">SUBHAM SARKAR</span>

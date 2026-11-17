@@ -52,13 +52,13 @@ export const metadata = {
     locale: "en_IN",
     title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
     description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Subham Sarkar, ERP and CRM developer in Kolkata", type: "image/jpeg" }],
+    images: [{ url: "/myimage_web.png", width: 1024, height: 1287, alt: "Subham Sarkar - Software Architect & Full-Stack Developer", type: "image/png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
     description: "Subham Sarkar is a software architect and ERP/CRM developer in Kolkata building custom ERP, CRM, web, mobile apps and AI automation for businesses across India.",
-    images: ["/og-image.jpg"],
+    images: ["/myimage_web.png"],
   },
   icons: {
     icon: [

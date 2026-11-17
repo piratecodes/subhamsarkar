@@ -5,7 +5,7 @@
  */
 
 export const SITE_URL = "https://subhamsarkar.dev";
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/myimage_web.png`;
 
 export const DEFAULT_META = {
   title: "Subham Sarkar | ERP & CRM Developer in Kolkata, India",
@@ -92,10 +92,10 @@ export function buildMetadata({
     // Only supply the high-resolution site banner as fallback when no custom image exists
     images.push({
       url: DEFAULT_OG_IMAGE,
-      width: 1200,
-      height: 630,
-      alt: "Subham Sarkar - Custom ERP & CRM Developer in Kolkata",
-      type: "image/jpeg",
+      width: 1024,
+      height: 1287,
+      alt: "Subham Sarkar - Software Architect & Full-Stack Developer",
+      type: "image/png",
     });
   }
 

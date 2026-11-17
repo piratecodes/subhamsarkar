@@ -114,9 +114,13 @@ export function getWebSiteSchema() {
     "@type": "WebSite",
     "@id": `${BASE_URL}/#website`,
     name: "Subham Sarkar",
-    alternateName: "SubhamSarkar.Dev",
+    alternateName: [
+      "SubhamSarkar.dev",
+      "subhamsarkar.dev",
+      "Subham Sarkar Portfolio"
+    ],
     url: BASE_URL,
-    image: `${BASE_URL}/icons/icon-512x512.png`,
+    image: `${BASE_URL}/myimage_web.png`,
     publisher: {
       "@type": "Person",
       "@id": `${BASE_URL}/#person`,
