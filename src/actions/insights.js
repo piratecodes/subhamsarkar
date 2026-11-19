@@ -66,12 +66,17 @@ export async function getInsightByCategory(categoryName) {
 // Removed unused processAndSaveImage since uploading is handled by Media API
 
 function getKolkataDateString(date = new Date()) {
-  return new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Asia/Kolkata',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit'
-  }).format(new Date(date));
+  const d = new Date(date);
+  const pad = (n) => String(n).padStart(2, "0");
+  const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+  const kolkata = new Date(utc + (3600000 * 5.5));
+  const YYYY = kolkata.getFullYear();
+  const MM = pad(kolkata.getMonth() + 1);
+  const DD = pad(kolkata.getDate());
+  const HH = pad(kolkata.getHours());
+  const mm = pad(kolkata.getMinutes());
+  const ss = pad(kolkata.getSeconds());
+  return `${YYYY}-${MM}-${DD}T${HH}:${mm}:${ss}+05:30`;
 }
 
 export async function createInsight(data) {

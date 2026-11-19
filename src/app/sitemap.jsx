@@ -5,7 +5,7 @@ export const revalidate = 3600;
 // Update these date constants whenever a static page's content changes
 const PAGE_LASTMOD = {
   "/": "2026-11-18",
-  "/about": "2026-11-17",
+  "/about": "2026-11-19",
   "/services": "2026-11-01",
   "/services/custom-erp-development": "2026-11-07",
   "/services/custom-crm-development": "2026-11-07",

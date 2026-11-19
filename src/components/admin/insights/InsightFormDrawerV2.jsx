@@ -194,12 +194,17 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
         const currentMetaDesc = updated.seoMetaDescription !== undefined ? updated.seoMetaDescription : prev.seoMetaDescription;
         const currentMetaTitle = updated.seoMetaTitle !== undefined ? updated.seoMetaTitle : prev.seoMetaTitle;
         const formatKolkataDate = (d) => {
-          return new Intl.DateTimeFormat('en-CA', {
-            timeZone: 'Asia/Kolkata',
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-          }).format(new Date(d));
+          const date = new Date(d);
+          const pad = (n) => String(n).padStart(2, "0");
+          const utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+          const kolkata = new Date(utc + (3600000 * 5.5));
+          const YYYY = kolkata.getFullYear();
+          const MM = pad(kolkata.getMonth() + 1);
+          const DD = pad(kolkata.getDate());
+          const HH = pad(kolkata.getHours());
+          const mm = pad(kolkata.getMinutes());
+          const ss = pad(kolkata.getSeconds());
+          return `${YYYY}-${MM}-${DD}T${HH}:${mm}:${ss}+05:30`;
         };
         const datePublished = formatKolkataDate(insight?.createdAt ? insight.createdAt : new Date());
         const dateModified = formatKolkataDate(new Date());
@@ -229,7 +234,7 @@ export default function InsightFormDrawerV2({ isOpen, onClose, insight, onSucces
             "@type": "Person",
             "name": "Subham Sarkar",
             "url": "https://subhamsarkar.dev",
-            "image": "https://subhamsarkar.dev/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmyimage_web.2lllflx3haezf.png"
+            "image": "https://subhamsarkar.dev/myimage_web.png"
           },
           "datePublished": datePublished,
           "dateModified": dateModified,

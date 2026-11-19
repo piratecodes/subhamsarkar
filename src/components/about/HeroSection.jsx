@@ -95,12 +95,14 @@ export default function HeroSection() {
               </span>
             </div>
             
-            <h1 className="font-display text-[36px] leading-[1.05] tracking-[-0.03em] font-black lg:text-[46px] drop-shadow-lg text-balance relative text-on-surface">
-              Systems That Don&apos;t Fall: <br />
-              <span className="relative inline-block text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-primary),var(--color-secondary),var(--color-primary))] bg-size-[200%_auto] animate-gradient-x drop-shadow-md">
-                The Decade-Long Evolution
-                {/* Glowing animated underline */}
-                <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-linear-to-r from-transparent via-primary to-transparent opacity-60 rounded-full blur-[2px] animate-pulse"></span>
+            <h1 className="font-display text-[32px] leading-[1.15] tracking-[-0.03em] font-black sm:text-[38px] lg:text-[44px] drop-shadow-lg text-balance relative text-on-surface">
+              <span>Systems That Don&apos;t Fall</span>
+              <span className="block mt-2 font-display text-[15px] sm:text-[18px] lg:text-[20px] font-bold tracking-tight">
+                <span className="relative inline-block text-transparent bg-clip-text bg-[linear-gradient(to_right,var(--color-primary),var(--color-secondary),var(--color-primary))] bg-size-[200%_auto] animate-gradient-x drop-shadow-md pb-1">
+                  Subham Sarkar · Software Architect &amp; Full-Stack Developer in Kolkata
+                  {/* Glowing animated underline glare */}
+                  <span className="absolute -bottom-0.5 left-0 w-full h-0.75 bg-linear-to-r from-transparent via-primary to-transparent opacity-75 rounded-full blur-[2px] animate-pulse"></span>
+                </span>
               </span>
             </h1>
             
@@ -122,7 +124,7 @@ export default function HeroSection() {
               
               {/* Below Text Spotlight Appearance */}
               <p className="font-sans text-[14px] lg:text-[15px] leading-[1.7] tracking-normal font-normal text-justify text-secondary border-l-2 border-surface-container-highest pl-4 py-2 bg-linear-to-r from-surface-container/30 to-transparent rounded-r-xl group-hover:border-primary/20 transition-colors duration-500 relative z-10">
-                For over a decade, I've built the full-stack systems that businesses run on quietly, in the background - custom ERP and CRM platforms, connected websites and mobile applications, and the everyday infrastructure that keeps growing companies from falling apart under their own weight. I don't build throwaway prototypes. I build things meant to still be running, unattended and unnoticed, years from now.
+                I’m Subham Sarkar, a software architect and full-stack developer in Kolkata. My journey began at 17 as a cybersecurity penetration tester, learning how systems break long before I built one. That’s why I build them the way I do: custom ERP and CRM platforms, connected websites and mobile apps, and AI automation for businesses across India, made to keep running, unattended and unnoticed, years from now. It’s also why I offer an <Link href="/services/application-security-audit" className="font-medium text-primary hover:text-on-surface underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors duration-200">application security audit</Link>.
               </p>
             </div>
             

@@ -50,7 +50,7 @@ export default async function Home() {
     })
   ]);
 
-  const schema = getHomePageSchema();
+  const schema = getHomePageSchema(settings);
 
   return (
     <>

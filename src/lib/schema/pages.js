@@ -4,7 +4,7 @@
  * All @id references use absolute IRIs with full naming to prevent "Unnamed item" in Google Rich Results.
  */
 
-import { BASE_URL, AREA_SERVED } from "./base";
+import { BASE_URL, AREA_SERVED, getPersonSchema } from "./base";
 import { services } from "@/data/services";
 import { servicesFaqs, processFaqs, contactFaqs } from "@/data/faqs";
 import { processPhases } from "@/data/processPhases";
@@ -27,7 +27,7 @@ const personRef = {
 /**
  * 1. Home (/) Schema
  */
-export function getHomePageSchema() {
+export function getHomePageSchema(settings) {
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
@@ -35,25 +35,27 @@ export function getHomePageSchema() {
     url: BASE_URL,
     name: "Subham Sarkar | Software Architect and ERP & CRM Developer",
     description: "Software architect and full stack developer portfolio building custom ERP, CRM, and distributed systems.",
+    dateCreated: "2026-10-10T00:00:00+05:30",
+    datePublished: "2026-10-10T00:00:00+05:30",
+    dateModified: "2026-11-18T00:00:00+05:30",
     isPartOf: websiteRef,
-    mainEntity: personRef,
-    dateModified: "2026-11-01"
+    mainEntity: getPersonSchema(settings)
   };
 }
 
 /**
  * 2. About (/about) Schema
  */
-export function getAboutPageSchema() {
+export function getAboutPageSchema(settings) {
   return {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     "@id": `${BASE_URL}/about#webpage`,
     url: `${BASE_URL}/about`,
-    name: "About | Subham Sarkar | Software Architect and ERP & CRM Developer",
-    description: "Learn about Subham Sarkar, Software Architect and Full Stack Developer building custom software systems.",
+    name: "About Subham Sarkar | Software Architect in Kolkata",
+    description: "Meet Subham Sarkar — software architect and full-stack developer in Kolkata with over a decade of experience building custom ERP, CRM, secure web and mobile applications, and AI automation for businesses across India.",
     isPartOf: websiteRef,
-    mainEntity: personRef
+    mainEntity: getPersonSchema(settings)
   };
 }
 
@@ -328,7 +330,7 @@ export function getInsightsPageSchema(insights = []) {
 /**
  * 8. Legal Pages (/privacy-policy, /terms-and-conditions) Schema
  */
-export function getLegalPageSchema({ title, description, path, dateModified = "2026-11-01" }) {
+export function getLegalPageSchema({ title, description, path, dateModified = "2026-11-01T00:00:00+05:30" }) {
   const webPage = {
     "@type": "WebPage",
     "@id": `${BASE_URL}${path}#webpage`,

@@ -101,6 +101,8 @@ export function getPersonSchema(settings) {
       "Software Architecture",
       "Custom Software Development",
       "Web and Mobile App Development",
+      "Application Security Audit",
+      "Application Security & Vulnerability Assessment",
       "AI Agent Integration",
       "Legacy System Migration",
       "Full-Stack Development",

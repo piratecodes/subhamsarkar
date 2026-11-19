@@ -63,7 +63,11 @@ export function buildMetadata({
   keywords,
   noIndex = false,
 } = {}) {
-  const metaTitle = title || DEFAULT_META.title;
+  // Support both plain string titles and Next.js { absolute: string } objects
+  const isAbsolute = typeof title === "object" && title !== null && "absolute" in title;
+  const titleString = isAbsolute
+    ? title.absolute
+    : (typeof title === "string" && title.trim() ? title.trim() : DEFAULT_META.title);
   const metaDescription = description || DEFAULT_META.description;
 
   // Resolve canonical URL
@@ -109,7 +113,7 @@ export function buildMetadata({
 
   // Build OpenGraph Object
   const openGraph = {
-    title: metaTitle,
+    title: titleString,
     description: metaDescription,
     url: canonicalUrl,
     siteName: DEFAULT_META.siteName,
@@ -130,14 +134,14 @@ export function buildMetadata({
   // Build Twitter Object
   const twitter = {
     card: "summary_large_image",
-    title: metaTitle,
+    title: titleString,
     description: metaDescription,
     images: [images[0].url], // Twitter uses the primary image
   };
 
   return {
     metadataBase: new URL(SITE_URL),
-    title: metaTitle,
+    title: title || DEFAULT_META.title,
     description: metaDescription,
     ...(normalizedKeywords.length > 0 && { keywords: normalizedKeywords }),
     alternates: {
