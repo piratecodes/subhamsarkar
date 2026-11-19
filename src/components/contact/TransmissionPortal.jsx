@@ -10,7 +10,7 @@ import Confetti from 'react-confetti';
 import toast from 'react-hot-toast';
 import { motion, AnimatePresence } from 'framer-motion';
 import { createLead } from "@/actions/leads";
-import { trackEvent } from "@/lib/tracking";
+import { trackEvent, trackLeadConversion } from "@/lib/tracking";
 
 const CustomCountrySelect = ({ value, onChange, options, iconComponent: Icon }) => {
   return (
@@ -165,6 +165,13 @@ export default function TransmissionPortal({ settings }) {
         duration: 6000,
       });
       trackEvent('form_submit', '/contact');
+      trackLeadConversion({
+        method: 'form',
+        source: 'contact_page',
+        details: {
+          project_scope: scopeValue || 'unspecified',
+        },
+      });
       
       // Reset standard HTML inputs (text, textarea, radio, checkbox)
       form.reset();

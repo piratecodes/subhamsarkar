@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mail, X, Fingerprint, MessageSquareText } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import MagneticButton from "@/components/MagneticButton";
+import { trackLeadConversion } from "@/lib/tracking";
 
 export default function FloatingContact({ settings }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,7 @@ export default function FloatingContact({ settings }) {
             href={`https://wa.me/${whatsappUrl}`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackLeadConversion({ method: 'whatsapp', source: 'floating_hub' })}
             initial={{ x: 0, y: 0, scale: 0.5, opacity: 0, rotate: -90 }}
             animate={{ x: waX, y: waY, scale: 1, opacity: 1, rotate: 0 }}
             exit={{ x: 0, y: 0, scale: 0.5, opacity: 0, rotate: 90 }}
@@ -76,6 +78,7 @@ export default function FloatingContact({ settings }) {
         {isOpen && settings?.email && (
           <motion.a
             href={emailUrl}
+            onClick={() => trackLeadConversion({ method: 'email', source: 'floating_hub' })}
             initial={{ x: 0, y: 0, scale: 0.5, opacity: 0, rotate: -90 }}
             animate={{ x: emX, y: emY, scale: 1, opacity: 1, rotate: 0 }}
             exit={{ x: 0, y: 0, scale: 0.5, opacity: 0, rotate: 90 }}
