@@ -54,6 +54,7 @@ export default function WebVitals() {
       metric_rating: metric.rating, // 'good' | 'needs-improvement' | 'poor'
       metric_id: metric.id, // unique per pageview
       metric_delta: metric.delta,
+      page_path: typeof window !== "undefined" ? window.location.pathname : "",
     });
   });
 
