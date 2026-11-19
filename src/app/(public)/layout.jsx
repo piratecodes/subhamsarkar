@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import FloatingContact from "@/components/FloatingContact";
 import PushNotificationManager from "@/components/PushNotificationManager";
+import WebVitals from "@/components/WebVitals";
 import { Toaster } from 'react-hot-toast';
 import { Partytown } from "@qwik.dev/partytown/react";
 import { GoogleTagManager } from '@next/third-parties/google';
@@ -155,6 +156,7 @@ export default async function RootLayout({ children }) {
         <JsonLd data={globalSchema} />
         <CustomCursor />
         <PushNotificationManager />
+        <WebVitals />
         <FloatingContact settings={settings} />
         <Toaster
           position="top-right"
