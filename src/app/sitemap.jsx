@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 // Update these date constants whenever a static page's content changes
 const PAGE_LASTMOD = {
