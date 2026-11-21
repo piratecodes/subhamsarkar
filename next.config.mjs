@@ -1,11 +1,11 @@
 const isProd = process.env.NODE_ENV === 'production';
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://browser-update.org;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://tagassistant.google.com https://www.google-analytics.com https://static.cloudflareinsights.com https://browser-update.org https://assets.apollo.io;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagassistant.google.com;
   img-src 'self' blob: data: https:;
   font-src 'self' https://fonts.gstatic.com data:;
-  connect-src 'self' https: wss: ws: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cloudflareinsights.com;
+  connect-src 'self' https: wss: ws: https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://cloudflareinsights.com https://*.apollo.io https://assets.apollo.io https://app.apollo.io;
   worker-src 'self' blob:;
   child-src 'self' blob:;
   frame-src 'self' https://www.googletagmanager.com https://tagassistant.google.com;
