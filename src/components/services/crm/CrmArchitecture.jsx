@@ -5,49 +5,49 @@ export default function CrmArchitecture() {
     {
       num: "01",
       icon: Zap,
-      title: "5-Second WhatsApp & SMS Auto-Replies to New Leads",
-      subtitle: "Instant lead capture from your website, Google, Meta, and WhatsApp",
-      body: "Never lose a high-intent buyer to delayed responses. When someone fills out an inquiry form or messages your business, they receive an immediate personalized WhatsApp greeting with your catalog or booking link, while the lead is assigned to the right sales rep on duty.",
+      title: "Automatic WhatsApp and SMS Replies to New Leads",
+      subtitle: "Lead capture from your website, Google, Meta and WhatsApp",
+      body: "Never lose a high-intent buyer to a slow response. When someone fills in an enquiry form or messages your business, they can receive an automatic, personalized WhatsApp greeting with your catalog or booking link, while the lead is assigned to the right sales rep on duty.",
       bullets: [
-        "Official WhatsApp Business Cloud API & transactional SMS integration",
-        "Fair lead distribution rules: round-robin, by territory, or by deal size",
-        "Instant notification pings pushed to reps on their mobile phones and laptops"
+        "WhatsApp Business Cloud API and transactional SMS integration, where required",
+        "Fair lead distribution: round-robin, by territory or by deal size",
+        "Notifications sent to reps on their phones and laptops"
       ]
     },
     {
       num: "02",
       icon: MessageSquare,
       title: "Complete Customer History in One Timeline",
-      subtitle: "Every call recording, message, email, and quotation in one place",
-      body: "Say goodbye to scattered client records. Every lead and customer gets a single, searchable profile that automatically logs call recordings, email exchanges, WhatsApp chats, quote revisions, and visit notes so any team member can step in with full context.",
+      subtitle: "Every message, email and quotation in one place",
+      body: "Say goodbye to scattered client records. Every lead and customer gets one searchable profile that logs email exchanges, WhatsApp chats, quote revisions and visit notes, and call records where call integration is set up, so any team member can step in with full context.",
       bullets: [
-        "Full conversation history preserved even when individual sales reps resign",
-        "Centralized files: stores customer KYC docs, contracts, drawings, and photos",
-        "Automated follow-up task reminders so no deal ever slips through the cracks"
+        "Full conversation history stays with the company when a sales rep leaves",
+        "Central file storage for customer KYC documents, contracts, drawings and photos",
+        "Automated follow-up reminders so no deal slips through"
       ]
     },
     {
       num: "03",
       icon: FileText,
-      title: "Instant PDF Quotes with Custom Pricing & GST",
-      subtitle: "Generate professional quotes in 30 seconds with digital signing",
-      body: "Generate error-free quotations in seconds instead of wasting half an hour on Excel. The system calculates your tiered volume discounts, state GST rates, and approval limits automatically, sending a branded PDF directly to the customer with an online acceptance link.",
+      title: "PDF Quotations with Custom Pricing and GST",
+      subtitle: "Professional quotes in minutes, with online acceptance",
+      body: "Create error-free quotations in minutes instead of half an hour in Excel. The system applies your tiered volume discounts, state GST rates and approval limits, then sends a branded PDF to the customer with an online acceptance link.",
       bullets: [
-        "Manager approval triggers for quotes exceeding standard discount limits",
-        "One-click digital signature acceptance directly from the customer's phone",
-        "Automatic order creation the moment the client approves the quotation"
+        "MManager approval for quotes above standard discount limits",
+        "Online acceptance from the customer's phone",
+        "An order created automatically once the client accepts"
       ]
     },
     {
       num: "04",
       icon: Users,
-      title: "Unlimited Staff Logins & Zero Monthly Fees",
-      subtitle: "Give your entire team access without paying ₹15,000/month per seat",
-      body: "We deploy the CRM on your company's own private cloud. Add your sales reps, telecallers, support staff, warehouse dispatchers, and billing team with zero additional monthly software fees, backed by clear role-based access rules.",
+      title: "Unlimited Staff Logins for Your Whole Team",
+      subtitle: "Give every team member access without seat limits",
+      body: "The CRM is hosted and managed in a production environment chosen for your requirements. Add your sales reps, telecallers, support staff, warehouse dispatchers and billing team without seat limits, backed by clear role-based access rules.",
       bullets: [
-        "Unlimited users, contacts, and deal stages with zero recurring license costs",
-        "Territory permissions: reps only see leads assigned to their area",
-        "Full audit logging showing who viewed, edited, or exported customer records"
+        "Unlimited users, contacts and deal stages",
+        "Territory permissions: reps see only leads assigned to their area",
+        "Audit logging of who viewed, edited or exported customer records"
       ]
     }
   ];
@@ -69,7 +69,7 @@ export default function CrmArchitecture() {
             Core Pillars of Custom CRM Software Development.
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Every screen is engineered around your team's real sales workflow. Here is how our custom lead management system turns inquiries into paying customers faster.
+            Every screen is engineered around your team's real sales workflow. Here is how a custom lead management system turns enquiries into paying customers faster.
           </p>
         </div>
 

@@ -6,37 +6,37 @@ export default function CrmProcess() {
       phase: "PHASE 01",
       duration: "STAGE 01",
       icon: GitCommit,
-      title: "Sales Process & Ingestion Audit",
+      title: "Sales Process and Lead Source Audit",
       description:
-        "We review your current lead channels (Meta Ads, Google, website forms, WhatsApp) and sales stages. We map out qualification criteria, lead assignment rules, and instant notification triggers.",
-      deliverable: "Pipeline Specification, Ingestion Architecture, and Wireframes"
+        "We review your current lead channels (Meta Ads, Google, website forms, WhatsApp) and sales stages. We map qualification criteria, lead assignment rules and notification triggers.",
+      deliverable: "A pipeline specification, a lead-intake design and wireframes, reviewed with you before build."
     },
     {
       phase: "PHASE 02",
       duration: "STAGE 02",
       icon: Calendar,
-      title: "Pipeline & Messaging Engine Prototype",
+      title: "Pipeline and Messaging Engine Prototype",
       description:
-        "We build the core CRM database, webhook listeners, and official WhatsApp Business Cloud API integration. Your team accesses a private staging environment to test live lead capture and automated response dispatch.",
-      deliverable: "Private Staging Alpha + Automated WhatsApp/Email Test Sandbox"
+        "We build the core CRM database, the lead-capture connections and the WhatsApp Business Cloud API integration where required. Your team gets a private test environment to try live lead capture and automatic replies.",
+      deliverable: "A private test version with a WhatsApp and email test setup."
     },
     {
       phase: "PHASE 03",
       duration: "STAGE 03",
       icon: Shield,
-      title: "Quotation Engine & Customer Timeline Build",
+      title: "Quotation Engine and Customer Timeline Build",
       description:
-        "We build the custom quotation generator, branded PDF maker, digital signature approval, and the complete client interaction timeline.",
-      deliverable: "Automated Quotation Engine + Tested E-Signature Flow"
+        "We build the quotation generator, the branded PDF, online acceptance and the complete client interaction timeline.",
+      deliverable: "A working quotation flow with tested online acceptance."
     },
     {
       phase: "PHASE 04",
       duration: "STAGE 04",
       icon: Rocket,
-      title: "Contact Migration & Production Launch",
+      title: "Contact Migration and Production Launch",
       description:
-        "We clean up, deduplicate, and import your existing contact history from legacy software or spreadsheets into the new CRM. We run hands-on training for your sales reps and provide 30 days of direct support.",
-      deliverable: "Full Git IP Transfer, Contact Migration, and 30-Day Post-Launch Support"
+        "We clean, de-duplicate and import your existing contacts from old software or spreadsheets, checking them against your records. We train your sales reps and provide 30 days of direct support after launch.",
+      deliverable: "The production system, migrated contacts and 30 days of post-launch support"
     }
   ];
 
@@ -51,10 +51,10 @@ export default function CrmProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How Your Custom CRM Is Engineered &amp; Deployed
+            How a Custom CRM Development Project Runs, Step by Step
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and pipeline requirements.
+            You work directly with the architect through clear, reviewable milestones. I design the architecture and review every delivery myself, with developers I work with handling the build. Timelines depend on your scope and are agreed after a short conversation.
           </p>
         </div>
 

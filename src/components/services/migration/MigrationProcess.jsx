@@ -6,37 +6,37 @@ export default function MigrationProcess() {
       phase: "PHASE 01",
       duration: "STAGE 01",
       icon: GitCommit,
-      title: "Monolith & Schema Forensic Audit",
+      title: "System and Data Assessment",
       description:
-        "We analyze old database tables, stored procedures, and hidden software quirks. We map out the clean modern database design and decide which parts to replace first.",
-      deliverable: "Forensic Audit Report, Schema Mapping Matrix, and Migration Plan"
+        "We study your database tables, stored procedures, spreadsheets and hidden software quirks. We map a clean modern design and decide what to keep, improve, replace or rebuild first.",
+      deliverable: "An assessment report, a data mapping and a modernization plan, reviewed with you before build."
     },
     {
       phase: "PHASE 02",
       duration: "STAGE 02",
       icon: Calendar,
-      title: "Traffic Router & Parallel Sync Setup",
+      title: "Routing and Parallel Sync Setup",
       description:
-        "We set up an intelligent router in front of your legacy app and start saving live entries into both systems at the same time. The new system stays continuously up-to-date in real time.",
-      deliverable: "Active Dual-Write Queue + Replicated Staging Database"
+        "Where the system allows it, we place a routing layer in front of the legacy app and begin recording live entries in both systems, so the new one stays current.",
+      deliverable: "A working sync and a staging copy of your data."
     },
     {
       phase: "PHASE 03",
       duration: "STAGE 03",
       icon: Shield,
-      title: "Live Shadow Testing & Output Checks",
+      title: "Shadow Testing and Output Checks",
       description:
-        "Both systems process real customer requests in the background. Automated checks compare calculations and numbers between both systems to guarantee 100% accuracy before any users switch.",
-      deliverable: "Shadow Verification Report & Mathematical Parity Attestation"
+        "Both systems handle real requests in the background, and automated checks compare calculations and totals between them, so differences are fixed before any users switch.",
+      deliverable: "A verification report showing how the old and new results compare."
     },
     {
       phase: "PHASE 04",
       duration: "STAGE 04",
       icon: Rocket,
-      title: "Gradual Cutover & Old System Retirement",
+      title: "Staged Cutover and Old System Retirement",
       description:
-        "We move users in small, controlled stages (5% to 100%) during regular office hours with an instant 1-click fallback safety net, followed by retiring the old server and providing 30 days of direct support.",
-      deliverable: "Zero-Downtime Cutover, Legacy Decommissioning, and 30-Day Post-Launch Support"
+        "We move users in small, controlled stages during regular office hours with a rollback plan ready, then retire the old server and provide 30 days of direct support after launch.",
+      deliverable: "The staged cutover, retirement of the old system and 30 days of post-launch support."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function MigrationProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How Legacy Modernization Is Engineered &amp; Deployed
+            How a Legacy Software Modernization Project Runs, Step by Step
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and database complexity.
+            You work directly with the architect through clear, reviewable milestones. I design the architecture and review every delivery myself, with developers I work with handling the build. Timelines depend on your system and are agreed after a short conversation.
           </p>
         </div>
 

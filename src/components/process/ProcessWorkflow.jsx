@@ -193,10 +193,10 @@ export default function ProcessWorkflow() {
             </span>
           </div>
           <h2 className="font-display text-[36px] lg:text-[48px] leading-[1.15] tracking-[-0.02em] font-bold text-on-surface max-w-4xl">
-            A Clear, Proven Process for Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Custom Software</span> That Lasts
+            The Custom Software Development Process: <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">Five Clear Phases</span>
           </h2>
           <p className="font-sans text-[16px] lg:text-[18px] leading-relaxed tracking-[-0.005em] font-medium text-secondary max-w-6xl">
-            Every ERP, CRM, or custom software project follows the same five-phase process - from understanding your business and planning the right architecture, to building, testing, and a full handover once everything is live. No fixed timelines, because no two businesses - or their systems - are the same. What stays constant is how the work gets done: clearly, in stages, with you informed at every step.
+            Every ERP, CRM or custom software project follows the same five-phase process, from understanding your business and planning the right architecture, to building, testing and launch with support. There are no fixed timelines, because no two businesses or their systems are the same. What stays constant is how the work gets done: clearly, in stages, with you informed at every step.
           </p>
         </div>
 

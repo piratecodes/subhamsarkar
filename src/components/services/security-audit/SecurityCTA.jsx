@@ -21,11 +21,11 @@ export default function SecurityCTA() {
             </span>
             
             <h2 className="font-display text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Ready to Secure Your System Architecture?
+              Ready to Audit Your Application's Security?
             </h2>
 
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Skip generic scanner reports that fix nothing. Work directly with Subham Sarkar to audit, remediate, and harden your application with direct code pull requests and verified test suites.
+              Skip scan-only reports that fix nothing. Work directly with the architect to test, fix and retest your application, with code changes for your team to review.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function SecurityCTA() {
             </span>
             <span className="flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-primary" />
-              Production-Ready Code Remediations
+              Code Fixes for Your Review
             </span>
           </div>
 

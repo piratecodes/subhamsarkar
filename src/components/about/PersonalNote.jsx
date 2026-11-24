@@ -55,7 +55,7 @@ export default function PersonalNote() {
         <div className="relative py-4">
           <span className="absolute top-0 left-4 lg:-left-4 text-6xl text-primary/20 font-serif leading-none animate-float-gentle">"</span>
           <p className="font-sans text-[18px] lg:text-[20px] leading-[32px] tracking-[-0.01em] font-medium text-secondary/90 leading-relaxed italic max-w-3xl mx-auto relative z-10">
-            Beyond the code and structural calculations, what drives this work is craft. In an industry filled with ephemeral prototypes, there is genuine honor in creating software infrastructure that quietly, flawlessly runs a company&apos;s livelihood year after year without making headlines.
+            Beyond the code and structural calculations, what drives this work is craft. In an industry filled with ephemeral prototypes, there is genuine honor in creating software infrastructure that quietly and reliably runs a company&apos;s livelihood year after year without making headlines.
           </p>
           <span className="absolute bottom-0 right-4 lg:-right-4 text-6xl text-primary/20 font-serif leading-none animate-float-gentle" style={{ animationDelay: '2s' }}>"</span>
         </div>

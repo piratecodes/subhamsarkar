@@ -21,7 +21,7 @@ export default function StudioElevation() {
                 Based in Kolkata, Working With Clients Everywhere
               </h2>
               <p className="font-sans text-[16px] leading-7 text-secondary">
-                Headquartered in Kolkata, India — working with businesses across time zones, in person or remotely, wherever the project needs.
+                Based in Kolkata, India, working with businesses across India and worldwide, in person or remotely, wherever the project needs.
               </p>
             </div>
             
@@ -75,7 +75,7 @@ export default function StudioElevation() {
             <div className="w-full relative z-10 rounded-[2rem] overflow-hidden shadow-xl border border-surface-container-highest bg-surface-container group-hover:shadow-2xl group-hover:border-primary/40 transition-all duration-700 ease-out transform group-hover:-rotate-1 group-hover:scale-[1.02]">
               <Image 
                 src={architectureDiagram}
-                alt="Architectural Diagram" 
+                alt="Diagram showing how ERP, CRM, web app and automation layers connect in one system" 
                 className="w-full h-auto transition-transform duration-1000 group-hover:scale-110"
                 placeholder="blur"
                 sizes="(max-width: 1024px) 100vw, 60vw"

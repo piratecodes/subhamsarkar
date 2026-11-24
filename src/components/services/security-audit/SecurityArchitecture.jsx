@@ -5,49 +5,49 @@ export default function SecurityArchitecture() {
     {
       num: "01",
       icon: ShieldCheck,
-      title: "Hands-On API & Login Security Inspection",
+      title: "Hands-On API and Login Security Testing",
       subtitle: "Thorough testing of business logic, authentication, and database queries",
-      body: "We test your application just like an ethical hacker would. We examine login sessions, password resets, token storage, URL parameter tampering, and form injections to discover real vulnerabilities before malicious actors do.",
+      body: "I test your application the way an attacker would: login sessions, password resets, token storage, URL parameter tampering and form injections, to find real weaknesses before others do.",
       bullets: [
-        "Checks all public and private API endpoints and input validation rules",
-        "Tests session handling, password reset links, and authentication tokens",
-        "Covers OWASP Top 10 vulnerabilities with verified proof-of-concept tests"
+        "Checks public and private API endpoints and input validation rules",
+        "Tests session handling, password reset links and authentication tokens",
+        "Covers common web risks, including those in the OWASP Top 10, with proof for each finding"
       ]
     },
     {
       num: "02",
       icon: Lock,
-      title: "Lock Down Customer & Tenant Data",
-      subtitle: "Enforcing data boundaries at the database engine level",
-      body: "Security belongs in your database, not just frontend styling. We implement strict data access rules ensuring that no user, employee, or compromised link can ever view another customer's private invoices, contracts, or account balances.",
+      title: "Customer and Tenant Data Access Checks",
+      subtitle: "Checking that data boundaries hold at the database level",
+      body: "Security belongs in your database as well as the interface. I check, and where needed help implement, strict data access rules so that no user, employee or shared link can view another customer's private invoices, contracts or account balances.",
       bullets: [
-        "Prevents horizontal privilege leaks (changing IDs in URLs to view other accounts)",
-        "Clear permission rules: staff only view the exact records their role permits",
-        "Least-privilege cloud server and database connection access"
+        "Checks for horizontal privilege leaks (changing IDs in URLs to see other accounts)",
+        "Clear permission rules: staff see only the records their role permits",
+        "Least-privilege access for cloud servers and database connections"
       ]
     },
     {
       num: "03",
       icon: Key,
-      title: "Smart Bot Defenses & Rate Limiting",
-      subtitle: "Automatically blocks brute-force password attacks and form spam",
-      body: "Protect your infrastructure from automated bot attacks and credential stuffing. We set up smart rate-limiters and IP filters that block attack scripts automatically without slowing down real, legitimate customers.",
+      title: "Bot Defenses and Rate Limiting",
+      subtitle: "Reduce brute-force password attacks and form spam",
+      body: "Protect your system from automated attacks and credential stuffing. Rate limits and IP filters are set up to block attack scripts with minimal impact on real customers.",
       bullets: [
-        "Stops attackers from guessing passwords or spamming OTP forms",
-        "Prevents surprise cloud server bill spikes caused by bot traffic loops",
-        "Protects checkout, registration, and inquiry forms from automated spam"
+        "Makes password guessing and OTP form spam much harder",
+        "Helps prevent surprise cloud bill spikes from bot traffic loops",
+        "Protects checkout, registration and inquiry forms from automated spam"
       ]
     },
     {
       num: "04",
       icon: FileCheck,
-      title: "Ready-to-Merge Code Fixes & Attestation Report",
-      subtitle: "Direct Pull Requests with code patches, not just a useless PDF",
-      body: "We do not leave you with a list of unsolved problems. I personally write and test the exact code patches required to fix every discovered issue, followed by a signed Security Attestation Report for your enterprise clients and investors.",
+      title: "Code Fixes and a Written Verification Report",
+      subtitle: "Code changes for your review, not just a PDF",
+      body: "A list of problems is not enough. For each issue found, I prepare the code change needed to fix it, for your developers to review and merge, then retest. You receive a written report of what was found, what was fixed and what remains open, which you can share with clients and investors.",
       bullets: [
-        "Production-ready Pull Requests with code fixes and automated security tests",
-        "Signed Attestation Report certifying verified closure of all findings",
-        "Assistance with enterprise security questionnaires (SOC 2, ISO 27001 readiness)"
+        "Code fixes as Pull Requests, with automated tests where possible",
+        "A written report of findings, fixes and retest results",
+        "Help answering your enterprise clients' security questionnaires"
       ]
     }
   ];
@@ -66,10 +66,10 @@ export default function SecurityArchitecture() {
             <span>HOW THE AUDIT WORKS // CORE CAPABILITIES</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            Real Defense, Built Directly into Your Code.
+            Application Security Audit: Testing, Fixes and Retest
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Every step is designed to expose real weaknesses, write permanent code remediations, and prove security compliance to your clients.
+            Every step is designed to expose real weaknesses, deliver clear fixes and confirm that they work.
           </p>
         </div>
 

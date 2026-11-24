@@ -5,23 +5,23 @@ export default function WebMobileArchitecture() {
     {
       num: "01",
       icon: Database,
-      title: "Works 100% Offline (Auto-Syncs When Reconnected)",
-      subtitle: "Staff continue working without interruptions, even in dead zones",
-      body: "Staff can record orders, take customer signatures, and snap photos even with zero mobile signal. The app saves everything on the phone safely and automatically uploads to your main database the moment internet returns - without any lost entries.",
+      title: "Offline-First App Development That Syncs on Reconnect",
+      subtitle: "Work carries on in low-coverage areas",
+      body: "Staff can record orders, capture customer signatures and take photos with no signal. The app stores everything on the device and sends it to your main database once the connection returns, with clear rules for records edited in two places.",
       bullets: [
         "Saves all orders, photos, and signatures locally on the device",
-        "Automatic background upload the moment 4G or Wi-Fi is detected",
-        "Zero data loss during cellular dropouts or basement work"
+        "Automatic sync on reconnect (on iPhone, while the app is open)",
+        "Protection against lost entries during signal dropouts"
       ]
     },
     {
       num: "02",
       icon: RefreshCw,
-      title: "Live Instant Updates Across Web & Mobile",
-      subtitle: "Changes appear on office screens in under a second",
-      body: "No more constant manual page refreshing. When an order status updates or a field worker completes a delivery, the change appears on office desktop screens in under a second.",
+      title: "Live Updates Across Web and Mobile Applications",
+      subtitle: "Office screens reflect field updates",
+      body: "No more manual refreshing. When an order status changes or a delivery is completed, the update reaches the office screens as soon as the device is online.",
       bullets: [
-        "Instant push notifications and order status alerts",
+        "Order status alerts and push notifications where the device supports them",
         "Fast screen response times designed to work on low-cost Android phones",
         "Low mobile data consumption optimized for patchy cellular networks"
       ]
@@ -29,13 +29,13 @@ export default function WebMobileArchitecture() {
     {
       num: "03",
       icon: Cpu,
-      title: "Single Shared Rulebook for Web, Android & iPhone",
+      title: "One Shared Rulebook for Your Web and Mobile Apps",
       subtitle: "Identical pricing, taxes, and discounts on every screen",
-      body: "Instead of writing pricing, discounts, and GST logic three separate times in different programming languages, we write the rules once. Your website and mobile apps always calculate identical numbers.",
+      body: "Instead of writing pricing, discount and GST logic three separate times, the rules are written once. Your website and installed apps calculate identical numbers.",
       bullets: [
         "One central source for pricing, GST, and customer fields",
         "Update business rules instantly without waiting for app store reviews",
-        "Zero discrepancy between what a rep quotes and what the bill shows"
+        "No gap between what a rep quotes and what the bill shows"
       ]
     },
     {
@@ -43,7 +43,7 @@ export default function WebMobileArchitecture() {
       icon: Lock,
       title: "Clear, Role-Based Staff Permissions",
       subtitle: "Each employee sees only what they need to do their job",
-      body: "Field reps only see the daily routes and customers assigned to them. Store managers see their store's figures, and business owners see overall performance across all branches - with a complete history of every change.",
+      body: "Field reps only see the daily routes and customers assigned to them. Store managers see their store's figures, and business owners see overall performance across all branches, with a complete history of every change.",
       bullets: [
         "Simple, secure logins with role-specific dashboards",
         "Prevents unauthorized employees from viewing sensitive financial margins",

@@ -6,7 +6,7 @@ export default function CoreTraits() {
       num: "TRAIT-01",
       icon: Palette,
       title: "The Craftsman's Eye",
-      desc: "Every interface, every workflow, every screen a client will use is considered the way a designer considers a room - not just 'does it work,' but 'does it feel right to use, every day.'",
+      desc: "Every interface, every workflow, every screen a client will use is considered the way a designer considers a room. not just 'does it work,' but 'does it feel right to use, every day.'",
       footer: "Interfaces people actually enjoy using"
     },
     {

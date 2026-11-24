@@ -6,37 +6,37 @@ export default function AiProcess() {
       phase: "PHASE 01",
       duration: "STAGE 01",
       icon: GitCommit,
-      title: "Workflow & Data Boundary Audit",
+      title: "Workflow and Data Audit",
       description:
-        "We review your daily office tasks, sample documents (invoices, contracts, emails), and decision paths. We identify sensitive customer records and set up strict private boundaries.",
-      deliverable: "Agent Specification Blueprint, Privacy Boundary Matrix, and Test Corpus"
+        "We review your daily office tasks, sample documents such as invoices, contracts and emails, and your decision paths. We identify sensitive records and set clear boundaries for how they are handled.",
+      deliverable: "An agent specification, a privacy boundary map and a test set of real documents."
     },
     {
       phase: "PHASE 02",
       duration: "STAGE 02",
       icon: Calendar,
-      title: "Private Inference & Schema Engineering",
+      title: "Private Setup and Validation Rules",
       description:
-        "We set up private self-hosted AI servers on your cloud with zero data logging. We build strict validation rules so the AI only executes approved database actions.",
-      deliverable: "Private Inference Sandbox + Validated Function Calling Suite"
+        "We set up the AI environment, private where your data requires it, and write strict validation rules so the system can perform only approved actions on your records.",
+      deliverable: "A working test environment and a validated set of approved actions."
     },
     {
       phase: "PHASE 03",
       duration: "STAGE 03",
       icon: Shield,
-      title: "Document Reading & Stress Evaluation",
+      title: "Testing on Real Messy Documents",
       description:
-        "We test with hundreds of real messy documents - crumpled receipts, blurry phone photos, and multi-page invoices. We connect the instant WhatsApp and Slack approval buttons for managers.",
-      deliverable: "Automated Ingestion Pipeline + Interactive Approval Gateway"
+        "We test with a large set of real documents: crumpled receipts, blurry phone photos and multi-page invoices. We then connect the WhatsApp and Slack approval buttons for managers.",
+      deliverable: "An automated intake pipeline and a working approval gateway."
     },
     {
       phase: "PHASE 04",
       duration: "STAGE 04",
       icon: Rocket,
-      title: "Production Deployment & 30-Day Hypercare",
+      title: "Production Launch and 30-Day Support",
       description:
-        "We roll out the system live on your cloud servers. We set up live accuracy and cost monitoring, transfer 100% of the repository code, and provide 30 days of active support.",
-      deliverable: "Full Git IP Transfer, Telemetry Dashboard, and 30-Day Post-Launch Support"
+        "We launch the system in a production environment chosen for your requirements, set up monitoring for accuracy and cost, and provide 30 days of active support after launch.",
+      deliverable: "The production system, a monitoring dashboard and 30 days of post-launch support."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function AiProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How Your AI Automation Is Engineered &amp; Deployed
+            How a Business Process Automation Project Runs, Step by Step
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and model requirements.
+            You work directly with the architect through clear, reviewable milestones. I design the architecture and review every delivery myself, with developers I work with handling the build. Timelines depend on your scope and are agreed after a short conversation.
           </p>
         </div>
 

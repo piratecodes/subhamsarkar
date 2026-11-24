@@ -7,7 +7,7 @@ export default function DisciplineStrip() {
       title: "Custom ERP Software Development",
       spec: "[SPEC-01]",
       icon: Workflow,
-      desc: "Readymade software rarely fits the way a business actually runs. Custom ERP development brings inventory, GST billing and daily operations into one system, with no per-user licence fees.",
+      desc: "Readymade software rarely fits the way a business actually runs. Custom ERP development brings inventory, GST billing and daily operations into one system built around how you work, with unlimited staff logins.",
       stat: "BUILT AROUND YOUR BUSINESS",
       href: "/services/custom-erp-development"
     },

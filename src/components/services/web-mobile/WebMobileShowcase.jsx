@@ -27,10 +27,10 @@ export default function WebMobileShowcase({ projects = [] }) {
               <span className="text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium">[PORTFOLIO-EXCERPTS]</span>
             </div>
             <h2 className="font-display text-[34px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-              Proven Web &amp; Mobile Systems in Production.
+              Web and Mobile Application Projects
             </h2>
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Architectural blueprints engineered by Subham Sarkar where field mobile applications and web administrative consoles communicate with zero data discrepancy or downtime.
+              Selected platforms designed and built end to end by Subham Sarkar, from the public website and secure backend to the team admin panel.
             </p>
           </div>
 

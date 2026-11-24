@@ -56,19 +56,19 @@ export default function WebMobileHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display text-[44px] sm:text-[54px] lg:text-[68px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Custom Web Application &amp; Mobile App Development That Stays in Sync Everywhere.
+              Web and Mobile Application Development, Including PWAs and Offline Sync
             </h1>
             
-            <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              High-performance web applications and mobile apps that keep running even with zero cellular reception. Engineered by Subham Sarkar, unified web and mobile applications deliver offline-first synchronization, shared business logic, and zero recurring platform lock-in.
+            <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-4xl text-balance">
+              I design and deliver web apps, installable PWAs and admin panels for businesses whose teams work on the move or with a weak signal. One build runs on Android, iPhone, tablets and laptops.<br/> Work is saved on the device when the signal drops and synced when the connection returns.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
             <div className="flex flex-wrap gap-2.5 pt-2">
               {[
-                { icon: WifiOff, label: "100% Offline-First Architecture (Auto-Syncs)" },
-                { icon: RefreshCw, label: "Real-Time Cloud Synchronization" },
-                { icon: ShieldCheck, label: "Unified Web & Mobile App Development" }
+                { icon: WifiOff, label: "100% Offline-first design" },
+                { icon: RefreshCw, label: "One build for web, Android and iPhone" },
+                { icon: ShieldCheck, label: "Data synced across web and installed apps" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
                 return (
@@ -105,7 +105,7 @@ export default function WebMobileHero() {
             {/* Micro-guarantee */}
             <div className="pt-2 flex items-center gap-3 text-secondary font-sans text-[12px] leading-4">
               <span className="flex items-center gap-1.5 text-primary font-semibold">
-                <CheckCircle2 className="w-4 h-4" /> 100% Code Handover
+                <CheckCircle2 className="w-4 h-4" /> Direct Architect Responsibility
               </span>
               <span className="text-surface-container-highest">•</span>
               <span>iOS, Android &amp; Web</span>
@@ -142,7 +142,7 @@ export default function WebMobileHero() {
                     <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Field Mode</span>
                     <WifiOff className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-on-surface tracking-tight">100% OFFLINE</div>
+                  <div className="text-[18px] font-bold text-on-surface tracking-tight">SAVED ON DEVICE</div>
                   <div className="text-[10px] text-emerald-400 font-sans font-medium flex items-center gap-1">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
                     Local Device Storage
@@ -151,10 +151,10 @@ export default function WebMobileHero() {
 
                 <div className="p-3.5 rounded-xl bg-surface-container border border-surface-container-highest/60 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Sync Speed</span>
+                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Sync Mode</span>
                     <RefreshCw className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-primary tracking-tight">&lt; 100ms</div>
+                  <div className="text-[18px] font-bold text-primary tracking-tight">On reconnect</div>
                   <div className="text-[10px] text-secondary font-sans">Multi-Device Live Sync</div>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export default function WebMobileHero() {
                     <span className="text-emerald-400 font-semibold text-[10px]">ALL SCREENS MATCH</span>
                   </div>
                   <div className="text-[10px] text-secondary truncate">
-                    Web Dashboard • iOS Driver App • Customer Status
+                    Web Dashboard • Installed Field App • Customer Status
                   </div>
                 </div>
               </div>

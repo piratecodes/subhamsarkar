@@ -36,7 +36,7 @@ export default function MigrationHero() {
               CORE DISCIPLINE // SPEC: 05
             </span>
             <span className="font-display text-[11px] leading-4 tracking-widest text-secondary font-medium px-2.5 py-1 bg-surface-container rounded border border-surface-container-highest">
-              LEGACY SOFTWARE MIGRATION
+              LEGACY MODERNIZATION
             </span>
           </div>
 
@@ -56,18 +56,18 @@ export default function MigrationHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display text-[44px] sm:text-[54px] lg:text-[68px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Zero-Downtime Software Modernization &amp; Legacy System Migration.
+              Legacy Software Modernization Services, Done in Safe Stages
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Safely replace slow, fragile software and fragmented spreadsheets without pausing daily business operations. Engineered by Subham Sarkar, zero-downtime software modernization migrates decades of legacy database records to modern cloud infrastructure using parallel dual-writing verification and staged cutovers with zero data loss.
+              Legacy software modernization for businesses running on slow, fragile software, outdated websites or spreadsheets, without stopping daily operations. I start with an assessment of what to keep, improve or rebuild, then move your data and users to modern systems in staged steps, comparing old and new side by side before anyone switches.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
             <div className="flex flex-wrap gap-2.5 pt-2">
               {[
-                { icon: ArrowRightLeft, label: "Zero Downtime (Dual-Writing Verification)" },
-                { icon: ShieldCheck, label: "100% Data Fidelity Guarantee" },
+                { icon: ArrowRightLeft, label: "Designed for Minimal Disruption" },
+                { icon: ShieldCheck, label: "Records Reconciled Before Cutover" },
                 { icon: RefreshCw, label: "Step-by-Step Software Modernization" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
@@ -105,12 +105,12 @@ export default function MigrationHero() {
             {/* Micro-guarantee */}
             <div className="pt-2 flex items-center gap-3 text-secondary font-sans text-[12px] leading-4">
               <span className="flex items-center gap-1.5 text-primary font-semibold">
-                <CheckCircle2 className="w-4 h-4" /> 100% Data Fidelity Guarantee
+                <CheckCircle2 className="w-4 h-4" /> Records Checked Before Cutover
               </span>
               <span className="text-surface-container-highest">•</span>
-              <span>Instant Rollback Safety Net</span>
+              <span>Rollback Plan Ready</span>
               <span className="text-surface-container-highest">•</span>
-              <span>30-Day Post-Launch Support</span>
+              <span>30-Day Post-Launch</span>
             </div>
           </div>
 
@@ -131,7 +131,7 @@ export default function MigrationHero() {
                   </span>
                 </div>
                 <span className="font-display text-[9.5px] leading-3 tracking-widest font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">
-                  ZERO DOWNTIME
+                  STAGED CUTOVER
                 </span>
               </div>
 
@@ -139,13 +139,13 @@ export default function MigrationHero() {
               <div className="grid grid-cols-2 gap-3 font-mono">
                 <div className="p-3.5 rounded-xl bg-surface-container border border-surface-container-highest/60 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Data Parity</span>
+                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Data Check</span>
                     <Database className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-on-surface tracking-tight">100.00% MATCH</div>
+                  <div className="text-[18px] font-bold text-on-surface tracking-tight">RECONCILED</div>
                   <div className="text-[10px] text-emerald-400 font-sans font-medium flex items-center gap-1">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Every Record Verified
+                    Old vs New Compared
                   </div>
                 </div>
 
@@ -154,7 +154,7 @@ export default function MigrationHero() {
                     <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Cutover Stage</span>
                     <TrendingUp className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-primary tracking-tight">CANARY TEST</div>
+                  <div className="text-[18px] font-bold text-primary tracking-tight">PILOT GROUP</div>
                   <div className="text-[10px] text-secondary font-sans">Gradual User Transition</div>
                 </div>
               </div>
@@ -178,18 +178,18 @@ export default function MigrationHero() {
                     <div className="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-full animate-[progressIndeterminate_2s_infinite]"></div>
                   </div>
                   <div className="flex items-center justify-between text-[9.5px] pt-1">
-                    <span className="text-emerald-400 font-semibold">Both Databases Updated (4ms)</span>
-                    <span className="text-secondary">Outputs Match 100%</span>
+                    <span className="text-emerald-400 font-semibold">Both Databases Updated</span>
+                    <span className="text-secondary">Outputs Compared</span>
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-surface-container-low border border-surface-container-highest font-mono text-[11px] space-y-1.5 text-secondary">
                   <div className="flex items-center justify-between text-on-surface">
-                    <span className="text-secondary font-bold">SAFETY_CIRCUIT</span>
-                    <span className="text-emerald-400 font-semibold text-[10px]">ARMED</span>
+                    <span className="text-secondary font-bold">ROLLBACK</span>
+                    <span className="text-emerald-400 font-semibold text-[10px]">READY</span>
                   </div>
                   <div className="text-[10px] text-secondary truncate">
-                    Instant 1-Click Rollback Ready • Zero Business Interruption
+                    Plan Prepared Before Cutover • Minimal Interruption
                   </div>
                 </div>
               </div>

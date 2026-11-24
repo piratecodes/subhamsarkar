@@ -6,37 +6,37 @@ export default function ErpProcess() {
       phase: "PHASE 01",
       duration: "STAGE 01",
       icon: GitCommit,
-      title: "Operational Audit & Schema Discovery",
+      title: "Operational Audit and Data Design",
       description:
-        "We review your daily operations, spreadsheets, warehouse routes, and accounting practices. We map every SKU, supplier, tax rule, and staff permission - and design a clean double-entry database that never loses track of transactions.",
-      deliverable: "Schema Blueprint, Entity Relationship Model, and Milestone Roadmap"
+        "We review your daily operations, spreadsheets, warehouse routes and accounting practices. We map every product, supplier, tax rule and staff permission, and design a clean database that tracks every transaction.",
+      deliverable: "A data blueprint, a workflow map and a milestone roadmap, reviewed with you before build."
     },
     {
       phase: "PHASE 02",
       duration: "STAGE 02",
       icon: Calendar,
-      title: "Core Ledger & Inventory Engine Build",
+      title: "Core Ledger and Inventory Build",
       description:
-        "We build the core double-entry accounting records, multi-location stock tracking, and inventory reservation queues. Your team gets access to a private testing dashboard where you can try out live entries and invoice drafts.",
-      deliverable: "Private Staging Alpha + Core Ledger Simulation Environment"
+        "We build the accounting records, multi-location stock tracking and stock reservations. Your team gets a private testing environment to try live entries and invoice drafts.",
+      deliverable: "A private test version with a working core ledger."
     },
     {
       phase: "PHASE 03",
       duration: "STAGE 03",
       icon: Shield,
-      title: "Integrations & Historical Data Verification",
+      title: "Integrations and Historical Data Checks",
       description:
-        "We connect your ERP directly to Tally or Zoho and set up one-click GST e-invoicing. Your existing customer, product, and stock records are cleaned up and imported so all numbers match your books perfectly.",
-      deliverable: "Sanitized Historical Data Migration & Automated Reconciliation Audit"
+        "We connect the ERP to your accounting software where required and set up GST invoicing. Your existing customer, product and stock records are cleaned and imported, then checked against your books.",
+      deliverable: "Cleaned and migrated data, with a reconciliation report."
     },
     {
       phase: "PHASE 04",
       duration: "STAGE 04",
       icon: Rocket,
-      title: "Production Cutover & 30-Day Stabilization",
+      title: "Production Launch and 30-Day Stabilization",
       description:
-        "We launch the system smoothly on your own cloud servers. We train your warehouse and accounts team, hand over 100% of the source code, and provide 30 days of direct support to make sure everything runs effortlessly.",
-      deliverable: "Full Git IP Transfer, System Documentation, and 30-Day Post-Launch Support"
+        "We launch the system in a production environment chosen for your requirements, train your warehouse and accounts teams and provide 30 days of direct support after launch.",
+      deliverable: "The production system, staff training and 30 days of post-launch support."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function ErpProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How Your Custom ERP Is Engineered &amp; Deployed
+            How a Custom ERP Development Project Runs, Step by Step
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and database complexity.
+            You work directly with the architect through clear, reviewable milestones. I design the architecture and review every delivery myself, with developers I work with handling the build. Timelines depend on your scope and are agreed after a short conversation.
           </p>
         </div>
 

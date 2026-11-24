@@ -7,24 +7,24 @@ export default function AiProblem() {
       badge: "DATA PRIVACY LEAKS",
       title: "Employees Pasting Company Secrets into Public Chatbots",
       description:
-        "Staff copy and paste confidential customer lists, vendor bills, and financial statements into commercial web chatbots. Your trade secrets and client information are transmitted outside your company and risk being used to retrain public models.",
-      impact: "Severe privacy violations, NDA breaches, and client trust destroyed."
+        "Staff copy confidential customer lists, vendor bills and financial statements into public web chatbots. That information leaves your company and may be stored or used in ways you did not agree to.",
+      impact: "Privacy breaches, NDA risk and lost client trust."
     },
     {
       icon: Cpu,
       badge: "UNCONTROLLED HALLUCINATION",
       title: "AI Making Up Fake Numbers and Sending Wrong Bills",
       description:
-        "Naive AI tools have no strict guardrails. When an AI model hallucinates numbers or invents false inventory items, it can write wrong data straight into your database, resulting in incorrect invoices sent to customers.",
-      impact: "Direct financial losses, angry clients, and chaotic accounting errors."
+        "An AI tool without guardrails can misread a total or invent an item and write it straight into your records, so the wrong invoice reaches a customer.",
+      impact: "Direct financial loss, upset clients and accounting errors."
     },
     {
       icon: FileQuestion,
       badge: "TOY DEMO SCRIPTS",
       title: "Prototypes That Collapse on Real-World Messy Scans",
       description:
-        "Many companies try building demo AI scripts that work on 3 clean sample PDFs, but crash completely when handed 500 real-world documents: blurry smartphone photos, tilted invoices, crumpled receipts, or multi-page purchase orders.",
-      impact: "Wasted budgets, failed automation projects, and staff stuck with manual data entry."
+        "Many demo scripts work on three clean sample PDFs and fail on 500 real documents: blurry phone photos, tilted invoices, crumpled receipts and multi-page purchase orders.",
+      impact: "Wasted budget, failed projects and staff back to manual data entry."
     }
   ];
 
@@ -42,10 +42,10 @@ export default function AiProblem() {
             <span>AI INTEGRATION RISK // THE REALITY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            Where Naive Enterprise AI Projects and Public Chatbots Fail.
+            Where AI Business Process Automation Projects Go Wrong
           </h2>
-          <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Real business process automation is not about gimmicky wrappers. It is about keeping your proprietary data private, eliminating hallucinations, and enforcing strict human approval for high-stakes business actions.
+          <p className="font-sans text-[16px] sm:text-[18px] leading-6.5 text-secondary text-balance">
+            Good business process automation is not a chatbot added to your inbox. It keeps your data protected, catches wrong outputs before they are saved and puts a person in charge of every high-stakes action.
           </p>
         </div>
 

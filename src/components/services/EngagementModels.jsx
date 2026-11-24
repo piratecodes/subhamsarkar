@@ -8,12 +8,12 @@ export default function EngagementModels() {
       num: "ENGAGEMENT: 01",
       tag: "STARTING FRESH",
       title: "Fixed-Scope New Build",
-      desc: "A clearly defined project - from initial planning to a fully working system handed over to you - with scope, cost, and timeline agreed before work begins.",
+      desc: "A clearly defined project, from planning to a working system in production, with scope and timeline agreed before work begins.",
       characteristicsTitle: "Key Characteristics",
       characteristicsTitleClasses: "text-secondary",
       characteristics: [
-        "Cost and timeline agreed upfront, no surprises",
-        "Full source code and documentation handed over",
+        "Scope, cost and timeline agreed upfront",
+        "Documentation and terms agreed before work begins",
         "Progress delivered in milestones, not all at once"
       ],
       timeline: "TIMELINE: DEFINED AFTER PROJECT REVIEW",
@@ -25,15 +25,15 @@ export default function EngagementModels() {
       num: "ENGAGEMENT: 02 // RECOMMENDED",
       tag: "ONGOING SUPPORT",
       title: "Ongoing Architecture Partnership",
-      desc: "Continued, direct access to senior-level support as your systems grow - regular check-ins and hands-on help whenever you need it, without hiring a full-time team.",
+      desc: "Continued, direct access to senior-level support as your systems grow, with regular check-ins and hands-on help whenever you need it, without hiring a full-time team.",
       characteristicsTitle: "Key Characteristics",
       characteristicsTitleClasses: "text-primary font-bold",
       characteristics: [
-        "Direct access to me, not a support queue",
+        "Direct access to the architect, not a support queue",
         "Regular system health check-ins, not just fixes",
         "Scales up or down as your needs change"
       ],
-      timeline: "RETAINER: MONTHLY, CANCEL ANYTIME",
+      timeline: "RETAINER: MONTHLY, TERMS AGREED UPFRONT",
       linkText: "Start a Partnership",
       linkClasses: "text-primary hover:text-on-surface"
     },
@@ -42,11 +42,11 @@ export default function EngagementModels() {
       num: "ENGAGEMENT: 03",
       tag: "FIXING WHAT YOU HAVE",
       title: "Migration & Modernization",
-      desc: "Safely moving off an outdated system, or fixing performance issues in what you already have - without disrupting the business while it happens.",
+      desc: "Moving off an outdated system, or fixing performance issues in what you already have, in staged steps planned to minimize disruption to the business.",
       characteristicsTitle: "Key Characteristics",
       characteristicsTitleClasses: "text-secondary",
       characteristics: [
-        "No disruption to your day-to-day operations",
+        "Planned to minimize disruption to daily operations",
         "Old and new systems verified in parallel first",
         "Relief from the specific issues costing you the most"
       ],
@@ -72,7 +72,7 @@ export default function EngagementModels() {
             </h2>
           </div>
           <p className="font-sans text-[14px] leading-[22px] tracking-[0em] font-medium text-secondary max-w-sm text-balance">
-            Whether you're building something new, fixing what you have, or need ongoing support - here's what working together typically looks like.
+            Whether you're building something new, fixing what you have, or need ongoing support, here is what working together typically looks like.
           </p>
         </div>
         

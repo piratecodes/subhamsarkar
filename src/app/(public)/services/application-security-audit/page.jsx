@@ -1,8 +1,10 @@
 import SecurityHero from "@/components/services/security-audit/SecurityHero";
 import SecurityProblem from "@/components/services/security-audit/SecurityProblem";
+import SecurityAuditOptions from "@/components/services/security-audit/SecurityAuditOptions";
 import SecurityArchitecture from "@/components/services/security-audit/SecurityArchitecture";
 import SecurityShowcase from "@/components/services/security-audit/SecurityShowcase";
 import SecurityProcess from "@/components/services/security-audit/SecurityProcess";
+import SecurityCostAndTimeline from "@/components/services/security-audit/SecurityCostAndTimeline";
 import SecurityFAQ from "@/components/services/security-audit/SecurityFAQ";
 import SecurityCTA from "@/components/services/security-audit/SecurityCTA";
 import { prisma } from "@/lib/prisma";
@@ -11,9 +13,9 @@ import { getSecurityAuditServiceSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Application Security Audit & Infrastructure Hardening",
+  title: "Web App Security Audit & Penetration Testing",
   description:
-    "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar with direct code remediations.",
+    "Web application security audit and penetration testing for your app, APIs and logins, with a written report, fixes and a retest. Scoped per project.",
   keywords: [
     "Application security audit",
     "API penetration testing",
@@ -28,9 +30,9 @@ export const metadata = {
     canonical: "/services/application-security-audit",
   },
   openGraph: {
-    title: "Application Security Audit & Infrastructure Hardening",
+    title: "Web App Security Audit & Penetration Testing | Subham Sarkar",
     description:
-      "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar.",
+      "Web application security audit and penetration testing for your app, APIs and logins, with a written report, fixes and a retest. Scoped per project.",
     url: "https://subhamsarkar.dev/services/application-security-audit",
     siteName: "Subham Sarkar",
     locale: "en_IN",
@@ -39,9 +41,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Application Security Audit & Infrastructure Hardening",
+    title: "Web App Security Audit & Penetration Testing | Subham Sarkar",
     description:
-      "Comprehensive architectural penetration testing, OWASP hardening, zero-trust RBAC, and threat mitigation by Subham Sarkar.",
+      "Web application security audit and penetration testing for your app, APIs and logins, with a written report, fixes and a retest. Scoped per project.",
     images: ["/icons/icon-512x512.png"],
   },
   robots: {
@@ -113,9 +115,11 @@ export default async function SecurityAuditServicePage() {
       <PageTracker pageType="service-application-security-audit" />
       <SecurityHero />
       <SecurityProblem />
+      <SecurityAuditOptions />
       <SecurityArchitecture />
       <SecurityShowcase projects={projects} />
       <SecurityProcess />
+      <SecurityCostAndTimeline />
       <SecurityFAQ />
       <SecurityCTA />
     </>

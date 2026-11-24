@@ -60,15 +60,15 @@ export default function ErpHero() {
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Say goodbye to messy spreadsheets, slow billing, and high monthly software bills. Built by Subham Sarkar, custom ERP software delivers live multi-warehouse inventory management, GST billing integration, and reliable accounting sync - giving your business 100% code ownership with zero per-user licensing fees.
+              Custom ERP software development for businesses that have outgrown spreadsheets and basic tools. Stock, billing, payroll, branches and customer enquiries run in one connected system built around how your teams actually work, so every department sees the same numbers.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
             <div className="flex flex-wrap gap-2.5 pt-2">
               {[
-                { icon: IndianRupee, label: "Zero Monthly Per-User Fees (Unlimited Staff)" },
+                { icon: IndianRupee, label: "Unlimited Staff Logins" },
                 { icon: Layers, label: "Live Multi-Godown Stock Management Software" },
-                { icon: Receipt, label: "GST Billing & Direct Tally Sync" }
+                { icon: Receipt, label: "GST Billing & Accounting Connections" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
                 return (
@@ -105,10 +105,10 @@ export default function ErpHero() {
             {/* Micro-guarantee */}
             <div className="pt-2 flex items-center gap-3 text-secondary font-sans text-[12px] leading-4">
               <span className="flex items-center gap-1.5 text-primary font-semibold">
-                <CheckCircle2 className="w-4 h-4" /> Fixed Scope Milestones
+                <CheckCircle2 className="w-4 h-4" /> Milestone-Based Delivery
               </span>
               <span className="text-surface-container-highest">•</span>
-              <span>100% Code Ownership</span>
+              <span>Direct Architect Responsibility</span>
               <span className="text-surface-container-highest">•</span>
               <span>30-Day Post-Launch Support</span>
             </div>
@@ -145,7 +145,7 @@ export default function ErpHero() {
                   <div className="text-[18px] font-bold text-on-surface tracking-tight">₹0 SKEW</div>
                   <div className="text-[10px] text-emerald-400 font-sans font-medium flex items-center gap-1">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Every Rupee Reconciled
+                    Ledgers Reconciled
                   </div>
                 </div>
 
@@ -154,7 +154,7 @@ export default function ErpHero() {
                     <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Stock Count</span>
                     <TrendingUp className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-primary tracking-tight">100% ACCURATE</div>
+                  <div className="text-[18px] font-bold text-primary tracking-tight">LIVE COUNT</div>
                   <div className="text-[10px] text-secondary font-sans">Godowns &amp; Retail Counters</div>
                 </div>
               </div>
@@ -185,11 +185,11 @@ export default function ErpHero() {
 
                 <div className="p-3.5 rounded-xl bg-surface-container-low border border-surface-container-highest font-mono text-[11px] space-y-1.5 text-secondary">
                   <div className="flex items-center justify-between text-on-surface">
-                    <span className="text-secondary font-bold">TALLY &amp; GST E-INVOICE</span>
+                    <span className="text-secondary font-bold">ACCOUNTING & GST</span>
                     <span className="text-emerald-400 font-semibold text-[10px]">SYNCED (₹42,500)</span>
                   </div>
                   <div className="text-[10px] text-secondary truncate">
-                    E-Way Bill &amp; IRN Generated Automatically
+                    Invoice & GST Entries Passed to Accounts
                   </div>
                 </div>
               </div>

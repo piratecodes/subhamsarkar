@@ -5,6 +5,30 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from "@head
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { processFaqs as faqs } from "@/data/faqs";
 
+// Turns "[text](/path)" or "[text](#anchor)" in an answer into an internal next/link.
+function renderAnswer(text) {
+  const nodes = [];
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let match;
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) nodes.push(text.slice(last, match.index));
+    nodes.push(
+      <Link
+        key={`${match[2]}-${match.index}`}
+        href={match[2]}
+        className="text-primary underline underline-offset-2 hover:no-underline"
+      >
+        {match[1]}
+      </Link>
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
 export default function ProcessFAQ() {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -87,7 +111,7 @@ export default function ProcessFAQ() {
                         <DisclosurePanel unmount={false} className="px-6 lg:px-8 pb-8 pt-2">
                           <div className="pl-0 sm:pl-11">
                             <p className="font-sans text-[15px] lg:text-[16px] leading-relaxed tracking-[-0.005em] font-medium text-secondary">
-                              {faq.answer}
+                              {renderAnswer(faq.answer)}
                             </p>
                           </div>
                         </DisclosurePanel>

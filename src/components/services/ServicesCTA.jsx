@@ -30,10 +30,10 @@ export default function ServicesCTA() {
               </div>
               
               <h2 className="font-display text-[36px] lg:text-[44px] leading-[44px] lg:leading-[52px] tracking-[-0.02em] font-bold tracking-tight text-on-surface text-balance">
-                Ready to engineer an unshakeable foundation?
+                Ready to Start Your Software Project?
               </h2>
               <p className="font-sans text-[18px] lg:text-[20px] leading-[30px] tracking-[-0.01em] font-normal text-on-surface-variant max-w-2xl text-balance">
-                Book a free consultation. We'll talk through what's slowing your business down, look at what you're currently working with, and tell you plainly what it would take to fix it - no jargon, no pressure.
+                Book a free consultation. We will talk through what is slowing your business down, look at what you are working with now and tell you plainly what it would take to fix it, with no jargon and no pressure.
               </p>
               
               <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-4">

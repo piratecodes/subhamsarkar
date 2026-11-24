@@ -25,7 +25,7 @@ export default function CrmCTA() {
             </h2>
 
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Eliminate per-seat fees and fragmented lead handoffs. Consult directly with Subham Sarkar to architect an automated CRM engine that accelerates your deal closing cycles.
+              Stop losing leads to slow follow-ups and scattered records. Consult directly with the architect to plan a CRM around your sales process, so every lead is followed up and every conversation is on record.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function CrmCTA() {
             </span>
             <span className="flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-primary" />
-              100% Client Code &amp; Data Ownership
+              Full Client Access to Your Business Data.
             </span>
           </div>
 

@@ -6,37 +6,37 @@ export default function SecurityProcess() {
       phase: "PHASE 01",
       duration: "STAGE 01",
       icon: GitCommit,
-      title: "Scope Definition & Threat Modeling",
+      title: "Scope and Attack Surface Mapping",
       description:
-        "We inventory all public and private API endpoints, login flows, database connections, and cloud server roles. We map out realistic attack paths tailored to your exact tech stack.",
-      deliverable: "Threat Model Document, Attack Surface Inventory, and Rules of Engagement"
+        "We list all public and private API endpoints, login flows, database connections and cloud server roles, then map the attack paths most likely to matter for your stack.",
+      deliverable: "A scope document, an attack surface list and agreed rules for testing"
     },
     {
       phase: "PHASE 02",
       duration: "STAGE 02",
       icon: Calendar,
-      title: "Hands-On Penetration & Permission Testing",
+      title: "Hands-On Penetration and Permission Testing",
       description:
-        "We simulate real-world attacks against staging or isolated clones. We test for account takeover, URL ID tampering, session hijacking, parameter injections, and API rate-limit bypasses.",
-      deliverable: "Penetration Finding Dossier with Verified Proof-of-Concept Exploits"
+        "We simulate real attacks against a staging copy or isolated clone where possible. We test for account takeover, URL ID tampering, session hijacking, parameter injection and API rate-limit bypasses.",
+      deliverable: "A findings report with proof for each verified issue."
     },
     {
       phase: "PHASE 03",
       duration: "STAGE 03",
       icon: Shield,
-      title: "Direct Code Remediation & Edge Hardening",
+      title: "Code Fixes and Edge Hardening",
       description:
-        "Instead of leaving you with a confusing PDF, Subham Sarkar personally delivers direct GitHub or GitLab Pull Requests with production-ready code fixes, database rules, and automated regression tests.",
-      deliverable: "Production-Ready Remediation Pull Requests + Security Unit Tests"
+        "I deliver code fixes as GitHub or GitLab Pull Requests for your developers to review, with database rules and automated regression tests where possible.",
+      deliverable: "Remediation Pull Requests and security tests for review."
     },
     {
       phase: "PHASE 04",
       duration: "STAGE 04",
       icon: Rocket,
-      title: "Re-Test Verification & Signed Attestation",
+      title: "Retest and Verification Report",
       description:
-        "We re-run the full security test suite against your updated code to confirm 100% vulnerability closure, delivering a signed Security Attestation Report for your enterprise clients and investors.",
-      deliverable: "Signed Security Attestation Report + 30-Day Advisory Support"
+        "We re-run the relevant security tests against your updated code to confirm each fix works, and document what is closed and what remains open.",
+      deliverable: "A written retest report and 30 days of advisory support."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function SecurityProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How Application Security Is Audited &amp; Hardened
+            How a Web Application Security Audit Runs, Step by Step
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact attack surface and codebase scale.
+            You work directly with the architect through clear, reviewable milestones. Timelines depend on your application's size and the number of issues found, and are agreed after a short conversation.
           </p>
         </div>
 

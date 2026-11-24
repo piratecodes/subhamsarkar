@@ -8,13 +8,13 @@ export default function TargetAudience() {
       icon: Building2,
       title: "Mid-Market & Enterprise Growth Trapped in SaaS",
       profile: "Profile A",
-      desc: "Companies paying astronomical per-seat licensing fees for closed software that cannot be customized to match their unique operational processes or supply chains."
+      desc: "Companies paying high per-seat licensing fees for closed software that cannot be customized to match their unique operational processes or supply chains."
     },
     {
       icon: Table,
       title: "Operations Teams Constrained by Spreadsheet Chaos",
       profile: "Profile B",
-      desc: "Organizations where hundreds of critical decisions daily hinge on manual Excel workbooks, brittle Zapier webhooks, and disconnected point solutions prone to data corruption."
+      desc: "Organizations where critical decisions daily hinge on manual Excel workbooks, brittle Zapier webhooks, and disconnected point solutions prone to data corruption."
     },
     {
       icon: Compass,
@@ -76,7 +76,7 @@ export default function TargetAudience() {
                   Direct Senior Architectural Access
                 </span>
                 <p className="font-sans text-[14px] leading-[22px] tracking-[-0.005em] font-medium text-secondary">
-                  No account managers, no junior offshore handoffs. Every schema, migration script, and API model is authored and inspected personally.
+                  No account managers between you and the person designing your system. Every schema, migration script and API model is designed and reviewed personally.
                 </p>
               </div>
             </div>

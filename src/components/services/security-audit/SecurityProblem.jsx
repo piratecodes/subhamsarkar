@@ -7,24 +7,24 @@ export default function SecurityProblem() {
       badge: "DATA LEAKS BETWEEN USERS",
       title: "Users Accessing Other People's Private Invoices",
       description:
-        "Developers verify that a user is logged in, but forget to verify account ownership on internal links (e.g. changing /invoices/101 to /invoices/102 in the browser URL). Any logged-in customer can download another company's private quotes, bills, or pricing.",
-      impact: "Disastrous data leaks, lost client contracts, and legal liabilities."
+        "Developers check that a user is logged in but forget to check who owns the record, for example when changing /invoices/101 to /invoices/102 in the address bar. A logged-in customer may then be able to download another company's private quotes, bills or pricing.",
+      impact: "Data leaks, lost client contracts and legal liability."
     },
     {
       icon: ShieldAlert,
       badge: "BOT FLOODING & BRUTE FORCE",
       title: "Automated Bots Flooding Your Login and Checkout",
       description:
-        "Without smart rate-limiting and bot defenses, automated attack scripts flood your login, OTP, and inquiry forms - trying thousands of stolen passwords, sending fake SMS messages, and causing server crashes.",
-      impact: "Compromised customer accounts, server crashes, and inflated cloud bills."
+        "Without rate limiting and bot defenses, automated scripts can flood your login, OTP and inquiry forms, trying thousands of stolen passwords and sending fake SMS messages, which can crash servers.",
+      impact: "Compromised customer accounts, server crashes and inflated cloud bills."
     },
     {
       icon: FileWarning,
-      badge: "USELESS 200-PAGE PDF REPORTS",
-      title: "Consultants Dumping Warning Scans but Fixing Zero Code",
+      badge: "SCAN-ONLY REPORTS",
+      title: "Reports That List Problems but Fix None",
       description:
-        "Traditional audit firms charge high fees to run an automated software scanner that dumps a 200-page generic PDF full of false alarms. They hand it to your developers and walk away without writing a single line of actual code to fix the problems.",
-      impact: "Wasted budgets, engineering confusion, and vulnerabilities left wide open."
+        "A scan-only report can run to hundreds of pages, full of false alarms and with no guidance on which issues matter. Your developers are left to sort the real problems from the noise, and the serious ones stay open.",
+      impact: "Wasted budget, confusion and vulnerabilities left open."
     }
   ];
 
@@ -42,10 +42,10 @@ export default function SecurityProblem() {
             <span>VULNERABILITY REALITY // THE THREAT LANDSCAPE</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            Where Web Applications Get Compromised.
+            Where Web Applications Get Compromised and What an Audit Finds
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Real breaches do not happen like in movies. They exploit subtle flaws in API permissions, login tokens, and database queries. Here is what we audit and fix.
+            Real breaches rarely look like the movies. They exploit subtle flaws in API permissions, login handling and database queries. Here is what a web application security audit looks for.
           </p>
         </div>
 

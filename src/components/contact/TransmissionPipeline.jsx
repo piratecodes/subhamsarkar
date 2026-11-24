@@ -40,7 +40,7 @@ export default function TransmissionPipeline() {
                 </h3>
               </div>
               <p className="font-sans text-[14px] leading-5 text-secondary/90 group-hover:text-secondary transition-colors duration-300 pl-[3.25rem]">
-                I personally read every inquiry — nothing goes through a filter or a team first.
+                I personally read every inquiry, and nothing goes through a filter or a team first.
               </p>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function TransmissionPipeline() {
                 </h3>
               </div>
               <p className="font-sans text-[14px] leading-5 text-secondary/90 group-hover:text-secondary transition-colors duration-300 pl-[3.25rem]">
-                If you'd rather sign an NDA before sharing project details, we take care of that first.
+                If you would rather sign an NDA before sharing project details, we take care of that first.
               </p>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function TransmissionPipeline() {
                 </h3>
               </div>
               <p className="font-sans text-[14px] leading-5 text-secondary/90 group-hover:text-secondary transition-colors duration-300 pl-[3.25rem]">
-                We talk through what you need, what's possible, and how it could work — no pressure, no commitment.
+                We talk through what you need, what is possible and how it could work, with no pressure and no commitment.
               </p>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function TransmissionPipeline() {
                 </h3>
               </div>
               <p className="font-sans text-[14px] leading-5 text-secondary/90 group-hover:text-secondary transition-colors duration-300 pl-[3.25rem]">
-                If it's a good fit, you get a straightforward plan: what's involved, rough timing, and what happens next.
+                If it is a good fit, you get a straightforward plan: what is involved, rough timing and what happens next.
               </p>
             </div>
           </div>

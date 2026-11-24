@@ -21,11 +21,11 @@ export default function MigrationCTA() {
             </span>
             
             <h2 className="font-display text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Ready to Modernize Your Legacy Architecture?
+              Ready to Modernize Your Legacy Software?
             </h2>
 
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Stop fearing the monolith. Consult directly with Subham Sarkar to engineer a dual-written, zero-downtime migration strategy that preserves every byte of historical data.
+              Stop working around the old system. Speak directly with the architect, who will assess your software and propose a staged, low-disruption route that protects your historical data.
             </p>
           </div>
 
@@ -55,11 +55,11 @@ export default function MigrationCTA() {
             </span>
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-primary" />
-              Zero Downtime SLA Guarantee
+              Staged, Low-Disruption Cutover
             </span>
             <span className="flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-primary" />
-              Instant Rollback Protection
+              Rollback Plan Before Each Stage
             </span>
           </div>
 

@@ -118,8 +118,8 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,color-mix(in_srgb,var(--color-primary)_15%,transparent),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 <div className="absolute -inset-[100%] bg-[linear-gradient(transparent_40%,rgba(255,255,255,0.1)_50%,transparent_60%)] -rotate-45 group-hover:animate-data-horizontal z-0"></div>
                 <div className="relative z-10 flex flex-col">
-                  <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">LICENCE FEES</span>
-                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">₹0 per user</span>
+                  <span className="text-secondary font-black tracking-[0.2em] text-[9px] uppercase">STAFF LOGINS</span>
+                  <span className="font-display text-[24px] leading-tight tracking-tight font-black text-on-surface mt-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-primary group-hover:to-on-surface transition-all duration-300">Unlimited</span>
                   <span className="text-[9px] text-tertiary mt-1 font-bold tracking-[0.1em] uppercase">Your team can grow freely</span>
                 </div>
               </div>

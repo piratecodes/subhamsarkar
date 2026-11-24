@@ -1,19 +1,43 @@
 "use client";
+import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel, Transition } from "@headlessui/react";
 import { Plus, Minus, ShieldCheck, Terminal } from "lucide-react";
 import { servicesFaqs as faqs } from "@/data/faqs";
 
-export default function FAQ() {
+// Turns "[text](/path)" in an answer into an internal next/link.
+function renderAnswer(text) {
+  const nodes = [];
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let match;
 
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) nodes.push(text.slice(last, match.index));
+    nodes.push(
+      <Link
+        key={`${match[2]}-${match.index}`}
+        href={match[2]}
+        className="text-primary underline underline-offset-2 hover:no-underline"
+      >
+        {match[1]}
+      </Link>
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
+export default function FAQ() {
   return (
     <section className="w-full bg-surface py-20 relative overflow-hidden">
-      
+
       {/* Background Ambience */}
       <div className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
 
       <div className="w-full container px-4 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          
+
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-32 self-start">
             <div className="space-y-4">
               <span className="font-display text-[11px] leading-4 tracking-[0.12em] uppercase tracking-widest text-primary font-bold bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-md shadow-sm inline-flex items-center gap-2">
@@ -21,40 +45,40 @@ export default function FAQ() {
                 FIELD INTERROGATION // FAQS
               </span>
               <h2 className="font-display text-[40px] lg:text-[48px] leading-[48px] lg:leading-[56px] tracking-[-0.02em] font-bold tracking-tight text-on-surface text-balance">
-                Practical Architectural Doubts, Addressed Directly.
+                Software Development Services: Common Questions Answered
               </h2>
             </div>
-            
+
             <p className="font-sans text-[16px] leading-[26px] tracking-[-0.005em] font-normal text-secondary text-balance">
-              Enterprise architecture demands absolute clarity. Every contractual, operational, and intellectual property query is documented here with zero ambiguity.
+              Clear answers on contracts, timelines, support and continuity, before any work begins.
             </p>
-            
+
             <div className="p-6 bg-surface-container-lowest/80 backdrop-blur-sm rounded-2xl space-y-3 border border-outline/10 shadow-sm relative overflow-hidden group hover:border-primary/30 transition-colors duration-500">
               <div className="absolute top-0 left-0 bottom-0 w-1 bg-primary/30 group-hover:bg-primary transition-colors duration-500"></div>
               <div className="flex items-center gap-2 font-display text-[11px] leading-4 tracking-[0.12em] text-on-surface font-bold uppercase">
                 <ShieldCheck className="w-4 h-4 text-primary" />
-                NON-DISCLOSURE GUARANTEE
+                CONFIDENTIALITY BY AGREEMENT
               </div>
               <p className="font-sans text-[14px] leading-[22px] tracking-[0em] font-normal text-secondary">
-                All discussions are preceded by mutual NDA execution upon request. Schematics, database models, and proprietary business logic remain your exclusive intellectual property.
+                An NDA is signed before technical details are discussed, on request. Your business data and the confidential information you share stay confidential.
               </p>
             </div>
           </div>
-          
+
           <div className="lg:col-span-7 space-y-4">
             {faqs.map((faq, i) => (
-              <Disclosure key={i} as="div" className={({ open }) => `group backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-500 shadow-sm relative ${
+              <Disclosure key={faq.question} as="div" className={({ open }) => `group backdrop-blur-sm border rounded-2xl overflow-hidden transition-all duration-500 shadow-sm relative ${
                 open ? 'bg-surface-container-lowest border-primary/30 shadow-lg' : 'bg-surface-container-lowest/70 border-outline/10 hover:border-primary/30 hover:shadow-lg hover:bg-surface-container-lowest'
               }`}>
                 {({ open }) => (
                   <>
                     {/* Subtle Grid Overlay */}
                     <div className={`absolute inset-0 transition-opacity duration-700 pointer-events-none z-0 ${open ? 'opacity-[0.03]' : 'opacity-0 group-hover:opacity-[0.02]'}`} style={{ backgroundImage: "linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)", backgroundSize: "16px 16px" }}></div>
-                    
+
                     {/* Active Accent Line */}
                     <div className={`absolute left-0 top-0 bottom-0 w-1 bg-primary transition-transform duration-500 origin-top ${open ? 'scale-y-100' : 'scale-y-0'}`}></div>
 
-                    <DisclosureButton className="relative z-10 w-full flex justify-between items-start text-left focus:outline-none p-6 lg:p-8">
+                    <div className="relative z-10 w-full flex justify-between items-start text-left p-6 lg:p-8">
                       <div className="space-y-3 pr-8">
                         <div className="flex flex-wrap items-center gap-3 text-secondary font-display text-[11px] leading-4 tracking-[0.12em] font-semibold uppercase">
                           <span className={`px-2 py-0.5 rounded transition-colors duration-500 ${open ? 'bg-primary text-on-primary shadow-md' : 'bg-surface-container group-hover:bg-primary/10 group-hover:text-primary'}`}>
@@ -63,21 +87,26 @@ export default function FAQ() {
                           <span className={open ? 'text-primary' : 'group-hover:text-on-surface transition-colors'}>{faq.topic}</span>
                         </div>
                         <h3 className={`font-display text-[20px] leading-[28px] tracking-[0em] font-bold transition-colors duration-300 ${open ? 'text-primary' : 'text-on-surface'}`}>
-                          {faq.question}
+                          <DisclosureButton className="block cursor-pointer text-left focus:outline-none after:absolute after:inset-0 after:rounded-2xl focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-primary">
+                            {faq.question}
+                          </DisclosureButton>
                         </h3>
                       </div>
-                      
-                      <div className={`relative w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-all duration-500 mt-1 ${
-                        open ? 'bg-primary/10 border-primary text-primary shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.3)]' : 'bg-surface border-outline/20 text-secondary group-hover:border-primary/50 group-hover:text-primary'
-                      }`}>
+
+                      <div
+                        aria-hidden="true"
+                        className={`relative w-10 h-10 rounded-full border flex items-center justify-center shrink-0 transition-all duration-500 mt-1 ${
+                          open ? 'bg-primary/10 border-primary text-primary shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.3)]' : 'bg-surface border-outline/20 text-secondary group-hover:border-primary/50 group-hover:text-primary'
+                        }`}
+                      >
                         {open ? (
                           <Minus className="w-5 h-5 animate-in spin-in-90 duration-300" />
                         ) : (
                           <Plus className="w-5 h-5 animate-in spin-in-90 duration-300" />
                         )}
                       </div>
-                    </DisclosureButton>
-                    
+                    </div>
+
                     <Transition
                       unmount={false}
                       enter="transition duration-300 ease-out"
@@ -90,7 +119,7 @@ export default function FAQ() {
                       <DisclosurePanel unmount={false} className="relative z-10 px-6 lg:px-8 pb-8 font-sans text-[15px] leading-[26px] tracking-[-0.005em] font-normal text-on-surface-variant">
                         <div className="pt-5 border-t border-outline/5 relative">
                           <div className="absolute left-0 top-0 w-12 h-[1px] bg-gradient-to-r from-primary/50 to-transparent"></div>
-                          {faq.answer}
+                          {renderAnswer(faq.answer)}
                         </div>
                       </DisclosurePanel>
                     </Transition>

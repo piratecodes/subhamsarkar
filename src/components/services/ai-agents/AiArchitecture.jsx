@@ -5,49 +5,49 @@ export default function AiArchitecture() {
     {
       num: "01",
       icon: Lock,
-      title: "Private AI Hosted on Your Own Cloud",
-      subtitle: "Your financial numbers and customer records never leave your servers",
-      body: "Protect your confidential company data completely. We run private, self-hosted open-weight AI models (like Llama 3 or Mistral) on your own private cloud servers. No client emails, invoices, or customer phone numbers are ever sent to public chatbots or used for third-party model retraining.",
+      title: "Private AI Where Your Data Requires It",
+      subtitle: "Sensitive records stay inside a controlled environment",
+      body: "Where privacy matters most, I run private open-weight AI models, such as Llama or Mistral, in a dedicated environment, so client emails, invoices and phone numbers are not sent to public chatbots or used to train third-party models. If you already use a provider such as OpenAI or Claude and are comfortable with it, the same workflow can use it with the same checks.",
       bullets: [
-        "100% data privacy: your company records stay strictly within your private boundary",
-        "Zero vendor lock-in: runs on open software standards without recurring per-query tax",
-        "Fast response times with local caching for high-volume document pipelines"
+        "Your records stay within a defined private boundary",
+        "Open software and open models where suitable, without per-query fees to public AI providers",
+        "Caching to keep high-volume document pipelines responsive"
       ]
     },
     {
       num: "02",
       icon: Cpu,
-      title: "Strict Rules That Prevent Made-Up Numbers",
-      subtitle: "The AI is bound by exact schemas - no guessing or hallucinating",
-      body: "We treat AI as a smart reader, never as an unmonitored decision maker. Every output is strictly checked against predefined database rules. If the AI is unsure of an invoice total or vendor GST number, it flags the record for human review instead of making up an answer.",
+      title: "Validation Rules That Catch Wrong Numbers",
+      subtitle: "The AI works inside exact rules and never decides alone",
+      body: "AI is used as a smart reader, never as an unmonitored decision maker. Every output is checked against predefined rules, and if the system is unsure of an invoice total or a GST number, it flags the record for a person to review instead of guessing.",
       bullets: [
-        "Strict field validation: ensures totals, dates, and names match expected formats",
-        "Pre-checks database records before writing any new information",
-        "Automatic fallback alerts whenever document confidence scores are below threshold"
+        "ation: totals, dates and names must match expected formats",
+        "Database pre-checks before any new record is written",
+        "Automatic review alerts whenever confidence is below a set threshold"
       ]
     },
     {
       num: "03",
       icon: FileSearch,
-      title: "Reads Messy PDFs, Photos & Invoices Automatically",
-      subtitle: "Extracts tables, amounts, and vendor details in seconds",
-      body: "Turn piles of unorganized paperwork into clean digital records. The system reads crumpled receipts, phone camera photos, scanned vendor bills, and long multi-page contracts - extracting line items, tax numbers, and dates accurately.",
+      title: "Invoice and Document Automation for Messy Real-World Files",
+      subtitle: "Tables, amounts and vendor details pulled into clean records",
+      body: "Turn piles of paperwork into clean digital records. The system reads receipts, phone photos, scanned vendor bills and long multi-page contracts, and extracts line items, tax numbers and dates for review.",
       bullets: [
-        "Reads messy handwritten bills, skewed mobile photos, and scanned PDFs",
-        "Automatic table stitching across multi-page supplier statements",
-        "Matches incoming bills directly with active Purchase Orders in your database"
+        "Reads skewed phone photos and scanned PDFs",
+        "Table stitching across multi-page supplier statements",
+        "Matches incoming bills to open purchase orders in your database"
       ]
     },
     {
       num: "04",
       icon: UserCheck,
-      title: "Human Approval for Important Decisions",
+      title: "Human-in-the-Loop Approval for Important Decisions",
       subtitle: "Routine tasks happen automatically; big actions require a human click",
-      body: "Automation should assist your team, not replace human judgment. Everyday reading, ticket tagging, and email drafting happen automatically. But any high-value money transfer, vendor disbursement, or contract signing pauses and sends an instant WhatsApp or Slack card for a manager to tap 'Approve'.",
+      body: "Automation should assist your team, not replace its judgment. Everyday reading, ticket tagging and email drafting run automatically, while a high-value payment, vendor disbursement or contract signing pauses and sends a card to a manager for approval on WhatsApp or Slack.",
       bullets: [
-        "Instant one-click approval buttons sent to WhatsApp, Telegram, or Slack",
-        "Complete history log showing AI reasoning and the approving manager's name",
-        "Easy one-click undo if any automated entry needs adjustment"
+        "One-tap approval buttons on WhatsApp, Telegram or Slack",
+        "A complete history of the AI's reasoning and the approving manager",
+        "Easy undo if an automated entry needs"
       ]
     }
   ];
@@ -66,10 +66,10 @@ export default function AiArchitecture() {
             <span>HOW THE SYSTEM WORKS // CORE CAPABILITIES</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            Enterprise Architecture for Business Process Automation.
+            How Business Process Automation Is Built to Stay Accurate and Controlled
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Every pipeline is engineered to eliminate tedious manual clerical work while giving you complete confidence that your business records remain confidential, accurate, and controlled.
+            Every workflow is designed to remove manual clerical work while keeping your records confidential, accurate and under control.
           </p>
         </div>
 

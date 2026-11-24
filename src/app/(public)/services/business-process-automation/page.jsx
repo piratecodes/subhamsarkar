@@ -2,7 +2,9 @@ import AiHero from "@/components/services/ai-agents/AiHero";
 import AiProblem from "@/components/services/ai-agents/AiProblem";
 import AiArchitecture from "@/components/services/ai-agents/AiArchitecture";
 import AiShowcase from "@/components/services/ai-agents/AiShowcase";
+import AutomationUseCases from "@/components/services/ai-agents/AutomationUseCases";
 import AiProcess from "@/components/services/ai-agents/AiProcess";
+import AutomationCostAndTimeline from "@/components/services/ai-agents/AutomationCostAndTimeline";
 import AiFAQ from "@/components/services/ai-agents/AiFAQ";
 import AiCTA from "@/components/services/ai-agents/AiCTA";
 import { prisma } from "@/lib/prisma";
@@ -11,9 +13,9 @@ import { getAiAgentsServiceSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "AI Business Process Automation & System Integration",
+  title: "Business Process Automation with AI",
   description:
-    "Tailored AI business process automation and private AI agent integration services by Subham Sarkar. Eliminate repetitive clerical tasks with air-gapped machine intelligence.",
+    "Business process automation with AI: document reading, workflow automation and human approval gates, built around your data privacy. Scoped per project.",
   keywords: [
     "business process automation",
     "ai business process automation",
@@ -29,9 +31,9 @@ export const metadata = {
     canonical: "/services/business-process-automation",
   },
   openGraph: {
-    title: "AI Business Process Automation & System Integration",
+    title: "Business Process Automation with AI | Subham Sarkar",
     description:
-      "Tailored AI business process automation and private AI agent integration services by Subham Sarkar. Eliminate repetitive clerical tasks with air-gapped machine intelligence.",
+      "Business process automation with AI: document reading, workflow automation and human approval gates, built around your data privacy. Scoped per project.",
     url: "https://subhamsarkar.dev/services/business-process-automation",
     siteName: "Subham Sarkar",
     locale: "en_IN",
@@ -40,9 +42,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Business Process Automation & System Integration",
+    title: "Business Process Automation with AI | Subham Sarkar",
     description:
-      "Tailored AI business process automation and private AI agent integration services by Subham Sarkar. Eliminate repetitive clerical tasks with air-gapped machine intelligence.",
+      "Business process automation with AI: document reading, workflow automation and human approval gates, built around your data privacy. Scoped per project.",
     images: ["/icons/icon-512x512.png"],
   },
   robots: {
@@ -116,7 +118,9 @@ export default async function AiAgentsServicePage() {
       <AiProblem />
       <AiArchitecture />
       <AiShowcase projects={projects} />
+      <AutomationUseCases />
       <AiProcess />
+      <AutomationCostAndTimeline />
       <AiFAQ />
       <AiCTA />
     </>

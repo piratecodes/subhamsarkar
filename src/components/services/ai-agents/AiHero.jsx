@@ -36,7 +36,7 @@ export default function AiHero() {
               CORE DISCIPLINE // SPEC: 04
             </span>
             <span className="font-display text-[11px] leading-4 tracking-widest text-secondary font-medium px-2.5 py-1 bg-surface-container rounded border border-surface-container-highest">
-              AUTONOMOUS AI AGENTS
+              AI WORKFLOW AUTOMATION
             </span>
           </div>
 
@@ -56,19 +56,19 @@ export default function AiHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display text-[44px] sm:text-[54px] lg:text-[68px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Private AI Agent Development &amp; Business Process Automation.
+              Business Process Automation Services with AI and Human Approval
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Automate repetitive office operations without risking confidential company data. Engineered by Subham Sarkar, private self-hosted AI agents and workflow automation systems streamline document extraction and automated WhatsApp pipelines that run strictly within your secure cloud with mandatory human approval.
+              Automate repetitive office work with business process automation that reads documents, checks every result against your rules and pauses for a person to approve important actions. I design AI-assisted workflows that read documents, check every result against your rules and pause for a person to approve important actions. They run in a private environment chosen for your requirements.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
             <div className="flex flex-wrap gap-2.5 pt-2">
               {[
-                { icon: Bot, label: "Self-Hosted Private AI (Runs on Your Cloud)" },
-                { icon: ShieldCheck, label: "Zero Data Leaks to Public Models" },
-                { icon: Cpu, label: "Deterministic Process Automation Software" }
+                { icon: Bot, label: "Private AI Where Your Data Requires It" },
+                { icon: ShieldCheck, label: "Your Data Stays in a Private Environment" },
+                { icon: Cpu, label: "Rule-Based Workflow Automation" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
                 return (
@@ -105,10 +105,10 @@ export default function AiHero() {
             {/* Micro-guarantee */}
             <div className="pt-2 flex items-center gap-3 text-secondary font-sans text-[12px] leading-4">
               <span className="flex items-center gap-1.5 text-primary font-semibold">
-                <CheckCircle2 className="w-4 h-4" /> Zero Public Model Retraining
+                <CheckCircle2 className="w-4 h-4" /> Human Approval Gates
               </span>
               <span className="text-surface-container-highest">•</span>
-              <span>Human Approval Gates</span>
+              <span>Private Environment</span>
               <span className="text-surface-container-highest">•</span>
               <span>30-Day Post-Launch Support</span>
             </div>
@@ -131,7 +131,7 @@ export default function AiHero() {
                   </span>
                 </div>
                 <span className="font-display text-[9.5px] leading-3 tracking-widest font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">
-                  100% PRIVATE
+                  PRIVATE
                 </span>
               </div>
 
@@ -139,13 +139,13 @@ export default function AiHero() {
               <div className="grid grid-cols-2 gap-3 font-mono">
                 <div className="p-3.5 rounded-xl bg-surface-container border border-surface-container-highest/60 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Data Privacy</span>
+                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Data Handling</span>
                     <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-on-surface tracking-tight">SELF-HOSTED</div>
+                  <div className="text-[18px] font-bold text-on-surface tracking-tight">PRIVATE ENVIRONMENT</div>
                   <div className="text-[10px] text-emerald-400 font-sans font-medium flex items-center gap-1">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Zero External Leakage
+                    Controlled Access
                   </div>
                 </div>
 
@@ -154,8 +154,8 @@ export default function AiHero() {
                     <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Accuracy Gate</span>
                     <Cpu className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-primary tracking-tight">STRICT</div>
-                  <div className="text-[10px] text-secondary font-sans">No Made-Up Answers</div>
+                  <div className="text-[18px] font-bold text-primary tracking-tight">VALIDATED</div>
+                  <div className="text-[10px] text-secondary font-sans">Checked Before Saving</div>
                 </div>
               </div>
 

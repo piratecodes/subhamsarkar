@@ -99,7 +99,7 @@ export default function ValueProposition() {
             </h2>
           </div>
           <p className="font-sans text-[15px] leading-relaxed tracking-[0em] font-normal text-secondary max-w-sm text-justify">
-            If you've been burned before - an unfinished website, a system you don't understand, a developer who disappeared - that caution is fair. Here's what's built into how we work, specifically because of that.
+            If you've been burned before, whether by an unfinished website, a system you don't understand or a developer who disappeared, that caution is fair. Here's what's built into how we work, specifically because of that.
           </p>
         </div>
 
@@ -179,21 +179,21 @@ export default function ValueProposition() {
               
               <div className="relative z-10 flex flex-col h-full">
                 <div className="flex items-center justify-between pb-5">
-                  <span className="font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold text-primary uppercase">SOVEREIGN OWNERSHIP</span>
-                  <span className="font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium text-secondary uppercase bg-surface-container-highest/50 px-2 py-0.5 rounded">02 // IP ISOLATION</span>
+                  <span className="font-display text-[11px] leading-[16px] tracking-[0.12em] font-semibold text-primary uppercase">CLEAR TERMS</span>
+                  <span className="font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium text-secondary uppercase bg-surface-container-highest/50 px-2 py-0.5 rounded">02 // CONTINUITY</span>
                 </div>
                 <h3 className="font-display text-[18px] leading-[1.3] tracking-[-0.01em] font-semibold text-on-surface pb-3 group-hover:text-primary transition-colors duration-300">
-                  You Own Your System - No Lock-In, No Hostage Situations
+                  Clear Terms, Clear Continuity, Written Down
                 </h3>
                 <p className="font-sans text-[14px] leading-[22px] tracking-[-0.005em] font-normal text-secondary mb-6 flex-grow">
-                  Once complete, your code and documentation are fully yours - no one else needed to maintain or extend it, unless you choose to.
+                  Your business data is yours and always accessible. You get documentation and a walkthrough, and systems are built with common technologies so another developer can understand them. Terms are agreed in writing.
                 </p>
               </div>
               
               <div className="relative z-10 mt-auto bg-surface-container-highest/30 border border-surface-container-highest p-4 rounded-xl group-hover:bg-primary/5 transition-all duration-500">
                 <div className="flex items-center justify-between text-secondary font-display text-[12px] leading-[16px] tracking-[0.04em] font-medium mb-3">
                   <span>DELIVERABLE SPEC:</span>
-                  <span className="text-on-surface group-hover:text-primary transition-colors duration-300">FULL SYSTEM, ON COMPLETION</span>
+                  <span className="text-on-surface group-hover:text-primary transition-colors duration-300">DOCUMENTED SYSTEM, ON LAUNCH</span>
                 </div>
                 
                 {/* INNER BOX ANIMATION */}
@@ -219,7 +219,7 @@ export default function ValueProposition() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
                     <Key className="w-3.5 h-3.5" />
-                    <span>100% CODE &amp; DATA HANDOVER</span>
+                    <span>DATA ALWAYS ACCESSIBLE</span>
                   </div>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function ValueProposition() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 text-[12px] font-display leading-[16px] tracking-[0.04em] font-medium text-primary-container">
                     <Lock className="w-3.5 h-3.5" />
-                    <span>OUR CODE STAYS YOURS</span>
+                    <span>CONFIDENTIAL BY AGREEMENT</span>
                   </div>
                 </div>
               </div>

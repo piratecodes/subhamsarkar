@@ -1,10 +1,34 @@
 "use client";
+import Link from "next/link";
 import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/react";
 import { ChevronDown } from "lucide-react";
 import { contactFaqs as faqs } from "@/data/faqs";
 
-export default function PreTransmissionFAQ() {
+// Turns "[text](/path)" in an answer into an internal next/link.
+function renderAnswer(text) {
+  const nodes = [];
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let match;
 
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) nodes.push(text.slice(last, match.index));
+    nodes.push(
+      <Link
+        key={`${match[2]}-${match.index}`}
+        href={match[2]}
+        className="text-primary underline underline-offset-2 hover:no-underline"
+      >
+        {match[1]}
+      </Link>
+    );
+    last = match.index + match[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return nodes;
+}
+
+export default function PreTransmissionFAQ() {
   return (
     <section className="w-full py-16">
       <div className="w-full container px-4 lg:px-12 space-y-12">
@@ -18,41 +42,41 @@ export default function PreTransmissionFAQ() {
             Questions Before You Reach Out
           </h2>
           <p className="font-sans text-[16px] leading-7 tracking-[-0.005em] font-normal text-secondary max-w-3xl">
-            Reaching out to someone new always comes with a few unspoken questions - is my project too small, will I be understood, what happens to what I share. Here are honest answers to the ones people ask most, so you know exactly what to expect before that first message even goes out.
+            Reaching out to someone new always comes with a few unspoken questions: is my project too small, will I be understood, what happens to what I share. Here are honest answers to the ones people ask most, so you know what to expect before that first message goes out.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {faqs.map((faq, i) => (
-            <Disclosure as="div" key={i} className="relative flex flex-col bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl border border-surface-container-highest shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 group overflow-hidden">
+            <Disclosure as="div" key={faq.question} className="relative flex flex-col bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl border border-surface-container-highest shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 group overflow-hidden">
               {({ open }) => (
                 <>
                   {/* Idle Card Ambient Glow */}
-                  <div 
+                  <div
                     className={`absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent transition-opacity duration-500 pointer-events-none animate-pulse ${open ? 'opacity-0' : 'opacity-50 group-hover:opacity-0'}`}
                     style={{ animationDelay: `${i * 200}ms` }}
                   ></div>
 
                   {/* Hover Sweep Gradient */}
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out pointer-events-none"></div>
-                  
+
                   {/* Open State Glow */}
                   <div className={`absolute inset-0 bg-primary/5 transition-opacity duration-700 pointer-events-none ${open ? 'opacity-100' : 'opacity-0'}`}></div>
 
-                  <DisclosureButton className="w-full flex-grow text-left p-5 sm:p-6 focus:outline-none relative z-10 cursor-pointer">
+                  <div className="relative z-10 w-full flex-grow text-left p-5 sm:p-6">
                     <div className="w-full flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                      
+
                       <div className="flex items-start gap-4">
                         {/* Icon Container */}
                         <div className="relative w-12 h-12 flex-shrink-0 mt-0.5">
                           {/* Idle Pulsing Ring */}
-                          <div 
+                          <div
                             className={`absolute inset-0 rounded-xl border border-primary/40 opacity-50 animate-pulse transition-opacity duration-300 ${open ? 'opacity-0' : 'group-hover:opacity-0'}`}
                             style={{ animationDelay: `${i * 200}ms` }}
                           ></div>
                           {/* Open state ping */}
                           <div className={`absolute inset-0 rounded-xl bg-primary/30 transition-all duration-500 ${open ? 'opacity-100 animate-ping' : 'opacity-0'}`}></div>
-                          
+
                           <div className={`relative w-full h-full rounded-xl flex items-center justify-center transition-all duration-500 shadow-inner ${open ? 'bg-primary text-on-primary shadow-lg scale-110' : 'bg-surface-container text-secondary group-hover:bg-primary group-hover:text-on-primary group-hover:shadow-md'}`}>
                             <faq.icon className={`w-5 h-5 transition-transform duration-500 ${open ? 'scale-110' : 'group-hover:scale-110 group-hover:animate-pulse'}`} />
                           </div>
@@ -61,7 +85,7 @@ export default function PreTransmissionFAQ() {
                         {/* Content */}
                         <div className="flex flex-col gap-1.5">
                           <div className="flex items-center gap-2">
-                            <span 
+                            <span
                               className={`w-1.5 h-1.5 rounded-full transition-colors duration-500 animate-pulse ${open ? 'bg-primary' : 'bg-primary/60 group-hover:bg-primary'}`}
                               style={{ animationDelay: `${i * 200}ms` }}
                             ></span>
@@ -70,23 +94,28 @@ export default function PreTransmissionFAQ() {
                             </span>
                           </div>
                           <h3 className={`font-display text-[17px] leading-6 font-bold transition-colors duration-500 ${open ? 'text-primary' : 'text-on-surface group-hover:text-primary'}`}>
-                            {faq.question}
+                            <DisclosureButton className="block cursor-pointer text-left focus:outline-none after:absolute after:inset-0 after:z-10 focus-visible:after:outline focus-visible:after:outline-2 focus-visible:after:outline-primary focus-visible:after:rounded-2xl">
+                              {faq.question}
+                            </DisclosureButton>
                           </h3>
                         </div>
                       </div>
-                      
+
                       {/* Chevron Button */}
-                      <div className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border transition-all duration-500 self-start sm:self-auto sm:mt-1 ${open ? 'bg-primary border-primary text-on-primary rotate-180 shadow-md' : 'bg-surface border-surface-container-highest text-secondary group-hover:border-primary/50 group-hover:text-primary group-hover:shadow-sm'}`}>
+                      <div
+                        aria-hidden="true"
+                        className={`flex-shrink-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center border transition-all duration-500 self-start sm:self-auto sm:mt-1 ${open ? 'bg-primary border-primary text-on-primary rotate-180 shadow-md' : 'bg-surface border-surface-container-highest text-secondary group-hover:border-primary/50 group-hover:text-primary group-hover:shadow-sm'}`}
+                      >
                         <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
 
                     </div>
-                  </DisclosureButton>
-                  
+                  </div>
+
                   {/* Expandable Body */}
                   <DisclosurePanel unmount={false} className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0 relative z-10 transition-all duration-500 ease-in-out origin-top">
                     <div className="pl-0 sm:pl-[4rem] font-sans text-[15px] leading-relaxed text-secondary/90 border-t border-surface-container-highest/50 pt-4 mt-2">
-                      {faq.answer}
+                      {renderAnswer(faq.answer)}
                     </div>
                   </DisclosurePanel>
                 </>

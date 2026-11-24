@@ -5,49 +5,49 @@ export default function MigrationArchitecture() {
     {
       num: "01",
       icon: GitFork,
-      title: "Step-by-Step Modernization (No Risky All-at-Once Rewrites)",
-      subtitle: "Replace old software piece by piece while your business keeps running",
-      body: "We set up an intelligent traffic router in front of your legacy software. New features and refactored modules are built independently on clean, fast modern technologies. As each piece proves reliable, we redirect user traffic module by module until the old system is retired.",
+      title: "Step-by-Step Modernization, Not One Risky Rewrite",
+      subtitle: "Replace the old software piece by piece while the business keeps running",
+      body: "Where the system allows it, a routing layer is placed in front of the legacy software. New and rebuilt modules are developed on clean, modern technology, and as each one proves reliable, traffic moves to it until the old system can be retired. Where a staged route is not practical, the assessment says so and a different approach is chosen.",
       bullets: [
-        "Continuous business operations: zero multi-month feature freezes",
-        "Low risk: isolates fragile legacy components behind stable connections",
-        "Immediate speed improvements: modern modules deliver performance right away"
+        "Operations continue, with fewer long feature freezes",
+        "Fragile parts isolated behind stable connections",
+        "Improvements delivered module by module"
       ]
     },
     {
       num: "02",
       icon: ArrowRightLeft,
-      title: "Live Parallel Testing (Old & New Run Side by Side)",
-      subtitle: "Verify that 100% of orders, payments, and data match perfectly",
-      body: "Never guess if data matches. While your legacy software continues operating normally, incoming orders and updates are saved to both databases concurrently. Automated checks compare outputs between the old and new systems until 100% data parity is proven.",
+      title: "Parallel Running: Old and New Side by Side",
+      subtitle: "Compare results before anyone switches",
+      body: "Where it is suitable, the old and new systems run side by side while incoming orders and updates are recorded in both. Automated checks compare the results and flag differences, so the team can resolve them before users move.",
       bullets: [
-        "Zero data drift: real-time synchronization keeps both databases in sync",
-        "Automated disparity alerts catching historical quirks before user switchover",
-        "Live production load testing without any impact on current customers"
+        "Both systems kept in step during testing",
+        "Automated alerts on differences in totals and records",
+        "Real-world testing before the switch"
       ]
     },
     {
       num: "03",
       icon: Database,
-      title: "Cleaned & Verified Historical Data",
-      subtitle: "Cleansing, deduplicating, and normalizing decades of past records",
-      body: "Old databases frequently contain duplicate contacts, missing dates, and broken references. We build automated data cleaning pipelines that sanitize, validate, and verify every single row before inserting it into the new database.",
+      title: "Cleaned and Reconciled Historical Data",
+      subtitle: "Cleaning, de-duplicating and standardizing years of past records",
+      body: "Old databases and spreadsheets often hold duplicate contacts, missing dates and broken references. Automated cleaning steps fix and validate each row before it enters the new database, and counts and totals are reconciled against the source.",
       bullets: [
-        "Safe repeat runs: migration scripts can re-run without creating duplicate rows",
-        "Mathematical verification: checksums verify that every single order migrated intact",
-        "Clear migration log showing all sanitized records and corrections"
+        "Migration scripts can be re-run safely without duplicate rows",
+        "Counts and checksums compare the new data with the old",
+        "A clear log of every correction made"
       ]
     },
     {
       num: "04",
       icon: RefreshCw,
-      title: "Gradual User Transition with Instant 1-Click Rollback",
-      subtitle: "Move users in controlled stages with zero recovery downtime",
-      body: "We don't flip a switch overnight. We route 5% of internal staff first, then 25%, 50%, and finally 100% of customers during normal working hours. If anything looks unexpected, traffic switches back to the old system in under 10 milliseconds.",
+      title: "Gradual User Transition with a Rollback Plan",
+      subtitle: "Move users in controlled stages",
+      body: "Users move in controlled stages, starting with a small internal group and widening as results hold. A rollback plan is prepared before each stage, so if something looks wrong, traffic can return to the old system.",
       bullets: [
-        "No weekend emergencies: cutovers happen safely during regular business hours",
-        "Instant zero-loss rollback protection armed throughout the switchover",
-        "Cloud optimization reducing ongoing monthly server hosting bills"
+        "Cutovers planned for normal working hours",
+        "Rollback prepared before each stage",
+        "Hosting costs reviewed as part of the move to the cloud"
       ]
     }
   ];
@@ -69,7 +69,7 @@ export default function MigrationArchitecture() {
             Deterministic Framework for Cloud Software Modernization.
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Every step is tested in parallel, verified against your real data, and protected by instant rollbacks. Here is how we guarantee a safe, zero-downtime legacy system migration.
+            Each step is tested against your real data and planned with a way back, so change happens gradually instead of in one risky jump.
           </p>
         </div>
 

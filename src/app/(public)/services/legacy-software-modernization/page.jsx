@@ -1,8 +1,10 @@
 import MigrationHero from "@/components/services/migration/MigrationHero";
 import MigrationProblem from "@/components/services/migration/MigrationProblem";
+import LegacyModernizationOptions from "@/components/services/migration/LegacyModernizationOptions";
 import MigrationArchitecture from "@/components/services/migration/MigrationArchitecture";
 import MigrationShowcase from "@/components/services/migration/MigrationShowcase";
 import MigrationProcess from "@/components/services/migration/MigrationProcess";
+import LegacyCostAndTimeline from "@/components/services/migration/LegacyCostAndTimeline";
 import MigrationFAQ from "@/components/services/migration/MigrationFAQ";
 import MigrationCTA from "@/components/services/migration/MigrationCTA";
 import { prisma } from "@/lib/prisma";
@@ -11,9 +13,9 @@ import { getSoftwareModernizationServiceSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Legacy Software Modernization & Cloud Architecture",
+  title: "Legacy Software Modernization Services",
   description:
-    "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
+    "Legacy software modernization services: assess your old software, then keep, improve or rebuild it in safe stages. Scoped per project after a short call.",
   keywords: [
     "software modernization",
     "legacy software modernization",
@@ -26,9 +28,9 @@ export const metadata = {
     canonical: "/services/legacy-software-modernization",
   },
   openGraph: {
-    title: "Legacy Software Modernization & Cloud Architecture",
+    title: "Legacy Software Modernization Services | Subham Sarkar",
     description:
-      "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
+      "Legacy software modernization services: assess your old software, then keep, improve or rebuild it in safe stages. Scoped per project after a short call.",
     url: "https://subhamsarkar.dev/services/legacy-software-modernization",
     siteName: "Subham Sarkar",
     locale: "en_IN",
@@ -37,9 +39,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Legacy Software Modernization & Cloud Architecture",
+    title: "Legacy Software Modernization Services | Subham Sarkar",
     description:
-      "Zero-downtime legacy software modernization and automated database migration services by Subham Sarkar. Migrate fragile databases, old monoliths, and Excel ledgers to scalable cloud architectures.",
+      "Legacy software modernization services: assess your old software, then keep, improve or rebuild it in safe stages. Scoped per project after a short call.",
     images: ["/icons/icon-512x512.png"],
   },
   robots: {
@@ -112,9 +114,11 @@ export default async function SoftwareModernizationServicePage() {
       <PageTracker pageType="service-legacy-software-modernization" />
       <MigrationHero />
       <MigrationProblem />
+      <LegacyModernizationOptions />
       <MigrationArchitecture />
       <MigrationShowcase projects={projects} />
       <MigrationProcess />
+      <LegacyCostAndTimeline />
       <MigrationFAQ />
       <MigrationCTA />
     </>

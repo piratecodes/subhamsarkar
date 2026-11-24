@@ -120,7 +120,7 @@ export default function Footer({ settings }) {
                   Planned like a blueprint. Built to carry weight. Made to stand for years.
                 </h2>
                 <p className="font-sans text-[12px] leading-[18px] tracking-[-0.005em] font-normal text-secondary max-w-md">
-                  Over a decade of experience building custom ERP, CRM, and enterprise software systems designed for reliability and client ownership.
+                  Over a decade of experience building custom ERP, CRM and enterprise software systems designed for reliability and long-term stability.
                 </p>
               </div>
               

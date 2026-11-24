@@ -56,19 +56,19 @@ export default function SecurityHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display text-[44px] sm:text-[54px] lg:text-[68px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Find &amp; Fix Security Loopholes Before Attackers Do.
+              Web Application Security Audit: Find and Fix Weak Spots Before Attackers Do
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Protect your customer records, financial transactions, and proprietary business data. Subham Sarkar provides comprehensive hands-on application security audits and direct repository code remediations - closing API vulnerabilities, stopping bot attacks, and securing customer data without breaking daily operations.
+              Web application security audit and penetration testing for businesses that hold customer records, payments or private data. I test your logins, APIs and permissions the way an attacker would, report what I find in plain language, prepare code fixes for your developers to review and retest the fixes. Testing is done on a staging copy where possible.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
             <div className="flex flex-wrap gap-2.5 pt-2">
               {[
                 { icon: ShieldCheck, label: "Hands-On API & Login Security Audit" },
-                { icon: Lock, label: "Zero-Trust Staff & Customer Permissions" },
-                { icon: FileCheck, label: "Direct Code Fixes & Attestation" }
+                { icon: Lock, label: "Role-Based Staff & Customer Permissions" },
+                { icon: FileCheck, label: "Direct Code Fixes & Retest" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
                 return (
@@ -105,12 +105,12 @@ export default function SecurityHero() {
             {/* Micro-guarantee */}
             <div className="pt-2 flex items-center gap-3 text-secondary font-sans text-[12px] leading-4">
               <span className="flex items-center gap-1.5 text-primary font-semibold">
-                <CheckCircle2 className="w-4 h-4" /> Ready-to-Merge Code Fixes
+                <CheckCircle2 className="w-4 h-4" /> Code Fixes for Review
               </span>
               <span className="text-surface-container-highest">•</span>
-              <span>Signed Security Attestation</span>
+              <span>Written Report and Retest</span>
               <span className="text-surface-container-highest">•</span>
-              <span>Zero-Downtime Audits</span>
+              <span>Staging-First Testing</span>
             </div>
           </div>
 
@@ -131,7 +131,7 @@ export default function SecurityHero() {
                   </span>
                 </div>
                 <span className="font-display text-[9.5px] leading-3 tracking-widest font-bold text-primary bg-primary/10 px-2 py-0.5 rounded uppercase">
-                  DEFENSES ACTIVE
+                  SECURITY REVIEW
                 </span>
               </div>
 
@@ -142,10 +142,10 @@ export default function SecurityHero() {
                     <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Data Privacy</span>
                     <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-on-surface tracking-tight">PROTECTED</div>
+                  <div className="text-[18px] font-bold text-on-surface tracking-tight">TESTED</div>
                   <div className="text-[10px] text-emerald-400 font-sans font-medium flex items-center gap-1">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Tenant Leaks Sealed
+                    Access Rules Checked
                   </div>
                 </div>
 
@@ -154,18 +154,18 @@ export default function SecurityHero() {
                     <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Bot Defense</span>
                     <Lock className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-primary tracking-tight">ACTIVE</div>
-                  <div className="text-[10px] text-secondary font-sans">Brute-Force Rate Limiting</div>
+                  <div className="text-[18px] font-bold text-primary tracking-tight">REVIEWED</div>
+                  <div className="text-[10px] text-secondary font-sans">Rate Limiting Checked</div>
                 </div>
               </div>
 
               {/* Data Flow Pipeline Animation */}
               <div className="space-y-3 font-mono text-[11.5px] leading-relaxed">
                 <div className="text-[10.5px] font-bold uppercase tracking-wider text-secondary font-sans flex items-center justify-between">
-                  <span>Live Security Telemetry</span>
+                  <span>Audit Checks</span>
                   <span className="text-primary font-mono text-[10px] flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-                    MONITORING
+                    IN PROGRESS
                   </span>
                 </div>
 
@@ -179,17 +179,17 @@ export default function SecurityHero() {
                   </div>
                   <div className="flex items-center justify-between text-[9.5px] pt-1">
                     <span className="text-emerald-400 font-semibold">Secure Cookies Verified</span>
-                    <span className="text-secondary">Password Spraying Blocked</span>
+                    <span className="text-secondary">Password Guessing Tested</span>
                   </div>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-surface-container-low border border-surface-container-highest font-mono text-[11px] space-y-1.5 text-secondary">
                   <div className="flex items-center justify-between text-on-surface">
                     <span className="text-secondary font-bold">REMEDIATION_DELIVERY</span>
-                    <span className="text-emerald-400 font-semibold text-[10px]">PULL REQUEST CREATED</span>
+                    <span className="text-emerald-400 font-semibold text-[10px]">FIX PROPOSED</span>
                   </div>
                   <div className="text-[10px] text-secondary truncate">
-                    Ready-to-merge code fixes + regression security tests
+                    Code fix and regression test prepared for review
                   </div>
                 </div>
               </div>

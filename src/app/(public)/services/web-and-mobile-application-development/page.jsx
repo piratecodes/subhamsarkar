@@ -2,7 +2,10 @@ import WebMobileHero from "@/components/services/web-mobile/WebMobileHero";
 import WebMobileProblem from "@/components/services/web-mobile/WebMobileProblem";
 import WebMobileArchitecture from "@/components/services/web-mobile/WebMobileArchitecture";
 import WebMobileShowcase from "@/components/services/web-mobile/WebMobileShowcase";
+import ProgressiveWebApps from "@/components/services/web-mobile/ProgressiveWebApps";
+import WebOrMobileFirst from "@/components/services/web-mobile/WebOrMobileFirst";
 import WebMobileProcess from "@/components/services/web-mobile/WebMobileProcess";
+import CostAndTimeline from "@/components/services/web-mobile/CostAndTimeline";
 import WebMobileFAQ from "@/components/services/web-mobile/WebMobileFAQ";
 import WebMobileCTA from "@/components/services/web-mobile/WebMobileCTA";
 import { prisma } from "@/lib/prisma";
@@ -11,9 +14,9 @@ import { getWebMobileServiceSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Custom Web Application & Mobile App Development",
+  title: "Web and Mobile Application Development",
   description:
-    "Custom web application development and mobile app development services by Subham Sarkar. Offline-first mobile apps, real-time sync, and modern cloud architecture.",
+    "Web and mobile application development for businesses: installable PWAs, offline sync, and web apps linked to your ERP or CRM. Scoped per project.",
   keywords: [
     "custom web application development",
     "web and mobile app development services",
@@ -26,9 +29,9 @@ export const metadata = {
     canonical: "/services/web-and-mobile-application-development",
   },
   openGraph: {
-    title: "Custom Web Application & Mobile App Development",
+    title: "Web and Mobile Application Development | Subham Sarkar",
     description:
-      "Custom web application development and mobile app development services by Subham Sarkar. Offline-first mobile apps, real-time sync, and modern cloud architecture.",
+      "Web and mobile application development for businesses: installable PWAs, offline sync, and web apps linked to your ERP or CRM. Scoped per project.",
     url: "https://subhamsarkar.dev/services/web-and-mobile-application-development",
     siteName: "Subham Sarkar",
     locale: "en_IN",
@@ -37,9 +40,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Web Application & Mobile App Development",
+    title: "Web and Mobile Application Development | Subham Sarkar",
     description:
-      "Custom web application development and mobile app development services by Subham Sarkar. Offline-first mobile apps, real-time sync, and modern cloud architecture.",
+      "Web and mobile application development for businesses: installable PWAs, offline sync, and web apps linked to your ERP or CRM. Scoped per project.",
     images: ["/icons/icon-512x512.png"],
   },
   robots: {
@@ -113,7 +116,10 @@ export default async function WebMobileServicePage() {
       <WebMobileProblem />
       <WebMobileArchitecture />
       <WebMobileShowcase projects={projects} />
+      <ProgressiveWebApps />
+      <WebOrMobileFirst />
       <WebMobileProcess />
+      <CostAndTimeline />
       <WebMobileFAQ />
       <WebMobileCTA />
     </>

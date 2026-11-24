@@ -2,7 +2,9 @@ import ErpHero from "@/components/services/erp/ErpHero";
 import ErpProblem from "@/components/services/erp/ErpProblem";
 import ErpArchitecture from "@/components/services/erp/ErpArchitecture";
 import ErpShowcase from "@/components/services/erp/ErpShowcase";
+import ErpModules from "@/components/services/erp/ErpModules";
 import ErpProcess from "@/components/services/erp/ErpProcess";
+import ErpCostAndTimeline from "@/components/services/erp/ErpCostAndTimeline";
 import ErpFAQ from "@/components/services/erp/ErpFAQ";
 import ErpCTA from "@/components/services/erp/ErpCTA";
 import { prisma } from "@/lib/prisma";
@@ -28,7 +30,7 @@ export const metadata = {
     canonical: "/services/custom-erp-development",
   },
   openGraph: {
-    title: "Custom ERP Development & Inventory Software",
+    title: "Custom ERP Development & Inventory Software | Subham Sarkar",
     description:
       "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
     url: "https://subhamsarkar.dev/services/custom-erp-development",
@@ -39,7 +41,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom ERP Development & Inventory Software",
+    title: "Custom ERP Development & Inventory Software | Subham Sarkar",
     description:
       "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
     images: ["/icons/icon-512x512.png"],
@@ -115,7 +117,9 @@ export default async function ErpServicePage() {
       <ErpProblem />
       <ErpArchitecture />
       <ErpShowcase projects={projects} />
+      <ErpModules />
       <ErpProcess />
+      <ErpCostAndTimeline />
       <ErpFAQ />
       <ErpCTA />
     </>

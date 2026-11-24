@@ -21,11 +21,11 @@ export default function AiCTA() {
             </span>
             
             <h2 className="font-display text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Ready to Deploy Autonomous AI Agents?
+              Ready to Automate Your Business Processes?
             </h2>
 
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Eliminate hours of manual document review and data triage without leaking private data to public AI chatbots. Consult directly with Subham Sarkar to engineer private, schema-bounded AI agents.
+              Cut hours of manual document review and data entry without handing your private data to public chatbots. Speak directly with the architect who will design your workflows, with a person in charge of every important action.
             </p>
           </div>
 
@@ -55,11 +55,11 @@ export default function AiCTA() {
             </span>
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-primary" />
-              100% Private Cloud Infrastructure
+              Private Environment for Your Data
             </span>
             <span className="flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-primary" />
-              Zero Third-Party Training
+              Human Approval on Key Actions
             </span>
           </div>
 

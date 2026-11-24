@@ -6,37 +6,37 @@ export default function WebMobileProcess() {
       phase: "PHASE 01",
       duration: "STAGE 01",
       icon: GitCommit,
-      title: "Data Flow Mapping & Schema Architecture",
+      title: "Requirements, Data Flow and Schema Design",
       description:
-        "We review your daily operations, spreadsheets, and staff routines. We define clear offline rules (what data can be entered without internet) and design clean, reliable database tables.",
-      deliverable: "System Blueprint, Schema Diagrams, and API Data Contracts"
+        "I review your daily operations, spreadsheets and staff routines, then define which data can be entered offline and design the database around it.",
+      deliverable: "System blueprint, schema diagrams and API contracts, reviewed with you before build."
     },
     {
       phase: "PHASE 02",
       duration: "STAGE 02",
       icon: Calendar,
-      title: "Core Sync Layer & Offline Prototype",
+      title: "Core Sync Layer and Offline-First Prototype",
       description:
-        "We build the central cloud API and local device storage. We deploy an internal testing build directly to your phones so your team can test real entries and offline queuing in real conditions.",
-      deliverable: "Private TestFlight / Internal Android Build + Admin Console"
+        "We build the central API and the on-device storage under my architecture, then give your team a working test version to open on their own phones and try real entries, with and without a signal.",
+      deliverable: "A working test version for your phones, plus the admin console."
     },
     {
       phase: "PHASE 03",
       duration: "STAGE 03",
       icon: Shield,
-      title: "Stress Testing & Low-Connectivity Field Trials",
+      title: "Testing for Weak Signal and Simultaneous Edits",
       description:
-        "We test tough scenarios: simulated low cellular network, simultaneous edits across multiple branches, and conflicting entries to confirm that background sync resolves everything cleanly.",
-      deliverable: "Audit Verification Report & Production Candidate Build"
+        "We test the hard cases: a weak or dropped connection, simultaneous edits from several branches and conflicting entries. I review the results to confirm that sync resolves them correctly.",
+      deliverable: "A test report and a release candidate build ready for launch."
     },
     {
       phase: "PHASE 04",
       duration: "STAGE 04",
       icon: Rocket,
-      title: "Zero-Downtime Deployment & 30-Day Stabilization",
+      title: "Production Launch and 30-Day Stabilization",
       description:
-        "We launch the system live on your cloud servers. We train your staff, transfer 100% of the repository code to your company, and provide 30 days of direct support to ensure smooth daily operation.",
-      deliverable: "Full Git IP Transfer, Documentation, and 30-Day Post-Launch Support"
+        "We launch the system in a production environment chosen for your requirements, train your staff and provide 30 days of direct support after launch.",
+      deliverable: "The production system, staff training and 30 days of post-launch support."
     }
   ];
 
@@ -51,10 +51,10 @@ export default function WebMobileProcess() {
             <span>EXECUTION METHODOLOGY // STRUCTURED DELIVERY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            How Your Custom Applications Are Engineered &amp; Deployed
+            The Custom Web Application Development Process
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            No endless meetings or opaque agency handoffs. You work directly with Subham Sarkar through distinct, reviewable milestones. Pacing and sprint allocation depend on your exact project scope and feature requirements.
+            You work directly with the architect through clear, reviewable milestones. I design the architecture and review every delivery myself, with developers I work with handling the build. Timelines depend on your scope and features, and are agreed after a short conversation.
           </p>
         </div>
 

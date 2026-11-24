@@ -7,7 +7,7 @@ export default function WebMobileProblem() {
       badge: "THE OFFLINE CRASH",
       title: "Apps Freeze the Moment Mobile Signal Drops",
       description:
-        "Field workers, delivery staff, and sales reps enter basements, warehouses, or areas with poor cellular reception. Standard cloud-only apps freeze, show error screens, or lose filled forms - forcing staff back to writing on paper receipts.",
+        "Field teams, delivery staff and sales representatives regularly work in basements, warehouses and low-coverage areas. An app that depends on a live connection stalls, shows errors or loses half-filled forms, and staff fall back to paper receipts.",
       impact: "Lost customer orders, delayed dispatches, and frustrated field staff."
     },
     {
@@ -15,16 +15,16 @@ export default function WebMobileProblem() {
       badge: "DOUBLE-ENTRY HEADACHE",
       title: "Staff Spend Hours Re-Typing Phone Orders into Desktops",
       description:
-        "Field agents collect orders and customer details on mobile phones, but the main office billing and stock system lives on a desktop web browser. Office staff waste hours every week manually cross-checking and re-typing entries.",
-      impact: "Expensive human typing errors, delayed customer invoices, and inaccurate stock numbers."
+        "Field agents capture orders and customer details on their phones, while billing and stock are managed on a desktop system in the office. Staff then spend time each week re-entering and cross-checking the same records.",
+      impact: "Typing errors, delayed invoices and inaccurate stock figures."
     },
     {
       icon: Layers,
       badge: "INCONSISTENT RULES",
       title: "iPhone, Android & Website Showing Different Prices",
       description:
-        "When an iPhone app, Android app, and website are built as separate projects by different teams, simple updates like new discount rules, tax rates, or pricing tiers must be coded 3 separate times. Eventually, rules drift apart and customers get quoted different amounts.",
-      impact: "Angry customer disputes, inconsistent bills, and doubled maintenance costs."
+        "When an iPhone app, an Android app and a website are built as separate projects, every change to a discount, tax rate or pricing tier has to be made three times. Over time the rules drift apart and customers are quoted different amounts.",
+      impact: "Customer disputes, inconsistent bills and doubled maintenance effort."
     }
   ];
 
@@ -45,7 +45,7 @@ export default function WebMobileProblem() {
             Where Fragmented Web and Mobile Apps Break Daily Operations.
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Building a simple brochure website is easy. Engineering custom web applications and native mobile apps that synchronize smoothly across warehouses and patchy cellular connections is where generic agencies fail.
+            A brochure website is simple to build. The harder part of web and mobile application development is a system that stays accurate across the office, the warehouse and the field, including where the signal is weak.
           </p>
         </div>
 

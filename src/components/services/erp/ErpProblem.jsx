@@ -7,24 +7,24 @@ export default function ErpProblem() {
       badge: "SPREADSHEET SILO TRAP",
       title: "Numbers That Never Match Across Departments",
       description:
-        "Sales maintains one spreadsheet, the godown logs dispatches on another, and accounts uses a third. At month-end, physical stock never matches what the computer says, causing overselling, delayed orders, and days lost trying to reconcile numbers.",
-      impact: "Wasted money on lost inventory, customer arguments, and days lost reconciling books."
+        "Sales keeps one spreadsheet, the godown another and accounts a third. At month-end, physical stock does not match the system, which leads to overselling, delayed orders and days spent reconciling numbers.",
+      impact: "Lost stock, customer disputes and days lost reconciling books."
     },
     {
       icon: IndianRupee,
       badge: "THE PER-USER PRICING TRAP",
-      title: "Penalized with Hefty Bills Every Time You Hire",
+      title: "Costs That Rise Every Time You Hire",
       description:
-        "Traditional enterprise ERP software charges recurring per-user monthly license fees that balloon as your team expands. To keep costs down, businesses buy only a handful of logins - forcing warehouse staff and sales reps to wait in line for someone else to type in their transactions.",
-      impact: "Massive office bottlenecks, shared insecure passwords, and escalating recurring software licenses."
+        "Many readymade ERP products charge a monthly fee for each user, and the cost grows as your team does. To control it, businesses buy only a few logins, and warehouse staff and sales reps wait for someone else to key in their transactions.",
+      impact: "Office bottlenecks, shared passwords and licence costs that keep rising."
     },
     {
       icon: Workflow,
       badge: "RIGID TEMPLATE FRICTION",
       title: "Forced to Bend Your Business Around Generic Software",
       description:
-        "Off-the-shelf software forces your unique pricing, discount slabs, or dispatch rules into rigid templates. Modifying a simple form takes months of expensive consultant billing and frequently breaks on updates.",
-      impact: "Frustrated employees, human errors, and staff giving up to use paper notes again."
+        "Off-the-shelf software pushes your pricing, discount slabs and dispatch rules into fixed templates. Changing a simple form can take months of consultant time, and customizations can break when the software updates.",
+      impact: "Frustrated employees, human errors and a return to paper notes."
     }
   ];
 
@@ -42,10 +42,10 @@ export default function ErpProblem() {
             <span>OPERATIONAL BOTTLENECK // THE REALITY</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            Why Readymade ERP Software Fails Growing Businesses.
+            When a Growing Business Needs a Custom ERP, Not More Basic Tools
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Most businesses do not need bloated enterprise contracts costing lakhs every quarter or a patchwork of ten disconnected tools. Custom ERP software engineering delivers one reliable, unified system built around your actual real-world workflows.
+            A business rarely needs an ERP on day one. The need appears when basic tools stop coping: several branches, payroll and manual data entry, departments working in silos, little visibility for the owner and a steady stream of enquiries and complaints to chase.
           </p>
         </div>
 

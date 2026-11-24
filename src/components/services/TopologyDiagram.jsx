@@ -30,7 +30,7 @@ export default function TopologyDiagram() {
     {
       label: "AI LAYER (OPTIONAL)",
       title: "Private & Isolated",
-      subtitle: "Your Data Stays In-House",
+      subtitle: "Sensitive Data Stays Contained",
       highlight: true
     }
   ];
@@ -148,10 +148,10 @@ export default function TopologyDiagram() {
         <div className="flex flex-wrap items-center justify-between text-secondary font-display text-[11px] leading-5 tracking-[0.08em] uppercase font-semibold pt-6 border-t border-surface-container-highest gap-4">
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
-            DESIGN PRINCIPLE: EACH LAYER IS INDEPENDENT - ONE ISSUE DOESN'T BRING DOWN THE REST
+            DESIGN PRINCIPLE: EACH LAYER IS INDEPENDENT, SO A FAULT IN ONE IS CONTAINED WHERE POSSIBLE
           </span>
           <span className="flex items-center gap-2">
-            BUILT AND TESTED BEFORE HANDOVER
+            BUILT AND TESTED BEFORE LAUNCH
             <span className="w-1.5 h-1.5 rounded-full bg-secondary/50"></span>
           </span>
         </div>

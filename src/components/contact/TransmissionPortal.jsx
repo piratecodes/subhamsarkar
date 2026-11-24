@@ -614,7 +614,7 @@ export default function TransmissionPortal({ settings }) {
               </span>
             </div>
             <p className="font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary pt-1">
-              Everything you share is reviewed only by me — never outsourced, never shared with third parties. If you'd rather sign an NDA before going into detail, that's always an option, not a requirement.
+              Everything you share is read by me first and is never shared with third parties. If you would rather sign an NDA before going into detail, that is always an option, not a requirement.
             </p>
           </div>
         </div>

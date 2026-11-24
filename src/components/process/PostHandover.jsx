@@ -14,16 +14,16 @@ export default function PostHandover() {
           <div className="flex items-center gap-2 mb-2">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_var(--color-primary)]"></span>
             <span className="font-display text-[11px] leading-4 tracking-[0.15em] font-bold uppercase tracking-widest text-primary">
-              AFTER THE PROJECT ENDS
+              AFTER LAUNCH
             </span>
           </div>
           
           <h2 className="font-display text-[36px] lg:text-[48px] leading-[1.15] tracking-[-0.02em] font-bold text-on-surface">
-            What Happens After Handover?
+            What Happens After Launch?
           </h2>
           
           <p className="font-sans text-[16px] lg:text-[18px] leading-relaxed tracking-[-0.005em] font-medium text-secondary max-w-5xl">
-            The real worry with hiring any developer isn't the build — it's what happens after. Will you be stuck if something breaks? Left with a system nobody else understands? Quietly billed for things that should've been included? Here's exactly what happens once your project goes live, stated plainly, upfront.
+            The real worry with hiring any developer is not the build, it is what happens after. Will you be stuck if something breaks? Left with a system nobody else understands? Quietly billed for things that should have been included? Here is what happens once your project goes live, stated plainly, upfront.
           </p>
         </div>
         
@@ -46,14 +46,14 @@ export default function PostHandover() {
               </h3>
               
               <p className="font-sans text-[15px] leading-relaxed text-secondary font-medium">
-                A defined support period follows every launch. If something breaks, behaves unexpectedly, or wasn't caught during testing, it gets fixed — at no extra cost, and without you having to fight for it. This isn't a sales add-on; it's part of how every project is delivered.
+                Every project includes 30 days of support after launch. If something breaks, behaves unexpectedly or was not caught during testing, it gets fixed during that period at no extra cost. This is not a sales add-on. It is part of how every project is delivered.
               </p>
             </div>
             
             <div className="mt-8 pt-5 border-t border-surface-container-highest/50 relative z-10">
               <div className="flex items-center justify-between">
-                 <span className="font-display text-[10px] tracking-[0.15em] font-bold text-secondary uppercase">RESPONSE TIME</span>
-                 <span className="font-sans text-[13px] font-bold text-on-surface">&lt; 12 HRS</span>
+                 <span className="font-display text-[10px] tracking-[0.15em] font-bold text-secondary uppercase">SUPPORT PERIOD</span>
+                 <span className="font-sans text-[13px] font-bold text-on-surface">30 DAYS</span>
               </div>
             </div>
           </div>
@@ -66,22 +66,22 @@ export default function PostHandover() {
             <div className="relative z-10">
               <div className="relative inline-block bg-primary/10 border border-primary/20 px-3.5 py-1.5 rounded-full mb-8 overflow-hidden group/pill cursor-default">
                  <div className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover/pill:translate-x-[250%] transition-transform duration-700 ease-in-out skew-x-[-15deg]"></div>
-                 <span className="relative z-10 font-display text-[10px] tracking-[0.15em] font-bold text-primary uppercase">FULL OWNERSHIP</span>
+                 <span className="relative z-10 font-display text-[10px] tracking-[0.15em] font-bold text-primary uppercase">CLARITY & CONTINUITY</span>
               </div>
               
               <h3 className="font-display text-[22px] font-bold text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors duration-300">
-                You Get Everything, Clearly
+                You Are Never Left Guessing
               </h3>
               
               <p className="font-sans text-[15px] leading-relaxed text-secondary font-medium">
-                Once the project is complete, you receive the full source code, complete documentation, and a proper walkthrough of how everything works — not a locked-down system only I can touch. Any competent developer can pick up where we left off, maintain it, or extend it. You're never stuck waiting on one person to keep your business running.
+                After launch you receive documentation and a walkthrough of how the system works, and your business data stays yours, with access whenever you need it. The system is built with common, widely supported technologies, not tools only one person can use, so another developer can understand it. Terms for code, hosting and admin access are agreed in writing, so raise them in the first conversation if they matter to you.
               </p>
             </div>
             
             <div className="mt-8 pt-5 border-t border-surface-container-highest/50 relative z-10">
               <div className="flex items-center justify-between">
-                 <span className="font-display text-[10px] tracking-[0.15em] font-bold text-secondary uppercase">HANDOVER</span>
-                 <span className="font-sans text-[13px] font-bold text-on-surface">COMPLETE, NOT PARTIAL</span>
+                 <span className="font-display text-[10px] tracking-[0.15em] font-bold text-secondary uppercase">BUSINESS DATA</span>
+                 <span className="font-sans text-[13px] font-bold text-on-surface">ALWAYS ACCESSIBLE</span>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function PostHandover() {
               </h3>
               
               <p className="font-sans text-[15px] leading-relaxed text-secondary font-medium">
-                Some businesses want a continued point of contact as they grow — someone who already knows the system, available for questions, small changes, or planning what comes next. That's available if you want it. It's never assumed, never pushed, and never a condition of the work already delivered.
+                Some businesses want a continued point of contact as they grow, someone who already knows the system and is available for questions, small changes or planning what comes next. That is available if you want it, and the terms are agreed upfront. It is never pushed.
               </p>
             </div>
             

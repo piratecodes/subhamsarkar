@@ -56,18 +56,18 @@ export default function CrmHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display text-[44px] sm:text-[54px] lg:text-[68px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Custom CRM Development with Zero Monthly Per-User Fees.
+              Custom CRM Software Development Built Around Your Sales Process
             </h1>
             
             <p className="font-sans text-[17px] sm:text-[19px] leading-[28px] tracking-[-0.01em] font-normal text-secondary max-w-2xl text-balance">
-              Stop losing warm leads to delayed follow-ups and bloated SaaS bills. Built by Subham Sarkar, custom CRM software and automated lead management systems respond to inquiries on WhatsApp within five seconds, track your entire sales pipeline, and provide your team with unlimited logins.
+              Custom CRM software development for businesses losing leads to slow follow-ups and scattered records. Enquiries from your website, ads and WhatsApp land in one system and are assigned to the right person, and every message and quotation stays in a single customer history your whole team can use.
             </p>
 
             {/* Feature Badges with Hover Interactions */}
             <div className="flex flex-wrap gap-2.5 pt-2">
               {[
-                { icon: Users, label: "Unlimited Staff Seats (No Per-User Licensing)" },
-                { icon: MessageSquare, label: "Instant WhatsApp Lead Management System" },
+                { icon: Users, label: "Unlimited Staff Logins" },
+                { icon: MessageSquare, label: "WhatsApp Lead Management" },
                 { icon: FileCheck, label: "Automated Quotations & Sales Pipeline" }
               ].map((badge, idx) => {
                 const Icon = badge.icon;
@@ -105,7 +105,7 @@ export default function CrmHero() {
             {/* Micro-guarantee */}
             <div className="pt-2 flex items-center gap-3 text-secondary font-sans text-[12px] leading-4">
               <span className="flex items-center gap-1.5 text-primary font-semibold">
-                <CheckCircle2 className="w-4 h-4" /> 100% Code Ownership
+                <CheckCircle2 className="w-4 h-4" /> Milestone-Based Delivery
               </span>
               <span className="text-surface-container-highest">•</span>
               <span>Unlimited User Accounts</span>
@@ -139,13 +139,13 @@ export default function CrmHero() {
               <div className="grid grid-cols-2 gap-3 font-mono">
                 <div className="p-3.5 rounded-xl bg-surface-container border border-surface-container-highest/60 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Reply Time</span>
+                    <span className="text-[10px] text-secondary tracking-wider uppercase font-sans font-bold">Reply Mode</span>
                     <TrendingUp className="w-3.5 h-3.5 text-primary" />
                   </div>
-                  <div className="text-[18px] font-bold text-on-surface tracking-tight">&lt; 5 SECONDS</div>
+                  <div className="text-[18px] font-bold text-on-surface tracking-tight">AUTOMATIC</div>
                   <div className="text-[10px] text-emerald-400 font-sans font-medium flex items-center gap-1">
                     <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Instant WhatsApp Auto-Reply
+                    WhatsApp Auto-Reply on New Leads
                   </div>
                 </div>
 
@@ -155,7 +155,7 @@ export default function CrmHero() {
                     <Users className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <div className="text-[18px] font-bold text-primary tracking-tight">UNLIMITED</div>
-                  <div className="text-[10px] text-secondary font-sans">₹0 per user monthly fee</div>
+                  <div className="text-[10px] text-secondary font-sans">Built for Your Whole Team</div>
                 </div>
               </div>
 
@@ -178,7 +178,7 @@ export default function CrmHero() {
                     <div className="h-full bg-gradient-to-r from-primary to-primary-container rounded-full w-full animate-[progressIndeterminate_2s_infinite]"></div>
                   </div>
                   <div className="flex items-center justify-between text-[9.5px] pt-1">
-                    <span className="text-emerald-400 font-semibold">WhatsApp Catalog Sent (0.4s)</span>
+                    <span className="text-emerald-400 font-semibold">WhatsApp Catalog Sent</span>
                     <span className="text-secondary">Assigned to Rep: Rahul</span>
                   </div>
                 </div>
@@ -189,7 +189,7 @@ export default function CrmHero() {
                     <span className="text-emerald-400 font-semibold text-[10px]">ALL LOGS IN ONE PLACE</span>
                   </div>
                   <div className="text-[10px] text-secondary truncate">
-                    Calls Recorded • WhatsApp Chats • PDF Quotation Rev 2
+                    Call Notes • WhatsApp Chats • PDF Quotation Rev 2
                   </div>
                 </div>
               </div>

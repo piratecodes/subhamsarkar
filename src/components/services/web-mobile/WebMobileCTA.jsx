@@ -21,11 +21,11 @@ export default function WebMobileCTA() {
             </span>
             
             <h2 className="font-display text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.08] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              Ready to Build Your Web &amp; Mobile Ecosystem?
+              Ready to Plan Your Web or Mobile Application?
             </h2>
 
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Skip the agency sales pitches and junior developer handoffs. Speak directly with Subham Sarkar to evaluate your business data flow, offline constraints, and production timeline.
+              Skip the sales layer. Speak directly with the architect who will design your system. We will look at your business data flow, your offline needs and your timeline, and you will know what is realistic before any work begins.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function WebMobileCTA() {
             </span>
             <span className="flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-primary" />
-              100% Client Code &amp; Data Ownership
+              Full Client Access to Your Business Data
             </span>
           </div>
 

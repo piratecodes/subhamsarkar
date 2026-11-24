@@ -1,8 +1,10 @@
 import CrmHero from "@/components/services/crm/CrmHero";
 import CrmProblem from "@/components/services/crm/CrmProblem";
+import CrmBuildOrBuy from "@/components/services/crm/CrmBuildOrBuy";
 import CrmArchitecture from "@/components/services/crm/CrmArchitecture";
 import CrmShowcase from "@/components/services/crm/CrmShowcase";
 import CrmProcess from "@/components/services/crm/CrmProcess";
+import CrmCostAndTimeline from "@/components/services/crm/CrmCostAndTimeline";
 import CrmFAQ from "@/components/services/crm/CrmFAQ";
 import CrmCTA from "@/components/services/crm/CrmCTA";
 import { prisma } from "@/lib/prisma";
@@ -11,9 +13,9 @@ import { getCrmServiceSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Custom CRM Development & Lead Management Systems",
+  title: "Custom CRM Software Development Services",
   description:
-    "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
+    "Custom CRM software development services: leads, follow-ups, quotes and customer history in one system fitted to your sales process. Scoped per project.",
   keywords: [
     "custom crm development",
     "crm development company",
@@ -28,9 +30,9 @@ export const metadata = {
     canonical: "/services/custom-crm-development",
   },
   openGraph: {
-    title: "Custom CRM Development & Lead Management Systems",
+    title: "Custom CRM Software Development Services | Subham Sarkar",
     description:
-      "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
+      "Custom CRM software development services: leads, follow-ups, quotes and customer history in one system fitted to your sales process. Scoped per project.",
     url: "https://subhamsarkar.dev/services/custom-crm-development",
     siteName: "Subham Sarkar",
     locale: "en_IN",
@@ -39,9 +41,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom CRM Development & Lead Management Systems",
+    title: "Custom CRM Software Development Services | Subham Sarkar",
     description:
-      "Custom CRM software development company services by Subham Sarkar. Automated WhatsApp lead management systems, sales pipelines, and zero per-seat fees.",
+      "Custom CRM software development services: leads, follow-ups, quotes and customer history in one system fitted to your sales process. Scoped per project.",
     images: ["/icons/icon-512x512.png"],
   },
   robots: {
@@ -113,9 +115,11 @@ export default async function CrmServicePage() {
       <PageTracker pageType="service-custom-crm-development" />
       <CrmHero />
       <CrmProblem />
+      <CrmBuildOrBuy />
       <CrmArchitecture />
       <CrmShowcase projects={projects} />
       <CrmProcess />
+      <CrmCostAndTimeline />
       <CrmFAQ />
       <CrmCTA />
     </>

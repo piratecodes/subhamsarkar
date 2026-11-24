@@ -14,11 +14,11 @@ export default function ServiceCards() {
               DEPLOYABLE BLUEPRINTS // SECTION 02
             </span>
             <h2 className="font-display text-[36px] lg:text-[44px] leading-[44px] lg:leading-[52px] tracking-[-0.02em] font-bold tracking-tight text-on-surface mt-2 text-balance">
-              Engineered Architectural Disciplines
+              Software Development Services: Six Areas of Work
             </h2>
           </div>
           <p className="font-sans text-[14px] leading-[22px] tracking-[0em] font-medium text-secondary max-w-sm">
-            Inspect full architectural boundaries, inclusions, target profiles, and real-world failure mitigation strategies for each tier.
+            Each service below has its own page with scope, process and answers to common questions. Choose the one closest to the problem you are solving.
           </p>
         </div>
         
@@ -121,7 +121,7 @@ export default function ServiceCards() {
                         href={`/services/${svc.slug}`}
                         className="inline-flex items-center gap-1.5 text-primary hover:text-on-surface transition-colors duration-300 font-bold group/link"
                       >
-                        <span>VIEW SPECIFICATION</span>
+                        <span>{svc.linkText || "VIEW SPECIFICATION"}</span>
                         <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
                       </Link>
                     )}

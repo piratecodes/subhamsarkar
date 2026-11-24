@@ -5,32 +5,32 @@ export default function ErpArchitecture() {
     {
       num: "01",
       icon: Database,
-      title: "Tamper-Proof Accounting & Transaction Records",
-      subtitle: "Every rupee accounted for, with zero missing or deleted entries",
-      body: "Financial figures and stock movements follow strict double-entry accounting rules. Past finalized bills cannot be quietly deleted or changed behind your back. Every adjustment leaves a permanent record of who made the change, when, and why - so your books always balance.",
+      title: "Audit-Ready Accounting and Transaction Records",
+      subtitle: "Every entry recorded, with a permanent history of changes",
+      body: "Financial figures and stock movements follow double-entry accounting rules. Finalized bills are locked against quiet edits or deletion, and every adjustment records who made it, when and why, so your books stay reliable.",
       bullets: [
-        "No secret edits: full permanent history of every modification, date, and user",
-        "Clean books: daily income and expense totals match your actual bank balance",
-        "CA & Tax ready: instant export of clean records for audits and tax filing"
+        "No secret edits: a permanent history of every change, date and user",
+        "Clean books: daily income and expense totals you can check against your bank",
+        "CA and tax ready: clean records exported for audits and tax filing"
       ]
     },
     {
       num: "02",
       icon: Layers,
-      title: "Live Stock Tracking Across Godowns & Stores",
-      subtitle: "Never oversell or promise an item you don't actually have in stock",
-      body: "When a customer buys an item at a counter, on your website, or through a field rep, inventory drops across all branches in real time. Warehouse staff get clear packing lists, and transfers between godowns update automatically.",
+      title: "Live Stock Tracking Across Godowns and Stores",
+      subtitle: "Know what you actually have in stock, in every location",
+      body: "When a customer buys an item at a counter, on your website or through a field representative, stock updates across all branches in real time. Warehouse staff get clear packing lists, and transfers between godowns update automatically.",
       bullets: [
-        "Instant stock sync across all retail counters, godowns, and online orders",
-        "Prevents double-selling during rush hours or festival sale surges",
-        "Barcode and QR scanning support for fast receiving and dispatch"
+        "Stock synced across retail counters, godowns and online orders",
+        "Helps prevent double-selling during rush hours and festival sales",
+        "Barcode and QR scanning where your operation needs it"
       ]
     },
     {
       num: "03",
       icon: Cpu,
       title: "Smart Reordering & Supplier Purchase Tracking",
-      subtitle: "Know exactly when and how much stock to reorder before it runs out",
+      subtitle: "Know when and how much to reorder before stock runs out",
       body: "Take the guesswork out of purchasing. The system tracks how fast each product sells and alerts you before stock runs low, preparing purchase order drafts with the right supplier prices automatically.",
       bullets: [
         "Automatic low-stock alerts based on real daily sales speed",
@@ -41,13 +41,13 @@ export default function ErpArchitecture() {
     {
       num: "04",
       icon: Receipt,
-      title: "Direct Sync with Tally, Zoho Books & GST E-Invoices",
-      subtitle: "No double entry - invoices and tax entries flow automatically",
-      body: "Your accountants can continue using the tools they already know. When an invoice or e-way bill is created, the numbers flow directly into Tally or Zoho Books with zero manual typing or copy-paste errors.",
+      title: "Accounting Software and GST Connections",
+      subtitle: "Entries flow across without double typing",
+      body: "Your accountants can keep using the tools they know. Where the accounting software offers a way to connect, invoices and tax entries can flow into it directly, which reduces manual typing and copy-paste errors. The exact connections are agreed per project.",
       bullets: [
-        "Direct two-way connection with Tally, Zoho Books, or QuickBooks",
-        "Automatic GST e-invoicing and IRN generation with one click",
-        "Daily auto-checks to make sure your ERP and accounting software match"
+        "Connections to accounting software such as Tally or Zoho Books, where required",
+        "GST e-invoice support where your business needs it",
+        "Regular checks that the ERP and your accounts agree"
       ]
     }
   ];

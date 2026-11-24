@@ -10,8 +10,8 @@ import { getContactPageSchema } from "@/lib/schema/pages";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {
-  title: "Contact",
-  description: "Initiate a direct architectural transmission with Subham Sarkar.",
+  title: { absolute: "Contact Subham Sarkar | Software Architect in Kolkata" },
+  description: "Contact Subham Sarkar, a software architect and a full-stack developer in Kolkata, to discuss a custom ERP, CRM, web or mobile app, AI automation or software modernization project.",
   alternates: {
     canonical: "/contact",
   },

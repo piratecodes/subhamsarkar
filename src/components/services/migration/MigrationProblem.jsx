@@ -7,24 +7,24 @@ export default function MigrationProblem() {
       badge: "THE BIG BANG RISK",
       title: "Weekend Cutovers That Crash on Monday Morning",
       description:
-        "Agencies attempt all-at-once weekend switches. When Monday morning arrives and real customer traffic floods in, hidden bugs and missing data cause the entire platform to crash, leaving operations paralyzed for days.",
-      impact: "Days of catastrophic business downtime, lost customer revenue, and emergency rollbacks."
+        "All-at-once weekend switches are common. When real customer traffic arrives on Monday, hidden bugs and missing data can bring the platform down and leave operations stuck for days.",
+      impact: "Business downtime, lost revenue and emergency rollbacks."
     },
     {
       icon: DatabaseZap,
       badge: "DATA CORRUPTION RISK",
       title: "Decades of Old Records Mangled by Naive Scripts",
       description:
-        "Rushed migration scripts force 10 years of unformatted legacy database rows into a new schema without proper validation - silently corrupting past customer orders, tax records, and client account balances.",
-      impact: "Regulatory audit penalties, legal liabilities, and permanently damaged ledger history."
+        "Rushed scripts push years of inconsistent records into a new structure without proper checks, which can quietly damage past orders, tax records and customer balances",
+      impact: "Audit problems, disputes and a damaged record history."
     },
     {
       icon: FileCode2,
       badge: "MONOLITHIC FEAR",
       title: "Nobody Dares Touch the Fragile Legacy Code",
       description:
-        "The original programmers left years ago, there is zero documentation, and changing a simple feature breaks two other things unexpectedly. The business stays stuck paying high server hosting bills for a slow, aging platform.",
-      impact: "Frozen product roadmap, frustrated staff, and growing technical risks."
+        "The original programmers have moved on, documentation is thin and a small change breaks something else. The business keeps paying to run a slow, aging platform it is afraid to touch.",
+      impact: "A frozen roadmap, frustrated staff and growing technical risk."
     }
   ];
 
@@ -42,10 +42,10 @@ export default function MigrationProblem() {
             <span>MIGRATION HAZARDS // THE ROOT CAUSE</span>
           </div>
           <h2 className="font-display text-[32px] sm:text-[42px] lg:text-[48px] leading-[1.12] tracking-[-0.02em] font-bold text-on-surface text-balance">
-            The Operational Risks of Outdated Legacy Software.
+            Why Legacy Software Modernization Projects Go Wrong
           </h2>
           <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-            Modernizing critical business software is a surgical operation. You cannot afford high-risk weekend switches, data corruption, or losing a single customer transaction during database migration.
+            Changing business-critical software is delicate work. A rushed weekend switch, a careless data move or a lost transaction can cost more than the old system ever did.
           </p>
         </div>
 

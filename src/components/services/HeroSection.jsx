@@ -41,10 +41,10 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           <div className="lg:col-span-7 space-y-6">
             <h1 className="font-display text-[52px] lg:text-[72px] leading-[1.05] tracking-[-0.03em] font-bold text-on-surface text-balance">
-              High-Impact Architectural &amp; Development Services
+              Custom Software Development Services for Growing Businesses
             </h1>
             <p className="font-sans text-[18px] lg:text-[20px] leading-7.5 tracking-[-0.01em] font-normal text-on-surface-variant max-w-2xl text-balance">
-              Software architecture is not about adding complexity - it is the disciplined elimination of failure modes. Every engagement is engineered from foundational schema design to hardened deployment, tailored specifically for enterprises that cannot afford downtime.
+              Custom software development from Kolkata for businesses across India and worldwide. Software architecture is the work of designing systems so they keep running as your business grows, and every project is led directly by the architect, from the first conversation to launch, across ERP, CRM, web and mobile apps, AI automation, legacy modernization and security audits.
             </p>
           </div>
           
@@ -66,9 +66,9 @@ export default function HeroSection() {
                   <div className="font-display text-[10px] leading-[14px] font-bold tracking-[0.12em] text-primary uppercase bg-primary/10 w-max px-1.5 py-0.5 rounded">DIRECT REPLY, NO QUEUE</div>
                 </div>
                 <div className="p-4 bg-surface-container-low/60 rounded-xl border border-outline/5 group-hover:bg-surface-container/50 transition-colors duration-500">
-                  <div className="font-display text-[11px] leading-4 tracking-[0.12em] font-semibold text-secondary uppercase mb-1">OWNERSHIP</div>
-                  <div className="font-display text-[28px] leading-[36px] tracking-[-0.01em] font-bold text-on-surface mb-2">100%</div>
-                  <div className="font-display text-[10px] leading-[14px] font-bold tracking-[0.12em] text-secondary uppercase bg-surface-variant w-max px-1.5 py-0.5 rounded">YOURS, ON COMPLETION</div>
+                  <div className="font-display text-[11px] leading-4 tracking-[0.12em] font-semibold text-secondary uppercase mb-1">BUSINESS DATA</div>
+                  <div className="font-display text-[28px] leading-[36px] tracking-[-0.01em] font-bold text-on-surface mb-2">YOURS</div>
+                  <div className="font-display text-[10px] leading-[14px] font-bold tracking-[0.12em] text-secondary uppercase bg-surface-variant w-max px-1.5 py-0.5 rounded">FULL ACCESS ALWAYS</div>
                 </div>
               </div>
               
@@ -79,7 +79,7 @@ export default function HeroSection() {
               <div className="relative z-10 flex justify-between font-display text-[11px] leading-4 tracking-[0.12em] font-semibold text-secondary uppercase mt-4">
                 <span>CONFIDENTIALITY</span>
                 <span className="font-bold text-on-surface flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-primary" /> NDA ON EVERY PROJECT
+                  <ShieldCheck className="w-3.5 h-3.5 text-primary" /> NDA ON REQUEST
                 </span>
               </div>
             </div>
@@ -92,25 +92,25 @@ export default function HeroSection() {
             <div className="p-2 rounded-lg bg-surface-container group-hover/feat:bg-primary/10 transition-colors duration-300">
               <Network className="w-5 h-5 text-primary" />
             </div>
-            <span className="group-hover/feat:text-on-surface transition-colors duration-300">No Single Point of Failure</span>
+            <span className="group-hover/feat:text-on-surface transition-colors duration-300">Designed for Reliability</span>
           </div>
           <div className="flex items-center gap-3 group/feat">
             <div className="p-2 rounded-lg bg-surface-container group-hover/feat:bg-primary/10 transition-colors duration-300">
               <Shield className="w-5 h-5 text-primary" />
             </div>
-            <span className="group-hover/feat:text-on-surface transition-colors duration-300">Your Data Stays Private</span>
+            <span className="group-hover/feat:text-on-surface transition-colors duration-300">Confidential by Agreement</span>
           </div>
           <div className="flex items-center gap-3 group/feat">
             <div className="p-2 rounded-lg bg-surface-container group-hover/feat:bg-primary/10 transition-colors duration-300">
               <SaveAll className="w-5 h-5 text-primary" />
             </div>
-            <span className="group-hover/feat:text-on-surface transition-colors duration-300">Safe, Tested Rollouts</span>
+            <span className="group-hover/feat:text-on-surface transition-colors duration-300">keep ("Safe, Tested Rollouts")</span>
           </div>
           <div className="flex items-center gap-3 group/feat">
             <div className="p-2 rounded-lg bg-surface-container group-hover/feat:bg-primary/10 transition-colors duration-300">
               <ShieldCheck className="w-5 h-5 text-primary" />
             </div>
-            <span className="group-hover/feat:text-on-surface transition-colors duration-300">Full Audit Trail</span>
+            <span className="group-hover/feat:text-on-surface transition-colors duration-300">Clear Audit Trails</span>
           </div>
         </div>
       </section>

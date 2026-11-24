@@ -25,7 +25,7 @@ export default function ErpCTA() {
             </h2>
 
             <p className="font-sans text-[16px] sm:text-[18px] leading-[26px] text-secondary text-balance">
-              Stop paying recurring per-user licenses for rigid software. Consult directly with Subham Sarkar to engineer a custom ERP tailored to your inventory, accounting, and multi-location operations.
+              Stop working around rigid software. Consult directly with the architect to plan a custom ERP tailored to your inventory, accounting and multi-location operations.
             </p>
           </div>
 
@@ -59,7 +59,7 @@ export default function ErpCTA() {
             </span>
             <span className="flex items-center gap-1.5">
               <Terminal className="w-4 h-4 text-primary" />
-              100% Client Code &amp; Data Ownership
+              Full Client Access to Your Business Data
             </span>
           </div>
 
