@@ -67,8 +67,8 @@ export function getServicesPageSchema() {
     "@type": "WebPage",
     "@id": `${BASE_URL}/services#webpage`,
     url: `${BASE_URL}/services`,
-    name: "Services & Capabilities | Subham Sarkar | Software Architect and ERP & CRM Developer",
-    description: "Custom ERP & CRM systems, unified web and mobile applications, AI agent integration, and legacy system modernization.",
+    name: "Custom Software Development Services | Subham Sarkar | Software Architect and Full Stack Developer",
+    description: "Custom software development in Kolkata and worldwide: ERP, CRM, web and mobile apps, AI automation, modernization and security audits by Subham Sarkar.",
     isPartOf: websiteRef,
     breadcrumb: {
       "@id": `${BASE_URL}/services#breadcrumb`
@@ -177,8 +177,8 @@ export function getProcessPageSchema() {
     "@type": "WebPage",
     "@id": `${BASE_URL}/process#webpage`,
     url: `${BASE_URL}/process`,
-    name: "Architecture & Delivery Process | Subham Sarkar",
-    description: "A battle-tested 5-phase delivery process built for high-stakes business systems.",
+    name: "Custom Software Development Process | Subham Sarkar | Software Architect and Full Stack Developer",
+    description: "How a custom software project runs, step by step: discovery, planning, building, testing and launch, with clear milestones and support after launch.",
     isPartOf: websiteRef,
     breadcrumb: {
       "@id": `${BASE_URL}/process#breadcrumb`
@@ -235,8 +235,8 @@ export function getContactPageSchema(settings) {
     "@type": "ContactPage",
     "@id": `${BASE_URL}/contact#webpage`,
     url: `${BASE_URL}/contact`,
-    name: "Contact Subham Sarkar | Software Architect and ERP & CRM Developer",
-    description: "Start a conversation about your custom software requirements. Direct consultation with Subham Sarkar.",
+    name: "Contact Subham Sarkar | Software Architect and Full Stack Developer",
+    description: "Contact Subham Sarkar, a software architect and a full-stack developer in Kolkata, to discuss a custom ERP, CRM, web or mobile app, AI automation or software modernization project.",
     isPartOf: websiteRef,
     breadcrumb: {
       "@id": `${BASE_URL}/contact#breadcrumb`
