@@ -7,31 +7,38 @@ import PersonalNote from "@/components/about/PersonalNote";
 import AboutCTA from "@/components/about/AboutCTA";
 import { getAboutPageSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/actions/settings";
 import { META } from "@/data/pageMeta";
 
-export const metadata = buildMetadata({
-  title: {
-    absolute: "About Subham Sarkar | Software Architect in Kolkata",
-  },
-  description:
-    "Meet Subham Sarkar - software architect and full-stack developer in Kolkata with over a decade of experience building custom ERP, CRM, secure web and mobile applications, and AI automation for businesses across India.",
-  alternates:{
+export const metadata = {
+  title: { absolute: META.about.title },
+  description: META.about.description,
+  alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: META.contact.title,
-    description: META.contact.description,
-    url: "https://subhamsarkar.dev/contact",
+    title: META.about.title,
+    description: META.about.description,
+    url: "https://subhamsarkar.dev/about",
+    siteName: "Subham Sarkar",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: "/myimage_web.png",
+        width: 1024,
+        height: 1287,
+        alt: "Subham Sarkar - Software Architect & Full-Stack Developer in Kolkata",
+      },
+    ],
   },
   twitter: {
-    title: META.contact.title,
-    description: META.contact.description,
+    card: "summary_large_image",
+    title: META.about.title,
+    description: META.about.description,
+    images: ["/myimage_web.png"],
   },
-  image: "/myimage_web.png",
-  imageAlt: "Subham Sarkar - Software Architect & Full-Stack Developer in Kolkata",
-});
+};
 
 export default async function AboutPage() {
   const settings = await getSiteSettings();
