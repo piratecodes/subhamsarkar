@@ -81,7 +81,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="font-sans text-[14px] lg:text-[15px] leading-[24px] lg:leading-[26px] tracking-[-0.01em] font-normal text-secondary max-w-2xl border-l-2 border-primary/40 pl-4 bg-gradient-to-r from-primary/5 to-transparent p-2 rounded-r-xl">
-              Every project shown here is real work for real businesses. Where discretion was requested, details are shared without identifying information - because protecting one client's trust matters more than impressing the next visitor. What's shown is the actual problem, the actual thinking, and the actual result.
+              Every project shown here is real work for real businesses. Where discretion was requested, details are shared without identifying information, because protecting one client's trust matters more than impressing the next visitor. What's shown is the actual problem, the actual thinking and the actual result. More case studies are added as clients approve them.
             </p>
           </div>
           
@@ -128,13 +128,13 @@ export default function HeroSection() {
           <div className="group/metric bg-surface-container-lowest/50 backdrop-blur-2xl p-5 lg:p-6 rounded-2xl border border-surface-container-highest shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(var(--color-primary-rgb),0.2)] hover:border-primary/50 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/15 to-transparent opacity-0 group-hover/metric:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             <div className="flex items-center justify-between text-secondary relative z-10">
-              <span className="font-display text-[10px] leading-4 tracking-[0.2em] font-bold uppercase group-hover/metric:text-on-surface transition-colors">SYSTEMS STILL RUNNING</span>
+              <span className="font-display text-[10px] leading-4 tracking-[0.2em] font-bold uppercase group-hover/metric:text-on-surface transition-colors">SYSTEMS IN PRODUCTION</span>
               <Timer className="text-primary text-[20px] group-hover/metric:scale-125 group-hover/metric:rotate-12 transition-all duration-500 shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.5)] rounded-full" />
             </div>
             <div className="mt-3 lg:mt-4 font-display text-[32px] lg:text-[36px] leading-[1] tracking-[-0.03em] font-bold text-on-surface relative z-10 group-hover/metric:text-primary transition-colors duration-500">
-              Every<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500"> One</span>
+              Live<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500"> Today</span>
             </div>
-            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Every system delivered is still in use today - nothing abandoned.</p>
+            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">The systems shown below are running in production for their businesses.</p>
           </div>
           
           <div className="group/metric bg-surface-container-lowest/50 backdrop-blur-2xl p-5 lg:p-6 rounded-2xl border border-surface-container-highest shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(var(--color-primary-rgb),0.2)] hover:border-primary/50 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative">
@@ -146,7 +146,7 @@ export default function HeroSection() {
             <div className="mt-3 lg:mt-4 font-display text-[32px] lg:text-[36px] leading-[1] tracking-[-0.03em] font-bold text-on-surface relative z-10 group-hover/metric:text-primary transition-colors duration-500">
               Real<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500"> Bottlenecks</span>
             </div>
-            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Not cosmetic fixes - the specific architectural problems that were actually slowing the business down.</p>
+            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Not cosmetic fixes: the specific architectural problems that were actually slowing the business down.</p>
           </div>
           
           <div className="group/metric bg-surface-container-lowest/50 backdrop-blur-2xl p-5 lg:p-6 rounded-2xl border border-surface-container-highest shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_50px_rgba(var(--color-primary-rgb),0.2)] hover:border-primary/50 hover:-translate-y-2 transition-all duration-500 overflow-hidden relative">
@@ -156,9 +156,9 @@ export default function HeroSection() {
               <ShieldAlert className="text-primary text-[20px] group-hover/metric:scale-125 group-hover/metric:-rotate-12 transition-all duration-500 shadow-[0_0_15px_rgba(var(--color-primary-rgb),0.5)] rounded-full" />
             </div>
             <div className="mt-3 lg:mt-4 font-display text-[32px] lg:text-[36px] leading-[1] tracking-[-0.03em] font-bold text-on-surface relative z-10 group-hover/metric:text-primary transition-colors duration-500">
-              100<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500">%</span>
+              By<span className="text-secondary group-hover/metric:text-primary/70 font-light transition-colors duration-500"> Design</span>
             </div>
-            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Data protection and access control are built in from day one, never bolted on later.</p>
+            <p className="mt-2 font-sans text-[13px] leading-5 tracking-[0em] font-normal text-secondary relative z-10">Data protection and access control are planned from the start, never bolted on later.</p>
           </div>
 
         </div>

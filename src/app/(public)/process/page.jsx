@@ -4,23 +4,20 @@ import ProcessTimelineFactors from "@/components/process/ProcessTimelineFactors"
 import PostHandover from "@/components/process/PostHandover";
 import ProcessFAQ from "@/components/process/ProcessFAQ";
 import ProcessCTA from "@/components/process/ProcessCTA";
-import { getProcessPageSchema } from "@/lib/schema/pages";
+import { getProcessPageSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { META } from "@/data/pageMeta";
 
 export const metadata = {
-  title: "Custom Software Development Process",
-  description: "How a custom software project runs, step by step: discovery, planning, building, testing and launch, with clear milestones and support after launch.",
+  title: META.process.baseTitle,
+  description: META.process.description,
   alternates: {
     canonical: "/process",
   },
   openGraph: {
+    title: META.process.title,
+    description: META.process.description,
     url: "https://subhamsarkar.dev/process",
-  },
-  openGraph: {
-    title: "Custom Software Development Process | Subham Sarkar",
-    description:
-      "How a custom software project runs, step by step: discovery, planning, building, testing and launch, with clear milestones and support after launch.",
-    url: "https://subhamsarkar.dev/services/application-security-audit",
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -28,9 +25,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software Development Process | Subham Sarkar",
-    description:
-      "How a custom software project runs, step by step: discovery, planning, building, testing and launch, with clear milestones and support after launch.",
+    title: META.process.title,
+    description: META.process.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {

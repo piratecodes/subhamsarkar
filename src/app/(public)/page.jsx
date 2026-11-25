@@ -7,7 +7,7 @@ import FeaturedWork from "@/components/landing/FeaturedWork";
 import ClosingCTA from "@/components/landing/ClosingCTA";
 import { prisma } from "@/lib/prisma";
 import { getSiteSettings } from "@/actions/settings";
-import { getHomePageSchema } from "@/lib/schema/pages";
+import { getHomePageSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
 
 export const metadata = {

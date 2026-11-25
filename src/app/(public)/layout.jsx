@@ -43,7 +43,6 @@ export const metadata = {
   alternates: {
     canonical: "https://subhamsarkar.dev",
   },
-  keywords: ["Subham Sarkar", "ERP developer Kolkata", "CRM developer India", "software architect India", "custom software development"],
   openGraph: {
     type: "website",
     siteName: "Subham Sarkar",

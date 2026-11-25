@@ -6,17 +6,24 @@ import EngagementModels from "@/components/services/EngagementModels";
 import FAQ from "@/components/services/FAQ";
 import ServicesCTA from "@/components/services/ServicesCTA";
 import PageTracker from "@/components/PageTracker";
-import { getServicesPageSchema } from "@/lib/schema/pages";
+import { getServicesPageSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { META } from "@/data/pageMeta";
 
 export const metadata = {
-  title: "Custom Software Development Services",
-  description: "Custom software development in Kolkata and worldwide: ERP, CRM, web and mobile apps, AI automation, modernization and security audits by Subham Sarkar.",
+  title: META.services.baseTitle,
+  description: META.services.description,
   alternates: {
     canonical: "/services",
   },
   openGraph: {
+    title: META.services.title,
+    description: META.services.description,
     url: "https://subhamsarkar.dev/services",
+  },
+  twitter: {
+    title: META.services.title,
+    description: META.services.description,
   },
 };
 

@@ -9,31 +9,22 @@ import SecurityFAQ from "@/components/services/security-audit/SecurityFAQ";
 import SecurityCTA from "@/components/services/security-audit/SecurityCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getSecurityAuditServiceSchema } from "@/lib/schema/pages";
+import { getSecurityAuditServiceSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { SERVICES } from "@/data/pageMeta";
+
+const svc = SERVICES.find((s) => s.slug === "application-security-audit");
 
 export const metadata = {
-  title: "Web App Security Audit & Penetration Testing",
-  description:
-    "Web application security audit and penetration testing for your app, APIs and logins, with a written report, fixes and a retest. Scoped per project.",
-  keywords: [
-    "Application security audit",
-    "API penetration testing",
-    "zero-trust RBAC hardening",
-    "Subham Sarkar",
-    "OWASP Top 10 remediation",
-    "rate limiting bot protection",
-    "cloud security engineer",
-    "cybersecurity architect"
-  ],
+  title: svc.baseTitle,
+  description: svc.description,
   alternates: {
-    canonical: "/services/application-security-audit",
+    canonical: `/services/${svc.slug}`,
   },
   openGraph: {
-    title: "Web App Security Audit & Penetration Testing | Subham Sarkar",
-    description:
-      "Web application security audit and penetration testing for your app, APIs and logins, with a written report, fixes and a retest. Scoped per project.",
-    url: "https://subhamsarkar.dev/services/application-security-audit",
+    title: svc.title,
+    description: svc.description,
+    url: `https://subhamsarkar.dev/services/${svc.slug}`,
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -41,9 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web App Security Audit & Penetration Testing | Subham Sarkar",
-    description:
-      "Web application security audit and penetration testing for your app, APIs and logins, with a written report, fixes and a retest. Scoped per project.",
+    title: svc.title,
+    description: svc.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {

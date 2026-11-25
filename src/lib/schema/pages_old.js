@@ -37,7 +37,7 @@ export function getHomePageSchema(settings) {
     description: "Software architect and full stack developer portfolio building custom ERP, CRM, and distributed systems.",
     dateCreated: "2026-10-10T00:00:00+05:30",
     datePublished: "2026-10-10T00:00:00+05:30",
-    dateModified: "2026-11-19T00:00:00+05:30",
+    dateModified: "2026-11-25T00:00:00+05:30",
     isPartOf: websiteRef,
     mainEntity: getPersonSchema(settings)
   };

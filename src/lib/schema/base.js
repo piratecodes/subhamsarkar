@@ -6,57 +6,7 @@
 
 export const BASE_URL = "https://subhamsarkar.dev";
 
-export const AREA_SERVED = [
-  { "@type": "Country", name: "India" },
-  { "@type": "State", name: "West Bengal" },
-  { "@type": "State", name: "Chhattisgarh" },
-  { "@type": "State", name: "Maharashtra" },
-  // Priority (listed first)
-  { "@type": "City", name: "Kolkata" },
-  { "@type": "City", name: "Pune" },
-  { "@type": "City", name: "Raipur" },
-  // Tier 1
-  { "@type": "City", name: "Mumbai" },
-  { "@type": "City", name: "Delhi" },
-  { "@type": "City", name: "Bengaluru" },
-  { "@type": "City", name: "Hyderabad" },
-  { "@type": "City", name: "Chennai" },
-  { "@type": "City", name: "Ahmedabad" },
-  // Tier 2
-  { "@type": "City", name: "Jaipur" },
-  { "@type": "City", name: "Lucknow" },
-  { "@type": "City", name: "Chandigarh" },
-  { "@type": "City", name: "Indore" },
-  { "@type": "City", name: "Bhopal" },
-  { "@type": "City", name: "Nagpur" },
-  { "@type": "City", name: "Surat" },
-  { "@type": "City", name: "Vadodara" },
-  { "@type": "City", name: "Kochi" },
-  { "@type": "City", name: "Coimbatore" },
-  { "@type": "City", name: "Visakhapatnam" },
-  { "@type": "City", name: "Patna" },
-  { "@type": "City", name: "Bhubaneswar" },
-  { "@type": "City", name: "Ranchi" },
-  { "@type": "City", name: "Guwahati" },
-  { "@type": "City", name: "Dehradun" },
-  { "@type": "City", name: "Noida" },
-  { "@type": "City", name: "Gurugram" },
-  // Tier 3
-  { "@type": "City", name: "Siliguri" },
-  { "@type": "City", name: "Durgapur" },
-  { "@type": "City", name: "Asansol" },
-  { "@type": "City", name: "Howrah" },
-  { "@type": "City", name: "Bhilai" },
-  { "@type": "City", name: "Bilaspur" },
-  { "@type": "City", name: "Jamshedpur" },
-  { "@type": "City", name: "Kanpur" },
-  { "@type": "City", name: "Varanasi" },
-  { "@type": "City", name: "Agra" },
-  { "@type": "City", name: "Ludhiana" },
-  { "@type": "City", name: "Nashik" },
-  { "@type": "City", name: "Rajkot" },
-  { "@type": "City", name: "Cuttack" }
-];
+export const AREA_SERVED = [ { "@type": "Country", name: "India" }, "Worldwide" ];
 
 export function getPersonSchema(settings) {
   const sameAs = [
@@ -93,6 +43,13 @@ export function getPersonSchema(settings) {
       addressLocality: "Kolkata",
       addressRegion: "West Bengal",
       addressCountry: "IN"
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      email: settings?.email || "hello@subhamsarkar.dev",
+      availableLanguage: ["en", "hi", "bn"],
+      areaServed: AREA_SERVED
     },
     sameAs,
     knowsAbout: [

@@ -10,29 +10,22 @@ import WebMobileFAQ from "@/components/services/web-mobile/WebMobileFAQ";
 import WebMobileCTA from "@/components/services/web-mobile/WebMobileCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getWebMobileServiceSchema } from "@/lib/schema/pages";
+import { getWebMobileServiceSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { SERVICES } from "@/data/pageMeta";
+
+const svc = SERVICES.find((s) => s.slug === "web-and-mobile-application-development");
 
 export const metadata = {
-  title: "Web and Mobile Application Development",
-  description:
-    "Web and mobile application development for businesses: installable PWAs, offline sync, and web apps linked to your ERP or CRM. Scoped per project.",
-  keywords: [
-    "custom web application development",
-    "web and mobile app development services",
-    "custom web app development company",
-    "app development company in kolkata",
-    "software development company in kolkata",
-    "custom ecommerce app development"
-  ],
+  title: svc.baseTitle,
+  description: svc.description,
   alternates: {
-    canonical: "/services/web-and-mobile-application-development",
+    canonical: `/services/${svc.slug}`,
   },
   openGraph: {
-    title: "Web and Mobile Application Development | Subham Sarkar",
-    description:
-      "Web and mobile application development for businesses: installable PWAs, offline sync, and web apps linked to your ERP or CRM. Scoped per project.",
-    url: "https://subhamsarkar.dev/services/web-and-mobile-application-development",
+    title: svc.title,
+    description: svc.description,
+    url: `https://subhamsarkar.dev/services/${svc.slug}`,
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -40,9 +33,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web and Mobile Application Development | Subham Sarkar",
-    description:
-      "Web and mobile application development for businesses: installable PWAs, offline sync, and web apps linked to your ERP or CRM. Scoped per project.",
+    title: svc.title,
+    description: svc.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {

@@ -5,7 +5,7 @@ import Philosophy from "@/components/about/Philosophy";
 import TargetAudience from "@/components/about/TargetAudience";
 import PersonalNote from "@/components/about/PersonalNote";
 import AboutCTA from "@/components/about/AboutCTA";
-import { getAboutPageSchema } from "@/lib/schema/pages";
+import { getAboutPageSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { getSiteSettings } from "@/actions/settings";
@@ -19,14 +19,6 @@ export const metadata = buildMetadata({
   canonical: "/about",
   image: "/myimage_web.png",
   imageAlt: "Subham Sarkar - Software Architect & Full-Stack Developer in Kolkata",
-  keywords: [
-    "Subham Sarkar",
-    "Software Architect Kolkata",
-    "Full-Stack Developer Kolkata",
-    "ERP Developer India",
-    "CRM Developer Kolkata",
-    "Application Security Audit",
-  ],
 });
 
 export default async function AboutPage() {

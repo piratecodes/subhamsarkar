@@ -9,31 +9,22 @@ import CrmFAQ from "@/components/services/crm/CrmFAQ";
 import CrmCTA from "@/components/services/crm/CrmCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getCrmServiceSchema } from "@/lib/schema/pages";
+import { getCrmServiceSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { SERVICES } from "@/data/pageMeta";
+
+const svc = SERVICES.find((s) => s.slug === "custom-crm-development");
 
 export const metadata = {
-  title: "Custom CRM Software Development Services",
-  description:
-    "Custom CRM software development services: leads, follow-ups, quotes and customer history in one system fitted to your sales process. Scoped per project.",
-  keywords: [
-    "custom crm development",
-    "crm development company",
-    "custom crm software development",
-    "crm development companies in india",
-    "lead management system",
-    "sales lead tracking software",
-    "crm for small business india",
-    "lead management software"
-  ],
+  title: svc.baseTitle,
+  description: svc.description,
   alternates: {
-    canonical: "/services/custom-crm-development",
+    canonical: `/services/${svc.slug}`,
   },
   openGraph: {
-    title: "Custom CRM Software Development Services | Subham Sarkar",
-    description:
-      "Custom CRM software development services: leads, follow-ups, quotes and customer history in one system fitted to your sales process. Scoped per project.",
-    url: "https://subhamsarkar.dev/services/custom-crm-development",
+    title: svc.title,
+    description: svc.description,
+    url: `https://subhamsarkar.dev/services/${svc.slug}`,
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -41,9 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom CRM Software Development Services | Subham Sarkar",
-    description:
-      "Custom CRM software development services: leads, follow-ups, quotes and customer history in one system fitted to your sales process. Scoped per project.",
+    title: svc.title,
+    description: svc.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {

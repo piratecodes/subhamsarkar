@@ -6,17 +6,24 @@ import PreTransmissionFAQ from "@/components/contact/PreTransmissionFAQ";
 import ConfidentialityPledge from "@/components/contact/ConfidentialityPledge";
 import { getSiteSettings } from "@/actions/settings";
 import PageTracker from "@/components/PageTracker";
-import { getContactPageSchema } from "@/lib/schema/pages";
+import { getContactPageSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { META } from "@/data/pageMeta";
 
 export const metadata = {
-  title: { absolute: "Contact Subham Sarkar | Software Architect in Kolkata" },
-  description: "Contact Subham Sarkar, a software architect and a full-stack developer in Kolkata, to discuss a custom ERP, CRM, web or mobile app, AI automation or software modernization project.",
+  title: { absolute: META.contact.title },
+  description: META.contact.description,
   alternates: {
     canonical: "/contact",
   },
   openGraph: {
+    title: META.contact.title,
+    description: META.contact.description,
     url: "https://subhamsarkar.dev/contact",
+  },
+  twitter: {
+    title: META.contact.title,
+    description: META.contact.description,
   },
 };
 

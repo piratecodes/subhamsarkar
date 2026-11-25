@@ -9,31 +9,22 @@ import ErpFAQ from "@/components/services/erp/ErpFAQ";
 import ErpCTA from "@/components/services/erp/ErpCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getErpServiceSchema } from "@/lib/schema/pages";
+import { getErpServiceSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { SERVICES } from "@/data/pageMeta";
+
+const svc = SERVICES.find((s) => s.slug === "custom-erp-development");
 
 export const metadata = {
-  title: "Custom ERP Development & Inventory Software",
-  description:
-    "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
-  keywords: [
-    "custom erp development",
-    "erp software development company",
-    "custom erp software development",
-    "custom erp system",
-    "inventory management software india",
-    "custom software vs readymade software",
-    "gst billing software for small business",
-    "stock management software india"
-  ],
+  title: svc.baseTitle,
+  description: svc.description,
   alternates: {
-    canonical: "/services/custom-erp-development",
+    canonical: `/services/${svc.slug}`,
   },
   openGraph: {
-    title: "Custom ERP Development & Inventory Software | Subham Sarkar",
-    description:
-      "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
-    url: "https://subhamsarkar.dev/services/custom-erp-development",
+    title: svc.title,
+    description: svc.description,
+    url: `https://subhamsarkar.dev/services/${svc.slug}`,
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -41,9 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom ERP Development & Inventory Software | Subham Sarkar",
-    description:
-      "Custom ERP software development company services by Subham Sarkar. Scalable multi-warehouse inventory management, GST billing, and zero per-user fees.",
+    title: svc.title,
+    description: svc.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {

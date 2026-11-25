@@ -1,26 +1,8 @@
 import { prisma } from "@/lib/prisma";
+import { PAGE_LASTMOD } from "@/lib/constants/dates";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
-
-// Update these date constants whenever a static page's content changes
-const PAGE_LASTMOD = {
-  "/": "2026-11-25",
-  "/about": "2026-11-25",
-  "/services": "2026-11-25",
-  "/services/custom-erp-development": "2026-11-25",
-  "/services/custom-crm-development": "2026-11-25",
-  "/services/web-and-mobile-application-development": "2026-11-25",
-  "/services/business-process-automation": "2026-11-25",
-  "/services/legacy-software-modernization": "2026-11-25",
-  "/services/application-security-audit": "2026-11-25",
-  "/work": "2026-11-25",
-  "/process": "2026-11-25",
-  "/contact": "2026-11-25",
-  "/insights": "2026-11-25",
-  "/privacy-policy": "2026-11-01",
-  "/terms-and-conditions": "2026-11-01",
-};
 
 export default async function sitemap() {
   const baseUrl = "https://subhamsarkar.dev";

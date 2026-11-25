@@ -9,32 +9,22 @@ import AiFAQ from "@/components/services/ai-agents/AiFAQ";
 import AiCTA from "@/components/services/ai-agents/AiCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getAiAgentsServiceSchema } from "@/lib/schema/pages";
+import { getAiAgentsServiceSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { SERVICES } from "@/data/pageMeta";
+
+const svc = SERVICES.find((s) => s.slug === "business-process-automation");
 
 export const metadata = {
-  title: "Business Process Automation with AI",
-  description:
-    "Business process automation with AI: document reading, workflow automation and human approval gates, built around your data privacy. Scoped per project.",
-  keywords: [
-    "business process automation",
-    "ai business process automation",
-    "ai agent development",
-    "ai chatbot for business",
-    "business process automation services",
-    "process automation software",
-    "how to automate my business",
-    "whatsapp business ai",
-    "enterprise process automation"
-  ],
+  title: svc.baseTitle,
+  description: svc.description,
   alternates: {
-    canonical: "/services/business-process-automation",
+    canonical: `/services/${svc.slug}`,
   },
   openGraph: {
-    title: "Business Process Automation with AI | Subham Sarkar",
-    description:
-      "Business process automation with AI: document reading, workflow automation and human approval gates, built around your data privacy. Scoped per project.",
-    url: "https://subhamsarkar.dev/services/business-process-automation",
+    title: svc.title,
+    description: svc.description,
+    url: `https://subhamsarkar.dev/services/${svc.slug}`,
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -42,9 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business Process Automation with AI | Subham Sarkar",
-    description:
-      "Business process automation with AI: document reading, workflow automation and human approval gates, built around your data privacy. Scoped per project.",
+    title: svc.title,
+    description: svc.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {

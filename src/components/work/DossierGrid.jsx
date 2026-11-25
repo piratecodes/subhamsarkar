@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import { useState, Fragment, useEffect, useCallback, useRef, Suspense } from "react";
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild, Disclosure, DisclosureButton, DisclosurePanel, Listbox, ListboxButton, ListboxOptions, ListboxOption } from "@headlessui/react";
@@ -41,6 +42,22 @@ const parseStats = (raw) => {
     return Object.entries(raw).map(([k, v]) => ({ label: k, value: String(v) }));
   }
   return [];
+};
+
+const RELATED_SERVICES_MAP = {
+  "DSR-WEB-26-6CF39G": {
+    label: "Related services:",
+    links: [
+      { label: "custom CRM development", href: "/services/custom-crm-development" },
+      { label: "web and mobile application development", href: "/services/web-and-mobile-application-development" }
+    ]
+  },
+  "DSR-WEB-26-QSSGFA": {
+    label: "Related service:",
+    links: [
+      { label: "web and mobile application development", href: "/services/web-and-mobile-application-development" }
+    ]
+  }
 };
 
 const ALL_CATEGORIES = [
@@ -380,7 +397,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
 
     const tryScroll = () => {
       attempts++;
-      const el = document.getElementById(`dossier-${validProjectRef}`);
+      const el = document.getElementById(validProjectRef.toLowerCase()) || document.getElementById(`dossier-${validProjectRef}`);
       if (el) {
         scrolledProjectRef.current = validProjectRef;
         const rect = el.getBoundingClientRect();
@@ -399,6 +416,34 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
     let scrollTimer = setTimeout(tryScroll, isBlueprint ? 50 : 250);
     return () => clearTimeout(scrollTimer);
   }, [validProjectRef, urlView, selectedCategory.id, selectedIndustry.id, currentPage]);
+
+  // Hash anchor support for /work#<id>
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const hash = window.location.hash?.replace("#", "").toLowerCase();
+    if (!hash) return;
+
+    const projectIndex = activeDossiers.findIndex(c => c.ref && c.ref.toLowerCase() === hash);
+    if (projectIndex !== -1) {
+      const targetPage = Math.floor(projectIndex / ITEMS_PER_PAGE) + 1;
+      if (currentPage !== targetPage) {
+        setCurrentPage(targetPage);
+      }
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const absoluteTop = rect.top + window.scrollY - 100;
+          window.scrollTo({ top: absoluteTop, behavior: "smooth" });
+          const matching = activeDossiers[projectIndex];
+          if (matching?.ref) {
+            setHighlightedRef(matching.ref);
+            setTimeout(() => setHighlightedRef(null), 3500);
+          }
+        }
+      }, 300);
+    }
+  }, [activeDossiers]);
 
   const totalPages = Math.ceil(activeDossiers.length / ITEMS_PER_PAGE);
   const paginatedDossiers = activeDossiers.slice(
@@ -580,9 +625,9 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
 
             {/* Status Info */}
             <div className="flex items-center gap-4 text-secondary font-display text-[11px] leading-4 tracking-[0.12em] font-medium uppercase shrink-0">
-              <span className="hidden sm:inline">SORT: STRUCTURAL SEVERITY [DESC]</span>
+              <span className="hidden sm:inline">SORT: MOST RECENT FIRST</span>
               <span className="hidden sm:inline w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-              <span>INDEX REF 2025.A</span>
+              <span>INDEX REF 2026.A</span>
             </div>
           </div>
         </div>
@@ -626,7 +671,7 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
               return (
             <article 
               key={dossier.id} 
-              id={`dossier-${dossier.ref}`}
+              id={dossier.ref ? dossier.ref.toLowerCase() : undefined}
               onMouseMove={(e) => {
                 const rect = e.currentTarget.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -862,6 +907,34 @@ function DossierGridContent({ initialDossiers = [], searchParams: propSearchPara
                     </div>
                   </div>
                 )}
+
+                {/* Related Services Row */}
+                {(() => {
+                  const entry = dossier.ref ? (RELATED_SERVICES_MAP[dossier.ref] || RELATED_SERVICES_MAP[dossier.ref.toUpperCase()]) : null;
+                  if (!entry) return null;
+                  return (
+                    <div className="bg-surface-container-lowest/25 backdrop-blur-md border-t border-surface-container-highest px-4 sm:px-6 py-3 sm:py-3.5 flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 relative z-30 transition-colors group-hover/card:bg-surface-container-lowest/50">
+                      <div className="flex items-center gap-1.5 sm:gap-2 font-display text-[9px] sm:text-[10px] font-black uppercase tracking-[0.15em] text-primary shrink-0">
+                        <span>{entry.label}</span>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-x-3 sm:gap-x-6 gap-y-1 sm:gap-y-1.5 flex-1">
+                        {entry.links.map((link, lIdx) => (
+                          <div key={lIdx} className="flex items-center gap-1.5 sm:gap-2 font-display text-[10px] sm:text-[11px] leading-4 tracking-[0.06em] uppercase">
+                            <Link
+                              href={link.href}
+                              className="text-on-surface hover:text-primary transition-colors underline underline-offset-4 decoration-outline/40 hover:decoration-primary font-medium"
+                            >
+                              {link.label}
+                            </Link>
+                            {lIdx < entry.links.length - 1 && (
+                              <span className="text-outline/30 hidden sm:inline">•</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* Card Footer: Associated With / NDA */}
                 <div className="bg-surface-container-low/50 px-6 py-4 border-t border-surface-container-highest relative z-30 group-hover/card:bg-surface-container-low/80 transition-colors overflow-hidden">

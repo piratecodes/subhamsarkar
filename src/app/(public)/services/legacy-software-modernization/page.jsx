@@ -9,29 +9,22 @@ import MigrationFAQ from "@/components/services/migration/MigrationFAQ";
 import MigrationCTA from "@/components/services/migration/MigrationCTA";
 import { prisma } from "@/lib/prisma";
 import PageTracker from "@/components/PageTracker";
-import { getSoftwareModernizationServiceSchema } from "@/lib/schema/pages";
+import { getSoftwareModernizationServiceSchema } from "@/lib/schema/page";
 import JsonLd from "@/components/seo/JsonLd";
+import { SERVICES } from "@/data/pageMeta";
+
+const svc = SERVICES.find((s) => s.slug === "legacy-software-modernization");
 
 export const metadata = {
-  title: "Legacy Software Modernization Services",
-  description:
-    "Legacy software modernization services: assess your old software, then keep, improve or rebuild it in safe stages. Scoped per project after a short call.",
-  keywords: [
-    "software modernization",
-    "legacy software modernization",
-    "legacy system migration",
-    "migrating legacy applications to the cloud",
-    "data migration from legacy systems to modern database",
-    "application modernization software"
-  ],
+  title: svc.baseTitle,
+  description: svc.description,
   alternates: {
-    canonical: "/services/legacy-software-modernization",
+    canonical: `/services/${svc.slug}`,
   },
   openGraph: {
-    title: "Legacy Software Modernization Services | Subham Sarkar",
-    description:
-      "Legacy software modernization services: assess your old software, then keep, improve or rebuild it in safe stages. Scoped per project after a short call.",
-    url: "https://subhamsarkar.dev/services/legacy-software-modernization",
+    title: svc.title,
+    description: svc.description,
+    url: `https://subhamsarkar.dev/services/${svc.slug}`,
     siteName: "Subham Sarkar",
     locale: "en_IN",
     type: "website",
@@ -39,9 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Legacy Software Modernization Services | Subham Sarkar",
-    description:
-      "Legacy software modernization services: assess your old software, then keep, improve or rebuild it in safe stages. Scoped per project after a short call.",
+    title: svc.title,
+    description: svc.description,
     images: ["/icons/icon-512x512.png"],
   },
   robots: {
