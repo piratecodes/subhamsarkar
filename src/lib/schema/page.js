@@ -96,8 +96,7 @@ export function getHomePageSchema(settings) {
  * 2. About (/about)
  */
 export function getAboutPageSchema(settings) {
-  return {
-    "@context": "https://schema.org",
+  const aboutPage = {
     "@type": "AboutPage",
     "@id": `${BASE_URL}/about#webpage`,
     url: `${BASE_URL}/about`,
@@ -106,7 +105,23 @@ export function getAboutPageSchema(settings) {
     inLanguage: "en-IN",
     dateModified: toIsoKolkata(PAGE_LASTMOD["/about"]),
     isPartOf: websiteRef,
+    breadcrumb: { "@id": `${BASE_URL}/about#breadcrumb` },
     mainEntity: personRef,
+  };
+
+  const breadcrumb = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/about#breadcrumb`,
+    name: "Breadcrumbs",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+      { "@type": "ListItem", position: 2, name: "About", item: `${BASE_URL}/about` },
+    ],
+  };
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [aboutPage, breadcrumb],
   };
 }
 

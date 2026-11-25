@@ -17,7 +17,7 @@ export const META = {
   about: {
     title: "About Subham Sarkar | Software Architect in Kolkata",
     description:
-      "Meet Subham Sarkar — software architect and full-stack developer in Kolkata with over a decade of experience building custom ERP, CRM, secure web and mobile applications, and AI automation for businesses across India.",
+      "Meet Subham Sarkar - software architect and full-stack developer in Kolkata with over a decade of experience building custom ERP, CRM, secure web and mobile applications, and AI automation for businesses across India.",
   },
   work: {
     baseTitle: "Custom Software Case Studies",
